@@ -1,9 +1,10 @@
 import "./Styles/imports.scss";
+import WineCardList from "./components/User/WineCardList/WineCardList";
 
 function App() {
   return (
-    <div className="App">      
-      <p>coucou</p>
+    <div className="App">
+      <WineCardList />
     </div>
   );
 }

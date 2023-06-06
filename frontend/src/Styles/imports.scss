@@ -1,4 +1,7 @@
-@import"./variables.scss";
+@import "./variables.scss";
 @import "./global.scss";
 
 // --- add imports below ---
+
+@import "../components/User/WineCardList/WineCard/WineCard.scss";
+@import "../components/User/WineCardList/WineCardList.scss";
