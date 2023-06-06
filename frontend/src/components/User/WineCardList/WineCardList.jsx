@@ -1,12 +1,17 @@
-import React from 'react';
-import WineCard from './WineCard/WineCard';
+import React from "react";
+import WineCard from "./WineCard/WineCard";
 
-const WineCardList = () => {
-    return (
-        <div>
-           <WineCard />
-        </div>
-    );
-};
+function WineCardList() {
+  return (
+    <div className="wineCardList">
+      <WineCard />
+      <WineCard />
+      <WineCard />
+      <WineCard />
+      <WineCard />
+      <WineCard />
+    </div>
+  );
+}
 
 export default WineCardList;
