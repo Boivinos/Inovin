@@ -1,4 +1,3 @@
-
 import React from "react";
 
 function AnswerButton() {
@@ -6,4 +5,3 @@ function AnswerButton() {
 }
 
 export default AnswerButton;
-

@@ -48,6 +48,7 @@ function WineCardList() {
 
   return (
     <>
+      <p className="wineListTitle">Découvrez l'ensemble de nos vins</p>
       <div className="listButtonWrapper">
         <FilterButton />
         <SearchInput

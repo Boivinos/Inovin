@@ -2,18 +2,30 @@
   margin-top: 24px;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: clamp(20px, 10%, 100px);
 
-  .searchInput {
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
+  .searchInputWrapper {
+    width: clamp(170px, 25%, 300px);
 
-  .searchInput:focus {
-    outline: none;
-  }
-  .defaultInput {
-    font-style: italic;
-    color: rgba(0, 0, 0, 0.4);
+    .searchInput {
+      border: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      width: calc(100% - 20px);
+      font-family: $mainTypo;
+    }
+
+    .searchInput:focus {
+      outline: none;
+    }
+    .defaultInput {
+      font-style: italic;
+      color: rgba(0, 0, 0, 0.4);
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
   }
 }
