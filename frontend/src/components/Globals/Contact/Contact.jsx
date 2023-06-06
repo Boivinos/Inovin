@@ -18,7 +18,7 @@ function Contact() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           className="ContactForm_input"
-          {...register("NomPrénom", { required: true, maxLength: 20 })}
+          {...register("NomPrénom", { required: true, maxLength: 25 })}
           placeholder="Nom prénom"
         />
         <input
