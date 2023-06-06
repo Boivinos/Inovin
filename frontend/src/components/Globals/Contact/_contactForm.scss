@@ -1,0 +1,40 @@
+.ContactForm {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-bottom: 20px;
+
+  &_text {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  &_inovinPicture {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+  }
+
+  &_input {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    border-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin-bottom: 1.5em;
+    padding-bottom: 0.5em;
+  }
+
+  &_button {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 15%;
+    border: yellow solid;
+    padding: 20px;
+    border-radius: 7px;
+    background: none;
+  }
+}

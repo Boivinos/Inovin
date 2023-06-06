@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
-const Connexion = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
+function Connexion() {
+  return <div />;
+}
 
 export default Connexion;
