@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import WineCard from "./WineCard/WineCard";
+import FilterButton from "./ListButtons/FilterButton";
+import SearchInput from "./ListButtons/SearchInput";
 
 function WineCardList() {
   const fakeWinelist = [
@@ -41,14 +43,40 @@ function WineCardList() {
     },
   ];
 
+  const [search, setSearch] = useState("Rechercher");
+  const [isSearching, setIsSearching] = useState(false);
+
   return (
-    <div className="wineCardList">
-      {fakeWinelist.map((wine) => {
-        return (
-          <WineCard name={wine.name} image={wine.image} domain={wine.domain} />
-        );
-      })}
-    </div>
+    <>
+      <div className="listButtonWrapper">
+        <FilterButton />
+        <SearchInput
+          search={search}
+          setSearch={setSearch}
+          isSearching={isSearching}
+          setIsSearching={setIsSearching}
+        />
+      </div>
+      <div className="wineCardList">
+        {fakeWinelist
+          .filter((wine) =>
+            search !== "Rechercher"
+              ? wine.name.toLowerCase().includes(search.toLowerCase()) ||
+                wine.domain.toLowerCase().includes(search.toLowerCase())
+              : true
+          )
+          .map((wine) => {
+            return (
+              <WineCard
+                name={wine.name}
+                image={wine.image}
+                domain={wine.domain}
+                key={wine.name}
+              />
+            );
+          })}
+      </div>
+    </>
   );
 }
 
