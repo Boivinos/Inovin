@@ -1,18 +1,22 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-function WineCard() {
+function WineCard({ name, image, domain }) {
   return (
     <div className="wineCard">
       <div className="imgBox">
-        <img
-          src="https://images.vivino.com/thumbs/M889RhjFRdOdvTh4xYBDoQ_pb_x960.png"
-          alt=""
-        />
+        <img src={image} alt="" />
       </div>
-      <p>POMEROL</p>
-      <p>Chateau de sales</p>
+      <p>{name}</p>
+      <p>{domain}</p>
     </div>
   );
 }
+
+WineCard.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  domain: PropTypes.string.isRequired,
+};
 
 export default WineCard;
