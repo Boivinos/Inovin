@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
-const AnswerButton = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
+function AnswerButton() {
+  return <div />;
+}
 
 export default AnswerButton;

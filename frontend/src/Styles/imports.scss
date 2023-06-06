@@ -1,4 +1,3 @@
-@import"./variables.scss";
+@import "./variables.scss";
 @import "./global.scss";
-
-// --- add imports below ---
+@import "../components/Globals/NavBar/NavBar.scss"; // --- add imports below ---

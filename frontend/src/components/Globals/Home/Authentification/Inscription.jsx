@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
-const Inscription = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
+function Inscription() {
+  return <div />;
+}
 
 export default Inscription;

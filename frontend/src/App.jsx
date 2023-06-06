@@ -1,9 +1,10 @@
+import NavBar from "./components/Globals/NavBar/NavBar";
 import "./Styles/imports.scss";
 
 function App() {
   return (
-    <div className="App">      
-      <p>coucou</p>
+    <div className="App">
+      <NavBar />
     </div>
   );
 }
