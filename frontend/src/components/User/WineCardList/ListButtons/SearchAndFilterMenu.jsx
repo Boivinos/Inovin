@@ -8,9 +8,14 @@ function SearchAndFilterMenu({
   setSearch,
   isSearching,
   setIsSearching,
+  visibleMenu,
+  toggleMenu,
 }) {
   return (
-    <div className="searchAndFilterMenu">
+    <div
+      className="searchAndFilterMenu"
+      id={visibleMenu ? "visibleMenu" : "hiddenMenu"}
+    >
       <div className="searchAndCloseWrapper">
         <SearchInput
           search={search}
@@ -18,11 +23,19 @@ function SearchAndFilterMenu({
           isSearching={isSearching}
           setIsSearching={setIsSearching}
         />
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/59/59254.png"
-          alt=""
+        <div
+          role="button"
+          aria-label="closefitlermenu"
+          tabIndex={0}
           className="closeFilterMenu"
-        />
+          onClick={() => toggleMenu()}
+          onKeyDown={() => toggleMenu()}
+        >
+          <img
+            src="https://i.postimg.cc/wjWJqLxc/fleche-filter-menu.png"
+            alt=""
+          />
+        </div>
       </div>
       <p>FILTRES</p>
       <p>Couleur</p>
@@ -52,6 +65,8 @@ SearchAndFilterMenu.propTypes = {
   setSearch: PropTypes.func.isRequired,
   isSearching: PropTypes.bool.isRequired,
   setIsSearching: PropTypes.func.isRequired,
+  visibleMenu: PropTypes.bool.isRequired,
+  toggleMenu: PropTypes.func.isRequired,
 };
 
 export default SearchAndFilterMenu;

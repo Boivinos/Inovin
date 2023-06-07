@@ -128,16 +128,32 @@ function WineCardList() {
 
   const [search, setSearch] = useState("Rechercher...");
   const [isSearching, setIsSearching] = useState(false);
+  const [visibleMenu, setVisibleMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setVisibleMenu(!visibleMenu);
+  };
 
   return (
     <>
       <p className="wineListTitle">Découvrez l'ensemble de nos vins</p>
       <div className="menuAndListWrapper">
+        <button
+          type="button"
+          className="openFilterMenuButton"
+          onClick={() => toggleMenu()}
+          id={!visibleMenu ? "visibleButton" : "hiddenButton"}
+        >
+          Rechercher/filtrer
+        </button>
         <SearchAndFilterMenu
           search={search}
           setSearch={setSearch}
           isSearching={isSearching}
           setIsSearching={setIsSearching}
+          visibleMenu={visibleMenu}
+          setVisibleMenu={setVisibleMenu}
+          toggleMenu={toggleMenu}
         />
 
         <div className="wineCardList">
