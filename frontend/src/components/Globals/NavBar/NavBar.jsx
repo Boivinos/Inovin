@@ -1,7 +1,6 @@
 import React from "react";
 
 function NavBar() {
-
   return (
     <div className="navBar">
       <ul>
@@ -19,9 +18,6 @@ function NavBar() {
       <div className="icone" />
     </div>
   );
-
-  return <div />;
-
 }
 
 export default NavBar;

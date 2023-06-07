@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -36,7 +37,6 @@ function Contact() {
       </form>
     </div>
   );
-
 }
 
 export default Contact;

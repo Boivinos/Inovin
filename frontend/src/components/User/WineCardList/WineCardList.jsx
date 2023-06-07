@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import WineCard from "./WineCard/WineCard";
-import FilterButton from "./ListButtons/FilterButton";
-import SearchInput from "./ListButtons/SearchInput";
-import CheckBoxes from "./ListButtons/CheckBoxes";
+import SearchAndFilterMenu from "./ListButtons/SearchAndFilterMenu";
 
 function WineCardList() {
   const fakeWinelist = [
@@ -128,55 +126,39 @@ function WineCardList() {
     },
   ];
 
-  const [search, setSearch] = useState("Rechercher");
+  const [search, setSearch] = useState("Rechercher...");
   const [isSearching, setIsSearching] = useState(false);
 
   return (
     <>
       <p className="wineListTitle">Découvrez l'ensemble de nos vins</p>
-      <div className="listButtonWrapper">
-        <FilterButton />
-        <SearchInput
+      <div className="menuAndListWrapper">
+        <SearchAndFilterMenu
           search={search}
           setSearch={setSearch}
           isSearching={isSearching}
           setIsSearching={setIsSearching}
         />
-      </div>
-      <div className="checkBoxList">
-        <CheckBoxes />
-        <CheckBoxes />
-        <CheckBoxes />
-        <CheckBoxes />
-        <CheckBoxes />
-        <CheckBoxes />
-        <CheckBoxes />
-        <CheckBoxes />
-        <CheckBoxes />
-        <CheckBoxes />
-        <CheckBoxes />
-        <CheckBoxes />
-        <CheckBoxes />
-        <CheckBoxes />
-      </div>
-      <div className="wineCardList">
-        {fakeWinelist
-          .filter((wine) =>
-            search !== "Rechercher"
-              ? wine.name.toLowerCase().includes(search.toLowerCase()) ||
-                wine.domain.toLowerCase().includes(search.toLowerCase())
-              : true
-          )
-          .map((wine) => {
-            return (
-              <WineCard
-                name={wine.name}
-                image={wine.image}
-                domain={wine.domain}
-                key={wine.name}
-              />
-            );
-          })}
+
+        <div className="wineCardList">
+          {fakeWinelist
+            .filter((wine) =>
+              search !== "Rechercher..."
+                ? wine.name.toLowerCase().includes(search.toLowerCase()) ||
+                  wine.domain.toLowerCase().includes(search.toLowerCase())
+                : true
+            )
+            .map((wine) => {
+              return (
+                <WineCard
+                  name={wine.name}
+                  image={wine.image}
+                  domain={wine.domain}
+                  key={wine.name}
+                />
+              );
+            })}
+        </div>
       </div>
     </>
   );
