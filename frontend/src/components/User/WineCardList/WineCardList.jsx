@@ -9,8 +9,7 @@ function WineCardList() {
       image:
         "https://images.vivino.com/thumbs/5RHf-mfuRHm-jpg3UlKKfw_pb_x960.png",
       domain: "Louis Latour",
-      red: 0,
-      white: 1,
+      color: "white",
       fruity: 1,
       floral: 0,
       spicy: 0,
@@ -20,17 +19,14 @@ function WineCardList() {
       bitter: 0,
       sugar: 0,
       alcool: 1,
-      short_intensity: 0,
-      medium_intensity: 1,
-      long_intensity: 0,
+      intensity: "intense",
     },
     {
       name: "Pomerol",
       image:
         "https://images.vivino.com/thumbs/M889RhjFRdOdvTh4xYBDoQ_pb_x960.png",
       domain: "Chateau de Sales",
-      red: 1,
-      white: 0,
+      color: "red",
       fruity: 0,
       floral: 0,
       spicy: 1,
@@ -40,17 +36,14 @@ function WineCardList() {
       bitter: 1,
       sugar: 0,
       alcool: 1,
-      short_intensity: 0,
-      medium_intensity: 0,
-      long_intensity: 1,
+      intensity: "intense",
     },
     {
       name: "Natana Cuvée Rouge",
       image:
         "https://images.vivino.com/thumbs/a7-WsnN6TKG4lH1LjfFjbw_pb_x960.png",
       domain: "Marianne",
-      red: 1,
-      white: 0,
+      color: "red",
       fruity: 1,
       floral: 1,
       spicy: 1,
@@ -60,17 +53,14 @@ function WineCardList() {
       bitter: 1,
       sugar: 1,
       alcool: 1,
-      short_intensity: 0,
-      medium_intensity: 0,
-      long_intensity: 1,
+      intensity: "medium",
     },
     {
       name: "Domaine de Bila-Haut",
       image:
         "https://images.vivino.com/thumbs/7phdZm64SHiWwH8wwCpedQ_pb_x960.png",
       domain: "M. Chapoutier",
-      red: 1,
-      white: 0,
+      color: "red",
       fruity: 1,
       floral: 1,
       spicy: 0,
@@ -80,17 +70,14 @@ function WineCardList() {
       bitter: 0,
       sugar: 0,
       alcool: 0,
-      short_intensity: 1,
-      medium_intensity: 0,
-      long_intensity: 0,
+      intensity: "medium",
     },
     {
       name: "Pomerol 2014",
       image:
         "https://images.vivino.com/thumbs/_abY0tGKQnC6mdcJAo0wcQ_pb_x960.png",
       domain: "Chateau l'Evangile",
-      red: 1,
-      white: 0,
+      color: "red",
       fruity: 0,
       floral: 1,
       spicy: 0,
@@ -100,17 +87,14 @@ function WineCardList() {
       bitter: 0,
       sugar: 1,
       alcool: 0,
-      short_intensity: 0,
-      medium_intensity: 1,
-      long_intensity: 0,
+      intensity: "short",
     },
     {
       name: "Margaux 2013",
       image:
         "https://images.vivino.com/thumbs/t61FjP97R-SOyDIHfV_OPg_pb_x960.png",
       domain: "Chateau la Besssane",
-      red: 1,
-      white: 0,
+      color: "red",
       fruity: 1,
       floral: 1,
       spicy: 1,
@@ -120,15 +104,14 @@ function WineCardList() {
       bitter: 1,
       sugar: 0,
       alcool: 1,
-      short_intensity: 0,
-      medium_intensity: 0,
-      long_intensity: 1,
+      intensity: "short",
     },
   ];
 
   const [search, setSearch] = useState("Rechercher...");
   const [isSearching, setIsSearching] = useState(false);
   const [visibleMenu, setVisibleMenu] = useState(false);
+  const [filterArr, setFilterArr] = useState([]);
 
   const toggleMenu = () => {
     setVisibleMenu(!visibleMenu);
@@ -154,10 +137,23 @@ function WineCardList() {
           visibleMenu={visibleMenu}
           setVisibleMenu={setVisibleMenu}
           toggleMenu={toggleMenu}
+          filterArr={filterArr}
+          setFilterArr={setFilterArr}
         />
 
         <div className="wineCardList">
           {fakeWinelist
+            .filter((wine) => {
+              if (filterArr.length) {
+                for (let i = 0; i < filterArr.length; i += 1) {
+                  if (filterArr[i](wine)) {
+                    return true;
+                  }
+                }
+                return false;
+              }
+              return true;
+            })
             .filter((wine) =>
               search !== "Rechercher..."
                 ? wine.name.toLowerCase().includes(search.toLowerCase()) ||
