@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-const Inscription = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
+function Inscription() {
+  return (
+    <div>
+      <p>Formulaire d'inscription</p>
+    </div>
+  );
+}
 
 export default Inscription;
