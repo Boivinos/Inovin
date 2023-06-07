@@ -4,10 +4,16 @@
   font-size: calc(1.2vw + 1em);
 }
 
-.wineCardList {
-  margin: 0 clamp(20px, 10%, 200px);
+.menuAndListWrapper {
   display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  justify-content: center;
+  margin-top: 20px;
+
+  .wineCardList {
+    width: calc(100% - 200px);
+    margin: 0 clamp(20px, 5%, 200px);
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }

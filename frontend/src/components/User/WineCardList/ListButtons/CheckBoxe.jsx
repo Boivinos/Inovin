@@ -1,6 +1,6 @@
 import React from "react";
 
-function CheckBoxes() {
+function CheckBoxe() {
   return (
     <label>
       <input type="checkbox" />
@@ -9,4 +9,4 @@ function CheckBoxes() {
   );
 }
 
-export default CheckBoxes;
+export default CheckBoxe;

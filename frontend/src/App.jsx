@@ -6,7 +6,7 @@ import Contact from "./components/Globals/Contact/Contact";
 function App() {
   return (
     <div className="App">
-      <p>coucou</p>
+
       <Contact />
       <NavBar />
       <WineCardList />
