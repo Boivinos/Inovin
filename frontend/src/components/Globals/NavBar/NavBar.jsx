@@ -1,13 +1,21 @@
 import React from "react";
 
-import logo from "../../../assets/logo.svg";
-
 function NavBar() {
   return (
     <div className="navBar">
-      <div className="icone">
-        <img src={logo} alt="Mon icône" />
-      </div>
+      <ul>
+        <li>
+          <a href="/lexique" className="link">
+            Lexique
+          </a>
+        </li>
+        <li>
+          <a href="/contact" className="link">
+            Contact
+          </a>
+        </li>
+      </ul>
+      <div className="icone" />
     </div>
   );
 }
