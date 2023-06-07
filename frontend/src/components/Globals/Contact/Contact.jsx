@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm, useController } from "react-hook-form";
 import InovinPicture from "../../../assets/InovinPicture_square.png";
+import InovinPictureDesktop from "../../../assets/inovinPicture_desktop.png";
 
 function Contact() {
   const {
@@ -38,8 +39,15 @@ function Contact() {
         src={InovinPicture}
         alt="Logo"
       />
+      <img
+        className="ContactForm_inovinPicture_desktop"
+        src={InovinPictureDesktop}
+        alt="Logo"
+      />
       <p className="ContactForm_text"> Nous contacter</p>
+
       <form className="ContactForm_fields" onSubmit={handleSubmit(onSubmit)}>
+        <p className="ContactForm_text_desktop"> Nous contacter</p>
         <input
           className="ContactForm_input"
           name={nomPrenomField.name}
