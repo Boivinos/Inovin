@@ -1,5 +1,6 @@
 import React from "react";
 
+
 import logo from "../../../assets/logo.svg";
 
 function NavBar() {
@@ -11,5 +12,11 @@ function NavBar() {
     </div>
   );
 }
+
+
+function NavBar() {
+  return <div />;
+}
+
 
 export default NavBar;

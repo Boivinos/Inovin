@@ -1,0 +1,7 @@
+.wineCardList {
+  margin: 0 clamp(20px, 10%, 200px);
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
