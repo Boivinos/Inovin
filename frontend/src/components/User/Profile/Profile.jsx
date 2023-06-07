@@ -29,9 +29,11 @@ function Profile() {
         </div>
       </div>
       {/* router button à définir */}
-      <button className="user-profile-taste_button" type="button">
-        DÉCOUVRIR MA SÉLECTION
-      </button>
+      <div className="user-profile-taste_button">
+        <button className="user-profile-taste_button" type="button">
+          DÉCOUVRIR MA SÉLECTION
+        </button>
+      </div>
     </div>
   );
 }

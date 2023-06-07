@@ -21,15 +21,15 @@
     margin-right: auto;
     padding-left: 5%;
     padding-right: 5%;
-    margin-bottom: 10%;
+    margin-bottom: 6%;
   }
   &_button {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    border: gold solid;
-    padding: 20px;
-    border-radius: 7px;
-    background: none;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid $primary-color;
+    font-family: $buttonTypo;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-align: center;
   }
 }
