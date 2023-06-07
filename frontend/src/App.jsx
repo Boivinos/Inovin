@@ -6,6 +6,7 @@ import Home from "./components/Globals/Home/Home";
 
 import WineCardList from "./components/User/WineCardList/WineCardList";
 import Contact from "./components/Globals/Contact/Contact";
+import Profile from "./components/User/Profile/Profile";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Contact />
       <NavBar />
       <WineCardList />
+      <Profile />
     </div>
   );
 }
