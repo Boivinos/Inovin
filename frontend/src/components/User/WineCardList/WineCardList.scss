@@ -1,6 +1,19 @@
-.wineCardList {
+.wineListTitle {
+  margin-top: 24px;
+  text-align: center;
+  font-size: calc(1.2vw + 1em);
+}
+
+.menuAndListWrapper {
   display: flex;
-  gap: 30px;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  margin-top: 20px;
+
+  .wineCardList {
+    width: calc(100% - 200px);
+    margin: 0 clamp(20px, 5%, 200px);
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
