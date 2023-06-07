@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 
 function Connexion() {
@@ -43,5 +44,3 @@ function Connexion() {
 }
 
 export default Connexion;
-
-// onClick={() => password(!setPassword)}
