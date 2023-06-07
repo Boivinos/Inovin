@@ -1,9 +1,13 @@
 .searchAndFilterMenu {
+  z-index: 1;
+  top: -40px;
+  position: absolute;
   display: flex;
+  background-color: white;
   flex-direction: column;
   border: 1px solid black;
   border-radius: 10px;
-  min-width: clamp(180px, 20%, 300px);
+  min-width: clamp(220px, 20%, 300px);
   padding-top: 30px;
   padding-left: 10px;
   padding-right: 10px;
@@ -14,7 +18,14 @@
     align-items: center;
 
     .closeFilterMenu {
-      height: 25px;
+      height: 40px;
+
+      cursor: pointer;
+
+      img {
+        overflow: hidden;
+        height: 100%;
+      }
     }
   }
 
@@ -48,4 +59,13 @@
       height: 25px;
     }
   }
+}
+
+#hiddenMenu {
+  transition: all 1s ease-out;
+  transform: translateX(-350px);
+}
+#visibleMenu {
+  transition: all 1s ease-out;
+  display: block;
 }
