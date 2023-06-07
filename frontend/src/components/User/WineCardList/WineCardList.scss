@@ -1,3 +1,9 @@
+.wineListTitle {
+  margin-top: 24px;
+  text-align: center;
+  font-size: calc(1.2vw + 1em);
+}
+
 .wineCardList {
   margin: 0 clamp(20px, 10%, 200px);
   display: flex;
