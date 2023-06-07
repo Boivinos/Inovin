@@ -74,3 +74,45 @@
   width: 80%;
   font-family: $buttonTypo;
 }
+.ContactForm_inovinPicture_desktop {
+  display: none;
+}
+.ContactForm_text_desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .ContactForm {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 80%;
+
+    &_inovinPicture,
+    &_text {
+      display: none;
+    }
+
+    &_input,
+    &_button {
+      width: 100%;
+    }
+    #ContactForm_inputMessage {
+      width: 100%;
+    }
+  }
+
+  .ContactForm_inovinPicture_desktop {
+    display: block;
+    width: 300px;
+    height: 300px;
+    margin-left: 200px;
+  }
+  .ContactForm_text_desktop {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0px 27% 20px 0;
+    font-family: $mainTypo;
+    font-size: x-large;
+  }
+}
