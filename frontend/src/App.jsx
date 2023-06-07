@@ -6,12 +6,16 @@ function App() {
   return (
     <div className="App">
 
+      <p>coucou</p>
+      <Contact />
+
+
 
       <NavBar />   
    
 
-      <WineCardList />
 
+      <WineCardList />
     </div>
   );
 }
