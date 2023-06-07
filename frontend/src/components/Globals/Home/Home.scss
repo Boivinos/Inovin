@@ -1,0 +1,29 @@
+.home_logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.img_logo {
+  margin-top: 15px;
+}
+
+.title_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xxx-large;
+  font-family: "jacques francois";
+  margin-top: 8%;
+}
+.subtitle_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "jacques francois";
+  font-size: small;
+}
+
+span {
+  color: #ebd159;
+}
