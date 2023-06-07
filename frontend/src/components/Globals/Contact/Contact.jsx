@@ -1,3 +1,6 @@
+
+
+
 import React from "react";
 import { useForm, useController } from "react-hook-form";
 import InovinPicture from "../../../assets/InovinPicture_square.png";
@@ -86,6 +89,7 @@ function Contact() {
       </form>
     </div>
   );
+
 }
 
 export default Contact;
