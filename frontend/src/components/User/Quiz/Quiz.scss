@@ -1,0 +1,29 @@
+.mainQuizWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: $mainTypo;
+  height: calc(100vh - 100px);
+
+  .quizImg {
+    height: calc(454px * 1);
+    width: calc(292px * 1);
+    background-image: url("https://i.postimg.cc/WbQ7G6Qp/logo-Inovinsousimg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .quizQuestionAndAnswerWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    .quizQuestion {
+      text-align: center;
+    }
+    .answerButtonWrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

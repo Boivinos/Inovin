@@ -16,8 +16,8 @@ function SearchAndFilterMenu({
   setOtherFilterArr,
 }) {
   const colorCheckBoxes = [
-    { label: "Rouge", filterFunc: (wine) => wine.color === "red" },
-    { label: "Blanc", filterFunc: (wine) => wine.color === "white" },
+    { label: "Rouge", filterFunc: (wine) => wine.red === 1 },
+    { label: "Blanc", filterFunc: (wine) => wine.white === 1 },
   ];
   const aromesCheckBoxes = [
     { label: "Fruité", filterFunc: (wine) => wine.fruity === 1 },
@@ -33,9 +33,9 @@ function SearchAndFilterMenu({
     { label: "Alcool", filterFunc: (wine) => wine.alcool === 1 },
   ];
   const intensityCheckBoxes = [
-    { label: "Léger", filterFunc: (wine) => wine.intensity === "short" },
-    { label: "Moyen", filterFunc: (wine) => wine.intensity === "medium" },
-    { label: "Intense", filterFunc: (wine) => wine.intensity === "intense" },
+    { label: "Léger", filterFunc: (wine) => wine.short === 1 },
+    { label: "Moyen", filterFunc: (wine) => wine.medium === 1 },
+    { label: "Intense", filterFunc: (wine) => wine.intense === 1 },
   ];
 
   return (
