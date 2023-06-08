@@ -1,12 +1,12 @@
 import NavBar from "./components/Globals/NavBar/NavBar";
 import "./Styles/imports.scss";
-import WineCardList from "./components/User/WineCardList/WineCardList";
+import Quiz from "./components/User/Quiz/Quiz";
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <WineCardList />
+      <Quiz />
     </div>
   );
 }
