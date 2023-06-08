@@ -59,7 +59,7 @@ function Contact() {
           onBlur={nomPrenomField.onBlur}
           placeholder="Nom prénom"
         />
-        {errors.NomPrenom?.type === "required" && (
+        {errors?.NomPrenom?.type === "required" && (
           <span className="ContactForm_error">Ce champ est requis</span>
         )}
         {errors?.NomPrenom?.type === "maxLength" && (
@@ -98,7 +98,7 @@ function Contact() {
           rows={4}
           cols={40}
         />
-        {errors?.Message.type === "required" && (
+        {errors?.Message?.type === "required" && (
           <span className="ContactForm_error">
             Merci d'indiquer l'objet de votre demande
           </span>
