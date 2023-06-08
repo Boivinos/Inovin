@@ -5,9 +5,9 @@ function CheckBox({ label, filterFunc, filterArr, setFilterArr }) {
   const filterHandler = (e) => {
     let temp = [];
     if (e.target.checked) {
-      setFilterArr([...filterArr, filterFunc]);
+      setFilterArr([...filterArr, { label, filterFunc }]);
     } else {
-      temp = filterArr.filter((el) => el !== filterFunc);
+      temp = filterArr.filter((el) => el.label !== label);
       setFilterArr(temp);
     }
   };

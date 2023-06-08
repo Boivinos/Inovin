@@ -7,7 +7,8 @@ function WineCardList() {
   const [search, setSearch] = useState("Rechercher...");
   const [isSearching, setIsSearching] = useState(false);
   const [visibleMenu, setVisibleMenu] = useState(false);
-  const [filterArr, setFilterArr] = useState([]);
+  const [colorFilterArr, setColorFilterArr] = useState([]);
+  const [otherFilterArr, setOtherFilterArr] = useState([]);
 
   const toggleMenu = () => {
     setVisibleMenu(!visibleMenu);
@@ -33,16 +34,29 @@ function WineCardList() {
           visibleMenu={visibleMenu}
           setVisibleMenu={setVisibleMenu}
           toggleMenu={toggleMenu}
-          filterArr={filterArr}
-          setFilterArr={setFilterArr}
+          colorFilterArr={colorFilterArr}
+          setColorFilterArr={setColorFilterArr}
+          otherFilterArr={otherFilterArr}
+          setOtherFilterArr={setOtherFilterArr}
         />
 
         <div className="wineCardList">
           {fakeWinelist
             .filter((wine) => {
-              if (filterArr.length) {
-                for (let i = 0; i < filterArr.length; i += 1) {
-                  if (filterArr[i](wine)) {
+              if (colorFilterArr.length) {
+                for (let i = 0; i < colorFilterArr.length; i += 1) {
+                  if (colorFilterArr[i].filterFunc(wine)) {
+                    return true;
+                  }
+                }
+                return false;
+              }
+              return true;
+            })
+            .filter((wine) => {
+              if (otherFilterArr.length) {
+                for (let i = 0; i < otherFilterArr.length; i += 1) {
+                  if (otherFilterArr[i].filterFunc(wine)) {
                     return true;
                   }
                 }

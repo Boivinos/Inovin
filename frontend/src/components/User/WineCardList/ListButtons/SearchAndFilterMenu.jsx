@@ -10,8 +10,10 @@ function SearchAndFilterMenu({
   setIsSearching,
   visibleMenu,
   toggleMenu,
-  filterArr,
-  setFilterArr,
+  colorFilterArr,
+  setColorFilterArr,
+  otherFilterArr,
+  setOtherFilterArr,
 }) {
   const colorCheckBoxes = [
     { label: "Rouge", filterFunc: (wine) => wine.color === "red" },
@@ -31,7 +33,7 @@ function SearchAndFilterMenu({
     { label: "Alcool", filterFunc: (wine) => wine.alcool === 1 },
   ];
   const intensityCheckBoxes = [
-    { label: "Léger", filterFunc: (wine) => wine.intensity === "light" },
+    { label: "Léger", filterFunc: (wine) => wine.intensity === "short" },
     { label: "Moyen", filterFunc: (wine) => wine.intensity === "medium" },
     { label: "Intense", filterFunc: (wine) => wine.intensity === "intense" },
   ];
@@ -67,10 +69,11 @@ function SearchAndFilterMenu({
       {colorCheckBoxes.map((checkBox) => {
         return (
           <CheckBox
+            key={checkBox.label}
             label={checkBox.label}
             filterFunc={checkBox.filterFunc}
-            filterArr={filterArr}
-            setFilterArr={setFilterArr}
+            filterArr={colorFilterArr}
+            setFilterArr={setColorFilterArr}
           />
         );
       })}
@@ -78,10 +81,11 @@ function SearchAndFilterMenu({
       {aromesCheckBoxes.map((checkBox) => {
         return (
           <CheckBox
+            key={checkBox.label}
             label={checkBox.label}
             filterFunc={checkBox.filterFunc}
-            filterArr={filterArr}
-            setFilterArr={setFilterArr}
+            filterArr={otherFilterArr}
+            setFilterArr={setOtherFilterArr}
           />
         );
       })}
@@ -89,10 +93,11 @@ function SearchAndFilterMenu({
       {goutCheckBoxes.map((checkBox) => {
         return (
           <CheckBox
+            key={checkBox.label}
             label={checkBox.label}
             filterFunc={checkBox.filterFunc}
-            filterArr={filterArr}
-            setFilterArr={setFilterArr}
+            filterArr={otherFilterArr}
+            setFilterArr={setOtherFilterArr}
           />
         );
       })}
@@ -100,10 +105,11 @@ function SearchAndFilterMenu({
       {intensityCheckBoxes.map((checkBox) => {
         return (
           <CheckBox
+            key={checkBox.label}
             label={checkBox.label}
             filterFunc={checkBox.filterFunc}
-            filterArr={filterArr}
-            setFilterArr={setFilterArr}
+            filterArr={otherFilterArr}
+            setFilterArr={setOtherFilterArr}
           />
         );
       })}
@@ -118,8 +124,10 @@ SearchAndFilterMenu.propTypes = {
   setIsSearching: PropTypes.func.isRequired,
   visibleMenu: PropTypes.bool.isRequired,
   toggleMenu: PropTypes.func.isRequired,
-  setFilterArr: PropTypes.func.isRequired,
-  filterArr: PropTypes.shape([]).isRequired,
+  colorFilterArr: PropTypes.shape([]).isRequired,
+  setColorFilterArr: PropTypes.func.isRequired,
+  otherFilterArr: PropTypes.shape([]).isRequired,
+  setOtherFilterArr: PropTypes.func.isRequired,
 };
 
 export default SearchAndFilterMenu;
