@@ -37,6 +37,13 @@
         justify-content: space-around;
         width: 100%;
         gap: 10px;
+
+        #notClicked {
+          border-color: gray;
+        }
+        #notClicked {
+          border-color: inherit;
+        }
       }
     }
     .questionSuivanteBouton {
