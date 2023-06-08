@@ -68,6 +68,7 @@
 .ContactForm_error {
   color: red;
   font-family: $buttonTypo;
+  margin-left: 10%;
   font-size: smaller;
 }
 .ContactForm_inovinPicture_desktop {
@@ -92,6 +93,9 @@
     &_input,
     &_button {
       width: 100%;
+    }
+    &_error {
+      margin-left: 0;
     }
     #ContactForm_inputMessage {
       width: 100%;
