@@ -3,10 +3,12 @@ import PropTypes from "prop-types";
 
 function CheckBox({ label, filterFunc, filterArr, setFilterArr }) {
   const filterHandler = (e) => {
+    let temp = [];
     if (e.target.checked) {
       setFilterArr([...filterArr, filterFunc]);
     } else {
-      setFilterArr(filterArr.filter(() => false));
+      temp = filterArr.filter((el) => el !== filterFunc);
+      setFilterArr(temp);
     }
   };
 

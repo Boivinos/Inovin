@@ -13,6 +13,29 @@ function SearchAndFilterMenu({
   filterArr,
   setFilterArr,
 }) {
+  const colorCheckBoxes = [
+    { label: "Rouge", filterFunc: (wine) => wine.color === "red" },
+    { label: "Blanc", filterFunc: (wine) => wine.color === "white" },
+  ];
+  const aromesCheckBoxes = [
+    { label: "Fruité", filterFunc: (wine) => wine.fruity === 1 },
+    { label: "Floral", filterFunc: (wine) => wine.floral === 1 },
+    { label: "Epicé", filterFunc: (wine) => wine.spicy === 1 },
+    { label: "Végétal", filterFunc: (wine) => wine.vegetal === 1 },
+  ];
+  const goutCheckBoxes = [
+    { label: "Boisé", filterFunc: (wine) => wine.wooded === 1 },
+    { label: "Acide", filterFunc: (wine) => wine.acid === 1 },
+    { label: "Amer", filterFunc: (wine) => wine.bitter === 1 },
+    { label: "Sucré", filterFunc: (wine) => wine.sugar === 1 },
+    { label: "Alcool", filterFunc: (wine) => wine.alcool === 1 },
+  ];
+  const intensityCheckBoxes = [
+    { label: "Léger", filterFunc: (wine) => wine.intensity === "light" },
+    { label: "Moyen", filterFunc: (wine) => wine.intensity === "medium" },
+    { label: "Intense", filterFunc: (wine) => wine.intensity === "intense" },
+  ];
+
   return (
     <div
       className="searchAndFilterMenu"
@@ -41,47 +64,49 @@ function SearchAndFilterMenu({
       </div>
       <p>FILTRES</p>
       <p>Couleur</p>
-      <CheckBox
-        label="Rouge"
-        filterFunc={(wine) => wine.color === "red"}
-        filterArr={filterArr}
-        setFilterArr={setFilterArr}
-      />
-      <CheckBox
-        label="Blanc"
-        filterFunc={(wine) => wine.color === "white"}
-        filterArr={filterArr}
-        setFilterArr={setFilterArr}
-      />
+      {colorCheckBoxes.map((checkBox) => {
+        return (
+          <CheckBox
+            label={checkBox.label}
+            filterFunc={checkBox.filterFunc}
+            filterArr={filterArr}
+            setFilterArr={setFilterArr}
+          />
+        );
+      })}
       <p>Arômes</p>
-      <CheckBox
-        label="Fruité"
-        filterFunc={(wine) => wine.fruity === 1}
-        filterArr={filterArr}
-        setFilterArr={setFilterArr}
-      />
-      <CheckBox label="Floral" filterFunc={(wine) => wine.floral === 1} />
-      <CheckBox label="Epicé" filterFunc={(wine) => wine.spicy === 1} />
-      <CheckBox label="Végétal" filterFunc={(wine) => wine.vegetal === 1} />
+      {aromesCheckBoxes.map((checkBox) => {
+        return (
+          <CheckBox
+            label={checkBox.label}
+            filterFunc={checkBox.filterFunc}
+            filterArr={filterArr}
+            setFilterArr={setFilterArr}
+          />
+        );
+      })}
       <p>Goût</p>
-      <CheckBox label="Boisé" filterFunc={(wine) => wine.wooded === 1} />
-      <CheckBox label="Acide" filterFunc={(wine) => wine.acid === 1} />
-      <CheckBox label="Amer" filterFunc={(wine) => wine.bitter === 1} />
-      <CheckBox label="Sucré" filterFunc={(wine) => wine.sugar === 1} />
-      <CheckBox label="Alcool" filterFunc={(wine) => wine.alcool === 1} />
+      {goutCheckBoxes.map((checkBox) => {
+        return (
+          <CheckBox
+            label={checkBox.label}
+            filterFunc={checkBox.filterFunc}
+            filterArr={filterArr}
+            setFilterArr={setFilterArr}
+          />
+        );
+      })}
       <p>Intensité</p>
-      <CheckBox
-        label="Léger"
-        filterFunc={(wine) => wine.intensity === "intense"}
-      />
-      <CheckBox
-        label="Moyen"
-        filterFunc={(wine) => wine.intensity === "medium"}
-      />
-      <CheckBox
-        label="Intense"
-        filterFunc={(wine) => wine.intensity === "intense"}
-      />
+      {intensityCheckBoxes.map((checkBox) => {
+        return (
+          <CheckBox
+            label={checkBox.label}
+            filterFunc={checkBox.filterFunc}
+            filterArr={filterArr}
+            setFilterArr={setFilterArr}
+          />
+        );
+      })}
     </div>
   );
 }
