@@ -4,12 +4,15 @@ import questionsAndAnswer from "./questionsAndAnswer";
 
 function Quiz() {
   const [selectedQuestion, setSelectedQuestion] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState({});
 
   const handleClick = () => {
     if (selectedQuestion < questionsAndAnswer.length - 1) {
       setSelectedQuestion(selectedQuestion + 1);
     }
   };
+
+  console.warn(selectedAnswer);
 
   return (
     <div className="quizPage">
@@ -30,6 +33,8 @@ function Quiz() {
             question={questionsAndAnswer[selectedQuestion].question}
             answers={questionsAndAnswer[selectedQuestion].answers}
             example={questionsAndAnswer[selectedQuestion].example}
+            selectedAnswer={selectedAnswer}
+            setSelectedAnswer={setSelectedAnswer}
           />
           <button
             onClick={() => handleClick()}
