@@ -67,12 +67,8 @@
 }
 .ContactForm_error {
   color: red;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  margin-bottom: 1.5em;
-  width: 80%;
   font-family: $buttonTypo;
+  font-size: smaller;
 }
 .ContactForm_inovinPicture_desktop {
   display: none;
