@@ -13,17 +13,31 @@
   justify-content: center;
   align-items: center;
   font-size: xxx-large;
-  font-family: "jacques francois";
+  font-family: $mainTypo;
   margin-top: 8%;
 }
 .subtitle_logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "jacques francois";
+  font-family: $mainTypo;
   font-size: small;
 }
 
 span {
-  color: #ebd159;
+  color: $primary-color;
+}
+
+@media screen and (min-width: 481px) and (max-width: 600px) {
+  .title_logo {
+    margin-top: 5%;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  // .home_logo {
+  //   justify-content:left;
+  //   align-items: flex-start;
+  //   margin:10%;
+  // }
 }

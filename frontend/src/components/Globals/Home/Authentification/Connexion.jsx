@@ -1,12 +1,28 @@
-
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 
 function Connexion() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const onSubmit = () => {
-    alert(`Connexion réussie !`);
+  const [emailSelected, setEmailSelected] = useState(false);
+  const [passwordSelected, setPasswordSelected] = useState(false);
+
+  const onSubmit = (data) => {
+    console.warn(data);
+  };
+
+  const handleEmailSelect = () => {
+    setEmailSelected(true);
+    setPasswordSelected(false);
+  };
+
+  const handlePasswordSelect = () => {
+    setEmailSelected(false);
+    setPasswordSelected(true);
   };
 
   return (
@@ -15,30 +31,53 @@ function Connexion() {
         Connecte-toi ou inscris-toi pour découvrir ta sélection de vin
         personnalisée.
       </h3>
-      <form className="form_connexion">
+      <form className="form_connexion" onSubmit={handleSubmit(onSubmit)}>
         <input
-          className="mail"
-          value={email}
+          className={`mail ${emailSelected ? "selected" : ""}`}
+          type="email"
           placeholder="✉️  utilisateur@mail.com"
-          onChange={(e) => setEmail(e.target.value)}
+          name="email"
+          /* eslint-disable react/jsx-props-no-spreading */
+          {...register("email", {
+            required: true,
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: "Veuillez entrer une adresse e-mail valide.",
+            },
+          })}
+          onSelect={handleEmailSelect}
         />
-        <br />
+        {errors.email && (
+          <span className="errormail">{errors.email.message}</span>
+        )}
+
         <input
-          className="mdp"
+          className={`mdp ${passwordSelected ? "selected" : ""}`}
           type="password"
-          value={password}
           placeholder="🔒 Mot de passe"
-          onChange={(e) => setPassword(e.target.value)}
+          name="password"
+          /* eslint-disable react/jsx-props-no-spreading */
+          {...register("password", {
+            required: true,
+            minLength: {
+              value: 6,
+              message: "Le mot de passe doit comporter au moins 6 caractères.",
+            },
+          })}
+          onSelect={handlePasswordSelect}
         />
-        <br />
-        <button className="button_connexion" type="button" onClick={onSubmit}>
+        {errors.password && (
+          <span className="errormdp">{errors.password.message}</span>
+        )}
+
+        <button className="button_connexion" type="submit" onClick={onSubmit}>
           CONNEXION
         </button>
-        <p className="inscription">Tu n'as pas de compte ?</p>
-        <button className="button_inscription" type="button" onClick={onSubmit}>
-          INSCRIPTION
-        </button>
       </form>
+      <p className="inscription">Tu n'as pas de compte ?</p>
+      <button className="button_inscription" type="submit" onClick={onSubmit}>
+        INSCRIPTION
+      </button>
     </>
   );
 }

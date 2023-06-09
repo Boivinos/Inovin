@@ -1,0 +1,47 @@
+.text_inscription {
+  text-align: center;
+  font-family: $mainTypo;
+  font-size: 16px;
+  margin-top: 5%;
+  padding: 15px;
+}
+.checkbox_vigneron {
+  display: flex;
+  justify-content: center;
+
+  color: black;
+  margin-bottom: 10px;
+}
+.form_inscription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8%;
+  margin: 40px auto;
+}
+
+.form_description {
+  font-style: italic;
+  display: flex;
+  flex-direction: column;
+  margin: 40px auto;
+  border-style: solid;
+  padding-bottom: 2em;
+  font-family: $buttonTypo;
+  width: 80%;
+  resize: none;
+  padding: 5px;
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+  }
+}
+
+.selected {
+  background-color: lightyellow;
+}
+
+.form_inscription_error {
+  color: red;
+  margin-bottom: 15px;
+}
