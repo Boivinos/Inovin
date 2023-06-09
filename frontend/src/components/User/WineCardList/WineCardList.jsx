@@ -1,80 +1,86 @@
 import React, { useState } from "react";
 import WineCard from "./WineCard/WineCard";
-import FilterButton from "./ListButtons/FilterButton";
-import SearchInput from "./ListButtons/SearchInput";
+import SearchAndFilterMenu from "./ListButtons/SearchAndFilterMenu";
+import fakeWinelist from "./fakeWineList";
 
 function WineCardList() {
-  const fakeWinelist = [
-    {
-      name: "Meursault-Blagny",
-      image:
-        "https://images.vivino.com/thumbs/5RHf-mfuRHm-jpg3UlKKfw_pb_x960.png",
-      domain: "Louis Latour",
-    },
-    {
-      name: "Pomerol",
-      image:
-        "https://images.vivino.com/thumbs/M889RhjFRdOdvTh4xYBDoQ_pb_x960.png",
-      domain: "Chateau de Sales",
-    },
-    {
-      name: "Natana Cuvée Rouge",
-      image:
-        "https://images.vivino.com/thumbs/a7-WsnN6TKG4lH1LjfFjbw_pb_x960.png",
-      domain: "Marianne",
-    },
-    {
-      name: "Domaine de Bila-Haut",
-      image:
-        "https://images.vivino.com/thumbs/7phdZm64SHiWwH8wwCpedQ_pb_x960.png",
-      domain: "M. Chapoutier",
-    },
-    {
-      name: "Pomerol 2014",
-      image:
-        "https://images.vivino.com/thumbs/_abY0tGKQnC6mdcJAo0wcQ_pb_x960.png",
-      domain: "Chateau l'Evangile",
-    },
-    {
-      name: "Margaux 2013",
-      image:
-        "https://images.vivino.com/thumbs/t61FjP97R-SOyDIHfV_OPg_pb_x960.png",
-      domain: "Chateau la Besssane",
-    },
-  ];
-
-  const [search, setSearch] = useState("Rechercher");
+  const [search, setSearch] = useState("Rechercher...");
   const [isSearching, setIsSearching] = useState(false);
+  const [visibleMenu, setVisibleMenu] = useState(false);
+  const [colorFilterArr, setColorFilterArr] = useState([]);
+  const [otherFilterArr, setOtherFilterArr] = useState([]);
+
+  const toggleMenu = () => {
+    setVisibleMenu(!visibleMenu);
+  };
 
   return (
     <>
-      <div className="listButtonWrapper">
-        <FilterButton />
-        <SearchInput
+      <p className="wineListTitle">Découvrez l'ensemble de nos vins</p>
+      <div className="menuAndListWrapper">
+        <button
+          type="button"
+          className="openFilterMenuButton"
+          onClick={() => toggleMenu()}
+          id={!visibleMenu ? "visibleButton" : "hiddenButton"}
+        >
+          Rechercher/filtrer
+        </button>
+        <SearchAndFilterMenu
           search={search}
           setSearch={setSearch}
           isSearching={isSearching}
           setIsSearching={setIsSearching}
+          visibleMenu={visibleMenu}
+          setVisibleMenu={setVisibleMenu}
+          toggleMenu={toggleMenu}
+          colorFilterArr={colorFilterArr}
+          setColorFilterArr={setColorFilterArr}
+          otherFilterArr={otherFilterArr}
+          setOtherFilterArr={setOtherFilterArr}
         />
-      </div>
-      <div className="wineCardList">
-        {fakeWinelist
-          .filter((wine) =>
-            search !== "Rechercher"
-              ? wine.name.toLowerCase().includes(search.toLowerCase()) ||
-                wine.domain.toLowerCase().includes(search.toLowerCase())
-              : true
-          )
-          .map((wine) => {
-            return (
-              <WineCard
-                name={wine.name}
-                image={wine.image}
-                domain={wine.domain}
-                key={wine.name}
-              />
-            );
-          })}
+
+        <div className="wineCardList">
+          {fakeWinelist
+            .filter((wine) => {
+              if (colorFilterArr.length) {
+                for (let i = 0; i < colorFilterArr.length; i += 1) {
+                  if (colorFilterArr[i].filterFunc(wine)) {
+                    return true;
+                  }
+                }
+                return false;
+              }
+              return true;
+            })
+            .filter((wine) => {
+              if (otherFilterArr.length) {
+                for (let i = 0; i < otherFilterArr.length; i += 1) {
+                  if (otherFilterArr[i].filterFunc(wine)) {
+                    return true;
+                  }
+                }
+                return false;
+              }
+              return true;
+            })
+            .filter((wine) =>
+              search !== "Rechercher..."
+                ? wine.name.toLowerCase().includes(search.toLowerCase()) ||
+                  wine.domain.toLowerCase().includes(search.toLowerCase())
+                : true
+            )
+            .map((wine) => {
+              return (
+                <WineCard
+                  name={wine.name}
+                  image={wine.image}
+                  domain={wine.domain}
+                  key={wine.name}
+                />
+              );
+            })}
+        </div>
       </div>
     </>
   );

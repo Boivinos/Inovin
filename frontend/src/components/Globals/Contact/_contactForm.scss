@@ -5,6 +5,7 @@
   margin-bottom: 20px;
 
   &_text {
+    font-family: $mainTypo;
     margin: 0 auto;
     margin-bottom: 20px;
     margin-top: 20px;
@@ -17,6 +18,7 @@
   }
 
   &_input {
+    font-style: italic;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -25,16 +27,92 @@
     border-bottom-width: 1px;
     margin-bottom: 1.5em;
     padding-bottom: 0.5em;
+    width: 80%;
+    font-family: $buttonTypo;
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+    }
   }
 
   &_button {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    margin-top: 15%;
-    border: gold solid;
-    padding: 20px;
-    border-radius: 7px;
+    margin-top: 40px;
+    justify-content: center;
+    align-items: center;
+    border: $primary-color solid;
+    padding: 12px 0 12px 0;
+    border-radius: 20px;
     background: none;
+    width: 45%;
+  }
+}
+#ContactForm_inputMessage {
+  font-style: italic;
+  display: flex;
+  flex-direction: column;
+  margin: 40px auto;
+  border-style: solid;
+  padding-bottom: 2em;
+  font-family: $buttonTypo;
+  width: 80%;
+  resize: none;
+  padding: 5px;
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+  }
+}
+.ContactForm_error {
+  color: red;
+  font-family: $buttonTypo;
+  margin-left: 10%;
+  font-size: smaller;
+}
+.ContactForm_inovinPicture_desktop {
+  display: none;
+}
+.ContactForm_text_desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .ContactForm {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 80%;
+
+    &_inovinPicture,
+    &_text {
+      display: none;
+    }
+
+    &_input,
+    &_button {
+      width: 100%;
+    }
+    &_error {
+      margin-left: 0;
+    }
+    #ContactForm_inputMessage {
+      width: 100%;
+    }
+  }
+
+  .ContactForm_inovinPicture_desktop {
+    display: block;
+    width: 300px;
+    height: 300px;
+    margin-left: 200px;
+  }
+  .ContactForm_text_desktop {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0px 27% 20px 0;
+    font-family: $mainTypo;
+    font-size: x-large;
   }
 }

@@ -1,0 +1,47 @@
+.text_connexion {
+  text-align: center;
+  font-family: "jacques francois";
+  // height: 10%;
+  margin-top: 10%;
+}
+
+.form_connexion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8%;
+}
+
+input {
+  border: none;
+  border-bottom: solid #ebd159 0.1rem;
+  padding: 5%;
+  font-size: small;
+
+  input:invalid {
+    border: 2px dashed red;
+  }
+
+  input:valid {
+    border: none;
+  }
+}
+.button_connexion {
+  background-color: #fff;
+  color: #000;
+  padding: 2%;
+  border: solid #ebd159 0.1rem;
+  border-radius: 20%;
+  margin-top: 3%;
+}
+.inscription {
+  margin-top: 20%;
+}
+.button_inscription {
+  background-color: #fff;
+  color: #000;
+  padding: 2%;
+  border: solid #ebd159 0.1rem;
+  border-radius: 20%;
+  margin-top: 2%;
+}

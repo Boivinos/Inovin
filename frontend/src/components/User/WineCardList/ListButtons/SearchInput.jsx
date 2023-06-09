@@ -14,20 +14,26 @@ function SearchInput({ search, setSearch, isSearching, setIsSearching }) {
   };
 
   return (
-    <input
-      type="text"
-      className={`searchInput ${!isSearching && "defaultInput"}`}
-      value={search}
-      onChange={(e) => changeHandler(e)}
-      onFocus={() => focusHandler()}
-    />
+    <div className="searchInputWrapper">
+      <input
+        type="text"
+        className={`searchInput ${!isSearching && "defaultInput"}`}
+        value={search}
+        onChange={(e) => changeHandler(e)}
+        onFocus={() => focusHandler()}
+      />
+      <img
+        src="https://i.ibb.co/QMtjxLM/Pik-Png-com-loupe-png-3599608.png"
+        alt=""
+      />
+    </div>
   );
 }
 
 SearchInput.propTypes = {
   search: PropTypes.string.isRequired,
   setSearch: PropTypes.func.isRequired,
-  isSearching: PropTypes.string.isRequired,
+  isSearching: PropTypes.bool.isRequired,
   setIsSearching: PropTypes.func.isRequired,
 };
 
