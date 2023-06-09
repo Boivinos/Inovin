@@ -1,6 +1,9 @@
 @import "./variables.scss";
 @import "./global.scss";
 
+
+@import "../components/Globals/NavBar/NavBar.scss"; // --- add imports below ---
+
 // --- add imports below ---
 
 @import "../components//Globals//Contact/contactForm";
