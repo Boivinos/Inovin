@@ -1,0 +1,77 @@
+.quizPage {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .mainQuizWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: $mainTypo;
+    min-height: calc(100vh - 100px - 70px);
+
+    .quizImg {
+      height: calc(454px * 1);
+      width: calc(292px * 1);
+      background-image: url("https://i.postimg.cc/WbQ7G6Qp/logo-Inovinsousimg.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    .quizQuestionAndAnswerWrapper {
+      min-height: calc((100vh - 100px - 70px) * 0.7);
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      justify-content: space-around;
+      align-items: center;
+
+      .quizQuestion {
+        text-align: center;
+      }
+      .answerButtonWrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: 100%;
+        gap: 10px;
+
+        #notClicked {
+          border-color: gray;
+        }
+        #notClicked {
+          border-color: inherit;
+        }
+      }
+    }
+    .questionSuivanteBouton {
+      width: 50%;
+    }
+  }
+  .quizFooter {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    height: 70px;
+    font-family: $mainTypo;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .quizPage {
+    .mainQuizWrapper {
+      flex-direction: column;
+
+      .quizImg {
+        height: calc(454px * 0.5);
+        width: calc(292px * 0.5);
+      }
+    }
+  }
+
+  .quizQuestionAndAnswerWrapper {
+    min-width: 90%;
+  }
+}
