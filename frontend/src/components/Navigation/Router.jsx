@@ -7,11 +7,13 @@ import WineCardList from "../User/WineCardList/WineCardList";
 import WineDetails from "../User/WineDetails/WineDetails";
 import Contact from "../Globals/Contact/Contact";
 import Glossary from "../Globals/Glossary/Glossary";
+import Profile from "../User/Profile/Profile";
 
 function Router() {
   return (
     <Routes>
       <Route path="/" element={<Connexion />} />
+      <Route path="/profile" element={<Profile />} />
       <Route path="/inscription" element={<Inscription />} />
       <Route path="/quiz" element={<Quiz />} />
       <Route path="/wineCardList" element={<WineCardList />} />
