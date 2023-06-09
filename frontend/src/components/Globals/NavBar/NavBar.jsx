@@ -1,3 +1,7 @@
+
+import React from "react";
+import { NavLink } from "react-router-dom";
+
 import React, { useState } from "react";
 import icons8 from "../../../assets/icons8.png";
 
@@ -12,6 +16,7 @@ function DropdownMenu() {
     </ul>
   );
 }
+
 
 function NavBar() {
 
@@ -32,14 +37,14 @@ function NavBar() {
     <div className="navBar">
       <ul className="navLinks">
         <li>
-          <a href="/lexique" className="link">
+          <NavLink to="/glossary" className="link">
             Lexique
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="/contact" className="link">
+          <NavLink to="/contact" className="link">
             Contact
-          </a>
+          </NavLink>
         </li>
       </ul>
       <div
