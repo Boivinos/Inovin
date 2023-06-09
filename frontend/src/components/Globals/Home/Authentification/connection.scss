@@ -11,21 +11,20 @@
   flex-direction: column;
   align-items: center;
   margin-top: 8%;
-}
 
-input {
-  font-style: italic;
-  border: none;
-  border-bottom: solid $primary-color 0.1rem;
-  margin: 0 auto;
-  border-style: none;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  margin-bottom: 1.5em;
-  padding-bottom: 0.5em;
-  width: 80%;
-  font-family: $buttonTypo;
-
+  input {
+    font-style: italic;
+    border: none;
+    border-bottom: solid $primary-color 0.1rem;
+    margin: 0 auto;
+    border-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin-bottom: 1.5em;
+    padding-bottom: 0.5em;
+    width: 80%;
+    font-family: $buttonTypo;
+  }
   &:focus {
     outline: none;
     border-color: $primary-color;
