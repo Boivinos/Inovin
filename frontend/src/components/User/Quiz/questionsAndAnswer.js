@@ -1,6 +1,6 @@
 const questionsAndAnswer = [
   {
-    question: "Quel type de vin préfère-tu ? ",
+    question: "Quel(s) type(s) de vin(s) préfère-tu ? ",
     answers: [
       { answer: "Rouge", label: "red" },
       { answer: "Blanc", label: "white" },

@@ -4,7 +4,22 @@ import questionsAndAnswer from "./questionsAndAnswer";
 
 function Quiz() {
   const [selectedQuestion, setSelectedQuestion] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState({});
+  const [selectedAnswer, setSelectedAnswer] = useState({
+    red: 0,
+    white: 0,
+    fruity: 0,
+    floral: 0,
+    spicy: 0,
+    vegetal: 0,
+    wooded: 0,
+    acid: 0,
+    bitter: 0,
+    sugar: 0,
+    alcool: 0,
+    short: 0,
+    medium: 0,
+    intense: 0,
+  });
 
   const handleClick = () => {
     if (selectedQuestion < questionsAndAnswer.length - 1) {
