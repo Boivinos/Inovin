@@ -28,8 +28,8 @@ function Profile() {
           <p>{data?.arome}</p>
         </div>
       </div>
-      {/* router button à définir */}
-      <div className="user-profile-taste_button">
+      {/* router button à définir vvvv */}
+      <div className="user-profile-taste_buttonzone">
         <button className="user-profile-taste_button" type="button">
           DÉCOUVRIR MA SÉLECTION
         </button>

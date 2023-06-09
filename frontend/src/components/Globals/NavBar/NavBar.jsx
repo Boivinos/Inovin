@@ -1,21 +1,66 @@
-import React from "react";
+import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import icons8 from "../../../assets/icons8.png";
+
+function DropdownMenu() {
+  return (
+    <ul className="dropdownMenu">
+      <NavLink to="/profile" className="link">
+        <li>Mon profil</li>
+      </NavLink>
+      <NavLink to="/wineCardList" className="link">
+        <li>Ma cave</li>
+      </NavLink>
+      <NavLink to="/wineCardList" className="link">
+        <li>Ma sélection</li>
+      </NavLink>
+      <NavLink to="/wineCardList" className="link">
+        <li>Tous les vins</li>
+      </NavLink>
+      <NavLink to="/" className="link">
+        <li>Me déconnecter</li>
+      </NavLink>
+    </ul>
+  );
+}
 
 function NavBar() {
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      toggleMenu();
+    }
+  };
+
   return (
     <div className="navBar">
-      <ul>
+      <ul className="navLinks">
         <li>
-          <a href="/lexique" className="link">
+          <NavLink to="/glossary" className="link">
             Lexique
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="/contact" className="link">
+          <NavLink to="/contact" className="link">
             Contact
-          </a>
+          </NavLink>
         </li>
       </ul>
-      <div className="icone" />
+      <div
+        className="icone"
+        onClick={toggleMenu}
+        onKeyDown={handleKeyDown}
+        role="button"
+        tabIndex={0}
+      >
+        <img src={icons8} alt="User Icon" />
+        {isMenuOpen && <DropdownMenu />}
+      </div>
     </div>
   );
 }

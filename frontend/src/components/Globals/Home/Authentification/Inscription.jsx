@@ -131,7 +131,6 @@ function Inscription() {
       maxLength: 400,
     },
   });
-
   return (
     <>
       <div className="home_logo">

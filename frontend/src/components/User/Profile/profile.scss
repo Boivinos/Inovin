@@ -23,13 +23,16 @@
     padding-right: 5%;
     margin-bottom: 6%;
   }
-  &_button {
-    cursor: pointer;
-    background-color: white;
-    border: 1px solid $primary-color;
-    font-family: $buttonTypo;
-    padding: 10px 25px;
-    border-radius: 25px;
+  &_buttonzone {
     text-align: center;
+    &_button {
+      cursor: pointer;
+      background-color: white;
+      border: 1px solid $primary-color;
+      font-family: $buttonTypo;
+      padding: 10px 25px;
+      border-radius: 25px;
+      text-align: center;
+    }
   }
 }

@@ -33,6 +33,7 @@
   "dependencies": {
     "react-hook-form": "^7.44.3",
     "react-icons": "^4.9.0",
+    "react-router-dom": "^6.12.1",
     "sass": "^1.62.1"
   }
 }
