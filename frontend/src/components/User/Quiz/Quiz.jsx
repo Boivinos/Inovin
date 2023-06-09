@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Questions from "./Questions/Questions";
 import questionsAndAnswer from "./questionsAndAnswer";
