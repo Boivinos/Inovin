@@ -7,6 +7,7 @@ import Home from "./components/Globals/Home/Home";
 import WineCardList from "./components/User/WineCardList/WineCardList";
 import Contact from "./components/Globals/Contact/Contact";
 import Profile from "./components/User/Profile/Profile";
+import FavoriteButton from "./components/User/WineCardList/WineCard/FavoriteButton";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <NavBar />
       <WineCardList />
       <Profile />
+      <FavoriteButton />
     </div>
   );
 }
