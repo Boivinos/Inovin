@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Connexion from "../Globals/Home/Authentification/Connection";
+import Connexion from "../Globals/Home/Authentification/Connexion";
 import Inscription from "../Globals/Home/Authentification/Inscription";
 import Quiz from "../User/Quiz/Quiz";
 import WineCardList from "../User/WineCardList/WineCardList";

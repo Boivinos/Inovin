@@ -1,8 +1,6 @@
 @import "./variables.scss";
 @import "./global.scss";
 
-@import "../components/Globals/NavBar/NavBar.scss"; // --- add imports below ---
-
 // --- add imports below ---
 
 @import "../components//Globals//Contact/contactForm";
@@ -11,11 +9,9 @@
 @import "../components/User/Profile/profile.scss";
 @import "../components/User/WineCardList/ListButtons/searchInput.scss";
 @import "../components/User/WineCardList/ListButtons/searchAndFilterMenu.scss";
-
+@import "../components/Globals/Home/Authentification/inscription.scss";
 @import "../components/Globals/Home/Authentification/connection.scss";
 @import "../components/Globals/Home/Home.scss";
 @import "../components/Globals/NavBar/NavBar.scss";
-
 @import "../components/User/WineCardList/WineCard/favoritebutton";
-
 @import "../components/User/Quiz/Quiz.scss";
