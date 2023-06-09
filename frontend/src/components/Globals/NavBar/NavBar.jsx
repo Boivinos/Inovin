@@ -1,5 +1,3 @@
-
-import React from "react";
 import { NavLink } from "react-router-dom";
 
 import React, { useState } from "react";
@@ -17,9 +15,7 @@ function DropdownMenu() {
   );
 }
 
-
 function NavBar() {
-
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -31,7 +27,6 @@ function NavBar() {
       toggleMenu();
     }
   };
-
 
   return (
     <div className="navBar">
