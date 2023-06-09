@@ -1,18 +1,19 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
     <div className="navBar">
       <ul>
         <li>
-          <a href="/lexique" className="link">
+          <NavLink to="/glossary" className="link">
             Lexique
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="/contact" className="link">
+          <NavLink to="/contact" className="link">
             Contact
-          </a>
+          </NavLink>
         </li>
       </ul>
       <div className="icone" />

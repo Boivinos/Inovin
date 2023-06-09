@@ -1,12 +1,12 @@
 import NavBar from "./components/Globals/NavBar/NavBar";
 import "./Styles/imports.scss";
-import WineCardList from "./components/User/WineCardList/WineCardList";
+import Router from "./components/Navigation/Router";
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <WineCardList />
+      <Router />
     </div>
   );
 }
