@@ -12,21 +12,21 @@
   position: absolute;
   /* Ajout de la propriété position absolute */
 }
-ul {
+.navLinks {
   height: 100%;
   gap: 10%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   max-width: 95%;
-}
 
-.link {
-  color: white;
-  display: flex;
-  justify-content: center;
-  font-family: "Jacques Francois";
-  font-size: 30px;
+  .link {
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-family: "Jacques Francois";
+    font-size: 30px;
+  }
 }
 
 .dropdownMenu {

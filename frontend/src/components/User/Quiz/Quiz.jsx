@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import Questions from "./Questions/Questions";
 import questionsAndAnswer from "./questionsAndAnswer";
 
@@ -61,7 +62,9 @@ function Quiz() {
         </div>
       </div>
       <div className="quizFooter">
-        <p>Passer le questionnaire</p>
+        <NavLink to="/profile" className="link">
+          <p>Passer le questionnaire</p>
+        </NavLink>
         <p>{selectedQuestion + 1}/4</p>
       </div>
     </div>
