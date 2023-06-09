@@ -5,6 +5,7 @@ function Connection() {
   const [password, setPassword] = useState("");
 
   const onSubmit = () => {
+    // eslint-disable-next-line no-alert
     alert(`Connexion réussie !`);
   };
 
