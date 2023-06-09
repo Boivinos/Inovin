@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import Home from "../Home";
 
 function Connexion() {
   const {
@@ -27,6 +28,7 @@ function Connexion() {
 
   return (
     <>
+      <Home />
       <h3 className="text_connexion">
         Connecte-toi ou inscris-toi pour découvrir ta sélection de vin
         personnalisée.
