@@ -1,16 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 function AnswerButton({ answer, selectedAnswer, setSelectedAnswer, label }) {
-  const [isClicked, setIsClicked] = useState(false);
-
-  const handleClick = (e) => {
-    if (!isClicked && e.target.value === answer) {
-      setIsClicked(true);
+  const handleClick = () => {
+    if (!selectedAnswer[label]) {
       selectedAnswer[label] = 1; // eslint-disable-line no-param-reassign
       setSelectedAnswer({ ...selectedAnswer });
-    } else if (e.target.value === answer) {
-      setIsClicked(false);
+    } else {
       selectedAnswer[label] = 0; // eslint-disable-line no-param-reassign
       setSelectedAnswer({ ...selectedAnswer });
     }
@@ -19,8 +15,8 @@ function AnswerButton({ answer, selectedAnswer, setSelectedAnswer, label }) {
   return (
     <button
       type="button"
-      id={isClicked ? "clicked" : "notClicked"}
-      onClick={(e) => handleClick(e)}
+      id={selectedAnswer[label] ? "clicked" : "notClicked"}
+      onClick={() => handleClick()}
       value={answer}
     >
       {answer}
