@@ -1,16 +1,25 @@
 import { NavLink } from "react-router-dom";
-
 import React, { useState } from "react";
 import icons8 from "../../../assets/icons8.png";
 
 function DropdownMenu() {
   return (
     <ul className="dropdownMenu">
-      <li>Mon profil</li>
-      <li>Ma cave</li>
-      <li>Ma sélection</li>
-      <li>Tous les vins</li>
-      <li>Me déconnecter</li>
+      <NavLink to="/profile" className="link">
+        <li>Mon profil</li>
+      </NavLink>
+      <NavLink to="/wineCardList" className="link">
+        <li>Ma cave</li>
+      </NavLink>
+      <NavLink to="/wineCardList" className="link">
+        <li>Ma sélection</li>
+      </NavLink>
+      <NavLink to="/wineCardList" className="link">
+        <li>Tous les vins</li>
+      </NavLink>
+      <NavLink to="/" className="link">
+        <li>Me déconnecter</li>
+      </NavLink>
     </ul>
   );
 }

@@ -1,8 +1,9 @@
 .text_connexion {
   text-align: center;
-  font-family: "jacques francois";
-  // height: 10%;
+  font-family: $mainTypo;
+  font-size: 16px;
   margin-top: 10%;
+  padding: 15px;
 }
 
 .form_connexion {
@@ -10,38 +11,81 @@
   flex-direction: column;
   align-items: center;
   margin-top: 8%;
-}
 
-input {
-  border: none;
-  border-bottom: solid #ebd159 0.1rem;
-  padding: 5%;
-  font-size: small;
-
-  input:invalid {
-    border: 2px dashed red;
-  }
-
-  input:valid {
+  input {
+    font-style: italic;
     border: none;
+    border-bottom: solid $primary-color 0.1rem;
+    margin: 0 auto;
+    border-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin-bottom: 1.5em;
+    padding-bottom: 0.5em;
+    width: 80%;
+    font-family: $buttonTypo;
+  }
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
   }
 }
+
 .button_connexion {
-  background-color: #fff;
-  color: #000;
-  padding: 2%;
-  border: solid #ebd159 0.1rem;
-  border-radius: 20%;
-  margin-top: 3%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 15px;
+  justify-content: center;
+  align-items: center;
+  border: $primary-color solid;
+  padding: 12px 0 12px 0;
+  border-radius: 20px;
+  background: none;
+  width: 45%;
 }
+
 .inscription {
-  margin-top: 20%;
+  margin-top: 40px;
+  text-align: center;
 }
+
+.errormdp {
+  color: red;
+}
+.errormail {
+  color: red;
+  margin-bottom: 15px;
+}
+
+.selected {
+  background-color: lightyellow;
+}
+
 .button_inscription {
-  background-color: #fff;
-  color: #000;
-  padding: 2%;
-  border: solid #ebd159 0.1rem;
-  border-radius: 20%;
-  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+  border: $primary-color solid;
+  padding: 12px 0 12px 0;
+  border-radius: 20px;
+  background: none;
+  width: 45%;
+}
+
+@media screen and (min-width: 481px) and (max-width: 600px) {
+  .text_connexion {
+    margin-top: 25px;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .text_connexion {
+    text-align: center;
+    margin-top: 1%;
+    padding: 15px;
+  }
 }
