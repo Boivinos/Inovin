@@ -1,13 +1,11 @@
 import NavBar from "./components/Globals/NavBar/NavBar";
 import "./Styles/imports.scss";
 
-
 import Contact from "./components/Globals/Contact/Contact";
 
 import WineCardList from "./components/User/WineCardList/WineCardList";
 
 import Quiz from "./components/User/Quiz/Quiz";
-
 
 function App() {
   return (
@@ -18,7 +16,6 @@ function App() {
       <WineCardList />
 
       <Quiz />
-
     </div>
   );
 }

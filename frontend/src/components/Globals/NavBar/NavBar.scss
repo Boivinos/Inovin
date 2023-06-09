@@ -1,7 +1,5 @@
 .navBar {
-
   background: rgb(0, 0, 0);
-
 
   width: 100%;
   height: 100px;
@@ -21,6 +19,10 @@ ul {
   justify-content: flex-end;
   align-items: center;
   max-width: 95%;
+}
+
+.navLinks a:hover {
+  color: rgba(227, 188, 46, 1);
 }
 
 .link {

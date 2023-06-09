@@ -1,7 +1,4 @@
-
 /* eslint-disable react/jsx-props-no-spreading */
-
-
 import React from "react";
 import { useForm, useController } from "react-hook-form";
 import InovinPicture from "../../../assets/InovinPicture_square.png";

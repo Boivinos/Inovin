@@ -14,7 +14,6 @@ function DropdownMenu() {
 }
 
 function NavBar() {
-
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -26,7 +25,6 @@ function NavBar() {
       toggleMenu();
     }
   };
-
 
   return (
     <div className="navBar">
