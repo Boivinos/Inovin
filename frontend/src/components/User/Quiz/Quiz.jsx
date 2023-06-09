@@ -22,9 +22,18 @@ function Quiz() {
     intense: 0,
   });
 
-  const handleClick = () => {
-    if (selectedQuestion < questionsAndAnswer.length - 1) {
+  const handleClick = (button) => {
+    if (
+      button === "suivant" &&
+      selectedQuestion < questionsAndAnswer.length - 1
+    ) {
       setSelectedQuestion(selectedQuestion + 1);
+    }
+    if (button === "precedant" && selectedQuestion > 0) {
+      setSelectedQuestion(selectedQuestion - 1);
+    }
+    if (button === "terminer") {
+      console.warn("Quiz terminé !");
     }
   };
 
@@ -52,13 +61,35 @@ function Quiz() {
             selectedAnswer={selectedAnswer}
             setSelectedAnswer={setSelectedAnswer}
           />
-          <button
-            onClick={() => handleClick()}
-            type="button"
-            className="questionSuivanteBouton"
-          >
-            QUESTION SUIVANTE
-          </button>
+          <div className="buttonWrapper">
+            {selectedQuestion > 0 && (
+              <button
+                onClick={() => handleClick("precedant")}
+                type="button"
+                className="questionSuivanteBouton"
+              >
+                QUESTION PRECEDENTE
+              </button>
+            )}
+            {selectedQuestion < 3 && (
+              <button
+                onClick={() => handleClick("suivant")}
+                type="button"
+                className="questionSuivanteBouton"
+              >
+                QUESTION SUIVANTE
+              </button>
+            )}
+            {selectedQuestion === 3 && (
+              <button
+                onClick={() => handleClick("terminer")}
+                type="button"
+                className="questionSuivanteBouton"
+              >
+                TERMINER LE QUIZZ
+              </button>
+            )}
+          </div>
         </div>
       </div>
       <div className="quizFooter">

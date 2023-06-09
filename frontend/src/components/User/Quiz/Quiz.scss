@@ -46,8 +46,14 @@
         }
       }
     }
-    .questionSuivanteBouton {
-      width: 50%;
+
+    .buttonWrapper {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      .questionSuivanteBouton {
+        width: 40%;
+      }
     }
   }
   .quizFooter {
