@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import fakeWinelist from "../WineCardList/fakeWineList";
@@ -7,9 +7,47 @@ import fakeComments from "./fakeComments";
 function WineDetails() {
   const { id } = useParams();
   const data = fakeWinelist[id - 1];
+  const [isEditing, setIsEditing] = useState(false);
 
   const ratingChanged = (newRating) => {
     console.warn(newRating); // envoyer la note dans la table de jointure note, si il y a déjà une ligne qui match le wineid et user id, la mettre à jour
+  };
+
+  const displayVueCommentsMode = () => {
+    if (fakeComments.length) {
+      return (
+        <>
+          <p>Commentaires :</p>
+          {fakeComments.map((com) => {
+            return (
+              <>
+                <p>{`${com.user} le ${com.date} :`}</p>
+                <p>{com.content}</p>
+              </>
+            );
+          })}
+        </>
+      );
+    }
+    return (
+      <>
+        <p>Commentaires :</p>
+        <p>Il n'y a pas encore de commentaires</p>
+      </>
+    );
+  };
+
+  const displayAddCommentMode = () => {
+    return (
+      <>
+        <p>Ajouter un commentaire :</p>
+        <input type="text" />
+      </>
+    );
+  };
+
+  const handleComment = () => {
+    setIsEditing(!isEditing);
   };
 
   return (
@@ -44,24 +82,12 @@ function WineDetails() {
       <div className="separator" />
       <div className="wineCommentsAndRecipe">
         <div className="commentsHeaderAndWrapper">
-          <p className="commentsHeader">Commentaires :</p>
-          <div className="commentsWrapper">
-            {fakeComments.length ? (
-              fakeComments.map((com) => {
-                return (
-                  <div className="commentBox">
-                    <p>{`${com.user} le ${com.date} :`}</p>
-                    <p>{com.content}</p>
-                  </div>
-                );
-              })
-            ) : (
-              <p>Il n'y a pas encore de commentaires !</p>
-            )}
-          </div>
+          {isEditing ? displayAddCommentMode() : displayVueCommentsMode()}
         </div>
         <div className="buttonWrapper">
-          <button type="button">Ajouter un commentaire</button>
+          <button type="button" onClick={handleComment}>
+            Ajouter un commentaire
+          </button>
           <button type="button">Télécharger la recette</button>
         </div>
       </div>
