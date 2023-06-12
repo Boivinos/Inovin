@@ -1,9 +1,14 @@
 const fakeWinelist = [
   {
+    id: 1,
     name: "Meursault-Blagny",
     image:
       "https://images.vivino.com/thumbs/5RHf-mfuRHm-jpg3UlKKfw_pb_x960.png",
     domain: "Louis Latour",
+    year: 2015,
+    area: "Bordeaux",
+    grape: "Pinot noir",
+    alcohol_content: 14,
     red: 0,
     white: 1,
     fruity: 1,
@@ -20,10 +25,15 @@ const fakeWinelist = [
     intense: 0,
   },
   {
+    id: 2,
     name: "Pomerol",
     image:
       "https://images.vivino.com/thumbs/M889RhjFRdOdvTh4xYBDoQ_pb_x960.png",
     domain: "Chateau de Sales",
+    year: 2011,
+    area: "Normandie",
+    grape: "Pinot noir, Merlot",
+    alcohol_content: 13,
     red: 1,
     white: 0,
     fruity: 0,
@@ -40,10 +50,16 @@ const fakeWinelist = [
     intense: 0,
   },
   {
+    id: 3,
     name: "Natana Cuvée Rouge",
     image:
       "https://images.vivino.com/thumbs/a7-WsnN6TKG4lH1LjfFjbw_pb_x960.png",
     domain: "Marianne",
+    year: 2019,
+    area: "Nantes",
+    winemaker: "Julien",
+    grape: "Merlot",
+    alcohol_content: 11.5,
     red: 1,
     white: 0,
     olor: "red",
@@ -61,10 +77,16 @@ const fakeWinelist = [
     intense: 1,
   },
   {
+    id: 4,
     name: "Domaine de Bila-Haut",
     image:
       "https://images.vivino.com/thumbs/7phdZm64SHiWwH8wwCpedQ_pb_x960.png",
     domain: "M. Chapoutier",
+    year: 2022,
+    area: "Corse",
+    winemaker: "Jacques François",
+    grape: "Cabernet Sauvignon, Chardonnay",
+    alcohol_content: 12.5,
     red: 1,
     white: 0,
     fruity: 1,
@@ -81,10 +103,16 @@ const fakeWinelist = [
     intense: 1,
   },
   {
+    id: 5,
     name: "Pomerol 2014",
     image:
       "https://images.vivino.com/thumbs/_abY0tGKQnC6mdcJAo0wcQ_pb_x960.png",
     domain: "Chateau l'Evangile",
+    year: 2010,
+    area: "Bordeaux",
+    grape: "Cabernet Sauvignon",
+    winemaker: "Marion",
+    alcohol_content: 13.5,
     red: 1,
     white: 0,
     fruity: 0,
@@ -101,10 +129,16 @@ const fakeWinelist = [
     intense: 0,
   },
   {
+    id: 6,
     name: "Margaux 2013",
     image:
       "https://images.vivino.com/thumbs/t61FjP97R-SOyDIHfV_OPg_pb_x960.png",
     domain: "Chateau la Besssane",
+    area: "Champagne",
+    winemaker: "Kevin",
+    grape: "Cabernet Sauvignon, Chardonnay",
+    alcohol_content: 12,
+    year: 2018,
     red: 1,
     white: 0,
     fruity: 1,

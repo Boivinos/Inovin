@@ -77,6 +77,7 @@ function WineCardList() {
                   image={wine.image}
                   domain={wine.domain}
                   key={wine.name}
+                  id={wine.id}
                 />
               );
             })}

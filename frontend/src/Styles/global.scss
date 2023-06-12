@@ -21,4 +21,11 @@ button {
   font-family: $buttonTypo;
   padding: 10px 25px;
   border-radius: 25px;
+  text-transform: uppercase;
+}
+
+.separator {
+  width: 60%;
+  height: 1px;
+  background-color: $primary-color;
 }

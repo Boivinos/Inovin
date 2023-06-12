@@ -1,0 +1,116 @@
+.wineDetailsWrapper {
+  margin: 0 clamp(25px, 10%, 300px);
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .wineInfo {
+    font-family: $mainTypo;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+
+    .mainWineInfo {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      .imageBloc {
+        height: clamp(200px, 40vw, 300px);
+        overflow: hidden;
+        margin-right: 30px;
+        img {
+          height: 100%;
+        }
+      }
+      .mainWineInfoBloc {
+        p:first-child {
+          font-size: calc(1vw + 1em);
+        }
+
+        p:nth-child(2) {
+          font-size: 1.5em;
+        }
+      }
+    }
+    .detailedWineInfo {
+      p:first-child {
+        font-size: calc(1vw + 1em);
+      }
+    }
+  }
+  .wineCommentsAndRecipe {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .commentsHeaderAndWrapper {
+      width: 75%;
+      p {
+        font-family: $mainTypo;
+      }
+      .commentsHeader {
+        font-size: calc(1vw + 1em);
+      }
+
+      .commentsWrapper {
+        .commentBox {
+          margin-top: 10px;
+          p:first-child {
+            font-size: calc(1vw + 0.6em);
+          }
+          p:nth-child(2) {
+            font-size: calc(0.8vw + 0.6em);
+          }
+        }
+      }
+    }
+    .buttonWrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .wineDetailsWrapper {
+    margin: 0 clamp(25px, calc(10%), 300px);
+    margin-top: 20px;
+
+    .wineInfo {
+      flex-direction: column;
+
+      .mainWineInfo {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 0px;
+      }
+
+      .detailedWineInfo {
+        width: 100%;
+      }
+    }
+  }
+  .wineCommentsAndRecipe {
+    flex-direction: column;
+    align-items: normal;
+    .commentsHeaderAndWrapper {
+      min-width: 100%;
+    }
+    .buttonWrapper {
+      width: 100%;
+      margin-top: 20px;
+      button {
+        max-width: 75%;
+      }
+    }
+  }
+}
