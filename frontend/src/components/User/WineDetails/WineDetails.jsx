@@ -3,11 +3,15 @@ import { useParams } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import fakeWinelist from "../WineCardList/fakeWineList";
 import fakeComments from "./fakeComments";
+import VueComments from "./Comments/VueComments";
+import CommentButton from "./Comments/CommentButton";
+import AddComments from "./Comments/AddComments";
 
 function WineDetails() {
   const { id } = useParams();
   const data = fakeWinelist[id - 1];
   const [isEditing, setIsEditing] = useState(false);
+  const [commentValue, setCommentValue] = useState("");
 
   const ratingChanged = (newRating) => {
     console.warn(newRating); // envoyer la note dans la table de jointure note, si il y a déjà une ligne qui match le wineid et user id, la mettre à jour
@@ -15,19 +19,7 @@ function WineDetails() {
 
   const displayVueCommentsMode = () => {
     if (fakeComments.length) {
-      return (
-        <>
-          <p>Commentaires :</p>
-          {fakeComments.map((com) => {
-            return (
-              <>
-                <p>{`${com.user} le ${com.date} :`}</p>
-                <p>{com.content}</p>
-              </>
-            );
-          })}
-        </>
-      );
+      return <VueComments />;
     }
     return (
       <>
@@ -39,15 +31,11 @@ function WineDetails() {
 
   const displayAddCommentMode = () => {
     return (
-      <>
-        <p>Ajouter un commentaire :</p>
-        <input type="text" />
-      </>
+      <AddComments
+        commentValue={commentValue}
+        setCommentValue={setCommentValue}
+      />
     );
-  };
-
-  const handleComment = () => {
-    setIsEditing(!isEditing);
   };
 
   return (
@@ -85,9 +73,12 @@ function WineDetails() {
           {isEditing ? displayAddCommentMode() : displayVueCommentsMode()}
         </div>
         <div className="buttonWrapper">
-          <button type="button" onClick={handleComment}>
-            Ajouter un commentaire
-          </button>
+          <CommentButton
+            isEditing={isEditing}
+            setIsEditing={setIsEditing}
+            commentValue={commentValue}
+            setCommentValue={setCommentValue}
+          />
           <button type="button">Télécharger la recette</button>
         </div>
       </div>

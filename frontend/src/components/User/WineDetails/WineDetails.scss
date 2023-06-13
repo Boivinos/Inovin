@@ -57,6 +57,11 @@
         font-size: calc(1vw + 0.6em);
         margin-top: 10px;
       }
+      input {
+        margin-top: 10px;
+        width: 80%;
+        height: 50px;
+      }
     }
     .buttonWrapper {
       display: flex;
@@ -96,6 +101,9 @@
     align-items: normal;
     .commentsHeaderAndWrapper {
       min-width: 100%;
+      input {
+        min-width: 100%;
+      }
     }
     .buttonWrapper {
       width: 100%;
