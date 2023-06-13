@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import fakeWinelist from "../WineCardList/fakeWineList";
 import fakeComments from "./fakeComments";
@@ -40,6 +40,12 @@ function WineDetails() {
 
   return (
     <div className="wineDetailsWrapper">
+      <NavLink to="/wineCardList">
+        <div className="returnButtonWrapper">
+          <img src="https://i.ibb.co/PchSHGr/60793.png" alt="" />
+          <p>Retour</p>
+        </div>
+      </NavLink>
       <div className="wineInfo">
         <div className="mainWineInfo">
           <div className="imageBloc">
