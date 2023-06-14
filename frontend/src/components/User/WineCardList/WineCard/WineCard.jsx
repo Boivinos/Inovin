@@ -1,18 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
+import FavoriteButton from "./FavoriteButton";
 
 function WineCard({ name, image, domain, id }) {
   return (
-    <NavLink to={`/wineDetails/${id}`}>
-      <div className="wineCard">
+    <div className="wineCard">
+      <NavLink to={`/wineDetails/${id}`}>
         <div className="imgBox">
           <img src={image} alt="" />
         </div>
-        <p>{name}</p>
-        <p>{domain}</p>
+        <div className="wineCardDescription">
+          <p>{name}</p>
+          <p>{domain}</p>
+        </div>
+      </NavLink>
+      <div className="favoriteButton">
+        <FavoriteButton />
       </div>
-    </NavLink>
+    </div>
   );
 }
 
