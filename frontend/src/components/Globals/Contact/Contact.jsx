@@ -11,7 +11,7 @@ function Contact() {
     formState: { errors },
   } = useForm();
 
-  /*  suivi de l'état du formulaire */
+  /*  suivi de l'état de validation du formulaire */
   const [isFormValid, setFormValid] = useState(false);
 
   /*  màj du state en fonction des erreurs et stockage dans le tableau */
@@ -20,7 +20,7 @@ function Contact() {
     setFormValid(!hasErrors);
   }, [errors]);
 
-  const onSubmit = (data) => console.warn(data);
+  const onSubmit = (data) => console.error(data);
 
   const { field: nomPrenomField } = useController({
     name: "NomPrenom",
@@ -37,13 +37,24 @@ function Contact() {
         value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
         message: "Merci de renseigner un email valide",
       },
+      validate: {
+        validExtension: (value) => {
+          const validExtensions = ["com", "net", "org", "fr"];
+
+          const domain = value.split(".").pop();
+          if (!validExtensions.includes(domain.toLowerCase())) {
+            return "Extension de domaine non valide";
+          }
+          return true;
+        },
+      },
     },
   });
 
   const { field: messageField } = useController({
     name: "Message",
     control,
-    rules: { required: true, maxLength: 200 },
+    rules: { required: true, minLength: 10, maxLength: 200 },
   });
 
   return (
@@ -99,6 +110,11 @@ function Contact() {
             Merci de renseigner un email valide
           </span>
         )}
+        {errors?.AdresseMail?.type === "validExtension" && (
+          <span className="ContactForm_error">
+            Merci de renseigner une extension valide
+          </span>
+        )}
         <textarea
           id="ContactForm_inputMessage"
           name={messageField.name}
@@ -117,6 +133,11 @@ function Contact() {
         {errors?.Message?.type === "maxLength" && (
           <span className="ContactForm_error">
             Votre message ne peut pas exéder 200 caractères
+          </span>
+        )}
+        {errors?.Message?.type === "minLength" && (
+          <span className="ContactForm_error">
+            Votre message doit comporter un minimum de 10 caractères
           </span>
         )}
 
