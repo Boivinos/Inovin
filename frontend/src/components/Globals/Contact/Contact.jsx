@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm, useController } from "react-hook-form";
+import { NavLink } from "react-router-dom";
 import InovinPicture from "../../../assets/InovinPicture_square.png";
 import InovinPictureDesktop from "../../../assets/inovinPicture_desktop.png";
 
@@ -109,8 +110,10 @@ function Contact() {
           </span>
         )}
         <button className="ContactForm_button" type="submit">
-          {" "}
-          Envoyer{" "}
+          <NavLink to="/validationMessage" className="link">
+            {" "}
+            Envoyer{" "}
+          </NavLink>
         </button>
       </form>
     </div>

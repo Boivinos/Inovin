@@ -8,6 +8,7 @@ import WineDetails from "../User/WineDetails/WineDetails";
 import Contact from "../Globals/Contact/Contact";
 import Glossary from "../Globals/Glossary/Glossary";
 import Profile from "../User/Profile/Profile";
+import ValidationMessage from "../Globals/ValidationMessage/ValidationMessage";
 
 function Router() {
   return (
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/wineDetails/:id" element={<WineDetails />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/glossary" element={<Glossary />} />
+      <Route path="/validationMessage" element={<ValidationMessage />} />
     </Routes>
   );
 }
