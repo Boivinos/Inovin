@@ -28,6 +28,7 @@
     align-items: center;
     justify-content: space-around;
     gap: 20px;
+    position: relative;
 
     .mainWineInfo {
       display: flex;
@@ -56,6 +57,11 @@
       p:first-child {
         font-size: calc(1vw + 1em);
       }
+    }
+    .favoriteButton {
+      position: absolute;
+      top: 10px;
+      right: 1px;
     }
   }
   .wineCommentsAndRecipe {

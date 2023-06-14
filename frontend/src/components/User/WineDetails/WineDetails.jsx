@@ -6,6 +6,7 @@ import fakeComments from "./fakeComments";
 import VueComments from "./Comments/VueComments";
 import CommentButton from "./Comments/CommentButton";
 import AddComments from "./Comments/AddComments";
+import FavoriteButton from "../WineCardList/WineCard/FavoriteButton";
 
 function WineDetails() {
   const { id } = useParams();
@@ -71,6 +72,9 @@ function WineDetails() {
           <p>Domaine : {data.domain}</p>
           <p>Cépage(s) : {data.grape}</p>
           <p>Teneur en alcool : {data.alcohol_content}%</p>
+        </div>
+        <div className="favoriteButton">
+          <FavoriteButton />
         </div>
       </div>
       <div className="separator" />
