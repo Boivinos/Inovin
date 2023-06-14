@@ -35,7 +35,7 @@ function Connection() {
       </h3>
       <form className="form_connexion" onSubmit={handleSubmit(onSubmit)}>
         <input
-          className={`mail ${emailSelected && "selected" }`}
+          className={`mail ${emailSelected && "selected"}`}
           type="email"
           placeholder="✉️  utilisateur@mail.com"
           name="email"
@@ -54,7 +54,7 @@ function Connection() {
         )}
 
         <input
-          className={`mdp ${passwordSelected && "selected" }`}
+          className={`mdp ${passwordSelected && "selected"}`}
           type="password"
           placeholder="🔒 Mot de passe"
           name="password"
