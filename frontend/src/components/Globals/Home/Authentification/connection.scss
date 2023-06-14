@@ -1,79 +1,118 @@
-.text_connexion {
-  text-align: center;
-  font-family: $mainTypo;
-  font-size: 16px;
-  margin-top: 10%;
-  padding: 15px;
-}
-
-.form_connexion {
-  display: flex;
-  flex-direction: column;
+.formulaire_connexion_page {
+  display:flex;
+  justify-content: center;
   align-items: center;
-  margin-top: 8%;
-
-  input {
-    font-style: italic;
-    border: none;
-    border-bottom: solid $primary-color 0.1rem;
-    margin: 0 auto;
-    border-style: none;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    margin-bottom: 1.5em;
-    padding-bottom: 0.5em;
-    width: 80%;
-    font-family: $buttonTypo;
-  }
-  &:focus {
-    outline: none;
-    border-color: $primary-color;
-  }
-}
-
-.button_connexion {
-  display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  margin-top: 15px;
-  width: 45%;
-}
+  margin-top: 20px;
 
-.inscription {
-  margin-top: 40px;
-  text-align: center;
-}
+    .inovin_picture {
+      background-image: url("https://i.ibb.co/qFN1ZLG/inovin-Picture-mobile.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      width: calc(513px * 0.5);
+      height: calc(582px * 0.5);
+    }
+    .form_connexion {
+      display:flex;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 8%;
+    
+      input {
+        font-style: italic;
+        border: none;
+        border-bottom: solid;
+        margin: 0 auto;
+        border-style: none;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        margin-bottom: 1.5em;
+        padding-bottom: 0.5em;
+        margin-top: 20px;
+        width: 80%;
+        font-family: $buttonTypo;
+      } &:focus {
+        outline: none;
+        border-color: $primary-color;
+      }
+      
+      .button_connexion {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        margin-top: 10px;
+      } 
+      .a {  
+        width: 30%;
+      }
+    }
 
-.errormdp {
-  color: red;
-}
-.errormail {
-  color: red;
-  margin-bottom: 15px;
-}
-
-.selected {
-  background-color: lightyellow;
-}
-
-.button_inscription {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  margin-top: 10px;
-  width: 45%;
-}
-
-@media screen and (min-width: 481px) and (max-width: 600px) {
-  .text_connexion {
-    margin-top: 25px;
+    .button_inscription {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      margin-top: 10px;
+    } 
+    .a {  
+      width: 30%;
+    }
   }
-}
 
-@media screen and (min-width: 601px) and (max-width: 1024px) {
-  .text_connexion {
-    text-align: center;
-    margin-top: 1%;
-    padding: 15px;
+    .text_connexion {
+      font-family: $mainTypo;
+      font-size: 16px;
+      margin-top: 5%;
+      margin-bottom: 5%;
+      margin: 1.2rem;
+  }
+
+    .inscription {
+      text-align: center;
+      margin-top: 20%;
+  }
+  
+  .errormdp {
+    color: red;
+  }
+  .errormail {
+    color: red;
+    margin-bottom: 15px;
+  }
+  
+  .selected {
+    background-color: lightyellow;
+  }
+  
+
+
+@media screen and (min-width: 601px) {
+  
+  .formulaire_connexion_page {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 3%;
+    .inovin_picture {
+      margin-top:10px;
+      margin-left:10px;
+      background-image: url("https://i.ibb.co/WvqNyZT/inovin-Picture-desktop.png");
+      width: calc(513px * 0.7);
+      height: calc(582px * 0.7);
+  }
+ 
+  .form_connexion {
+   width:50%;
+   margin-right:10px;
+    .text_connexion {
+        text-align: center;
+        margin-top: 1%;
+        padding: 15px;
+      }
+    }
+  .inscription {
+    margin-top:15%;
+   }  
   }
 }
