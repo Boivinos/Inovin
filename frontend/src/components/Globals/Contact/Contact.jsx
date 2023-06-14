@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useForm, useController } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 import InovinPicture from "../../../assets/InovinPicture_square.png";
@@ -10,6 +10,16 @@ function Contact() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  /*  suivi de l'état du formulaire */
+  const [isFormValid, setFormValid] = useState(false);
+
+  /*  màj du state en fonction des erreurs et stockage dans le tableau */
+  useEffect(() => {
+    const hasErrors = Object.keys(errors).length > 0;
+    setFormValid(!hasErrors);
+  }, [errors]);
+
   const onSubmit = (data) => console.warn(data);
 
   const { field: nomPrenomField } = useController({
@@ -106,13 +116,14 @@ function Contact() {
         )}
         {errors?.Message?.type === "maxLength" && (
           <span className="ContactForm_error">
-            Votre message ne peut pas exécéder 200 caractères
+            Votre message ne peut pas exéder 200 caractères
           </span>
         )}
+
+        {/* vérification de l'état du state pour valider le questionnaire */}
         <button className="ContactForm_button" type="submit">
-          <NavLink to="/validationMessage" className="link">
-            {" "}
-            Envoyer{" "}
+          <NavLink to={isFormValid ? "/validationMessage" : "#"}>
+            Envoyer
           </NavLink>
         </button>
       </form>
