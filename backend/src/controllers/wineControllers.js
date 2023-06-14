@@ -1,7 +1,7 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.item
+  models.wine
     .findAll()
     .then(([rows]) => {
       res.send(rows);
@@ -13,7 +13,7 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
-  models.item
+  models.wine
     .find(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
@@ -35,7 +35,7 @@ const edit = (req, res) => {
 
   item.id = parseInt(req.params.id, 10);
 
-  models.item
+  models.wine
     .update(item)
     .then(([result]) => {
       if (result.affectedRows === 0) {
@@ -55,7 +55,7 @@ const add = (req, res) => {
 
   // TODO validations (length, format...)
 
-  models.item
+  models.wine
     .insert(item)
     .then(([result]) => {
       res.location(`/items/${result.insertId}`).sendStatus(201);
@@ -67,7 +67,7 @@ const add = (req, res) => {
 };
 
 const destroy = (req, res) => {
-  models.item
+  models.wine
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
