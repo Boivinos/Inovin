@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useForm, useController } from "react-hook-form";
+import { NavLink } from "react-router-dom";
 
 function Inscription() {
   const {
@@ -166,7 +167,7 @@ function Inscription() {
         )}
         <input
           className={`birthday ${birthdaySelected ? "selected" : ""}`}
-          type=""
+          type="date"
           name={birthdayField.name}
           placeholder="Date de naissance *"
           onSelect={handlebirthdaySelect}
@@ -228,10 +229,11 @@ function Inscription() {
           placeholder="Description *"
           onSelect={handledescriptionSelect}
         />
-
+        <NavLink to="/quizz">
         <button className="button_inscription" type="submit" onClick={onSubmit}>
           INSCRIPTION
         </button>
+        </NavLink>
       </form>
     </>
   );
