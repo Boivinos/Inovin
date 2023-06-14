@@ -230,9 +230,13 @@ function Inscription() {
           onSelect={handledescriptionSelect}
         />
         <NavLink to="/quizz">
-        <button className="button_inscription" type="submit" onClick={onSubmit}>
-          INSCRIPTION
-        </button>
+          <button
+            className="button_inscription"
+            type="submit"
+            onClick={onSubmit}
+          >
+            INSCRIPTION
+          </button>
         </NavLink>
       </form>
     </>

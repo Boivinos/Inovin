@@ -53,11 +53,11 @@
     width: 45%;
   }
   &_error {
-  color: red;
-  font-family: $buttonTypo;
-  font-size: smaller;
-  margin: 10%;
-}
+    color: red;
+    font-family: $buttonTypo;
+    font-size: smaller;
+    margin: 10%;
+  }
 
   cursor: pointer;
   background-color: white;
