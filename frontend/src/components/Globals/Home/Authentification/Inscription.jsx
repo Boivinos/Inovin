@@ -141,7 +141,7 @@ function Inscription() {
       </div>
 
       <h4 className="text_inscription">
-        Inscris-toi pour découvrir ta sélection de vin personnalisée.
+        Inscris-toi pour découvrir ta sélection de vins personnalisée.
       </h4>
       <form className="form_inscription" onSubmit={handleSubmit(onSubmit)}>
         <input
@@ -166,7 +166,7 @@ function Inscription() {
         )}
         <input
           className={`birthday ${birthdaySelected ? "selected" : ""}`}
-          type="date"
+          type=""
           name={birthdayField.name}
           placeholder="Date de naissance *"
           onSelect={handlebirthdaySelect}
