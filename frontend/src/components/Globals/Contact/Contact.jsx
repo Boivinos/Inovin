@@ -25,7 +25,7 @@ function Contact() {
   const { field: nomPrenomField } = useController({
     name: "NomPrenom",
     control,
-    rules: { required: true, maxLength: 20, pattern: /^[A-Za-z ]+$/i },
+    rules: { required: true, maxLength: 20, pattern: /^[A-Za-zÀ-ÿ ]+$/i },
   });
 
   const { field: adresseMailField } = useController({
