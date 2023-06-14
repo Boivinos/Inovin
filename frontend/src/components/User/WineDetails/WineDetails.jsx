@@ -1,25 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
-import fakeWinelist from "../WineCardList/fakeWineList";
-import fakeComments from "./fakeComments";
+import axios from "axios";
 import VueComments from "./Comments/VueComments";
 import CommentButton from "./Comments/CommentButton";
 import AddComments from "./Comments/AddComments";
 
 function WineDetails() {
   const { id } = useParams();
-  const data = fakeWinelist[id - 1];
   const [isEditing, setIsEditing] = useState(false);
   const [commentValue, setCommentValue] = useState("");
+  const [wineDetailsData, setWineDetailsData] = useState([]);
+  const [commentsData, setCommentsData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/api/wines/${id}`)
+      .then((response) => setWineDetailsData(response.data))
+      .catch((error) => console.error(error.message));
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/api/wine/${id}/comments`)
+      .then((response) => setCommentsData(response.data))
+      .catch((error) => console.error(error.message));
+  }, []);
 
   const ratingChanged = (newRating) => {
     console.warn(newRating); // envoyer la note dans la table de jointure note, si il y a déjà une ligne qui match le wineid et user id, la mettre à jour
   };
 
   const displayVueCommentsMode = () => {
-    if (fakeComments.length) {
-      return <VueComments />;
+    if (commentsData.length) {
+      return <VueComments commentsData={commentsData} />;
     }
     return (
       <>
@@ -49,13 +63,16 @@ function WineDetails() {
       <div className="wineInfo">
         <div className="mainWineInfo">
           <div className="imageBloc">
-            <img src={data.image} alt="" />
+            <img src={wineDetailsData.image} alt="" />
           </div>
           <div className="mainWineInfoBloc">
-            <p>{data.name}</p>
-            <p>{data.year}</p>
-            <p>Région : {data.area}</p>
-            <p>{data.winemaker && `Vigneron : ${data.winemaker}`}</p>
+            <p>{wineDetailsData.name}</p>
+            <p>{wineDetailsData.year}</p>
+            <p>Région : {wineDetailsData.area}</p>
+            <p>
+              {wineDetailsData.winemaker &&
+                `Vigneron : ${wineDetailsData.winemaker}`}
+            </p>
             <ReactStars
               count={5}
               onChange={ratingChanged}
@@ -68,9 +85,9 @@ function WineDetails() {
         </div>
         <div className="detailedWineInfo">
           <p>Informations sur le vin :</p>
-          <p>Domaine : {data.domain}</p>
-          <p>Cépage(s) : {data.grape}</p>
-          <p>Teneur en alcool : {data.alcohol_content}%</p>
+          <p>Domaine : {wineDetailsData.domain}</p>
+          <p>Cépage(s) : {wineDetailsData.grape}</p>
+          <p>Teneur en alcool : {wineDetailsData.alcohol_content}%</p>
         </div>
       </div>
       <div className="separator" />

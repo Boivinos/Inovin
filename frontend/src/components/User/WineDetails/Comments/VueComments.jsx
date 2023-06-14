@@ -1,20 +1,30 @@
 import React from "react";
-import fakeComments from "../fakeComments";
+import PropTypes from "prop-types";
 
-function VueComments() {
+function VueComments({ commentsData }) {
+  const formatDate = (date) => {
+    return date.split("").slice(0, 10).join("").split("-").reverse().join("/");
+  };
+
   return (
     <>
       <p>Commentaires :</p>
-      {fakeComments.map((com) => {
+      {commentsData.map((com) => {
         return (
           <>
-            <p>{`${com.user} le ${com.date} :`}</p>
-            <p>{com.content}</p>
+            <p>{`${com.firstname} ${com.lastname} le ${formatDate(
+              com.comment_date
+            )} :`}</p>
+            <p>{com.comment_content}</p>
           </>
         );
       })}
     </>
   );
 }
+
+VueComments.propTypes = {
+  commentsData: PropTypes.shape([]).isRequired,
+};
 
 export default VueComments;
