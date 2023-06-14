@@ -106,6 +106,7 @@ class WineManager extends AbstractManager {
         wine.short,
         wine.medium,
         wine.intense,
+        wine.id,
       ]
     );
   }

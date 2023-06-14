@@ -207,6 +207,28 @@ CREATE TABLE
         PRIMARY KEY (id)
     );
 
+INSERT INTO
+    users (
+        firstname,
+        lastname,
+        born,
+        email,
+        user_password
+    )
+VALUES (
+        "John",
+        "Bob",
+        "1995-01-01",
+        "johnbob@gmail.com",
+        "password"
+    ), (
+        "Chuck",
+        "Norris",
+        "1995-01-01",
+        "chuck@gmail.com",
+        "chucknapasbesoindepassword"
+    );
+
 CREATE TABLE
     IF NOT EXISTS selection (
         user_id INT NOT NULL,
@@ -224,12 +246,36 @@ CREATE TABLE
 
 CREATE TABLE
     IF NOT EXISTS user_comments (
-        id INT NOT NULL,
+        id INT NOT NULL AUTO_INCREMENT UNIQUE,
         wine_id INT NOT NULL,
         user_id INT NOT NULL,
-        contenu varchar(400) NOT NULL,
+        comment_content varchar(400) NOT NULL,
         comment_date TIMESTAMP NOT NULL,
         PRIMARY KEY (id, wine_id, user_id)
+    );
+
+INSERT INTO
+    user_comments (
+        wine_id,
+        user_id,
+        comment_content,
+        comment_date
+    )
+VALUES (
+        1,
+        1,
+        "Excellent vin de table, je recommande avec du hareng !",
+        "2023-06-14"
+    ), (
+        1,
+        2,
+        "Chuck n'aime pas le vin blanc",
+        "2021-05-11"
+    ), (
+        2,
+        2,
+        "Chuck aime le vin rouge",
+        "2021-05-11"
     );
 
 CREATE TABLE
