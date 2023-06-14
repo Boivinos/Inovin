@@ -126,6 +126,13 @@
       .detailedWineInfo {
         width: 100%;
       }
+
+      .favoriteButton {
+        .heart-button {
+          padding: 0px 0px;
+          font-size: 20px;
+        }
+      }
     }
   }
 }
