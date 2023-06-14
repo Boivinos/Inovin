@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Home from "../Home";
 
-function Connexion() {
+function Connection() {
   const {
     register,
     handleSubmit,
@@ -35,7 +35,7 @@ function Connexion() {
       </h3>
       <form className="form_connexion" onSubmit={handleSubmit(onSubmit)}>
         <input
-          className={`mail ${emailSelected ? "selected" : ""}`}
+          className={`mail ${emailSelected && "selected" }`}
           type="email"
           placeholder="✉️  utilisateur@mail.com"
           name="email"
@@ -54,7 +54,7 @@ function Connexion() {
         )}
 
         <input
-          className={`mdp ${passwordSelected ? "selected" : ""}`}
+          className={`mdp ${passwordSelected && "selected" }`}
           type="password"
           placeholder="🔒 Mot de passe"
           name="password"
@@ -84,4 +84,4 @@ function Connexion() {
   );
 }
 
-export default Connexion;
+export default Connection;
