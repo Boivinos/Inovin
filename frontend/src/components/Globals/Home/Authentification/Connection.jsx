@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom"
 import { useForm } from "react-hook-form";
 import Home from "../Home";
 
@@ -29,11 +30,14 @@ function Connection() {
   return (
     <>
       <Home />
+      
+      <div className="formulaire_connexion_page">
+      <div className="inovin_picture"></div>
+      <form className="form_connexion" onSubmit={handleSubmit(onSubmit)}>
       <h3 className="text_connexion">
         Connecte-toi ou inscris-toi pour découvrir ta sélection de vin
         personnalisée.
       </h3>
-      <form className="form_connexion" onSubmit={handleSubmit(onSubmit)}>
         <input
           className={`mail ${emailSelected && "selected"}`}
           type="email"
@@ -71,15 +75,21 @@ function Connection() {
         {errors.password && (
           <span className="errormdp">{errors.password.message}</span>
         )}
-
+        <NavLink to="/profile">
         <button className="button_connexion" type="submit" onClick={onSubmit}>
           CONNEXION
         </button>
-      </form>
-      <p className="inscription">Tu n'as pas de compte ?</p>
-      <button className="button_inscription" type="submit" onClick={onSubmit}>
+        </NavLink>
+        <div className="inscription">Tu n'as pas de compte ?
+       <NavLink to="/inscription" className="button_inscription">
+       <button className="button_inscription" type="submit" onClick={onSubmit}>
         INSCRIPTION
-      </button>
+       </button>
+       </NavLink>
+       </div>
+      </form>
+       
+       </div>
     </>
   );
 }
