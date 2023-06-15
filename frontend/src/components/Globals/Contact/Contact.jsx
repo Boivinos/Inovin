@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useForm, useController } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 import InovinPicture from "../../../assets/InovinPicture_square.png";
@@ -10,12 +10,22 @@ function Contact() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.warn(data);
+
+  /*  suivi de l'état de validation du formulaire */
+  const [isFormValid, setFormValid] = useState(false);
+
+  /*  màj du state en fonction des erreurs et stockage dans le tableau */
+  useEffect(() => {
+    const hasErrors = Object.keys(errors).length > 0;
+    setFormValid(!hasErrors);
+  }, [errors]);
+
+  const onSubmit = (data) => console.error(data);
 
   const { field: nomPrenomField } = useController({
     name: "NomPrenom",
     control,
-    rules: { required: true, maxLength: 20, pattern: /^[A-Za-z ]+$/i },
+    rules: { required: true, maxLength: 20, pattern: /^[A-Za-zÀ-ÿ ]+$/i },
   });
 
   const { field: adresseMailField } = useController({
@@ -27,13 +37,24 @@ function Contact() {
         value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
         message: "Merci de renseigner un email valide",
       },
+      validate: {
+        validExtension: (value) => {
+          const validExtensions = ["com", "net", "org", "fr"];
+
+          const domain = value.split(".").pop();
+          if (!validExtensions.includes(domain.toLowerCase())) {
+            return "Extension de domaine non valide";
+          }
+          return true;
+        },
+      },
     },
   });
 
   const { field: messageField } = useController({
     name: "Message",
     control,
-    rules: { required: true, maxLength: 200 },
+    rules: { required: true, minLength: 10, maxLength: 200 },
   });
 
   return (
@@ -89,6 +110,11 @@ function Contact() {
             Merci de renseigner un email valide
           </span>
         )}
+        {errors?.AdresseMail?.type === "validExtension" && (
+          <span className="ContactForm_error">
+            Merci de renseigner une extension valide
+          </span>
+        )}
         <textarea
           id="ContactForm_inputMessage"
           name={messageField.name}
@@ -106,13 +132,19 @@ function Contact() {
         )}
         {errors?.Message?.type === "maxLength" && (
           <span className="ContactForm_error">
-            Votre message ne peut pas exécéder 200 caractères
+            Votre message ne peut pas exéder 200 caractères
           </span>
         )}
+        {errors?.Message?.type === "minLength" && (
+          <span className="ContactForm_error">
+            Votre message doit comporter un minimum de 10 caractères
+          </span>
+        )}
+
+        {/* vérification de l'état du state pour valider le questionnaire */}
         <button className="ContactForm_button" type="submit">
-          <NavLink to="/validationMessage" className="link">
-            {" "}
-            Envoyer{" "}
+          <NavLink to={isFormValid ? "/validationMessage" : "#"}>
+            Envoyer
           </NavLink>
         </button>
       </form>

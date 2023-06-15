@@ -17,7 +17,8 @@
   flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
-  margin: 25% 10% 0 10%;
+  margin: 10%;
+
 
   &_inovinPicture {
     display: block;
@@ -45,16 +46,17 @@
   .validationMessage {
     display: flex;
     flex-direction: row;
-    margin: 0 auto;
-
+    
     &_inovinPicture {
-      display: block;
+      display: flex;
+      margin: 0 auto;
       width: 400px;
       height: 400px;
     }
 
     &_text {
-      margin-top: 10%;
+      margin: 0 auto;
+
     }
   }
 }
