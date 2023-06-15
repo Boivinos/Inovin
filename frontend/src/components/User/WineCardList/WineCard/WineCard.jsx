@@ -5,22 +5,27 @@ import FavoriteButton from "./FavoriteButton";
 
 function WineCard({ name, image, domain, id }) {
   return (
-    <div className="wineCard">
-      <NavLink to={`/wineDetails/${id}`}>
-        <div className="imgBox">
-          <img src={image} alt="" />
-        </div>
-        <div className="wineCardDescription">
-          <p>{name}</p>
-          <p>{domain}</p>
-        </div>
-      </NavLink>
+    <div className="wineCardWrapper">
       <div className="favoriteButton">
         <FavoriteButton />
       </div>
+      <NavLink to={`/wineDetails/${id}`}>
+        <div className="wineCard">
+          <div className="imgBox">
+            <img src={image} alt="" />
+          </div>
+          <div className="wineCardDescription">
+            <p>{name}</p>
+            <p>{domain}</p>
+          </div>
+        </div>
+      </NavLink>
     </div>
   );
 }
+<div className="favoriteButton">
+  <FavoriteButton />
+</div>;
 
 WineCard.propTypes = {
   name: PropTypes.string.isRequired,

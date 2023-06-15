@@ -1,20 +1,23 @@
 .navBar {
+
   background: rgb(0, 0, 0);
   width: 100%;
   height: 100px;
+  
 }
 .icone {
-  left: 32px;
+  right: 32px;
   top: 25px;
-  position: absolute;
+  position: fixed;
   cursor: pointer;
-  /* Ajout de la propriété position absolute */
 }
+
 .navLinks {
+  padding: 15px;
+  left: 32px;
   height: 100%;
   gap: 10%;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   max-width: 95%;
 
@@ -43,8 +46,10 @@ ul.dropdownMenu {
   display: flex;
   justify-content: start;
   align-items: start;
-  position: absolute;
   top: 80px;
+  position: absolute;
+  right: 2rem;
+  
 }
 
 .dropdownMenu li {
