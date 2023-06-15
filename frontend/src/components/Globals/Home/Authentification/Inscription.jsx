@@ -183,7 +183,6 @@ function Inscription() {
           type="password"
           placeholder="Mot de passe *"
           name="password"
-          /* eslint-disable react/jsx-props-no-spreading */
           {...register("password", {
             required: true,
             minLength: {
@@ -197,7 +196,7 @@ function Inscription() {
           <span className="errormdp">{errors.password.message}</span>
         )}
         <label className="checkbox_vigneron">
-          <input className="checkbox" type="checkbox" />
+          <input className="checkbox" type="checkbox" checked={true / false} />
           <p>Je suis vigneron</p>
         </label>
         <input
