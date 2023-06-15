@@ -22,10 +22,10 @@ function CommentButton({
     if (isEditing) {
       axios
         .post(`http://localhost:8000/api/wines/${id}/comments`, temp)
-        .then(function (response) {
+        .then((response) => {
           setCommentsData([response.data, ...commentsData]);
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.error(error);
         });
     }

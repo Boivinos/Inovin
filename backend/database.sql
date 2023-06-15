@@ -198,7 +198,7 @@ CREATE TABLE
         lastname varchar(100) NOT NULL,
         born DATE,
         email varchar(100) NOT NULL,
-        user_password varchar(100) NOT NULL,
+        hashedPassword varchar(255) NOT NULL,
         isadmin tinyint,
         isvigneron tinyint,
         wine_domain varchar(100),
@@ -213,7 +213,7 @@ INSERT INTO
         lastname,
         born,
         email,
-        user_password
+        hashedPassword
     )
 VALUES (
         "John",
