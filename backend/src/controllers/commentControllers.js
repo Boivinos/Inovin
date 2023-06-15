@@ -28,7 +28,32 @@ const getCommentAndAuthorByWineID = (req, res) => {
     });
 };
 
+const postComment = (req, res) => {
+  models.comment
+    .postCommentByUserId(req.body)
+    .then(() => {
+      const date = new Date();
+      const day = date.getDate();
+      const month = date.getMonth() + 1;
+      const year = date.getFullYear();
+      const currentDate = `${year}-${month}-${day}`;
+      res
+        .send({
+          ...req.body,
+          comment_date: currentDate,
+          firstname: "John",
+          lastname: "Bob",
+        })
+        .status(201);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   destroy,
   getCommentAndAuthorByWineID,
+  postComment,
 };
