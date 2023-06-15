@@ -13,6 +13,8 @@ function Connection() {
   const [emailSelected, setEmailSelected] = useState(false);
   const [passwordSelected, setPasswordSelected] = useState(false);
 
+  // const [isSelected, setIsSelected] = useState("true");
+
   const onSubmit = (data) => {
     console.warn(data);
   };
@@ -43,7 +45,6 @@ function Connection() {
             type="email"
             placeholder="✉️  utilisateur@mail.com"
             name="email"
-            /* eslint-disable react/jsx-props-no-spreading */
             {...register("email", {
               required: true,
               pattern: {
