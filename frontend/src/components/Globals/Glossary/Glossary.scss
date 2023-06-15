@@ -1,0 +1,17 @@
+.cepage_name {
+  background-color: aqua;
+  display: flex;
+
+  .cepage_name {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .cepage_name:nth-child(2) {
+    justify-content: flex-end;
+  }
+}
+
+.cepage_description {
+  background-color: bisque;
+}
