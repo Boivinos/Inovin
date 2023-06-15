@@ -23,7 +23,7 @@ function WineDetails() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/wine/${id}/comments`)
+      .get(`http://localhost:8000/api/wines/${id}/comments`)
       .then((response) => setCommentsData(response.data))
       .catch((error) => console.error(error.message));
   }, []);
@@ -105,6 +105,8 @@ function WineDetails() {
             setIsEditing={setIsEditing}
             commentValue={commentValue}
             setCommentValue={setCommentValue}
+            commentsData={commentsData}
+            setCommentsData={setCommentsData}
           />
           <button type="button">Télécharger la recette</button>
         </div>

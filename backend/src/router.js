@@ -8,8 +8,9 @@ const commentControllers = require("./controllers/commentControllers");
 router.get("/api/wines", wineControllers.browse);
 router.get("/api/wines/:id", wineControllers.read);
 router.get(
-  "/api/wine/:id/comments",
+  "/api/wines/:id/comments",
   commentControllers.getCommentAndAuthorByWineID
 );
+router.post("/api/wines/:id/comments", commentControllers.postComment);
 
 module.exports = router;
