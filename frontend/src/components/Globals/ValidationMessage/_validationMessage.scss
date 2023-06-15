@@ -19,6 +19,7 @@
   justify-content: center;
   margin: 10%;
 
+
   &_inovinPicture {
     display: block;
     margin-top: 15%;
@@ -45,7 +46,7 @@
   .validationMessage {
     display: flex;
     flex-direction: row;
-
+    
     &_inovinPicture {
       display: flex;
       margin: 0 auto;
@@ -55,6 +56,7 @@
 
     &_text {
       margin: 0 auto;
+
     }
   }
 }

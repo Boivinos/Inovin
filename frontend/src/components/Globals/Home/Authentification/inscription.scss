@@ -1,47 +1,69 @@
-.text_inscription {
-  text-align: center;
-  font-family: $mainTypo;
-  font-size: 16px;
-  margin-top: 5%;
-  padding: 15px;
-}
-.checkbox_vigneron {
+.formulaire_inscription_page {
   display: flex;
   justify-content: center;
-
-  color: black;
-  margin-bottom: 10px;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
 }
+
+.inovin_picture {
+  background-image: url("https://i.ibb.co/qFN1ZLG/inovin-Picture-mobile.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: calc(513px * 0.5);
+  height: calc(582px * 0.5);
+}
+
 .form_inscription {
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  align-items: center;
-  margin-top: 8%;
-  margin: 40px auto;
+  margin-top: 5%;
+  margin: 35px;
+
   input {
     font-style: italic;
     border: none;
-    border-bottom: solid $primary-color 0.1rem;
-    margin: 0 auto;
+    border-bottom: solid;
     border-style: none;
     border-bottom-style: solid;
     border-bottom-width: 1px;
     margin-bottom: 1.5em;
     padding-bottom: 0.5em;
-    width: 80%;
+    margin-top: 20px;
     font-family: $buttonTypo;
+  }
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
   }
 }
 
-.form_description {
-  font-style: italic;
+.text_inscription {
+  font-family: $mainTypo;
+  font-size: 16px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin: 1.2rem;
+}
+
+.checkbox_vigneron {
   display: flex;
-  flex-direction: column;
-  margin: 40px auto;
+  align-items: center;
+  gap: 20px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.form_description {
+  display: flex;
+  font-style: italic;
   border-style: solid;
   padding-bottom: 2em;
   font-family: $buttonTypo;
-  width: 80%;
+  width: 100%;
+  height: 80px;
   resize: none;
   padding: 5px;
   &:focus {
@@ -50,6 +72,15 @@
   }
 }
 
+.button_inscription {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.a {
+  width: 30%;
+}
 .selected {
   background-color: lightyellow;
 }
@@ -57,4 +88,56 @@
 .form_inscription_error {
   color: red;
   margin-bottom: 15px;
+}
+
+@media screen and (min-width: 700px) {
+  .formulaire_inscription_page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5%;
+    .inovin_picture {
+      margin-top: 10px;
+      margin-left: 10px;
+      background-image: url("https://i.ibb.co/WvqNyZT/inovin-Picture-desktop.png");
+      width: calc(513px * 0.8);
+      height: calc(582px * 0.8);
+    }
+
+    .form_inscription {
+      width: 30%;
+
+      input {
+        margin-top: 10px;
+      }
+      .text_connexion {
+        text-align: center;
+        margin-top: 1%;
+        padding: 15px;
+      }
+    }
+    .inscription {
+      margin-top: 15%;
+    }
+    .form_description {
+      margin-top: 20px;
+    }
+
+    .text_inscription {
+      margin: 0 auto;
+      margin-top: 20px;
+      margin-bottom: 50px;
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .inovin_picture {
+    margin-top: 10px;
+    margin-left: 10px;
+    background-image: url("https://i.ibb.co/WvqNyZT/inovin-Picture-desktop.png");
+    width: calc(513px * 1);
+    height: calc(582px * 1);
+  }
 }
