@@ -133,18 +133,12 @@ function Inscription() {
     },
   });
   return (
-    <>
-      <div className="home_logo">
-        <h1 className="title_logo">
-          IN<span>O</span>VIN
-        </h1>
-        <h3 className="subtitle_logo">De la dégustation à la création</h3>
-      </div>
-
-      <h4 className="text_inscription">
-        Inscris-toi pour découvrir ta sélection de vins personnalisée.
-      </h4>
+    <div className="formulaire_inscription_page">
+      <div className="inovin_picture" />
       <form className="form_inscription" onSubmit={handleSubmit(onSubmit)}>
+        <h3 className="text_inscription">
+          Inscris-toi pour découvrir ta sélection de vins personnalisée.
+        </h3>
         <input
           className={`name ${nameSelected ? "selected" : ""}`}
           type="text"
@@ -230,12 +224,16 @@ function Inscription() {
           onSelect={handledescriptionSelect}
         />
         <NavLink to="/quizz">
-        <button className="button_inscription" type="submit" onClick={onSubmit}>
-          INSCRIPTION
-        </button>
+          <button
+            className="button_inscription"
+            type="submit"
+            onClick={onSubmit}
+          >
+            INSCRIPTION
+          </button>
         </NavLink>
       </form>
-    </>
+    </div>
   );
 }
 
