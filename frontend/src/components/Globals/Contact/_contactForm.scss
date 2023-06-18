@@ -17,7 +17,7 @@
     margin: 0 auto;
   }
 
-  &_input {
+  &_input, &_error {
     font-style: italic;
     display: flex;
     flex-direction: column;
@@ -33,7 +33,14 @@
     &:focus {
       outline: none;
       border-color: $primary-color;
+      background-color: lightyellow;
     }
+  }
+  &_error {
+    color: red;
+    font-family: $buttonTypo;
+    font-size: smaller;
+    border-bottom: none;
   }
 
   &_button {
@@ -51,12 +58,6 @@
     text-transform: uppercase;
     background: none;
     width: 45%;
-  }
-  &_error {
-    color: red;
-    font-family: $buttonTypo;
-    font-size: smaller;
-    margin: 10%;
   }
 
   cursor: pointer;
