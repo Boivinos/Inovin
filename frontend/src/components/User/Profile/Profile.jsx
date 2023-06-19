@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
+
 import { useLocation } from "react-router-dom";
+
+import { NavLink } from "react-router-dom";
+
 
 function Profile() {
   const [data, setData] = useState();
@@ -41,9 +45,11 @@ function Profile() {
       </div>
       {/* router button à définir vvvv */}
       <div className="user-profile-taste_buttonzone">
-        <button className="user-profile-taste_button" type="button">
-          DÉCOUVRIR MA SÉLECTION
-        </button>
+        <NavLink to="/wineCardList" className="link">
+          <button className="user-profile-taste_button" type="button">
+            DÉCOUVRIR MA SÉLECTION
+          </button>
+        </NavLink>
       </div>
     </div>
   );

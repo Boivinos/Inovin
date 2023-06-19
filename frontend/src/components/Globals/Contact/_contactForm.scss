@@ -17,11 +17,13 @@
     margin: 0 auto;
   }
 
-  &_input {
+  &_input,
+  &_error {
     font-style: italic;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    margin-top: 30px;
     border-style: none;
     border-bottom-style: solid;
     border-bottom-width: 1px;
@@ -32,7 +34,14 @@
     &:focus {
       outline: none;
       border-color: $primary-color;
+      background-color: lightyellow;
     }
+  }
+  &_error {
+    color: red;
+    font-family: $buttonTypo;
+    font-size: smaller;
+    border-bottom: none;
   }
 
   &_button {
@@ -71,12 +80,7 @@
     border-color: $primary-color;
   }
 }
-.ContactForm_error {
-  color: red;
-  font-family: $buttonTypo;
-  margin-left: 10%;
-  font-size: smaller;
-}
+
 .ContactForm_inovinPicture_desktop {
   display: none;
 }
