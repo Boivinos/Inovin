@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { useLocation } from "react-router-dom";
-
-import { NavLink } from "react-router-dom";
-
+import { useLocation, NavLink } from "react-router-dom";
 
 function Profile() {
   const [data, setData] = useState();

@@ -1,17 +1,15 @@
-
 import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Home from "../Home";
 
 function Connection() {
   const {
-    register, /* enregistre les valeurs d'un champ pour pouvoir les utilisé */
-    handleSubmit, /* Gestion de transmission du formulaire */
+    register /* enregistre les valeurs d'un champ pour pouvoir les utilisé */,
+    handleSubmit /* Gestion de transmission du formulaire */,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = data => console.warn(data);
-
+  const onSubmit = (data) => console.warn(data);
 
   return (
     <>
@@ -37,7 +35,9 @@ function Connection() {
               },
             })}
           />
-          {errors.email?.type === 'required' && <p role="alert">Email is required</p>}
+          {errors.email?.type === "required" && (
+            <p role="alert">Email is required</p>
+          )}
 
           <input
             className="input_connexion"
@@ -53,14 +53,16 @@ function Connection() {
               },
             })}
           />
-          
+
           <NavLink to="/profile">
             <button
               className="button_connexion"
               // type="button"
               type="submit"
               onClick={onSubmit}
-            > CONNEXION
+            >
+              {" "}
+              CONNEXION
             </button>
           </NavLink>
           <div className="inscription">

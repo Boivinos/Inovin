@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm, useController } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 
 function Inscription() {
-
   const {
     control,
     register,
@@ -100,7 +99,6 @@ function Inscription() {
           type="text"
           name={firstnameField.name}
           placeholder="Prénom *"
-          
         />
         {errors.firstname && (
           <span className="form_inscription_error">Ce champ est requis</span>
@@ -110,7 +108,6 @@ function Inscription() {
           type="date"
           name={birthdayField.name}
           placeholder="Date de naissance *"
-          
         />
         {errors.datedenaissance && (
           <span className="form_inscription_error">Veuillez e</span>
@@ -120,7 +117,6 @@ function Inscription() {
           type="email"
           name={mailField.name}
           placeholder="Adresse email *"
-          
         />
         {errors.adressemail && <span className="form_inscription_error" />}
 
@@ -136,7 +132,6 @@ function Inscription() {
               message: "Le mot de passe doit comporter au moins 6 caractères.",
             },
           })}
-       
         />
         {errors.password && (
           <span className="errormdp">{errors.password.message}</span>
@@ -150,21 +145,18 @@ function Inscription() {
           type="text"
           name={domaineField.name}
           placeholder="Nom du domaine *"
-        
         />
         <input
           className="input_inscription"
           type="text"
           name={regionField.name}
           placeholder="Région *"
-        
         />
         <textarea
           className="form_description"
           type="text"
           name={descriptionField.name}
           placeholder="Description *"
-        
         />
         <NavLink to="/quizz">
           <button
