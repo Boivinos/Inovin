@@ -72,11 +72,11 @@
 }
 .input_inscription {
   &:focus {
-  background-color: lightyellow;
-  outline:none;
-  border-color: $primary-color;
+    background-color: lightyellow;
+    outline: none;
+    border-color: $primary-color;
+  }
 }
-} 
 
 .button_inscription {
   display: flex;
