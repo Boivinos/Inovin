@@ -158,7 +158,7 @@ function Inscription() {
           name={descriptionField.name}
           placeholder="Description *"
         />
-        <NavLink to="/quizz">
+        <NavLink to="/quiz" state={{ fromInscription: true }}>
           <button
             className="button_inscription"
             type="submit"
