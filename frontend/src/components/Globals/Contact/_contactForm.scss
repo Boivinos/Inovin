@@ -17,7 +17,8 @@
     margin: 0 auto;
   }
 
-  &_input, &_error {
+  &_input,
+  &_error {
     font-style: italic;
     display: flex;
     flex-direction: column;
