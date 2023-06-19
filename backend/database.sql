@@ -118,7 +118,7 @@ VALUES (
         1,
         1,
         0,
-        0,
+        1,
         0
     ), (
         NULL,
@@ -404,7 +404,7 @@ CREATE TABLE
         firstname varchar(100) NOT NULL,
         lastname varchar(100) NOT NULL,
         born DATE,
-        email varchar(100) NOT NULL,
+        email varchar(100) NOT NULL UNIQUE,
         hashedPassword varchar(255) NOT NULL,
         isadmin tinyint,
         isvigneron tinyint,
@@ -440,6 +440,7 @@ CREATE TABLE
     IF NOT EXISTS selection (
         user_id INT NOT NULL,
         wine_id INT NOT NULL,
+        score FLOAT,
         PRIMARY KEY (user_id, wine_id)
     );
 

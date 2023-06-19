@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 import WineCard from "./WineCard/WineCard";
 import SearchAndFilterMenu from "./ListButtons/SearchAndFilterMenu";
 
-function WineCardList() {
+function WineCardList({ request, title }) {
   const [search, setSearch] = useState("Rechercher...");
   const [isSearching, setIsSearching] = useState(false);
   const [visibleMenu, setVisibleMenu] = useState(false);
@@ -17,14 +18,14 @@ function WineCardList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/wines")
+      .get(request)
       .then((response) => setWineCardData(response.data))
       .catch((error) => console.error(error.message));
-  }, []);
+  }, [wineCardData]);
 
   return (
     <>
-      <p className="wineListTitle">Découvrez l'ensemble de nos vins</p>
+      <p className="wineListTitle">Découvrez {title}</p>
       <div className="menuAndListWrapper">
         <button
           type="button"
@@ -95,5 +96,9 @@ function WineCardList() {
     </>
   );
 }
+WineCardList.propTypes = {
+  request: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default WineCardList;

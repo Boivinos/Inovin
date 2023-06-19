@@ -5,6 +5,7 @@ const router = express.Router();
 const wineControllers = require("./controllers/wineControllers");
 const commentControllers = require("./controllers/commentControllers");
 const userControllers = require("./controllers/userControllers");
+const selectionControllers = require("./controllers/selectionControllers");
 const { hashPassword, verifyPassword } = require("./auth");
 
 router.post(
@@ -22,6 +23,14 @@ router.get(
   "/api/wines/:id/comments",
   commentControllers.getCommentAndAuthorByWineID
 );
+
 router.post("/api/wines/:id/comments", commentControllers.postComment);
+router.get("/api/selection/:id", selectionControllers.getSelectionByUser);
+router.post(
+  "/api/selection",
+  wineControllers.browseAndPassToNext,
+  selectionControllers.deleteSelection,
+  selectionControllers.createSelection
+);
 
 module.exports = router;

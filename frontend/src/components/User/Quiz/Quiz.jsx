@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import axios from "axios";
 import Questions from "./Questions/Questions";
 import questionsAndAnswer from "./questionsAndAnswer";
 
 function Quiz() {
   const [selectedQuestion, setSelectedQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState({
+    userID: 1,
     red: 0,
     white: 0,
     fruity: 0,
@@ -37,11 +39,16 @@ function Quiz() {
       setSelectedQuestion(selectedQuestion - 1);
     }
     if (button === "terminer") {
-      console.warn("Quiz terminé !");
+      axios
+        .post("http://localhost:8000/api/selection", selectedAnswer)
+        .then((response) => {
+          console.warn(response);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
   };
-
-  console.warn(selectedAnswer);
 
   return (
     <div className="quizPage">
