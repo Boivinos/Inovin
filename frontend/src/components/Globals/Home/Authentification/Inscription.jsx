@@ -3,6 +3,7 @@ import { useForm, useController } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 
 function Inscription() {
+
   const {
     control,
     register,
@@ -10,62 +11,8 @@ function Inscription() {
     formState: { errors },
   } = useForm();
 
-  const [nameSelected, setnameSelected] = useState(false);
-  const [firstnameSelected, setfirstnameSelected] = useState(false);
-  const [birthdaySelected, setbirthdaySelected] = useState(false);
-  const [mailSelected, setmailSelected] = useState(false);
-  const [mdpSelected, setmdpSelected] = useState(false);
-  const [domaineSelected, setdomaineSelected] = useState(false);
-  const [regionSelected, setregionSelected] = useState(false);
-  const [descriptionSelected, setdescriptionSelected] = useState(false);
-
   const onSubmit = (data) => {
     console.warn(data);
-  };
-
-  const resetSelect = () => {
-    setnameSelected(false);
-    setmailSelected(false);
-    setmdpSelected(false);
-    setfirstnameSelected(false);
-    setbirthdaySelected(false);
-    setdescriptionSelected(false);
-    setdomaineSelected(false);
-    setregionSelected(false);
-  };
-
-  const handlenameSelect = () => {
-    resetSelect();
-    setnameSelected(true);
-  };
-  const handlemailSelect = () => {
-    resetSelect();
-    setmailSelected(true);
-  };
-  const handlefirstnameSelect = () => {
-    resetSelect();
-    setfirstnameSelected(true);
-  };
-  const handlebirthdaySelect = () => {
-    resetSelect();
-    setbirthdaySelected(true);
-  };
-  const handlemdpSelect = () => {
-    resetSelect();
-    setmdpSelected(true);
-  };
-
-  const handledomaineSelect = () => {
-    resetSelect();
-    setdomaineSelected(true);
-  };
-  const handleregionSelect = () => {
-    resetSelect();
-    setregionSelected(true);
-  };
-  const handledescriptionSelect = () => {
-    resetSelect();
-    setdescriptionSelected(true);
   };
 
   const { field: nameField } = useController({
@@ -105,7 +52,7 @@ function Inscription() {
   });
 
   const { field: domaineField } = useController({
-    name: "nom du domaine",
+    name: "nomdudomaine",
     type: "text",
     control,
     rules: {
@@ -140,46 +87,45 @@ function Inscription() {
           Inscris-toi pour découvrir ta sélection de vins personnalisée.
         </h3>
         <input
-          className={`name ${nameSelected ? "selected" : ""}`}
+          className="input_inscription"
           type="text"
           name={nameField.name}
           placeholder="Nom *"
-          onSelect={handlenameSelect}
         />
         {errors.Nom && (
           <span className="form_inscription_error">Ce champ est requis</span>
         )}
         <input
-          className={`firstname ${firstnameSelected ? "selected" : ""}`}
+          className="input_inscription"
           type="text"
           name={firstnameField.name}
           placeholder="Prénom *"
-          onSelect={handlefirstnameSelect}
+          
         />
         {errors.firstname && (
           <span className="form_inscription_error">Ce champ est requis</span>
         )}
         <input
-          className={`birthday ${birthdaySelected ? "selected" : ""}`}
+          className="input_inscription"
           type="date"
           name={birthdayField.name}
           placeholder="Date de naissance *"
-          onSelect={handlebirthdaySelect}
+          
         />
         {errors.datedenaissance && (
           <span className="form_inscription_error">Veuillez e</span>
         )}
         <input
-          className={`mail ${mailSelected ? "selected" : ""}`}
+          className="input_inscription"
           type="email"
           name={mailField.name}
           placeholder="Adresse email *"
-          onSelect={handlemailSelect}
+          
         />
         {errors.adressemail && <span className="form_inscription_error" />}
 
         <input
-          className={`mdp ${mdpSelected ? "selected" : ""}`}
+          className="input_inscription"
           type="password"
           placeholder="Mot de passe *"
           name="password"
@@ -190,37 +136,35 @@ function Inscription() {
               message: "Le mot de passe doit comporter au moins 6 caractères.",
             },
           })}
-          onSelect={handlemdpSelect}
+       
         />
         {errors.password && (
           <span className="errormdp">{errors.password.message}</span>
         )}
         <label className="checkbox_vigneron">
-          <input className="checkbox" type="checkbox" checked={true / false} />
+          <input className="checkbox" type="checkbox" />
           <p>Je suis vigneron</p>
         </label>
         <input
-          className={`domaine ${domaineSelected ? "selected" : ""}`}
+          className="input_inscription"
           type="text"
           name={domaineField.name}
           placeholder="Nom du domaine *"
-          onSelect={handledomaineSelect}
+        
         />
         <input
-          className={`Region ${regionSelected ? "selected" : ""}`}
+          className="input_inscription"
           type="text"
           name={regionField.name}
           placeholder="Région *"
-          onSelect={handleregionSelect}
+        
         />
         <textarea
-          className={`form_description ${
-            descriptionSelected ? "selected" : ""
-          }`}
+          className="form_description"
           type="text"
           name={descriptionField.name}
           placeholder="Description *"
-          onSelect={handledescriptionSelect}
+        
         />
         <NavLink to="/quizz">
           <button

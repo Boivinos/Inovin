@@ -1,33 +1,17 @@
-import React, { useState } from "react";
+
 import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Home from "../Home";
 
 function Connection() {
   const {
-    register,
-    handleSubmit,
+    register, /* enregistre les valeurs d'un champ pour pouvoir les utilisé */
+    handleSubmit, /* Gestion de transmission du formulaire */
     formState: { errors },
   } = useForm();
 
-  const [emailSelected, setEmailSelected] = useState(false);
-  const [passwordSelected, setPasswordSelected] = useState(false);
+  const onSubmit = data => console.warn(data);
 
-  // const [isSelected, setIsSelected] = useState("true");
-
-  const onSubmit = (data) => {
-    console.warn(data);
-  };
-
-  const handleEmailSelect = () => {
-    setEmailSelected(true);
-    setPasswordSelected(false);
-  };
-
-  const handlePasswordSelect = () => {
-    setEmailSelected(false);
-    setPasswordSelected(true);
-  };
 
   return (
     <>
@@ -41,10 +25,10 @@ function Connection() {
             personnalisée.
           </h3>
           <input
-            className={`mail ${emailSelected && "selected"}`}
+            className="input_connexion"
             type="email"
             placeholder="✉️  utilisateur@mail.com"
-            name="email"
+            name="mail"
             {...register("email", {
               required: true,
               pattern: {
@@ -52,18 +36,14 @@ function Connection() {
                 message: "Veuillez entrer une adresse e-mail valide.",
               },
             })}
-            onSelect={handleEmailSelect}
           />
-          {errors.email && (
-            <span className="errormail">{errors.email.message}</span>
-          )}
+          {errors.email?.type === 'required' && <p role="alert">Email is required</p>}
 
           <input
-            className={`mdp ${passwordSelected && "selected"}`}
+            className="input_connexion"
             type="password"
             placeholder="🔒 Mot de passe"
             name="password"
-            /* eslint-disable react/jsx-props-no-spreading */
             {...register("password", {
               required: true,
               minLength: {
@@ -72,18 +52,15 @@ function Connection() {
                   "Le mot de passe doit comporter au moins 6 caractères.",
               },
             })}
-            onSelect={handlePasswordSelect}
           />
-          {errors.password && (
-            <span className="errormdp">{errors.password.message}</span>
-          )}
+          
           <NavLink to="/profile">
             <button
               className="button_connexion"
+              // type="button"
               type="submit"
               onClick={onSubmit}
-            >
-              CONNEXION
+            > CONNEXION
             </button>
           </NavLink>
           <div className="inscription">
