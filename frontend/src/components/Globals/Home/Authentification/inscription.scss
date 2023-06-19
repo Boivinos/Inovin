@@ -52,7 +52,6 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  color: black;
   margin-bottom: 10px;
 }
 
@@ -71,6 +70,13 @@
     border-color: $primary-color;
   }
 }
+.input_inscription {
+  &:focus {
+  background-color: lightyellow;
+  outline:none;
+  border-color: $primary-color;
+}
+} 
 
 .button_inscription {
   display: flex;
@@ -80,9 +86,6 @@
 }
 .a {
   width: 30%;
-}
-.selected {
-  background-color: lightyellow;
 }
 
 .form_inscription_error {

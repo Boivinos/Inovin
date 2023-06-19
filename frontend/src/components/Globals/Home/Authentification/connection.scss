@@ -33,10 +33,14 @@
       width: 80%;
       font-family: $buttonTypo;
     }
-    &:focus {
-      outline: none;
-      border-color: $primary-color;
-    }
+
+   .input_connexion {
+     &:focus {
+     background-color: lightyellow;
+     outline:none;
+     border-color: $primary-color;
+   }
+  }
 
     .button_connexion {
       display: flex;
@@ -81,9 +85,9 @@
   margin-bottom: 15px;
 }
 
-.selected {
-  background-color: lightyellow;
-}
+// .selected {
+//   background-color: lightyellow;
+// }
 
 @media screen and (min-width: 601px) {
   .formulaire_connexion_page {
