@@ -17,7 +17,9 @@
   flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
+
   margin: 10%;
+
 
   &_inovinPicture {
     display: block;
@@ -46,15 +48,19 @@
     display: flex;
     flex-direction: row;
 
+
     &_inovinPicture {
       display: flex;
       margin: 0 auto;
+
       width: 400px;
       height: 400px;
     }
 
     &_text {
+
       margin: 0 auto;
+
     }
   }
 }

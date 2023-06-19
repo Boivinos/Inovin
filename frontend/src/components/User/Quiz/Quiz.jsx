@@ -86,7 +86,9 @@ function Quiz() {
                 type="button"
                 className="questionSuivanteBouton"
               >
-                TERMINER LE QUIZZ
+                <NavLink to="/profile?isFromQuiz=true" className="link">
+                  TERMINER LE QUIZZ
+                </NavLink>
               </button>
             )}
           </div>
