@@ -222,7 +222,7 @@ function Inscription() {
           placeholder="Description *"
           onSelect={handledescriptionSelect}
         />
-        <NavLink to="/quizz">
+        <NavLink to="/quiz" state={{ fromInscription: true }}>
           <button
             className="button_inscription"
             type="submit"

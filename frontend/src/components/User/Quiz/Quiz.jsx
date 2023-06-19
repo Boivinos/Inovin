@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Questions from "./Questions/Questions";
 import questionsAndAnswer from "./questionsAndAnswer";
 
@@ -21,6 +21,10 @@ function Quiz() {
     medium: 0,
     intense: 0,
   });
+  const location = useLocation();
+  const userOrigin = location.state
+    ? location.state
+    : { fromInscription: false };
 
   const handleClick = (button) => {
     if (
@@ -44,15 +48,18 @@ function Quiz() {
       <div className="mainQuizWrapper">
         <div className="quizImg" />
         <div className="quizQuestionAndAnswerWrapper">
-          <p>
-            Généralement, le vin, on aime bien. Mais il est souvent compliqué de
-            s’y retrouver parmi toute la diversité de vins existants. Nous
-            allons te poser quelques questions afin de définir tes goûts et
-            déduire ton profil de dégustation... <br />
-            <br />
-            Pour chaque question, il faudra choisir au moins une réponse.
-            Plusieurs réponses sont possibles.
-          </p>
+          {userOrigin.fromInscription && selectedQuestion === 0 && (
+            <p>Merci de ton inscription ! </p>
+          )}
+          {selectedQuestion === 0 && (
+            <p>
+              Nous allons à présent te poser quelques questions afin de définir
+              tes goûts et déduire ton profil de dégustation... <br />
+              <br />
+              Pour chaque question, il faudra choisir au moins une réponse.
+              Plusieurs réponses sont possibles.
+            </p>
+          )}
 
           <Questions
             question={questionsAndAnswer[selectedQuestion].question}
