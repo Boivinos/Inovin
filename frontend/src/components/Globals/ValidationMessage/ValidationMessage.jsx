@@ -1,8 +1,12 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import InovinPictureDesktop from "../../../assets/inovinPicture_desktop.png";
 
 function ValidationMessage() {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const firstname = decodeURIComponent(queryParams.get("firstname"));
+
   return (
     <>
       <NavLink to="/contact">
@@ -19,9 +23,9 @@ function ValidationMessage() {
           alt="Logo"
         />
         <div className="validationMessage_text">
-          <p>Merci !</p>
+          <p>Merci {firstname}!</p>
           <p id="validationMessage_confirmation">
-            Votre message a bien été reçue par l'équipe d'Inovin.
+            Ton message a bien été reçu par l'équipe d'Inovin.
           </p>
         </div>
       </div>
