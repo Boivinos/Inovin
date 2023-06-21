@@ -72,11 +72,11 @@
 }
 .input_inscription {
   &:focus {
-  background-color: lightyellow;
-  outline:none;
-  border-color: $primary-color;
+    background-color: lightyellow;
+    outline: none;
+    border-color: $primary-color;
+  }
 }
-} 
 
 .button_inscription {
   display: flex;
@@ -91,6 +91,16 @@
 .form_inscription_error {
   color: red;
   margin-bottom: 15px;
+  font-family: $buttonTypo;
+  font-size: smaller;
+  border-bottom: none;
+}
+.form_inscription_error_text {
+  color: red;
+  margin-top: 15px;
+  font-family: $buttonTypo;
+  font-size: smaller;
+  border-bottom: none;
 }
 
 @media screen and (min-width: 700px) {

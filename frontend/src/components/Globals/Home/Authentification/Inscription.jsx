@@ -1,84 +1,21 @@
-import React, { useState } from "react";
-import { useForm, useController } from "react-hook-form";
-import { NavLink } from "react-router-dom";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 function Inscription() {
-
   const {
-    control,
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
+
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     console.warn(data);
+    navigate(isValid ? "/Quizz" : "#");
   };
 
-  const { field: nameField } = useController({
-    name: "Nom",
-    type: "text",
-    control,
-    rules: {
-      required: true,
-      maxLength: 20,
-    },
-  });
-  const { field: firstnameField } = useController({
-    name: "firstname",
-    type: "text",
-    control,
-    rules: {
-      required: true,
-      maxLength: 20,
-    },
-  });
-  const { field: birthdayField } = useController({
-    name: "datedenaissance",
-    control,
-    rules: {
-      required: true,
-      pattern: /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/i,
-    },
-  });
-
-  const { field: mailField } = useController({
-    name: "adressemail",
-    control,
-    rules: {
-      required: true,
-      pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-    },
-  });
-
-  const { field: domaineField } = useController({
-    name: "nomdudomaine",
-    type: "text",
-    control,
-    rules: {
-      required: true,
-      maxLength: 50,
-    },
-  });
-
-  const { field: regionField } = useController({
-    name: "Region",
-    type: "text",
-    control,
-    rules: {
-      required: true,
-      maxLength: 30,
-    },
-  });
-  const { field: descriptionField } = useController({
-    name: "description",
-    type: "text",
-    control,
-    rules: {
-      required: true,
-      maxLength: 400,
-    },
-  });
   return (
     <div className="formulaire_inscription_page">
       <div className="inovin_picture" />
@@ -86,95 +23,188 @@ function Inscription() {
         <h3 className="text_inscription">
           Inscris-toi pour découvrir ta sélection de vins personnalisée.
         </h3>
+
         <input
           className="input_inscription"
-          type="text"
-          name={nameField.name}
-          placeholder="Nom *"
-        />
-        {errors.Nom && (
-          <span className="form_inscription_error">Ce champ est requis</span>
-        )}
-        <input
-          className="input_inscription"
-          type="text"
-          name={firstnameField.name}
           placeholder="Prénom *"
-          
+          {...register("name", {
+            required: true,
+            maxLength: 20,
+            pattern: /^[A-Za-zÀ-ÿ ]+$/i,
+          })}
         />
-        {errors.firstname && (
+        {errors?.name?.type === "required" && (
           <span className="form_inscription_error">Ce champ est requis</span>
         )}
+        {errors?.name?.type === "maxLength" && (
+          <span className="form_inscription_error">
+            Ce champ est limité à 20 caractères
+          </span>
+        )}
+        {errors?.name?.type === "pattern" && (
+          <span className="form_inscription_error">
+            Caractères alphabétiques uniquement
+          </span>
+        )}
+
         <input
           className="input_inscription"
-          type="date"
-          name={birthdayField.name}
-          placeholder="Date de naissance *"
-          
+          placeholder="Nom *"
+          {...register("firstname", {
+            required: true,
+            maxLength: 20,
+            pattern: /^[A-Za-zÀ-ÿ ]+$/i,
+          })}
         />
-        {errors.datedenaissance && (
-          <span className="form_inscription_error">Veuillez e</span>
+        {errors?.firstname?.type === "required" && (
+          <span className="form_inscription_error">Ce champ est requis</span>
         )}
+        {errors?.firstname?.type === "maxLength" && (
+          <span className="form_inscription_error">
+            Ce champ est limité à 20 caractères
+          </span>
+        )}
+        {errors?.firstname?.type === "pattern" && (
+          <span className="form_inscription_error">
+            Caractères alphabétiques uniquement
+          </span>
+        )}
+
+        <input
+          className="input_inscription"
+          placeholder="Date de naissance * "
+          type="date"
+          id="email"
+          name="datedenaissance"
+          {...register("email", {
+            required: true,
+            pattern:
+              /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/i,
+          })}
+        />
         <input
           className="input_inscription"
           type="email"
-          name={mailField.name}
-          placeholder="Adresse email *"
-          
+          id="email"
+          name="mail"
+          placeholder="✉️  utilisateur@mail.com"
+          {...register("email", {
+            required: "Ce champ est requis",
+            pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            validate: {
+              validExtension: (value) => {
+                const validExtensions = ["com", "net", "org", "fr"];
+
+                const domain = value.split(".").pop();
+                if (!validExtensions.includes(domain.toLowerCase())) {
+                  return "Extension de domaine non valide";
+                }
+                return true;
+              },
+            },
+          })}
         />
-        {errors.adressemail && <span className="form_inscription_error" />}
+        {errors?.email?.type === "required" && (
+          <span className="form_inscription_error">Ce champ est requis</span>
+        )}
+
+        {errors?.email?.type === "pattern" && (
+          <span className="form_inscription_error">
+            Merci de renseigner un email valide
+          </span>
+        )}
+        {errors?.email?.type === "validExtension" && (
+          <span className="form_inscription_error">
+            Merci de renseigner une extension valide
+          </span>
+        )}
 
         <input
           className="input_inscription"
           type="password"
-          placeholder="Mot de passe *"
           name="password"
+          id="password"
+          placeholder="🔒 Mot de passe"
           {...register("password", {
             required: true,
-            minLength: {
-              value: 6,
-              message: "Le mot de passe doit comporter au moins 6 caractères.",
-            },
+            minLength: 6,
           })}
-       
         />
-        {errors.password && (
-          <span className="errormdp">{errors.password.message}</span>
+        {errors?.password?.type === "required" && (
+          <span className="form_inscription_error">Ce champ est requis</span>
         )}
+        {errors?.password?.type === "minLength" && (
+          <span className="form_inscription_error">
+            Ce champ doit comporter au moins 6 caractères
+          </span>
+        )}
+
         <label className="checkbox_vigneron">
           <input className="checkbox" type="checkbox" />
           <p>Je suis vigneron</p>
         </label>
         <input
           className="input_inscription"
-          type="text"
-          name={domaineField.name}
           placeholder="Nom du domaine *"
-        
+          {...register("domain", {
+            required: true,
+            maxLength: 20,
+            pattern: /^[A-Za-zÀ-ÿ ]+$/i,
+          })}
         />
+        {errors?.domain?.type === "required" && (
+          <span className="form_inscription_error">Ce champ est requis</span>
+        )}
+        {errors?.domain?.type === "maxLength" && (
+          <span className="form_inscription_error">
+            Ce champ est limité à 20 caractères
+          </span>
+        )}
+
         <input
           className="input_inscription"
-          type="text"
-          name={regionField.name}
           placeholder="Région *"
-        
+          {...register("region", {
+            required: true,
+            maxLength: 20,
+            pattern: /^[A-Za-zÀ-ÿ ]+$/i,
+          })}
         />
+        {errors?.region?.type === "required" && (
+          <span className="form_inscription_error">Ce champ est requis</span>
+        )}
+        {errors?.region?.type === "maxLength" && (
+          <span className="form_inscription_error">
+            Ce champ est limité à 20 caractères
+          </span>
+        )}
         <textarea
           className="form_description"
-          type="text"
-          name={descriptionField.name}
-          placeholder="Description *"
-        
+          placeholder="description *"
+          {...register("description", {
+            required: true,
+            minLength: 10,
+            maxLength: 200,
+          })}
         />
-        <NavLink to="/quizz">
-          <button
-            className="button_inscription"
-            type="submit"
-            onClick={onSubmit}
-          >
-            INSCRIPTION
-          </button>
-        </NavLink>
+        {errors?.description?.type === "required" && (
+          <span className="form_inscription_error_text">
+            Merci d'indiquer l'objet de votre demande
+          </span>
+        )}
+        {errors?.description?.type === "maxLength" && (
+          <span className="form_inscription_error_text">
+            Votre message ne peut pas dépasser 200 caractères
+          </span>
+        )}
+        {errors?.description?.type === "minLength" && (
+          <span className="form_inscription_error_text">
+            Votre message doit comporter au moins 10 caractères
+          </span>
+        )}
+        <button className="button_inscription" type="submit">
+          INSCRIPTION
+        </button>
       </form>
     </div>
   );
