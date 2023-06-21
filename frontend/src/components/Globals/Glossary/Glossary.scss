@@ -2,25 +2,53 @@
   display: flex;
   flex-direction: column;
 
+
   .cepage_name {
-    margin-top: 20px;
+    margin-bottom: 10px;
     font-family: $mainTypo;
     font-weight: 600;
     font-size: 1.2em;
+    height: 4s0px;
+    
+    
   }
 
   .glossaryContainerA {
-    width: 50%;
+    padding: 3%;
     text-align: left;
     align-self: flex-start;
+    position: relative;
+    
+   
+    
   }
 
   .glossaryContainerB {
-    width: 50%;
-    text-align: left;
+    padding: 3%;
+    text-align: right;
     align-self: flex-end;
+    position: relative;
   }
 }
+
+.Line_styleA{
+margin-top: 5%;
+width: 40vw;
+border: 1px solid #E3BC2E;
+position: absolute;
+left: 3%;
+bottom : 0%;
+}
+
+.Line_styleB{
+  margin-top: 5%;
+  width: 40vw;
+  border: 1px solid #E3BC2E;
+  position: absolute;
+  right: 3%;
+  bottom : 0%;
+  
+  }
 
 h1 {
   margin-top: 5%;
@@ -28,4 +56,5 @@ h1 {
   font-family: $mainTypo;
   display: flex;
   justify-content: center;
+  
 }
