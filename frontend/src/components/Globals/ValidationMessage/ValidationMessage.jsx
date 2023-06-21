@@ -23,7 +23,7 @@ function ValidationMessage() {
           alt="Logo"
         />
         <div className="validationMessage_text">
-          <p>Merci {firstname}!</p>
+          <p>Merci {firstname} !</p>
           <p id="validationMessage_confirmation">
             Ton message a bien été reçu par l'équipe d'Inovin.
           </p>
