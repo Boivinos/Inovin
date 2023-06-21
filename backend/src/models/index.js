@@ -33,6 +33,7 @@ const WineManager = require("./wineManager");
 const CommentManager = require("./commentManager");
 const UserManager = require("./userManager");
 const SelectionManager = require("./selectionManager");
+const FavoriteManager = require("./favoriteManager");
 
 models.wine = new WineManager();
 models.wine.setDatabase(pool);
@@ -45,6 +46,9 @@ models.user.setDatabase(pool);
 
 models.selection = new SelectionManager();
 models.selection.setDatabase(pool);
+
+models.favorite = new FavoriteManager();
+models.favorite.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model

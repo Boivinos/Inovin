@@ -7,7 +7,7 @@ function WineCard({ name, image, domain, id }) {
   return (
     <div className="wineCardWrapper">
       <div className="favoriteButton">
-        <FavoriteButton />
+        <FavoriteButton wineId={id} />
       </div>
       <NavLink to={`/wineDetails/${id}`}>
         <div className="wineCard">

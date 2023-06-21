@@ -6,6 +6,7 @@ const wineControllers = require("./controllers/wineControllers");
 const commentControllers = require("./controllers/commentControllers");
 const userControllers = require("./controllers/userControllers");
 const selectionControllers = require("./controllers/selectionControllers");
+const favoriteControllers = require("./controllers/favoriteController");
 const { hashPassword, verifyPassword } = require("./auth");
 
 router.post(
@@ -32,5 +33,8 @@ router.post(
   selectionControllers.deleteSelection,
   selectionControllers.createSelection
 );
+router.post("/api/wines/:id/favorites", favoriteControllers.createUserFavorite);
+router.delete("/api/wines/:id/favorites", favoriteControllers.destroy);
+router.post("/api/wines/checkfavorite", favoriteControllers.getFavorite);
 
 module.exports = router;
