@@ -4,6 +4,7 @@ import cepages from "./GlossaryDetail";
 function Glossary() {
   return (
     <div className="glossaryPage">
+      <h1>Lexique</h1>
       {cepages.map((cepage, index) => (
         <div
           className={
