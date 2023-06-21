@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import UserContext from "../../../Contexts/UserContext";
 
 function CommentButton({
   setIsEditing,
@@ -12,16 +13,17 @@ function CommentButton({
   setCommentsData,
 }) {
   const { id } = useParams();
+  const { user } = useContext(UserContext);
   const handleComment = () => {
-    const temp = {
+    const body = {
       wine_id: Number(id),
-      user_id: 1,
+      user_id: user.id,
       comment_content: commentValue,
     };
 
     if (isEditing) {
       axios
-        .post(`http://localhost:8000/api/wines/${id}/comments`, temp)
+        .post(`http://localhost:8000/api/wines/${id}/comments`, body)
         .then((response) => {
           setCommentsData([response.data, ...commentsData]);
         })
