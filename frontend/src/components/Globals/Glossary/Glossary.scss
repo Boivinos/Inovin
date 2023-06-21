@@ -1,0 +1,23 @@
+
+  
+
+
+  .container1000 :nth-child(even) {
+    justify-content: flex-start;
+    background-color: red;
+    
+  }
+
+  .container1000:nth-child(odd) {
+    justify-content: flex-end;
+    background-color: green;
+  }
+  .cepage_name {
+    
+    display: flex;
+    justify-content: center;
+}
+
+.cepage_description {
+  
+}
