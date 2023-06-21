@@ -42,6 +42,14 @@
       }
     }
 
+
+    .error_connexion {
+      color: red;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+
     .button_connexion {
       display: flex;
       flex-direction: column;
@@ -76,18 +84,6 @@
   text-align: center;
   margin-top: 20%;
 }
-
-.errormdp {
-  color: red;
-}
-.errormail {
-  color: red;
-  margin-bottom: 15px;
-}
-
-// .selected {
-//   background-color: lightyellow;
-// }
 
 @media screen and (min-width: 601px) {
   .formulaire_connexion_page {
