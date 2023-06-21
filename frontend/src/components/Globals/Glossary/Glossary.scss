@@ -1,23 +1,25 @@
+.glossaryPage {
+  display: flex;
+  flex-direction: column;
 
-  
-
-
-  .container1000 :nth-child(even) {
-    justify-content: flex-start;
-    background-color: red;
-    
+  .cepage_name {
+    margin-top: 20px;
+    font-family: $mainTypo;
+    font-weight: 600;
+    font-size: 1.2em;
   }
 
-  .container1000:nth-child(odd) {
-    justify-content: flex-end;
+  .glossaryContainerA {
+    width: 50%;
+    text-align: left;
+    align-self: flex-start;
+    background-color: red;
+  }
+
+  .glossaryContainerB {
+    width: 50%;
+    text-align: left;
+    align-self: flex-end;
     background-color: green;
   }
-  .cepage_name {
-    
-    display: flex;
-    justify-content: center;
-}
-
-.cepage_description {
-  
 }
