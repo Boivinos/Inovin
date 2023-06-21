@@ -91,7 +91,7 @@ function WineDetails() {
           <p>Teneur en alcool : {wineDetailsData.alcohol_content}%</p>
         </div>
         <div className="favoriteButton">
-          <FavoriteButton />
+          <FavoriteButton wineId={id} />
         </div>
       </div>
       <div className="separator" />

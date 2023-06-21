@@ -487,7 +487,7 @@ VALUES (
     );
 
 CREATE TABLE
-    IF NOT EXISTS favourites (
+    IF NOT EXISTS favorites (
         user_id INT NOT NULL,
         wine_id INT NOT NULL,
         PRIMARY KEY (user_id, wine_id)
@@ -530,13 +530,13 @@ ALTER TABLE user_comments
 ADD
     CONSTRAINT user_comments_fk1 FOREIGN KEY (user_id) REFERENCES users(id);
 
-ALTER TABLE favourites
+ALTER TABLE favorites
 ADD
-    CONSTRAINT favourites_fk0 FOREIGN KEY (user_id) REFERENCES users(id);
+    CONSTRAINT favorites_fk0 FOREIGN KEY (user_id) REFERENCES users(id);
 
-ALTER TABLE favourites
+ALTER TABLE favorites
 ADD
-    CONSTRAINT favourites_fk1 FOREIGN KEY (wine_id) REFERENCES wines(id);
+    CONSTRAINT favorites_fk1 FOREIGN KEY (wine_id) REFERENCES wines(id);
 
 ALTER TABLE recipes
 ADD
