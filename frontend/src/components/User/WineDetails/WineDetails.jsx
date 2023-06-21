@@ -69,7 +69,7 @@ function WineDetails() {
           <div className="mainWineInfoBloc">
             <p>{wineDetailsData.name}</p>
             <p>{wineDetailsData.year}</p>
-            <p>Région : {wineDetailsData.area}</p>
+            <p>Région : {wineDetailsData.region}</p>
             <p>
               {wineDetailsData.winemaker &&
                 `Vigneron : ${wineDetailsData.winemaker}`}
@@ -91,7 +91,7 @@ function WineDetails() {
           <p>Teneur en alcool : {wineDetailsData.alcohol_content}%</p>
         </div>
         <div className="favoriteButton">
-          <FavoriteButton />
+          <FavoriteButton wineId={id} />
         </div>
       </div>
       <div className="separator" />

@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+
+import { useLocation, NavLink } from "react-router-dom";
 
 function Profile() {
   const [data, setData] = useState();
+
+  const { search } = useLocation();
+  // console.log(search);
+  const params = new URLSearchParams(search);
+  // console.log(params.get("isFromQuiz"));
+
   useEffect(() => {
     // API à changer
     fetch(
@@ -16,13 +23,17 @@ function Profile() {
   return (
     <div className="user-profile-taste">
       <div className="user-profile-taste_list">
-        <div className="user-profile-taste_validation">
-          <p>Merci de tes réponses. </p>
-          <p>Découvre ton profil dégustation :</p>
-        </div>
-        <div>
-          <hr className="user-profile-taste_solid" />
-        </div>
+        {params.get("isFromQuiz") === "true" && (
+          <>
+            <div className="user-profile-taste_validation">
+              <p>Merci de tes réponses. </p>
+              <p>Découvre ton profil dégustation :</p>
+            </div>
+            <div>
+              <hr className="user-profile-taste_solid" />
+            </div>
+          </>
+        )}
 
         <div className="user-profile-taste_text">
           <p>{data?.couleur_de_vin}</p>

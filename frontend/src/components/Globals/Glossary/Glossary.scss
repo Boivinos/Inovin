@@ -1,0 +1,52 @@
+.glossaryPage {
+  display: flex;
+  flex-direction: column;
+
+  .cepage_name {
+    margin-bottom: 10px;
+    font-family: $mainTypo;
+    font-weight: 600;
+    font-size: 1.2em;
+    height: 4s0px;
+  }
+
+  .glossaryContainerA {
+    padding: 3%;
+    text-align: left;
+    align-self: flex-start;
+    position: relative;
+  }
+
+  .glossaryContainerB {
+    padding: 3%;
+    text-align: right;
+    align-self: flex-end;
+    position: relative;
+  }
+}
+
+.Line_styleA {
+  margin-top: 5%;
+  width: 40vw;
+  border: 1px solid #e3bc2e;
+  position: absolute;
+  left: 3%;
+  bottom: 0%;
+}
+
+.Line_styleB {
+  margin-top: 5%;
+  width: 40vw;
+  border: 1px solid #e3bc2e;
+  position: absolute;
+  right: 3%;
+  bottom: 0%;
+}
+
+h1 {
+  margin-top: 5%;
+  margin-bottom: 10%;
+  font-family: $mainTypo;
+  display: flex;
+  justify-content: center;
+}

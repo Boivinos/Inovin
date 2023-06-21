@@ -12,6 +12,19 @@ const browse = (req, res) => {
     });
 };
 
+const browseAndPassToNext = (req, res, next) => {
+  models.wine
+    .findAll()
+    .then(([rows]) => {
+      req.body.allWines = rows;
+      next();
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const read = (req, res) => {
   models.wine
     .find(req.params.id)
@@ -88,4 +101,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  browseAndPassToNext,
 };

@@ -6,6 +6,7 @@
     align-items: center;
     row-gap: 6px;
     margin-bottom: 3%;
+    padding-top: 6%;
   }
   &_solid {
     border-top: 2px solid #202020;
@@ -21,7 +22,9 @@
     margin-right: auto;
     padding-left: 5%;
     padding-right: 5%;
+    padding-top: 6%;
     margin-bottom: 6%;
+    gap: 15px;
   }
   &_buttonzone {
     text-align: center;

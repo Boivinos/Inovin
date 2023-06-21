@@ -11,7 +11,7 @@ function DropdownMenu() {
       <NavLink to="/wineCardList" className="link">
         <li>Ma cave</li>
       </NavLink>
-      <NavLink to="/wineCardList" className="link">
+      <NavLink to="/wineCardSelection" className="link">
         <li>Ma sélection</li>
       </NavLink>
       <NavLink to="/wineCardList" className="link">

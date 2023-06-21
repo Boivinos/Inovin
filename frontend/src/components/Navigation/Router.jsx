@@ -11,13 +11,31 @@ import Profile from "../User/Profile/Profile";
 import ValidationMessage from "../Globals/ValidationMessage/ValidationMessage";
 
 function Router() {
+  const id = 1; // replace with user id
   return (
     <Routes>
       <Route path="/" element={<Connection />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/inscription" element={<Inscription />} />
       <Route path="/quiz" element={<Quiz />} />
-      <Route path="/wineCardList" element={<WineCardList />} />
+      <Route
+        path="/wineCardList"
+        element={
+          <WineCardList
+            request="http://localhost:8000/api/wines"
+            title={"l'ensemble de nos vins"}
+          />
+        }
+      />
+      <Route
+        path="/wineCardSelection"
+        element={
+          <WineCardList
+            request={`http://localhost:8000/api/selection/${id}`}
+            title="votre sélection personnalisée"
+          />
+        }
+      />
       <Route path="/wineDetails/:id" element={<WineDetails />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/glossary" element={<Glossary />} />
