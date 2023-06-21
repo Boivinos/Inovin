@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import emailjs from "emailjs-com";
 import InovinPicture from "../../../assets/InovinPicture_square.png";
 import InovinPictureDesktop from "../../../assets/inovinPicture_desktop.png";
 
@@ -14,18 +15,40 @@ function Contact() {
 
   /*  récupération des données saisies par l'utilisateur à l'envoi + condition de vérification des conditions de validation du formulaire avant envoi */
   const onSubmit = (dataSubmitted) => {
-    const { firstname } = dataSubmitted;
+    const { firstname, lastname, emailAdress, Message } = dataSubmitted;
 
-    const queryParams = new URLSearchParams({
-      firstname: encodeURIComponent(firstname),
-    }).toString();
+    /* configuration du module emailJS  */
 
-    navigate(isValid ? `/validationMessage?${queryParams}` : "#");
-    console.error("données utilisateur", dataSubmitted);
+    const serviceID = "service_9jco7r9";
+    const templateID = "template_zbg3l7w";
+    const userID = "sYm8hxJPQyx7BS6oc";
+
+    const templateParams = {
+      firstname,
+      lastname,
+      emailAdress,
+      Message,
+    };
+
+    emailjs
+      .send(serviceID, templateID, templateParams, userID)
+      .then((response) => {
+        console.warn("E-mail envoyé avec succès !", response);
+
+        /* récupération du prénom saisi par l'utilisateur et navigation possible si toutes les erreurs de saisie ont été résolues */
+
+        const queryParams = new URLSearchParams({
+          firstname: encodeURIComponent(firstname),
+        }).toString();
+        navigate(isValid ? `/validationMessage?${queryParams}` : "#");
+      })
+      .catch((error) => {
+        console.error("Erreur lors de l'envoi de l'e-mail :", error);
+      });
   };
 
-  /*   affichage des erreurs rencontrées dans la console */
-  console.error("affichage des erreurs", errors);
+  /*   affichage des erreurs de saisie rencontrées dans la console */
+  console.error("erreurs de saisie", errors);
 
   return (
     <div className="ContactForm">
