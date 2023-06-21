@@ -1,17 +1,23 @@
-.cepage_name {
-  background-color: aqua;
-  display: flex;
 
-  .cepage_name {
-    display: flex;
+  
+
+
+  .container1000 :nth-child(even) {
     justify-content: flex-start;
+    background-color: red;
+    
   }
 
-  .cepage_name:nth-child(2) {
+  .container1000:nth-child(odd) {
     justify-content: flex-end;
+    background-color: green;
   }
+  .cepage_name {
+    
+    display: flex;
+    justify-content: center;
 }
 
 .cepage_description {
-  background-color: bisque;
+  
 }
