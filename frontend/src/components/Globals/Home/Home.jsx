@@ -4,9 +4,10 @@ import Inscription from "./Authentification/Inscription";
 
 function Home() {
   useEffect(() => {
+    localStorage.removeItem("token");
     localStorage.setItem(
       "token",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImlhdCI6MTY4NzQyNjA1NSwiZXhwIjoxNjg3NDI5NjU1fQ.9ZaJxc_ylfMleVN2Fjxt4manu3XIB-8-UB5nxubeWFU"
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZmlyc3RuYW1lIjoiS2V5aUp1TWFBbiIsImxhc3RuYW1lIjoiSW5vdmluIiwiaXNBZG1pbiI6MSwiaWF0IjoxNjg3NDI4Mzg0LCJleHAiOjE2ODc0MzE5ODR9.tIzHAwi4KTtnXkC2GngLVahci5efebNVBFbOFrUOoiY"
     );
   }, []);
 

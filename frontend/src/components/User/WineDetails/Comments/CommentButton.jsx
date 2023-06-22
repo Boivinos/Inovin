@@ -19,8 +19,9 @@ function CommentButton({
       wine_id: Number(id),
       user_id: user.id,
       comment_content: commentValue,
+      firstname: user.firstname,
+      lastname: user.lastname,
     };
-
     if (isEditing) {
       axios
         .post(`http://localhost:8000/api/wines/${id}/comments`, body)
