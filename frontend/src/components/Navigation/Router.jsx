@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import Connection from "../Globals/Home/Authentification/Connection";
 import Inscription from "../Globals/Home/Authentification/Inscription";
@@ -9,9 +9,11 @@ import Contact from "../Globals/Contact/Contact";
 import Glossary from "../Globals/Glossary/Glossary";
 import Profile from "../User/Profile/Profile";
 import ValidationMessage from "../Globals/ValidationMessage/ValidationMessage";
+import UserContext from "../Contexts/UserContext";
 
 function Router() {
-  const id = 1; // replace with user id
+  const user = useContext(UserContext);
+  const { id } = user;
   return (
     <Routes>
       <Route path="/" element={<Connection />} />
@@ -33,6 +35,15 @@ function Router() {
           <WineCardList
             request={`http://localhost:8000/api/selection/${id}`}
             title="votre sélection personnalisée"
+          />
+        }
+      />
+      <Route
+        path="/wineCardFavoris"
+        element={
+          <WineCardList
+            request={`http://localhost:8000/api/${id}/favorites`}
+            title="vos vins favoris"
           />
         }
       />

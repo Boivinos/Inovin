@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"; // useContext
 import axios from "axios";
 import { FaHeart } from "react-icons/fa";
 import PropTypes from "prop-types";
+// import UserContext from "../../../Contexts/UserContext";
 
 function FavoriteButton({ wineId }) {
+  // const user = useContext(UserContext);
+
   const [isFavorite, setIsFavorite] = useState();
   const temp = {
     user_id: 1,
