@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Inscription() {
   const {
@@ -202,16 +202,9 @@ function Inscription() {
             Votre message doit comporter au moins 10 caractères
           </span>
         )}
-
-        <NavLink to="/quiz" state={{ fromInscription: true }}>
-          <button
-            className="button_inscription"
-            type="submit"
-            onClick={onSubmit}
-          >
-            INSCRIPTION
-          </button>
-        </NavLink>
+        <button className="button_inscription" type="submit">
+          INSCRIPTION
+        </button>
       </form>
     </div>
   );
