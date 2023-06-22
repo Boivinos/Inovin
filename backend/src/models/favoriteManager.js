@@ -29,6 +29,15 @@ class FavoriteManager extends AbstractManager {
       [data.user_id, data.wine_id]
     );
   }
+
+  getAllFavoriteByUser(id) {
+    return this.database.query(
+      `select * from wines 
+    inner join favorites ON wines.id = favorites.wine_id
+    WHERE favorites.user_id = ?`,
+      [id]
+    );
+  }
 }
 
 module.exports = FavoriteManager;
