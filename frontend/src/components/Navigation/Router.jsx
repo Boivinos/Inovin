@@ -9,6 +9,12 @@ import Contact from "../Globals/Contact/Contact";
 import Glossary from "../Globals/Glossary/Glossary";
 import Profile from "../User/Profile/Profile";
 import ValidationMessage from "../Globals/ValidationMessage/ValidationMessage";
+
+import UserAdminList from "../Admin/UserAdminList/UserAdminList";
+import WineAdminList from "../Admin/WineAdminList/WineAdminList";
+import UserAdminDetails from "../Admin/UserAdminList/UserDetails/UserAdminDetails";
+import WineAdminDetails from "../Admin/WineAdminList/WineAdminDetails";
+import AdminModificationValidation from "../Admin/AdminModificationValidation";
 import UserContext from "../Contexts/UserContext";
 
 function Router() {
@@ -51,6 +57,16 @@ function Router() {
       <Route path="/contact" element={<Contact />} />
       <Route path="/glossary" element={<Glossary />} />
       <Route path="/validationMessage" element={<ValidationMessage />} />
+
+      {/* routes de l'utilisateur Admin: */}
+      <Route path="/userAdminList" element={<UserAdminList />} />
+      <Route path="/userAdminDetails" element={<UserAdminDetails />} />
+      <Route path="/wineAdminList" element={<WineAdminList />} />
+      <Route path="/wineAdminDetails" element={<WineAdminDetails />} />
+      <Route
+        path="/AdminModificationValidation"
+        element={<AdminModificationValidation />}
+      />
     </Routes>
   );
 }

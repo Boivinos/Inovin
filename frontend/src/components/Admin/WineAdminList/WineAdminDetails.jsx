@@ -1,6 +1,6 @@
 import React from "react";
 
-function WineAdminList() {
+function WineAdminDetails() {
   return (
     <div>
       <p>wine Admin List</p>
@@ -8,4 +8,4 @@ function WineAdminList() {
   );
 }
 
-export default WineAdminList;
+export default WineAdminDetails;
