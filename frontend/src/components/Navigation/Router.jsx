@@ -32,6 +32,7 @@ function Router() {
           <WineCardList
             request="http://localhost:8000/api/wines"
             title={"l'ensemble de nos vins"}
+            type="all"
           />
         }
       />
@@ -39,8 +40,9 @@ function Router() {
         path="/wineCardSelection"
         element={
           <WineCardList
-            request={`http://localhost:8000/api/selection/${user.id}`}
+            request={`http://localhost:8000/api/selection/${user && user.id}`}
             title="votre sélection personnalisée"
+            type="selection"
           />
         }
       />
@@ -48,8 +50,9 @@ function Router() {
         path="/wineCardFavoris"
         element={
           <WineCardList
-            request={`http://localhost:8000/api/${user.id}/favorites`}
+            request={`http://localhost:8000/api/${user && user.id}/favorites`}
             title="vos vins favoris"
+            type="favori"
           />
         }
       />

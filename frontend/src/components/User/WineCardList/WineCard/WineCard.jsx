@@ -23,9 +23,6 @@ function WineCard({ name, image, domain, id }) {
     </div>
   );
 }
-<div className="favoriteButton">
-  <FavoriteButton />
-</div>;
 
 WineCard.propTypes = {
   name: PropTypes.string.isRequired,

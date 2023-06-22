@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
-
+import React, { useEffect, useState, useContext } from "react";
 import { useLocation, NavLink } from "react-router-dom";
+import UserContext from "../../Contexts/UserContext";
 
 function Profile() {
   const [data, setData] = useState();
-
   const { search } = useLocation();
   // console.log(search);
   const params = new URLSearchParams(search);
   // console.log(params.get("isFromQuiz"));
+
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     // API à changer
@@ -23,10 +24,10 @@ function Profile() {
   return (
     <div className="user-profile-taste">
       <div className="user-profile-taste_list">
-        {params.get("isFromQuiz") === "true" && (
+        {params.get("isFromQuiz") && (
           <>
             <div className="user-profile-taste_validation">
-              <p>Merci de tes réponses. </p>
+              <p>Merci de tes réponses{user.firstname}. </p>
               <p>Découvre ton profil dégustation :</p>
             </div>
             <div>
@@ -42,7 +43,7 @@ function Profile() {
       </div>
       {/* router button à définir vvvv */}
       <div className="user-profile-taste_buttonzone">
-        <NavLink to="/wineCardList" className="link">
+        <NavLink to="/wineCardSelection" className="link">
           <button className="user-profile-taste_button" type="button">
             DÉCOUVRIR MA SÉLECTION
           </button>

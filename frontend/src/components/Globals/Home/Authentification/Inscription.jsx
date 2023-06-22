@@ -1,20 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import jwtDecode from "jwt-decode";
+import UserContext from "../../../Contexts/UserContext";
 
 function Inscription() {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm();
-
+  const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
   const [isVigneron, setIsVigneron] = useState(false);
 
-  const onSubmit = (data) => {
-    console.warn(data);
-    navigate(isValid ? "/Quizz" : "#");
+  const createUser = (data) => {
+    axios
+      .post(`http://localhost:8000/api/users`, data)
+      .then((response) => {
+        localStorage.removeItem("token");
+        localStorage.setItem("token", response.data.token);
+        setUser(jwtDecode(localStorage.getItem("token")));
+        navigate("/quiz", { state: { isFirstConnection: true } });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   const handleCheckboxChange = (e) => {
@@ -24,7 +36,10 @@ function Inscription() {
   return (
     <div className="formulaire_inscription_page">
       <div className="inovin_picture" />
-      <form className="form_inscription" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className="form_inscription"
+        onSubmit={handleSubmit((data) => createUser(data))}
+      >
         <h3 className="text_inscription">
           Inscris-toi pour découvrir ta sélection de vins personnalisée.
         </h3>
@@ -32,29 +47,6 @@ function Inscription() {
         <input
           className="input_inscription"
           placeholder="Prénom *"
-          {...register("name", {
-            required: true,
-            maxLength: 20,
-            pattern: /^[A-Za-zÀ-ÿ ]+$/i,
-          })}
-        />
-        {errors?.name?.type === "required" && (
-          <span className="form_inscription_error">Ce champ est requis</span>
-        )}
-        {errors?.name?.type === "maxLength" && (
-          <span className="form_inscription_error">
-            Ce champ est limité à 20 caractères
-          </span>
-        )}
-        {errors?.name?.type === "pattern" && (
-          <span className="form_inscription_error">
-            Caractères alphabétiques uniquement
-          </span>
-        )}
-
-        <input
-          className="input_inscription"
-          placeholder="Nom *"
           {...register("firstname", {
             required: true,
             maxLength: 20,
@@ -77,16 +69,34 @@ function Inscription() {
 
         <input
           className="input_inscription"
-          placeholder="Date de naissance * "
-          type="date"
-          id="email"
-          name="datedenaissance"
-          {...register("email", {
+          placeholder="Nom *"
+          {...register("lastname", {
             required: true,
-            pattern:
-              /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/i,
+            maxLength: 20,
+            pattern: /^[A-Za-zÀ-ÿ ]+$/i,
           })}
         />
+        {errors?.lastname?.type === "required" && (
+          <span className="form_inscription_error">Ce champ est requis</span>
+        )}
+        {errors?.lastname?.type === "maxLength" && (
+          <span className="form_inscription_error">
+            Ce champ est limité à 20 caractères
+          </span>
+        )}
+        {errors?.lastname?.type === "pattern" && (
+          <span className="form_inscription_error">
+            Caractères alphabétiques uniquement
+          </span>
+        )}
+        <input
+          name="born"
+          type="date"
+          {...register("born")}
+          className="input_inscription"
+        />
+        <div>{errors.dob?.message}</div>
+
         <input
           className="input_inscription"
           type="email"
@@ -99,7 +109,6 @@ function Inscription() {
             validate: {
               validExtension: (value) => {
                 const validExtensions = ["com", "net", "org", "fr"];
-
                 const domain = value.split(".").pop();
                 if (!validExtensions.includes(domain.toLowerCase())) {
                   return "Extension de domaine non valide";
@@ -132,7 +141,7 @@ function Inscription() {
           placeholder="🔒 Mot de passe"
           {...register("password", {
             required: true,
-            minLength: 6,
+            minLength: 4,
           })}
         />
         {errors?.password?.type === "required" && (
@@ -140,7 +149,7 @@ function Inscription() {
         )}
         {errors?.password?.type === "minLength" && (
           <span className="form_inscription_error">
-            Ce champ doit comporter au moins 6 caractères
+            Ce champ doit comporter au moins 4 caractères
           </span>
         )}
 

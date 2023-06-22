@@ -16,11 +16,15 @@ const destroy = (req, res) => {
     });
 };
 
-const createUser = (req, res) => {
+const createUser = (req, res, next) => {
   models.user
     .postUser(req.body)
     .then(([result]) => {
-      res.send(result).status(201);
+      if ([result.affectedRows !== 0]) {
+        next();
+      } else {
+        res.sendStatus(400);
+      }
     })
     .catch((err) => {
       console.error(err);
