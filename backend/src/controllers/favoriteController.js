@@ -51,7 +51,7 @@ const getAllFavorite = (req, res) => {
   models.favorite
     .getAllFavoriteByUser(req.params.id)
     .then(([favorite]) => {
-      if (favorite != null) {
+      if (favorite.length) {
         res.send(favorite);
       } else {
         res.sendStatus(404);

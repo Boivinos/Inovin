@@ -12,8 +12,8 @@ import ValidationMessage from "../Globals/ValidationMessage/ValidationMessage";
 import UserContext from "../Contexts/UserContext";
 
 function Router() {
-  const user = useContext(UserContext);
-  const { id } = user;
+  const { user } = useContext(UserContext);
+
   return (
     <Routes>
       <Route path="/" element={<Connection />} />
@@ -33,7 +33,7 @@ function Router() {
         path="/wineCardSelection"
         element={
           <WineCardList
-            request={`http://localhost:8000/api/selection/${id}`}
+            request={`http://localhost:8000/api/selection/${user.id}`}
             title="votre sélection personnalisée"
           />
         }
@@ -42,7 +42,7 @@ function Router() {
         path="/wineCardFavoris"
         element={
           <WineCardList
-            request={`http://localhost:8000/api/${id}/favorites`}
+            request={`http://localhost:8000/api/${user.id}/favorites`}
             title="vos vins favoris"
           />
         }

@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import axios from "axios";
 import Questions from "./Questions/Questions";
 import questionsAndAnswer from "./questionsAndAnswer";
+import UserContext from "../../Contexts/UserContext";
 
 function Quiz() {
+  const { user } = useContext(UserContext);
   const [selectedQuestion, setSelectedQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState({
-    userID: 1,
+    userID: user.id,
     red: 0,
     white: 0,
     fruity: 0,

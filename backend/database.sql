@@ -405,7 +405,7 @@ CREATE TABLE
         lastname varchar(100) NOT NULL,
         born DATE,
         email varchar(100) NOT NULL UNIQUE,
-        hashedPassword varchar(255) NOT NULL,
+        hashedPassword varchar(300) NOT NULL,
         isadmin tinyint,
         isvigneron tinyint,
         wine_domain varchar(100),
@@ -420,20 +420,30 @@ INSERT INTO
         lastname,
         born,
         email,
-        hashedPassword
+        hashedPassword,
+        isadmin
     )
 VALUES (
         "John",
         "Bob",
         "1995-01-01",
         "johnbob@gmail.com",
-        "password"
+        "password",
+        0
     ), (
         "Chuck",
         "Norris",
         "1995-01-01",
         "chuck@gmail.com",
-        "chucknapasbesoindepassword"
+        "chucknapasbesoindepassword",
+        0
+    ), (
+        "KeyiJuMaAn",
+        "Inovin",
+        "1995-01-01",
+        "inovin@gmail.com",
+        "$argon2id$v=19$m=65536,t=5,p=1$cR5y4i5DhC3WaREJJeHcHQ$fP7kMe/pu/qFzGtPVP7temhIMCfTIABUwqmb91NseZE",
+        1
     );
 
 CREATE TABLE
