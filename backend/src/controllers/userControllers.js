@@ -44,8 +44,21 @@ const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
     });
 };
 
+const getAllUsers = (req, res) => {
+  models.user
+    .findAll()
+    .then(([users]) => {
+      res.send(users);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error retrieving data from database");
+    });
+};
+
 module.exports = {
   destroy,
   createUser,
   getUserByEmailWithPasswordAndPassToNext,
+  getAllUsers,
 };

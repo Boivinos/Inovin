@@ -9,7 +9,6 @@ import Contact from "../Globals/Contact/Contact";
 import Glossary from "../Globals/Glossary/Glossary";
 import Profile from "../User/Profile/Profile";
 import ValidationMessage from "../Globals/ValidationMessage/ValidationMessage";
-
 import UserAdminList from "../Admin/UserAdminList/UserAdminList";
 import WineAdminList from "../Admin/WineAdminList/WineAdminList";
 import UserAdminDetails from "../Admin/UserAdminList/UserDetails/UserAdminDetails";
@@ -59,8 +58,16 @@ function Router() {
       <Route path="/validationMessage" element={<ValidationMessage />} />
 
       {/* routes de l'utilisateur Admin: */}
-      <Route path="/userAdminList" element={<UserAdminList />} />
-      <Route path="/userAdminDetails" element={<UserAdminDetails />} />
+      <Route
+        path="/userAdminList"
+        element={
+          <UserAdminList
+            request="http://localhost:8000/api/users/"
+            title="tous les utilisateurs"
+          />
+        }
+      />
+      <Route path="/userAdminDetails/:id" element={<UserAdminDetails />} />
       <Route path="/wineAdminList" element={<WineAdminList />} />
       <Route path="/wineAdminDetails" element={<WineAdminDetails />} />
       <Route

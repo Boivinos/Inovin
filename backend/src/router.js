@@ -38,4 +38,6 @@ router.delete("/api/wines/:id/favorites", favoriteControllers.destroy);
 router.post("/api/wines/checkfavorite", favoriteControllers.getFavorite);
 router.get("/api/:id/favorites", favoriteControllers.getAllFavorite);
 
+router.get("/api/users", userControllers.getAllUsers);
+
 module.exports = router;
