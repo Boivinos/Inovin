@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -18,7 +17,6 @@ function Connection() {
   };
 
   console.warn(errors);
-
 
   return (
     <div className="formulaire_connexion_page">
@@ -47,7 +45,6 @@ function Connection() {
                 }
                 return true;
               },
-
             },
           })}
         />
@@ -95,33 +92,6 @@ function Connection() {
           <NavLink to="/inscription">
             <button className="button_inscription" type="submit">
               INSCRIPTION
-            })}
-          />
-
-          <input
-            className="input_connexion"
-            type="password"
-            placeholder="🔒 Mot de passe"
-            name="password"
-            {...register("password", {
-              required: true,
-              minLength: {
-                value: 6,
-                message:
-                  "Le mot de passe doit comporter au moins 6 caractères.",
-              },
-            })}
-          />
-
-          <NavLink to="/profile">
-            <button
-              className="button_connexion"
-              // type="button"
-              type="submit"
-              onClick={onSubmit}
-            >
-              {" "}
-              CONNEXION
             </button>
           </NavLink>
         </div>

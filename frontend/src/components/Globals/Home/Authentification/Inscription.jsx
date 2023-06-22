@@ -1,7 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate, NavLink } from "react-router-dom";
 
 function Inscription() {
   const {
@@ -56,7 +55,6 @@ function Inscription() {
             maxLength: 20,
             pattern: /^[A-Za-zÀ-ÿ ]+$/i,
           })}
-      
         />
         {errors?.firstname?.type === "required" && (
           <span className="form_inscription_error">Ce champ est requis</span>
@@ -76,7 +74,6 @@ function Inscription() {
           className="input_inscription"
           placeholder="Date de naissance * "
           type="date"
-
           id="email"
           name="datedenaissance"
           {...register("email", {
@@ -106,7 +103,6 @@ function Inscription() {
               },
             },
           })}
-
         />
         {errors?.email?.type === "required" && (
           <span className="form_inscription_error">Ce champ est requis</span>
@@ -173,7 +169,6 @@ function Inscription() {
             maxLength: 20,
             pattern: /^[A-Za-zÀ-ÿ ]+$/i,
           })}
-
         />
         {errors?.region?.type === "required" && (
           <span className="form_inscription_error">Ce champ est requis</span>
@@ -207,13 +202,7 @@ function Inscription() {
             Votre message doit comporter au moins 10 caractères
           </span>
         )}
-        <button className="button_inscription" type="submit">
-          INSCRIPTION
-        </button>
-          type="text"
-          name={descriptionField.name}
-          placeholder="Description *"
-        />
+
         <NavLink to="/quiz" state={{ fromInscription: true }}>
           <button
             className="button_inscription"
