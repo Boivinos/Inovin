@@ -12,6 +12,7 @@ function WineCardList({ request, title }) {
   const [otherFilterArr, setOtherFilterArr] = useState([]);
   const [wineCardData, setWineCardData] = useState(undefined);
 
+  const { href } = window.location;
   const toggleMenu = () => {
     setVisibleMenu(!visibleMenu);
   };
@@ -21,7 +22,7 @@ function WineCardList({ request, title }) {
       .get(request)
       .then((response) => setWineCardData(response.data))
       .catch((error) => console.error(error.message));
-  }, [wineCardData]);
+  }, [href]);
 
   return (
     <>

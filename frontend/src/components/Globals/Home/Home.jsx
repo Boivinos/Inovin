@@ -6,7 +6,7 @@ function Home() {
   useEffect(() => {
     localStorage.setItem(
       "token",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaXNBZG1pbiI6bnVsbCwiaXNWaWduZXJvbiI6bnVsbCwiZmlyc3RuYW1lIjoiQW50b25pbiIsImxhc3RuYW1lIjoiQm9pdmluIiwiaWF0IjoxNjg3MzQzMTYzLCJleHAiOjE2ODczNDY3NjN9.ML2UTG7LmQqJjhbGD394H_6p2xK2EicR2HMQj1MTSWc"
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImlhdCI6MTY4NzQyNjA1NSwiZXhwIjoxNjg3NDI5NjU1fQ.9ZaJxc_ylfMleVN2Fjxt4manu3XIB-8-UB5nxubeWFU"
     );
   }, []);
 

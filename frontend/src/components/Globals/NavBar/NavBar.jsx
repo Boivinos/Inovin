@@ -8,7 +8,7 @@ function DropdownMenu() {
       <NavLink to="/profile" className="link">
         <li>Mon profil</li>
       </NavLink>
-      <NavLink to="/wineCardList" className="link">
+      <NavLink to="/wineCardFavoris" className="link">
         <li>Ma cave</li>
       </NavLink>
       <NavLink to="/wineCardSelection" className="link">

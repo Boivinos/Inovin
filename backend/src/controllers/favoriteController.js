@@ -47,9 +47,25 @@ const getFavorite = (req, res) => {
       res.status(500).send("Error retrieving data from database");
     });
 };
+const getAllFavorite = (req, res) => {
+  models.favorite
+    .getAllFavoriteByUser(req.params.id)
+    .then(([favorite]) => {
+      if (favorite.length) {
+        res.send(favorite);
+      } else {
+        res.sendStatus(404);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error retrieving data from database");
+    });
+};
 
 module.exports = {
   destroy,
   createUserFavorite,
   getFavorite,
+  getAllFavorite,
 };

@@ -6,7 +6,7 @@ import UserContext from "./components/Contexts/UserContext";
 import NavBar from "./components/Globals/NavBar/NavBar";
 
 function App() {
-  const [user, setUser] = useState(undefined);
+  const [user, setUser] = useState(jwtDecode(localStorage.getItem("token")));
 
   useEffect(() => {
     setUser(jwtDecode(localStorage.getItem("token")));
