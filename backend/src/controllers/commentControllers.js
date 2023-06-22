@@ -41,8 +41,6 @@ const postComment = (req, res) => {
         .send({
           ...req.body,
           comment_date: currentDate,
-          firstname: "John",
-          lastname: "Bob",
         })
         .status(201);
     })

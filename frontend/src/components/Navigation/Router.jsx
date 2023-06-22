@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
-import Connection from "../Globals/Home/Authentification/Connection";
 import Inscription from "../Globals/Home/Authentification/Inscription";
 import Quiz from "../User/Quiz/Quiz";
 import WineCardList from "../User/WineCardList/WineCardList";
@@ -16,13 +15,14 @@ import UserAdminDetails from "../Admin/UserAdminList/UserDetails/UserAdminDetail
 import WineAdminDetails from "../Admin/WineAdminList/WineAdminDetails";
 import AdminModificationValidation from "../Admin/AdminModificationValidation";
 import UserContext from "../Contexts/UserContext";
+import Home from "../Globals/Home/Home";
 
 function Router() {
   const { user } = useContext(UserContext);
 
   return (
     <Routes>
-      <Route path="/" element={<Connection />} />
+      <Route path="/" element={<Home />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/inscription" element={<Inscription />} />
       <Route path="/quiz" element={<Quiz />} />
