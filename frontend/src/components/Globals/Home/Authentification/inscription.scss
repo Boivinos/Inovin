@@ -51,8 +51,10 @@
 .checkbox_vigneron {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
   margin-bottom: 10px;
+  font-family: $buttonTypo;
+  font-size: 14px;
 }
 
 .form_description {
@@ -143,6 +145,18 @@
       margin-bottom: 50px;
     }
   }
+  .checkbox_vigneron {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-family: $buttonTypo;
+  }
+}
+input.checkbox {
+  background-color: red;
+  display: flex;
 }
 
 @media screen and (min-width: 800px) {
