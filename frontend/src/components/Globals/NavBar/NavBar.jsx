@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import icons8 from "../../../assets/icons8.png";
+import UserContext from "../../Contexts/UserContext";
 
 function DropdownMenu() {
   return (
@@ -36,7 +37,7 @@ function NavBar() {
       toggleMenu();
     }
   };
-
+  const { user } = useContext(UserContext);
   return (
     <div className="navBar">
       <ul className="navLinks">
@@ -58,6 +59,7 @@ function NavBar() {
         role="button"
         tabIndex={0}
       >
+        <p>{user && user.firstname}</p>
         <img src={icons8} alt="User Icon" />
         {isMenuOpen && <DropdownMenu />}
       </div>

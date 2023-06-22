@@ -1,18 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { useParams, NavLink } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import axios from "axios";
 import VueComments from "./Comments/VueComments";
 import CommentButton from "./Comments/CommentButton";
 import AddComments from "./Comments/AddComments";
 import FavoriteButton from "../WineCardList/WineCard/FavoriteButton";
+import UserContext from "../../Contexts/UserContext";
 
 function WineDetails() {
   const { id } = useParams();
+  const { user } = useContext(UserContext);
   const [isEditing, setIsEditing] = useState(false);
   const [commentValue, setCommentValue] = useState("");
   const [wineDetailsData, setWineDetailsData] = useState([]);
   const [commentsData, setCommentsData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -29,7 +32,20 @@ function WineDetails() {
   }, []);
 
   const ratingChanged = (newRating) => {
-    console.warn(newRating); // envoyer la note dans la table de jointure note, si il y a déjà une ligne qui match le wineid et user id, la mettre à jour
+    const body = {
+      wine_id: id,
+      note: newRating,
+      user_id: user.id,
+    };
+
+    axios
+      .post("http://localhost:8000/api/usernotes", body)
+      .then((response) => {
+        console.warn(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   const displayVueCommentsMode = () => {
@@ -55,12 +71,17 @@ function WineDetails() {
 
   return (
     <div className="wineDetailsWrapper">
-      <NavLink to="/wineCardList">
-        <div className="returnButtonWrapper">
-          <img src="https://i.ibb.co/PchSHGr/60793.png" alt="" />
-          <p>Retour</p>
-        </div>
-      </NavLink>
+      <div
+        className="returnButtonWrapper"
+        onClick={() => navigate(-1)}
+        onKeyDown={() => navigate(-1)}
+        role="button"
+        tabIndex={0}
+      >
+        <img src="https://i.ibb.co/PchSHGr/60793.png" alt="" />
+        <p>Retour</p>
+      </div>
+
       <div className="wineInfo">
         <div className="mainWineInfo">
           <div className="imageBloc">

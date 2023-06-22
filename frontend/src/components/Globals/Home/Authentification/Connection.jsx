@@ -1,27 +1,42 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import jwtDecode from "jwt-decode";
+import UserContext from "../../../Contexts/UserContext";
 
 function Connection() {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm();
+
+  const { setUser } = useContext(UserContext);
 
   const navigate = useNavigate();
 
-  const onSubmit = (data) => {
-    console.warn("données", data);
-    navigate(isValid ? "/profile" : "#");
+  const userLoginCheck = (data) => {
+    axios
+      .post(`http://localhost:8000/api/login`, data)
+      .then((response) => {
+        localStorage.removeItem("token");
+        localStorage.setItem("token", response.data.token);
+        navigate("/profile");
+        setUser(jwtDecode(localStorage.getItem("token")));
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
-
-  console.warn(errors);
 
   return (
     <div className="formulaire_connexion_page">
       <div className="inovin_picture" />
-      <form className="form_connexion" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className="form_connexion"
+        onSubmit={handleSubmit((data) => userLoginCheck(data))}
+      >
         <h3 className="text_connexion">
           Connecte-toi ou inscris-toi pour découvrir ta sélection de vin
           personnalisée.
@@ -71,7 +86,7 @@ function Connection() {
           placeholder="🔒 Mot de passe"
           {...register("password", {
             required: true,
-            minLength: 6,
+            minLength: 4,
           })}
         />
         {errors?.password?.type === "required" && (
@@ -79,14 +94,14 @@ function Connection() {
         )}
         {errors?.password?.type === "minLength" && (
           <span className="error_connexion">
-            Ce champ doit comporter au moins 6 caractères
+            Ce champ doit comporter au moins 4 caractères
           </span>
         )}
-
         <button className="button_connexion" type="submit">
           {" "}
           CONNEXION
         </button>
+
         <div className="inscription">
           Tu n'as pas de compte ?
           <NavLink to="/inscription">

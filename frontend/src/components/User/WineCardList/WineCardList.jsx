@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import WineCard from "./WineCard/WineCard";
 import SearchAndFilterMenu from "./ListButtons/SearchAndFilterMenu";
 
-function WineCardList({ request, title }) {
+function WineCardList({ request, title, type }) {
   const [search, setSearch] = useState("Rechercher...");
   const [isSearching, setIsSearching] = useState(false);
   const [visibleMenu, setVisibleMenu] = useState(false);
@@ -18,6 +18,9 @@ function WineCardList({ request, title }) {
   };
 
   useEffect(() => {
+    setSearch("Rechercher...");
+    setIsSearching(false);
+    setVisibleMenu(false);
     axios
       .get(request)
       .then((response) => setWineCardData(response.data))
@@ -51,6 +54,12 @@ function WineCardList({ request, title }) {
         />
 
         <div className="wineCardList">
+          {(!wineCardData || !wineCardData.length) && type === "favori" && (
+            <p>Il n'y a pas encore de vin dans vos favoris !</p>
+          )}
+          {(!wineCardData || !wineCardData.length) && type === "selection" && (
+            <p>Il n'y a pas encore de vin dans votre sélection !</p>
+          )}
           {wineCardData &&
             wineCardData
               .filter((wine) => {
@@ -100,6 +109,7 @@ function WineCardList({ request, title }) {
 WineCardList.propTypes = {
   request: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default WineCardList;

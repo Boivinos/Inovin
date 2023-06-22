@@ -26,9 +26,7 @@ function Quiz() {
     intense: 0,
   });
   const location = useLocation();
-  const userOrigin = location.state
-    ? location.state
-    : { fromInscription: false };
+  const userOrigin = location.state.isFirstConnection;
 
   const handleClick = (button) => {
     if (
@@ -57,8 +55,8 @@ function Quiz() {
       <div className="mainQuizWrapper">
         <div className="quizImg" />
         <div className="quizQuestionAndAnswerWrapper">
-          {userOrigin.fromInscription && selectedQuestion === 0 && (
-            <p>Merci de ton inscription ! </p>
+          {userOrigin && selectedQuestion === 0 && (
+            <p>Merci de ton inscription {user && user.firstname} ! </p>
           )}
           {selectedQuestion === 0 && (
             <p>
