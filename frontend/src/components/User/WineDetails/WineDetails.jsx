@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import axios from "axios";
 import VueComments from "./Comments/VueComments";
@@ -16,6 +16,8 @@ function WineDetails() {
   const [wineDetailsData, setWineDetailsData] = useState([]);
   const [commentsData, setCommentsData] = useState([]);
   const navigate = useNavigate();
+  const location = useLocation();
+  const note = location.state.wineNote;
 
   useEffect(() => {
     axios
@@ -101,7 +103,7 @@ function WineDetails() {
               size={35}
               isHalf
               activeColor="#ffd700"
-              value={3} // recuperer les notes depuis la table de jointure note et faire une moyenne
+              value={note} // recuperer les notes depuis la table de jointure note et faire une moyenne
             />
           </div>
         </div>

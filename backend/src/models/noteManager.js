@@ -20,6 +20,12 @@ class NoteManager extends AbstractManager {
       [data.wine_id, data.user_id, data.note]
     );
   }
+
+  getAllNoteAverageForEachWine() {
+    return this.database.query(`SELECT wine_id, AVG(note) AS moyenne_note
+    FROM user_notes
+    GROUP BY wine_id;`);
+  }
 }
 
 module.exports = NoteManager;

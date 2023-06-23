@@ -49,6 +49,7 @@ router.post(
   noteControllers.destroy,
   noteControllers.postNote
 );
+router.get("/api/:id/favoritesandnotes", noteControllers.getAllWineNotes);
 
 router.get("/api/users", userControllers.getAllUsers);
 
