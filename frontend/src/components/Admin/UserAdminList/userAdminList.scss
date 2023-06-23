@@ -1,0 +1,10 @@
+.userAdminList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    #userAdminList_title {
+        font-family: $mainTypo;
+        font-size:xx-large;
+    }
+}

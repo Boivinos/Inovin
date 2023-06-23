@@ -6,11 +6,10 @@ function UserCard({ firstname, lastname, id }) {
   return (
     <div className="userCardWrapper">
       <NavLink to={`/userAdminDetails/${id}`}>
-        <div className="wineCard">
-          <div className="wineCardDescription">
-            <p>{firstname}</p>
-            <p>{lastname}</p>
-          </div>
+        <div className="userCard">
+          <p>
+            {firstname} {lastname}
+          </p>
         </div>
       </NavLink>
     </div>
