@@ -13,6 +13,7 @@ import WineAdminList from "../Admin/WineAdminList/WineAdminList";
 import UserAdminDetails from "../Admin/UserAdminList/UserDetails/UserAdminDetails";
 import WineAdminDetails from "../Admin/WineAdminList/WineAdminDetails";
 import AdminModificationValidation from "../Admin/AdminModificationValidation";
+import AddNewUser from "../Admin/UserAdminList/AddNewUser/AddNewUser";
 import UserContext from "../Contexts/UserContext";
 import Home from "../Globals/Home/Home";
 
@@ -60,17 +61,10 @@ function Router() {
       <Route path="/glossary" element={<Glossary />} />
       <Route path="/validationMessage" element={<ValidationMessage />} />
 
-      {/* routes de l'utilisateur Admin: */}
-      <Route
-        path="/userAdminList"
-        element={
-          <UserAdminList
-            request="http://localhost:8000/api/users/"
-            title="tous les utilisateurs"
-          />
-        }
-      />
+      {/* routes de l'utilisateur Admin - gestion des utilisateurs et des vins : */}
+      <Route path="/userAdminList" element={<UserAdminList />} />
       <Route path="/userAdminDetails/:id" element={<UserAdminDetails />} />
+      <Route path="/addNewUser" element={<AddNewUser />} />
       <Route path="/wineAdminList" element={<WineAdminList />} />
       <Route path="/wineAdminDetails" element={<WineAdminDetails />} />
       <Route

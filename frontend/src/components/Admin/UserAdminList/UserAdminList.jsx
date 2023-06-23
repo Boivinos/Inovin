@@ -15,39 +15,42 @@ function UserAdminList() {
 
   // navigation vers les autres pages d'administration via les boutons
   const navigateToAdminWinesPage = useNavigate();
-  const navigateToAdminAddUsersPage = useNavigate();
+  const navigateToUserAdminDetailsPage = useNavigate();
+  const navigatetoAddNewUserPage = useNavigate();
 
-  const handleUsersButtonClick = () => {
-    navigateToAdminWinesPage("/ADRESSE A DEFINIR");
+  const handleWinesButtonClick = () => {
+    navigateToAdminWinesPage("/wineAdminList");
   };
-
-  const handleAddUsersButtonClick = () => {
-    navigateToAdminAddUsersPage("/ADRESSE A DEFINIR");
+  const handleUsersDetailsButtonClick = () => {
+    navigateToUserAdminDetailsPage("/userAdminDetails/:id");
+  };
+  const handleAddNewUserButtonClick = () => {
+    navigatetoAddNewUserPage("/addNewUser");
   };
 
   return (
     <div className="userAdminList">
-      <p id="userAdminList_title">Liste des utilisateurs </p>
+      <h1 id="userAdminList_title">Liste des utilisateurs </h1>
       <div className="userAdminList_buttonWrapper">
-        <button
-          id="userAdminList_usersButton"
-          type="button"
-          onClick={handleUsersButtonClick}
-        >
+        <button id="userAdminList_usersButton" type="button">
           Utilisateurs
         </button>
-        <button id="userAdminList_winesButton" type="button">
+        <button
+          id="userAdminList_winesButton"
+          type="button"
+          onClick={handleWinesButtonClick}
+        >
           Vins
         </button>
       </div>
-      <div className="userAdminList_buttonWrapper">
+      <div id="userAdminList_buttonWrapper2">
         <button className="userAdminList_button" type="button">
           Rechercher
         </button>
         <button
           className="userAdminList_button"
           type="button"
-          onClick={handleAddUsersButtonClick}
+          onClick={handleAddNewUserButtonClick}
         >
           Ajouter
         </button>
@@ -57,9 +60,11 @@ function UserAdminList() {
         userData.map((user) => {
           return (
             <UserCard
+              key={user.id}
               firstname={user.firstname}
               lastname={user.lastname}
               id={user.id}
+              onClick={handleUsersDetailsButtonClick}
             />
           );
         })}
