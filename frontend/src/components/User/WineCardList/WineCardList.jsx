@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 import WineCard from "./WineCard/WineCard";
 import SearchAndFilterMenu from "./ListButtons/SearchAndFilterMenu";
+import UserContext from "../../Contexts/UserContext";
 
 function WineCardList({ request, title, type }) {
   const [search, setSearch] = useState("Rechercher...");
@@ -11,6 +12,8 @@ function WineCardList({ request, title, type }) {
   const [colorFilterArr, setColorFilterArr] = useState([]);
   const [otherFilterArr, setOtherFilterArr] = useState([]);
   const [wineCardData, setWineCardData] = useState(undefined);
+  const [wineNotes, setWineNotes] = useState([]);
+  const { user } = useContext(UserContext);
 
   const { href } = window.location;
   const toggleMenu = () => {
@@ -26,6 +29,19 @@ function WineCardList({ request, title, type }) {
       .then((response) => setWineCardData(response.data))
       .catch((error) => console.error(error.message));
   }, [href]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/api/${user.id}/favoritesandnotes`)
+      .then((response) => setWineNotes(response.data))
+      .catch((error) => console.error(error.message));
+  }, [href]);
+
+  const matchNotesWithWines = (wineId) => {
+    const note = wineNotes.filter((el) => el.wine_id === wineId)[0];
+
+    return note?.moyenne_note && Number(note.moyenne_note).toFixed(1);
+  };
 
   return (
     <>
@@ -98,6 +114,11 @@ function WineCardList({ request, title, type }) {
                     domain={wine.domain}
                     key={wine.id}
                     id={wine.id}
+                    note={
+                      matchNotesWithWines(wine.id)
+                        ? matchNotesWithWines(wine.id)
+                        : 0
+                    }
                   />
                 );
               })}
