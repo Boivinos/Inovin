@@ -1,9 +1,18 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import React, { useState, useContext } from "react";
 import icons8 from "../../../assets/icons8.png";
 import UserContext from "../../Contexts/UserContext";
 
 function DropdownMenu() {
+  const { setUser } = useContext(UserContext);
+
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/");
+    localStorage.clear();
+    setUser(undefined);
+  };
+
   return (
     <ul className="dropdownMenu">
       <NavLink to="/profile" className="link">
@@ -18,9 +27,14 @@ function DropdownMenu() {
       <NavLink to="/wineCardList" className="link">
         <li>Tous les vins</li>
       </NavLink>
-      <NavLink to="/" className="link">
-        <li>Me déconnecter</li>
-      </NavLink>
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={() => handleClick()}
+        onKeyDown={() => handleClick()}
+      >
+        Me déconnecter
+      </div>
     </ul>
   );
 }
@@ -38,6 +52,7 @@ function NavBar() {
     }
   };
   const { user } = useContext(UserContext);
+
   return (
     <div className="navBar">
       <ul className="navLinks">
@@ -52,17 +67,19 @@ function NavBar() {
           </NavLink>
         </li>
       </ul>
-      <div
-        className="icone"
-        onClick={toggleMenu}
-        onKeyDown={handleKeyDown}
-        role="button"
-        tabIndex={0}
-      >
-        <p>{user && user.firstname}</p>
-        <img src={icons8} alt="User Icon" />
-        {isMenuOpen && <DropdownMenu />}
-      </div>
+      {user && (
+        <div
+          className="icone"
+          onClick={toggleMenu}
+          onKeyDown={handleKeyDown}
+          role="button"
+          tabIndex={0}
+        >
+          <p>{user && user.firstname}</p>
+          <img src={icons8} alt="User Icon" />
+          {isMenuOpen && <DropdownMenu />}
+        </div>
+      )}
     </div>
   );
 }
