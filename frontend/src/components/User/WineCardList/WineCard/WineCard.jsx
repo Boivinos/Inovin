@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import FavoriteButton from "./FavoriteButton";
+import ModificationButton from "./ModificationButton";
 import UserContext from "../../../Contexts/UserContext";
 
 function WineCard({ name, image, domain, id, note }) {
@@ -11,7 +12,7 @@ function WineCard({ name, image, domain, id, note }) {
   return (
     <div className="wineCardWrapper">
       {/* if the user isn't admin, then show the favorite button  */}
-      {user.isAdmin === 0 && (
+      {!user.isAdmin && (
         <div className="favoriteButton">
           <FavoriteButton wineId={id} />
         </div>
@@ -19,7 +20,7 @@ function WineCard({ name, image, domain, id, note }) {
       {/* if the user admin, then show the modification button  */}
       {user.isAdmin === 1 && (
         <div className="modificationButton">
-          <FavoriteButton wineId={id} />
+          <ModificationButton />
         </div>
       )}
       <NavLink to={`/wineDetails/${id}`} state={{ wineNote: note }}>
