@@ -6,6 +6,7 @@ import UserCard from "./UserCard";
 function UserAdminList() {
   // récupréation des utilisateurs enregistrés dans la BDD
   const [userData, setUserData] = useState(undefined);
+
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/users`)
