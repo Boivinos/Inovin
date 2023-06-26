@@ -12,8 +12,10 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    if (token !== null) {
+    if (token) {
       setUser(jwtDecode(token));
+    } else {
+      setUser(undefined);
     }
   }, []);
 
