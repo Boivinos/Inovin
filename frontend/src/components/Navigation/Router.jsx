@@ -71,8 +71,8 @@ function Router() {
         }
       />
       <Route path="/userAdminDetails/:id" element={<UserAdminDetails />} />
-      <Route path="/wineAdminList" element={<WineAdminList />} />
-      <Route path="/wineAdminDetails" element={<WineAdminDetails />} />
+      <Route path="/wineadminlist" element={<WineAdminList />} />
+      <Route path="/wineadmindetails" element={<WineAdminDetails />} />
       <Route
         path="/AdminModificationValidation"
         element={<AdminModificationValidation />}
