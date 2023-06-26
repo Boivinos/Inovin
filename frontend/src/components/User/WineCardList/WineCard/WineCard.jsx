@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import FavoriteButton from "./FavoriteButton";
+import UserContext from "../../../Contexts/UserContext";
 
 function WineCard({ name, image, domain, id, note }) {
+  const { user } = useContext(UserContext);
+  // console.log(user);
+
   return (
     <div className="wineCardWrapper">
-      <div className="favoriteButton">
-        <FavoriteButton wineId={id} />
-      </div>
+      {/* if the user isn't admin, then show the favorite button  */}
+      {user.isAdmin === 0 && (
+        <div className="favoriteButton">
+          <FavoriteButton wineId={id} />
+        </div>
+      )}
+      {/* if the user admin, then show the modification button  */}
+      {user.isAdmin === 1 && (
+        <div className="modificationButton">
+          <FavoriteButton wineId={id} />
+        </div>
+      )}
       <NavLink to={`/wineDetails/${id}`} state={{ wineNote: note }}>
         <div className="wineCard">
           <div className="imgBox">
