@@ -1,5 +1,5 @@
 .quizPage {
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 140px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: space-around;
     font-family: $mainTypo;
-    min-height: calc(100vh - 100px - 70px);
+    min-height: calc(100vh - 140px - 70px);
 
     .quizImg {
       height: calc(454px * 1);
@@ -62,6 +62,9 @@
     padding: 20px;
     height: 70px;
     font-family: $mainTypo;
+    p {
+      text-decoration: underline;
+    }
   }
 }
 

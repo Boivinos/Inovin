@@ -9,7 +9,7 @@ function Quiz() {
   const { user } = useContext(UserContext);
   const [selectedQuestion, setSelectedQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState({
-    userID: user.id,
+    userID: user?.id,
     red: 0,
     white: 0,
     fruity: 0,
@@ -26,7 +26,7 @@ function Quiz() {
     intense: 0,
   });
   const location = useLocation();
-  const userOrigin = location.state.isFirstConnection;
+  const userOrigin = location.state?.isFirstConnection;
 
   const handleClick = (button) => {
     if (
