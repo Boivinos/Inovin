@@ -60,9 +60,23 @@ const getAllUsers = (req, res) => {
     });
 };
 
+const getUsersbyId = (req, res) => {
+  const { id } = req.params;
+  models.user
+    .find(id)
+    .then(([users]) => {
+      res.send(users);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error retrieving data from database");
+    });
+};
+
 module.exports = {
   destroy,
   createUser,
   getUserByEmailWithPasswordAndPassToNext,
   getAllUsers,
+  getUsersbyId,
 };

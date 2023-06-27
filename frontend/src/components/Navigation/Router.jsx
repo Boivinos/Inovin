@@ -62,18 +62,15 @@ function Router() {
       <Route path="/validationMessage" element={<ValidationMessage />} />
 
       {/* routes de l'utilisateur Admin - gestion des utilisateurs et des vins : */}
-      <Route path="/userAdminList" element={<UserAdminList />} />
-      <Route path="/userAdminDetails/:id" element={<UserAdminDetails />} />
 
+      <Route path="/useradminlist" element={<UserAdminList />} />
+      <Route path="/useradmindetails/:id" element={<UserAdminDetails />} />
+      <Route path="/addnewuser" element={<AddNewUser />} />
       <Route path="/wineadminlist" element={<WineAdminList />} />
       <Route path="/wineadmindetails" element={<WineAdminDetails />} />
 
-      <Route path="/addNewUser" element={<AddNewUser />} />
-      <Route path="/wineAdminList" element={<WineAdminList />} />
-      <Route path="/wineAdminDetails" element={<WineAdminDetails />} />
-
       <Route
-        path="/AdminModificationValidation"
+        path="/adminmodificationvalidation"
         element={<AdminModificationValidation />}
       />
     </Routes>
