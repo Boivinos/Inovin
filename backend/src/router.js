@@ -52,5 +52,6 @@ router.post(
 router.get("/api/:id/favoritesandnotes", noteControllers.getAllWineNotes);
 
 router.get("/api/users", userControllers.getAllUsers);
+router.get("/api/users/:id", userControllers.getUsersbyId);
 
 module.exports = router;
