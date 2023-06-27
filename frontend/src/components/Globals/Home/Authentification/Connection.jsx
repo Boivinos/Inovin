@@ -22,7 +22,7 @@ function Connection() {
       .then((response) => {
         localStorage.removeItem("token");
         localStorage.setItem("token", response.data.token);
-        navigate("/profile");
+        navigate("/profil");
         setUser(jwtDecode(localStorage.getItem("token")));
       })
       .catch((error) => {
