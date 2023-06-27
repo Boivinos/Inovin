@@ -22,34 +22,39 @@ function Profile() {
   }, []);
 
   return (
-    <div className="user-profile-taste">
-      <div className="user-profile-taste_list">
-        {params.get("isFromQuiz") && (
-          <>
-            <div className="user-profile-taste_validation">
-              <p>Merci de tes réponses{user.firstname}. </p>
-              <p>Découvre ton profil dégustation :</p>
-            </div>
-            <div>
-              <hr className="user-profile-taste_solid" />
-            </div>
-          </>
-        )}
+    <>
+      <div className="user-profile-taste">
+        <div className="user-profile-taste_list">
+          <div className="user-profile-taste_validation">
+            {params.get("isFromQuiz") && (
+              <p>Merci de tes réponses {user.firstname}. </p>
+            )}
+            <p>Découvre ton profil dégustation :</p>
+          </div>
+          <div>
+            <hr className="user-profile-taste_solid" />
+          </div>
 
-        <div className="user-profile-taste_text">
-          <p>{data?.couleur_de_vin}</p>
-          <p>{data?.arome}</p>
+          <div className="user-profile-taste_text">
+            <p>{data?.couleur_de_vin}</p>
+            <p>{data?.arome}</p>
+          </div>
+        </div>
+        {/* router button à définir vvvv */}
+        <div className="user-profile-taste_buttonzone">
+          <NavLink to="/wineCardSelection" className="link">
+            <button className="user-profile-taste_button" type="button">
+              DÉCOUVRIR MA SÉLECTION
+            </button>
+          </NavLink>
         </div>
       </div>
-      {/* router button à définir vvvv */}
-      <div className="user-profile-taste_buttonzone">
-        <NavLink to="/wineCardSelection" className="link">
-          <button className="user-profile-taste_button" type="button">
-            DÉCOUVRIR MA SÉLECTION
-          </button>
+      <div className="userProfileFooter">
+        <NavLink to="/quiz" className="link">
+          <p>(Re)lancer le quiz</p>
         </NavLink>
       </div>
-    </div>
+    </>
   );
 }
 
