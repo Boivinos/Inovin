@@ -25,3 +25,12 @@
     }
   }
 }
+
+.wineAdminList_winecardlist {
+  width: 100%;
+  margin: 0 clamp(10px, 5%, 200px);
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
