@@ -32,7 +32,9 @@ function Questions({
 
 Questions.propTypes = {
   question: PropTypes.string.isRequired,
-  answers: PropTypes.shape([]).isRequired,
+  answers: PropTypes.arrayOf(
+    PropTypes.objectOf(PropTypes.string, PropTypes.string)
+  ).isRequired,
   example: PropTypes.string,
   selectedAnswer: PropTypes.shape({}).isRequired,
   setSelectedAnswer: PropTypes.func.isRequired,

@@ -24,7 +24,9 @@ CheckBox.propTypes = {
   label: PropTypes.string.isRequired,
   filterFunc: PropTypes.func.isRequired,
   setFilterArr: PropTypes.func.isRequired,
-  filterArr: PropTypes.shape([]).isRequired,
+  filterArr: PropTypes.arrayOf(
+    PropTypes.objectOf(PropTypes.string, PropTypes.func)
+  ).isRequired,
 };
 
 export default CheckBox;

@@ -48,7 +48,15 @@ CommentButton.propTypes = {
   isEditing: PropTypes.bool.isRequired,
   commentValue: PropTypes.string.isRequired,
   setCommentValue: PropTypes.func.isRequired,
-  commentsData: PropTypes.shape([]).isRequired,
+  commentsData: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.any,
+      PropTypes.string,
+      PropTypes.string,
+      PropTypes.string,
+      PropTypes.string
+    )
+  ).isRequired,
   setCommentsData: PropTypes.func.isRequired,
 };
 

@@ -12,13 +12,13 @@ function WineCard({ name, image, domain, id, note }) {
   return (
     <div className="wineCardWrapper">
       {/* if the user isn't admin, then show the favorite button  */}
-      {!user.isAdmin && (
+      {!user?.isAdmin && (
         <div className="favoriteButton">
-          <FavoriteButton wineId={id} />
+          <FavoriteButton wineId={Number(id)} />
         </div>
       )}
       {/* if the user admin, then show the modification button  */}
-      {user.isAdmin === 1 && (
+      {user?.isAdmin === 1 && (
         <div className="modificationButton">
           <ModificationButton />
         </div>
