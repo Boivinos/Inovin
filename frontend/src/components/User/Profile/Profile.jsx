@@ -42,7 +42,7 @@ function Profile() {
         </div>
         {/* router button à définir vvvv */}
         <div className="user-profile-taste_buttonzone">
-          <NavLink to="/wineCardSelection" className="link">
+          <NavLink to="/vins/selection" className="link">
             <button className="user-profile-taste_button" type="button">
               DÉCOUVRIR MA SÉLECTION
             </button>

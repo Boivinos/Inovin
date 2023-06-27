@@ -15,16 +15,16 @@ function DropdownMenu() {
 
   return (
     <ul className="dropdownMenu">
-      <NavLink to="/profile" className="link">
+      <NavLink to="/profil" className="link">
         <li>Mon profil</li>
       </NavLink>
-      <NavLink to="/wineCardFavoris" className="link">
+      <NavLink to="/vins/favoris" className="link">
         <li>Ma cave</li>
       </NavLink>
-      <NavLink to="/wineCardSelection" className="link">
+      <NavLink to="/vins/selection" className="link">
         <li>Ma sélection</li>
       </NavLink>
-      <NavLink to="/wineCardList" className="link">
+      <NavLink to="/vins" className="link">
         <li>Tous les vins</li>
       </NavLink>
       <div
@@ -57,7 +57,7 @@ function NavBar() {
     <div className="navBar">
       <ul className="navLinks">
         <li>
-          <NavLink to="/glossary" className="link">
+          <NavLink to="/lexique" className="link">
             Lexique
           </NavLink>
         </li>

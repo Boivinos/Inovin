@@ -75,7 +75,7 @@ function WineCardList({ request, title, type }) {
           {(!wineCardData || !wineCardData.length) && type === "favori" && (
             <div className="emptySelection">
               <p>Il n'y a pas encore de vin dans vos favoris !</p>
-              <NavLink to="/wineCardList" className="link">
+              <NavLink to="/vins" className="link">
                 <button type="button">Découvrir tous les vins</button>
               </NavLink>
             </div>

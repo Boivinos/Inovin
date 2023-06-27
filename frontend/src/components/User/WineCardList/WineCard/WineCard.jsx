@@ -23,7 +23,7 @@ function WineCard({ name, image, domain, id, note }) {
           <ModificationButton />
         </div>
       )}
-      <NavLink to={`/wineDetails/${id}`} state={{ wineNote: note }}>
+      <NavLink to={`/vins/detail/${id}`} state={{ wineNote: note }}>
         <div className="wineCard">
           <div className="imgBox">
             <img src={image} alt="" />

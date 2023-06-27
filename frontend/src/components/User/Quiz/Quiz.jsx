@@ -100,7 +100,7 @@ function Quiz() {
                 type="button"
                 className="questionSuivanteBouton"
               >
-                <NavLink to="/profile?isFromQuiz=true" className="link">
+                <NavLink to="/profil?isFromQuiz=true" className="link">
                   TERMINER LE QUIZZ
                 </NavLink>
               </button>
@@ -109,7 +109,7 @@ function Quiz() {
         </div>
       </div>
       <div className="quizFooter">
-        <NavLink to="/profile" className="link">
+        <NavLink to="/profil" className="link">
           <p>Passer le questionnaire</p>
         </NavLink>
         <p>{selectedQuestion + 1}/4</p>

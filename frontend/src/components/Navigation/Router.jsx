@@ -23,11 +23,11 @@ function Router() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/profile" element={<Profile />} />
+      <Route path="/profil" element={<Profile />} />
       <Route path="/inscription" element={<Inscription />} />
       <Route path="/quiz" element={<Quiz />} />
       <Route
-        path="/wineCardList"
+        path="/vins"
         element={
           <WineCardList
             request="http://localhost:8000/api/wines"
@@ -37,7 +37,7 @@ function Router() {
         }
       />
       <Route
-        path="/wineCardSelection"
+        path="/vins/selection"
         element={
           <WineCardList
             request={`http://localhost:8000/api/selection/${user && user.id}`}
@@ -47,7 +47,7 @@ function Router() {
         }
       />
       <Route
-        path="/wineCardFavoris"
+        path="/vins/favoris"
         element={
           <WineCardList
             request={`http://localhost:8000/api/${user && user.id}/favorites`}
@@ -56,9 +56,9 @@ function Router() {
           />
         }
       />
-      <Route path="/wineDetails/:id" element={<WineDetails />} />
+      <Route path="/vins/detail/:id" element={<WineDetails />} />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/glossary" element={<Glossary />} />
+      <Route path="/lexique" element={<Glossary />} />
       <Route path="/validationMessage" element={<ValidationMessage />} />
 
       {/* routes de l'utilisateur Admin - gestion des utilisateurs et des vins : */}
