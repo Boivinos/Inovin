@@ -60,7 +60,8 @@ ul.dropdownMenu {
   right: 10px;
 }
 
-.dropdownMenu li {
+.dropdownMenu li,
+.dropdownMenu div {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -72,7 +73,8 @@ ul.dropdownMenu {
   padding-bottom: 5px;
 }
 
-.dropdownMenu li:hover {
+.dropdownMenu li:hover,
+.dropdownMenu div:hover {
   color: $primary-color;
   border-bottom: 1px solid $primary-color;
 }

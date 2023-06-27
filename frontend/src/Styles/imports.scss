@@ -14,6 +14,7 @@
 @import "../components/Globals/Home/Home.scss";
 @import "../components/Globals/NavBar/NavBar.scss";
 @import "../components/User/WineCardList/WineCard/favoritebutton";
+@import "../components/User/WineCardList/WineCard/ModificationButton.scss";
 @import "../components/User/Quiz/Quiz.scss";
 @import "../components/User/WineDetails/WineDetails.scss";
 @import "../components/Globals//ValidationMessage//validationMessage";
@@ -21,3 +22,5 @@
 @import "../components/Admin//UserAdminList//userCard.scss";
 @import "../components//Admin//UserAdminList//userAdminList.scss";
 @import "../components//Admin//UserAdminList//UserDetails//userAdminDetails.scss";
+@import "../components/Admin/WineAdminList/WineAdminList.scss";
+
