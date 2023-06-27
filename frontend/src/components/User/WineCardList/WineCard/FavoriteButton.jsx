@@ -8,7 +8,7 @@ function FavoriteButton({ wineId }) {
   const { user } = useContext(UserContext);
   const [isFavorite, setIsFavorite] = useState();
   const temp = {
-    user_id: user.id,
+    user_id: user?.id,
     wine_id: wineId,
   };
 

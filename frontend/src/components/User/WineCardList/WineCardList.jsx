@@ -34,7 +34,7 @@ function WineCardList({ request, title, type }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/${user.id}/favoritesandnotes`)
+      .get(`http://localhost:8000/api/${user?.id}/favoritesandnotes`)
       .then((response) => setWineNotes(response.data))
       .catch((error) => console.error(error.message));
   }, [href]);
@@ -128,7 +128,7 @@ function WineCardList({ request, title, type }) {
                     id={wine.id}
                     note={
                       matchNotesWithWines(wine.id)
-                        ? matchNotesWithWines(wine.id)
+                        ? Number(matchNotesWithWines(wine.id))
                         : 0
                     }
                   />

@@ -124,9 +124,13 @@ SearchAndFilterMenu.propTypes = {
   setIsSearching: PropTypes.func.isRequired,
   visibleMenu: PropTypes.bool.isRequired,
   toggleMenu: PropTypes.func.isRequired,
-  colorFilterArr: PropTypes.shape([]).isRequired,
+  colorFilterArr: PropTypes.arrayOf(
+    PropTypes.objectOf(PropTypes.string, PropTypes.func)
+  ).isRequired,
   setColorFilterArr: PropTypes.func.isRequired,
-  otherFilterArr: PropTypes.shape([]).isRequired,
+  otherFilterArr: PropTypes.arrayOf(
+    PropTypes.objectOf(PropTypes.string, PropTypes.func)
+  ).isRequired,
   setOtherFilterArr: PropTypes.func.isRequired,
 };
 
