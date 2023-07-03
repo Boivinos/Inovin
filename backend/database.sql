@@ -542,9 +542,7 @@ ADD
 
 ALTER TABLE favorites
 ADD
-    CONSTRAINT favorites_fk0 FOREIGN KEY (user_id) REFERENCES users(id);
-
-ALTER TABLE favorites
+    CONSTRAINT favorites_fk0 FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
 ADD
     CONSTRAINT favorites_fk1 FOREIGN KEY (wine_id) REFERENCES wines(id);
 
