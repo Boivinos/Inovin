@@ -17,7 +17,7 @@ function WineDetails() {
   const [commentsData, setCommentsData] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
-  const note = location.state.wineNote;
+  const [note, setNote] = useState(location.state.wineNote);
 
   useEffect(() => {
     axios
@@ -34,6 +34,7 @@ function WineDetails() {
   }, []);
 
   const ratingChanged = (newRating) => {
+    setNote(newRating);
     const body = {
       wine_id: id,
       note: newRating,
@@ -105,6 +106,7 @@ function WineDetails() {
               activeColor="#ffd700"
               value={note} // recuperer les notes depuis la table de jointure note et faire une moyenne
             />
+            {!note && <p>Il n'y a pas encore de note pour ce vin</p>}
           </div>
         </div>
         <div className="detailedWineInfo">
@@ -114,7 +116,7 @@ function WineDetails() {
           <p>Teneur en alcool : {wineDetailsData.alcohol_content}%</p>
         </div>
         <div className="favoriteButton">
-          <FavoriteButton wineId={id} />
+          <FavoriteButton wineId={Number(id)} />
         </div>
       </div>
       <div className="separator" />
