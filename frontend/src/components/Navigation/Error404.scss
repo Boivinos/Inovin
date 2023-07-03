@@ -1,0 +1,37 @@
+.NotFound {
+  height: calc(100vh - 140px);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: calc(2vw + 2em);
+  font-family: $mainTypo;
+
+  .NotFoundImg {
+    background-image: url("https://i.ibb.co/qFN1ZLG/inovin-Picture-mobile.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: calc(513px * 1);
+    height: calc(582px * 1);
+  }
+  .NoutFoundTextButtonWrapper {
+    height: calc(582px * 1);
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 601px) {
+  .NotFound {
+    .NotFoundImg {
+      display: none;
+    }
+  }
+}
