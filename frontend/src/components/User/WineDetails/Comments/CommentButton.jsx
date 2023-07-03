@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import API from "../../../Contexts/api";
 import UserContext from "../../../Contexts/UserContext";
 
 function CommentButton({
@@ -23,8 +23,7 @@ function CommentButton({
       lastname: user.lastname,
     };
     if (isEditing) {
-      axios
-        .post(`http://localhost:8000/api/wines/${id}/comments`, body)
+      API.post(`http://localhost:8000/api/wines/${id}/comments`, body)
         .then((response) => {
           setCommentsData([response.data, ...commentsData]);
         })

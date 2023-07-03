@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import axios from "axios";
+import API from "../../Contexts/api";
 import Questions from "./Questions/Questions";
 import questionsAndAnswer from "./questionsAndAnswer";
 import UserContext from "../../Contexts/UserContext";
@@ -39,8 +39,7 @@ function Quiz() {
       setSelectedQuestion(selectedQuestion - 1);
     }
     if (button === "terminer") {
-      axios
-        .post("http://localhost:8000/api/selection", selectedAnswer)
+      API.post("http://localhost:8000/api/selection", selectedAnswer)
         .then((response) => {
           console.warn(response);
         })
