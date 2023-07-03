@@ -20,7 +20,7 @@ const createUser = (req, res, next) => {
   models.user
     .postUser(req.body)
     .then(([result]) => {
-      if ([result.affectedRows !== 0]) {
+      if (result.affectedRows !== 0) {
         next();
       } else {
         res.sendStatus(400);

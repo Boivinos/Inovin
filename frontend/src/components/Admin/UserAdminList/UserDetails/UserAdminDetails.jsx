@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import axios from "axios";
 
 function UserAdminDetails() {
   const { id } = useParams();
   const [data, setData] = useState(undefined);
+  const navigate = useNavigate();
 
+  // axios d'affichage des données détaillées d'un utilisateur :
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`)
@@ -20,6 +22,17 @@ function UserAdminDetails() {
   const formatBirthDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("fr-FR");
+  };
+
+  // axios de suppression d'un utilisateur :
+  const handleDelete = () => {
+    axios
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`)
+      .then(() => {
+        // redirection vers la page de confirmation (route à modifier)
+        navigate("/useradminlist");
+      })
+      .catch((error) => console.error(error.message));
   };
 
   return (
@@ -43,10 +56,12 @@ function UserAdminDetails() {
         </div>
       )}
 
-      {/* navigation vers la page de confirmation des modifications à réaliser */}
       <div className="userAdminDetail_button">
         <button type="button"> Enregistrer</button>
-        <button type="button"> Supprimer</button>
+        <button type="button" onClick={handleDelete}>
+          {" "}
+          Supprimer
+        </button>
       </div>
     </div>
   );
