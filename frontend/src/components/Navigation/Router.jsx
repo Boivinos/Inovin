@@ -16,6 +16,7 @@ import AdminModificationValidation from "../Admin/AdminModificationValidation";
 import AddNewUser from "../Admin/UserAdminList/AddNewUser/AddNewUser";
 import UserContext from "../Contexts/UserContext";
 import Home from "../Globals/Home/Home";
+import Protected from "./Protected";
 
 function Router() {
   const { user } = useContext(UserContext);
@@ -23,43 +24,78 @@ function Router() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/profil" element={<Profile />} />
       <Route path="/inscription" element={<Inscription />} />
-      <Route path="/quiz" element={<Quiz />} />
+
+      <Route
+        path="/profil"
+        element={
+          <Protected>
+            <Profile />
+          </Protected>
+        }
+      />
+      <Route
+        path="/quiz"
+        element={
+          <Protected>
+            <Quiz />
+          </Protected>
+        }
+      />
       <Route
         path="/vins"
         element={
-          <WineCardList
-            request="http://localhost:8000/api/wines"
-            title={"l'ensemble de nos vins"}
-            type="all"
-          />
+          <Protected>
+            <WineCardList
+              request="http://localhost:8000/api/wines"
+              title={"l'ensemble de nos vins"}
+              type="all"
+            />
+          </Protected>
         }
       />
       <Route
         path="/vins/selection"
         element={
-          <WineCardList
-            request={`http://localhost:8000/api/selection/${user && user.id}`}
-            title="votre sélection personnalisée"
-            type="selection"
-          />
+          <Protected>
+            <WineCardList
+              request={`http://localhost:8000/api/selection/${user && user.id}`}
+              title="votre sélection personnalisée"
+              type="selection"
+            />
+          </Protected>
         }
       />
       <Route
         path="/vins/favoris"
         element={
-          <WineCardList
-            request={`http://localhost:8000/api/${user && user.id}/favorites`}
-            title="vos vins favoris"
-            type="favori"
-          />
+          <Protected>
+            <WineCardList
+              request={`http://localhost:8000/api/${user && user.id}/favorites`}
+              title="vos vins favoris"
+              type="favori"
+            />
+          </Protected>
         }
       />
-      <Route path="/vins/detail/:id" element={<WineDetails />} />
+      <Route
+        path="/vins/detail/:id"
+        element={
+          <Protected>
+            <WineDetails />
+          </Protected>
+        }
+      />
       <Route path="/contact" element={<Contact />} />
       <Route path="/lexique" element={<Glossary />} />
-      <Route path="/validationMessage" element={<ValidationMessage />} />
+      <Route
+        path="/validationMessage"
+        element={
+          <Protected>
+            <ValidationMessage />
+          </Protected>
+        }
+      />
 
       {/* routes de l'utilisateur Admin - gestion des utilisateurs et des vins : */}
 
