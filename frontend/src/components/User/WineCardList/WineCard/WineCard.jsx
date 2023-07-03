@@ -23,7 +23,11 @@ function WineCard({ name, image, domain, id, note }) {
           <ModificationButton />
         </div>
       )}
-      <NavLink to={`/wineDetails/${id}`} state={{ wineNote: note }}>
+      <NavLink
+        // 2 routes différentes entre isAdmin et !isAdmin
+        to={!user.isAdmin ? `/wineDetails/${id}` : `/wineadmindetails/${id}`}
+        state={{ wineNote: note }}
+      >
         <div className="wineCard">
           <div className="imgBox">
             <img src={image} alt="" />

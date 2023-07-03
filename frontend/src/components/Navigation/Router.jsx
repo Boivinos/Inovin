@@ -66,7 +66,7 @@ function Router() {
       <Route path="/userAdminDetails/:id" element={<UserAdminDetails />} />
 
       <Route path="/wineadminlist" element={<WineAdminList />} />
-      <Route path="/wineadmindetails" element={<WineAdminDetails />} />
+      <Route path="/wineadmindetails/:id" element={<WineAdminDetails />} />
 
       <Route path="/addNewUser" element={<AddNewUser />} />
       <Route path="/wineAdminList" element={<WineAdminList />} />

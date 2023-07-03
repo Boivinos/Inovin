@@ -1,0 +1,42 @@
+.wineAdminDetailsWrapper {
+  margin: 0 clamp(25px, 10%, 300px);
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .returnButton {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    position: absolute;
+    top: 110px;
+    left: 15px;
+    cursor: pointer;
+
+    &_image {
+      height: 25px;
+      width: 25px;
+    }
+  }
+  p {
+    font-family: $mainTypo;
+  }
+
+  .wineFormDetails {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+    position: relative;
+
+    .wineImage {
+      height: clamp(200px, 40vw, 300px);
+      //   overflow: hidden;
+      margin-right: 30px;
+      img {
+        height: 100%;
+      }
+    }
+  }
+}
