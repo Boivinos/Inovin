@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 
 import axios from "axios";
 
@@ -7,6 +8,12 @@ function UserAdminDetails() {
   const { id } = useParams();
   const [data, setData] = useState(undefined);
   const navigate = useNavigate();
+
+  // Gestion de la visibilité ou non du mot de passe
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   // axios d'affichage des données détaillées d'un utilisateur :
   useEffect(() => {
@@ -46,7 +53,31 @@ function UserAdminDetails() {
             <li> Nom : {data[0].lastname}</li>
             <li> Prénom : {data[0].firstname}</li>
             <li> Date de naissance : {formatBirthDate(data[0].born)}</li>
-            <li> Mot de passe : {data[0].hashedPassword}</li>
+            <li>
+              Mot de passe
+              <button
+                onClick={togglePasswordVisibility}
+                type="button"
+                id="passwordVisibility"
+              >
+                {showPassword ? (
+                  <MdVisibilityOff size={17} />
+                ) : (
+                  <MdVisibility size={17} />
+                )}
+              </button>
+              :
+              {showPassword ? (
+                <span id="password-showed">{data[0].hashedPassword}</span>
+              ) : (
+                <input
+                  id="password-input"
+                  type="password"
+                  value={data[0].hashedPassword}
+                  readOnly
+                />
+              )}
+            </li>
             <li> Adresse mail : {data[0].email}</li>
             <li> Vigneron : {data[0].isvigneron}</li>
             <li> Domaine : {data[0].wine_domain}</li>

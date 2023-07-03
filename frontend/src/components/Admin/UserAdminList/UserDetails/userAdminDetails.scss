@@ -36,6 +36,27 @@
   margin: 0px 25px 20px 25px;
 }
 
+#passwordVisibility {
+  border: none;
+  padding: 0px 10px 0 10px;
+
+  &:hover :onclick {
+    color: $primary-color;
+    transition-duration: 0.3s;
+    transform: scale(1.02);
+  }
+}
+
+#password-input {
+  border: none;
+  outline: none;
+  padding-left: 10px;
+}
+#password-showed {
+  color: black;
+  padding-left: 10px;
+}
+
 @media (min-width: 768px) {
   .userAdminDetail {
     &_dataWrapper {

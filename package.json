@@ -33,7 +33,7 @@
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
     "react-hook-form": "^7.44.3",
-    "react-icons": "^4.9.0",
+    "react-icons": "^4.10.1",
     "react-router-dom": "^6.12.1",
     "sass": "^1.62.1"
   }
