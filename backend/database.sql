@@ -458,7 +458,7 @@ CREATE TABLE
     IF NOT EXISTS user_notes (
         wine_id INT NOT NULL,
         user_id INT NOT NULL,
-        note INT,
+        note FLOAT,
         PRIMARY KEY (wine_id, user_id)
     );
 
