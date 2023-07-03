@@ -518,7 +518,7 @@ ADD
 
 ALTER TABLE selection
 ADD
-    CONSTRAINT selection_fk0 FOREIGN KEY (user_id) REFERENCES users(id);
+    CONSTRAINT selection_fk0 FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;
 
 ALTER TABLE selection
 ADD
