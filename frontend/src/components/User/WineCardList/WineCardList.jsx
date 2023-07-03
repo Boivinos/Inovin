@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
+import API from "../../Contexts/api";
 import WineCard from "./WineCard/WineCard";
 import SearchAndFilterMenu from "./ListButtons/SearchAndFilterMenu";
 import UserContext from "../../Contexts/UserContext";
@@ -26,15 +26,13 @@ function WineCardList({ request, title, type }) {
     setIsSearching(false);
     setVisibleMenu(false);
     setWineCardData(undefined);
-    axios
-      .get(request)
+    API.get(request)
       .then((response) => setWineCardData(response.data))
       .catch((error) => console.error(error.message));
   }, [href]);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8000/api/${user?.id}/favoritesandnotes`)
+    API.get(`http://localhost:8000/api/${user?.id}/favoritesandnotes`)
       .then((response) => setWineNotes(response.data))
       .catch((error) => console.error(error.message));
   }, [href]);

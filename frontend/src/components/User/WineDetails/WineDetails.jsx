@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
-import axios from "axios";
+import API from "../../Contexts/api";
 import VueComments from "./Comments/VueComments";
 import CommentButton from "./Comments/CommentButton";
 import AddComments from "./Comments/AddComments";
@@ -20,15 +20,13 @@ function WineDetails() {
   const [note, setNote] = useState(location.state.wineNote);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8000/api/wines/${id}`)
+    API.get(`http://localhost:8000/api/wines/${id}`)
       .then((response) => setWineDetailsData(response.data))
       .catch((error) => console.error(error.message));
   }, []);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8000/api/wines/${id}/comments`)
+    API.get(`http://localhost:8000/api/wines/${id}/comments`)
       .then((response) => setCommentsData(response.data))
       .catch((error) => console.error(error.message));
   }, []);
@@ -41,8 +39,7 @@ function WineDetails() {
       user_id: user.id,
     };
 
-    axios
-      .post("http://localhost:8000/api/usernotes", body)
+    API.post("http://localhost:8000/api/usernotes", body)
       .then((response) => {
         console.warn(response);
       })

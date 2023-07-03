@@ -8,7 +8,7 @@ const userControllers = require("./controllers/userControllers");
 const selectionControllers = require("./controllers/selectionControllers");
 const favoriteControllers = require("./controllers/favoriteController");
 const noteControllers = require("./controllers/noteControllers");
-const { hashPassword, verifyPassword } = require("./auth");
+const { hashPassword, verifyPassword, verifyToken } = require("./auth");
 
 router.post(
   "/api/login",
@@ -23,7 +23,8 @@ router.post(
   verifyPassword
 );
 
-// router.use(verifyToken) --- THIS WILL PROTECT ROUTES BELOW, dont forget to import verifyToken line 8
+// --- USER PROTECTED ROUTES BELOW -----
+router.use(verifyToken);
 
 router.get("/api/wines", wineControllers.browse);
 router.get("/api/wines/:id", wineControllers.read);
