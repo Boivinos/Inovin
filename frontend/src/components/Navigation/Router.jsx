@@ -17,6 +17,7 @@ import AddNewUser from "../Admin/UserAdminList/AddNewUser/AddNewUser";
 import UserContext from "../Contexts/UserContext";
 import Home from "../Globals/Home/Home";
 import Protected from "./Protected";
+import Error404 from "./Error404";
 
 function Router() {
   const { user } = useContext(UserContext);
@@ -25,6 +26,7 @@ function Router() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/inscription" element={<Inscription />} />
+      <Route path="*" element={<Error404 />} />
 
       <Route
         path="/profil"
