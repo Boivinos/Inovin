@@ -530,7 +530,7 @@ ADD
 
 ALTER TABLE user_notes
 ADD
-    CONSTRAINT user_notes_fk1 FOREIGN KEY (user_id) REFERENCES users(id);
+    CONSTRAINT user_notes_fk1 FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;
 
 ALTER TABLE user_comments
 ADD
@@ -538,7 +538,7 @@ ADD
 
 ALTER TABLE user_comments
 ADD
-    CONSTRAINT user_comments_fk1 FOREIGN KEY (user_id) REFERENCES users(id);
+    CONSTRAINT user_comments_fk1 FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;
 
 ALTER TABLE favorites
 ADD
