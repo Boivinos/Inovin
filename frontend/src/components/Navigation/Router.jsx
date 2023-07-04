@@ -90,14 +90,7 @@ function Router() {
       />
       <Route path="/contact" element={<Contact />} />
       <Route path="/lexique" element={<Glossary />} />
-      <Route
-        path="/validationMessage"
-        element={
-          <Protected>
-            <ValidationMessage />
-          </Protected>
-        }
-      />
+      <Route path="/validationMessage" element={<ValidationMessage />} />
 
       {/* routes de l'utilisateur Admin - gestion des utilisateurs et des vins : */}
 

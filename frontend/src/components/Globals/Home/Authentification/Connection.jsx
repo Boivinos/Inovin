@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import jwtDecode from "jwt-decode";
+import api from "../../../Contexts/api";
 import UserContext from "../../../Contexts/UserContext";
 
 function Connection() {
@@ -17,11 +17,12 @@ function Connection() {
   const navigate = useNavigate();
 
   const userLoginCheck = (data) => {
-    axios
+    api
       .post(`http://localhost:8000/api/login`, data)
       .then((response) => {
         localStorage.removeItem("token");
         localStorage.setItem("token", response.data.token);
+        api.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
         navigate("/profil");
         setUser(jwtDecode(localStorage.getItem("token")));
       })
