@@ -29,7 +29,6 @@ function WineCard({ name, image, domain, id, note }) {
         to={!user.isAdmin ? `/wineDetails/${id}` : `/wineadmindetails/${id}`}
         state={{ wineNote: note }}
       >
-
         <div className="wineCard">
           <div className="imgBox">
             <img src={image} alt="" />
