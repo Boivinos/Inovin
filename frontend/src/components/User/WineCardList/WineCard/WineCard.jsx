@@ -26,7 +26,7 @@ function WineCard({ name, image, domain, id, note }) {
 
       <NavLink
         // 2 routes différentes entre isAdmin et !isAdmin
-        to={!user.isAdmin ? `/wineDetails/${id}` : `/wineadmindetails/${id}`}
+        to={!user.isAdmin ? `/vins/detail/${id}` : `/wineadmindetails/${id}`}
         state={{ wineNote: note }}
       >
         <div className="wineCard">
