@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
-import axios from "axios";
+import API from "../../Contexts/api";
 import VueComments from "./Comments/VueComments";
 import CommentButton from "./Comments/CommentButton";
 import AddComments from "./Comments/AddComments";
@@ -17,31 +17,29 @@ function WineDetails() {
   const [commentsData, setCommentsData] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
-  const note = location.state.wineNote;
+  const [note, setNote] = useState(location.state.wineNote);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8000/api/wines/${id}`)
+    API.get(`http://localhost:8000/api/wines/${id}`)
       .then((response) => setWineDetailsData(response.data))
       .catch((error) => console.error(error.message));
   }, []);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8000/api/wines/${id}/comments`)
+    API.get(`http://localhost:8000/api/wines/${id}/comments`)
       .then((response) => setCommentsData(response.data))
       .catch((error) => console.error(error.message));
   }, []);
 
   const ratingChanged = (newRating) => {
+    setNote(newRating);
     const body = {
       wine_id: id,
       note: newRating,
       user_id: user.id,
     };
 
-    axios
-      .post("http://localhost:8000/api/usernotes", body)
+    API.post("http://localhost:8000/api/usernotes", body)
       .then((response) => {
         console.warn(response);
       })
@@ -105,6 +103,7 @@ function WineDetails() {
               activeColor="#ffd700"
               value={note} // recuperer les notes depuis la table de jointure note et faire une moyenne
             />
+            {!note && <p>Il n'y a pas encore de note pour ce vin</p>}
           </div>
         </div>
         <div className="detailedWineInfo">
@@ -114,7 +113,7 @@ function WineDetails() {
           <p>Teneur en alcool : {wineDetailsData.alcohol_content}%</p>
         </div>
         <div className="favoriteButton">
-          <FavoriteButton wineId={id} />
+          <FavoriteButton wineId={Number(id)} />
         </div>
       </div>
       <div className="separator" />

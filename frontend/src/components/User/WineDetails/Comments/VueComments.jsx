@@ -8,15 +8,15 @@ function VueComments({ commentsData }) {
 
   return (
     <>
-      <p>Commentaires :</p>
+      <p className="commentSectionTitle">Commentaires :</p>
       {commentsData.map((com) => {
         return (
-          <>
-            <p>{`${com.firstname} ${com.lastname} le ${formatDate(
-              com.comment_date
-            )} :`}</p>
-            <p>{com.comment_content}</p>
-          </>
+          <div key={Math.random()}>
+            <p className="commentHeader">{`${com.firstname} ${
+              com.lastname
+            } le ${formatDate(com.comment_date)}: `}</p>
+            <p className="commentContent">{com.comment_content}</p>
+          </div>
         );
       })}
     </>
@@ -24,7 +24,15 @@ function VueComments({ commentsData }) {
 }
 
 VueComments.propTypes = {
-  commentsData: PropTypes.shape([]).isRequired,
+  commentsData: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.any,
+      PropTypes.string,
+      PropTypes.string,
+      PropTypes.string,
+      PropTypes.string
+    )
+  ).isRequired,
 };
 
 export default VueComments;

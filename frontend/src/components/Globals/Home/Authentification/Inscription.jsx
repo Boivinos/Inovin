@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import jwtDecode from "jwt-decode";
+import api from "../../../Contexts/api";
 import UserContext from "../../../Contexts/UserContext";
 
 function Inscription() {
@@ -16,11 +16,12 @@ function Inscription() {
   const [isVigneron, setIsVigneron] = useState(false);
 
   const createUser = (data) => {
-    axios
+    api
       .post(`http://localhost:8000/api/users`, data)
       .then((response) => {
         localStorage.removeItem("token");
         localStorage.setItem("token", response.data.token);
+        api.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
         setUser(jwtDecode(localStorage.getItem("token")));
         navigate("/quiz", { state: { isFirstConnection: true } });
       })

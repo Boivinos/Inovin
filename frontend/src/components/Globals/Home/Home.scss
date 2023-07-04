@@ -3,6 +3,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .sessionExpired {
+    color: red;
+  }
 }
 .img_logo {
   margin-top: 15px;

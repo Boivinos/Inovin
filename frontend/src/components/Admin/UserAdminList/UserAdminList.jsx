@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import UserCard from "./UserCard";
 
 function UserAdminList() {
-  // récupréation des utilisateurs enregistrés dans la BDD
+  // récupération des utilisateurs enregistrés dans la BDD
   const [userData, setUserData] = useState(undefined);
 
   useEffect(() => {
@@ -20,13 +20,13 @@ function UserAdminList() {
   const navigatetoAddNewUserPage = useNavigate();
 
   const handleWinesButtonClick = () => {
-    navigateToAdminWinesPage("/wineAdminList");
+    navigateToAdminWinesPage("/wineadminlist");
   };
   const handleUsersDetailsButtonClick = () => {
-    navigateToUserAdminDetailsPage("/userAdminDetails/:id");
+    navigateToUserAdminDetailsPage("/useradmindetails/:id");
   };
   const handleAddNewUserButtonClick = () => {
-    navigatetoAddNewUserPage("/addNewUser");
+    navigatetoAddNewUserPage("/addnewuser");
   };
 
   return (

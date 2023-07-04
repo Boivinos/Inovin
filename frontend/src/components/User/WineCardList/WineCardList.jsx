@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
 import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
+import api from "../../Contexts/api";
 import WineCard from "./WineCard/WineCard";
 import SearchAndFilterMenu from "./ListButtons/SearchAndFilterMenu";
 import UserContext from "../../Contexts/UserContext";
@@ -24,15 +25,16 @@ function WineCardList({ request, title, type }) {
     setSearch("Rechercher...");
     setIsSearching(false);
     setVisibleMenu(false);
-    axios
+    setWineCardData(undefined);
+    api
       .get(request)
       .then((response) => setWineCardData(response.data))
       .catch((error) => console.error(error.message));
   }, [href]);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8000/api/${user.id}/favoritesandnotes`)
+    api
+      .get(`http://localhost:8000/api/${user?.id}/favoritesandnotes`)
       .then((response) => setWineNotes(response.data))
       .catch((error) => console.error(error.message));
   }, [href]);
@@ -71,10 +73,20 @@ function WineCardList({ request, title, type }) {
 
         <div className="wineCardList">
           {(!wineCardData || !wineCardData.length) && type === "favori" && (
-            <p>Il n'y a pas encore de vin dans vos favoris !</p>
+            <div className="emptySelection">
+              <p>Il n'y a pas encore de vin dans vos favoris !</p>
+              <NavLink to="/vins" className="link">
+                <button type="button">Découvrir tous les vins</button>
+              </NavLink>
+            </div>
           )}
           {(!wineCardData || !wineCardData.length) && type === "selection" && (
-            <p>Il n'y a pas encore de vin dans votre sélection !</p>
+            <div className="emptySelection">
+              <p>Il n'y a pas encore de vin dans votre sélection !</p>
+              <NavLink to="/quiz" className="link">
+                <button type="button">Répondre au quiz</button>
+              </NavLink>
+            </div>
           )}
           {wineCardData &&
             wineCardData
@@ -116,7 +128,7 @@ function WineCardList({ request, title, type }) {
                     id={wine.id}
                     note={
                       matchNotesWithWines(wine.id)
-                        ? matchNotesWithWines(wine.id)
+                        ? Number(matchNotesWithWines(wine.id))
                         : 0
                     }
                   />

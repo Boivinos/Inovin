@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import axios from "axios";
+import API from "../../Contexts/api";
 import Questions from "./Questions/Questions";
 import questionsAndAnswer from "./questionsAndAnswer";
 import UserContext from "../../Contexts/UserContext";
@@ -9,7 +9,7 @@ function Quiz() {
   const { user } = useContext(UserContext);
   const [selectedQuestion, setSelectedQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState({
-    userID: user.id,
+    userID: user?.id,
     red: 0,
     white: 0,
     fruity: 0,
@@ -26,7 +26,7 @@ function Quiz() {
     intense: 0,
   });
   const location = useLocation();
-  const userOrigin = location.state.isFirstConnection;
+  const userOrigin = location.state?.isFirstConnection;
 
   const handleClick = (button) => {
     if (
@@ -39,8 +39,7 @@ function Quiz() {
       setSelectedQuestion(selectedQuestion - 1);
     }
     if (button === "terminer") {
-      axios
-        .post("http://localhost:8000/api/selection", selectedAnswer)
+      API.post("http://localhost:8000/api/selection", selectedAnswer)
         .then((response) => {
           console.warn(response);
         })
@@ -100,7 +99,7 @@ function Quiz() {
                 type="button"
                 className="questionSuivanteBouton"
               >
-                <NavLink to="/profile?isFromQuiz=true" className="link">
+                <NavLink to="/profil?isFromQuiz=true" className="link">
                   TERMINER LE QUIZZ
                 </NavLink>
               </button>
@@ -109,7 +108,7 @@ function Quiz() {
         </div>
       </div>
       <div className="quizFooter">
-        <NavLink to="/profile" className="link">
+        <NavLink to="/profil" className="link">
           <p>Passer le questionnaire</p>
         </NavLink>
         <p>{selectedQuestion + 1}/4</p>

@@ -20,7 +20,7 @@ const createUser = (req, res, next) => {
   models.user
     .postUser(req.body)
     .then(([result]) => {
-      if ([result.affectedRows !== 0]) {
+      if (result.affectedRows !== 0) {
         next();
       } else {
         res.sendStatus(400);
@@ -60,9 +60,44 @@ const getAllUsers = (req, res) => {
     });
 };
 
+const getUsersbyId = (req, res) => {
+  const { id } = req.params;
+  models.user
+    .find(id)
+    .then(([users]) => {
+      res.send(users);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error retrieving data from database");
+    });
+};
+
+const editUser = (req, res) => {
+  const item = req.body;
+
+  item.id = parseInt(req.params.id, 10);
+
+  models.user
+    .update(item)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   destroy,
   createUser,
   getUserByEmailWithPasswordAndPassToNext,
   getAllUsers,
+  getUsersbyId,
+  editUser,
 };
