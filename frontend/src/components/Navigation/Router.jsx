@@ -98,6 +98,24 @@ function Router() {
           </Protected>
         }
       />
+      <Route
+        path="/modification/utilisateur"
+        element={
+          <AdminModificationValidation message="Vos Modifications de l'utilisateur on été prises en compte avec succès !" />
+        }
+      />
+      <Route
+        path="/modification/vin"
+        element={
+          <AdminModificationValidation message="Vos Modifications du ou des vis on été prises en compte avec succès !" />
+        }
+      />
+      <Route
+        path="/modification/Admin"
+        element={
+          <AdminModificationValidation message="Vos Modifications  on été prises en compte avec succès !" />
+        }
+      />
 
       {/* routes de l'utilisateur Admin - gestion des utilisateurs et des vins : */}
 
