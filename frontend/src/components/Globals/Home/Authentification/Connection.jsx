@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import jwtDecode from "jwt-decode";
@@ -6,6 +6,7 @@ import api from "../../../Contexts/api";
 import UserContext from "../../../Contexts/UserContext";
 
 function Connection() {
+  const [connectionError, setConnectionError] = useState(false);
   const {
     register,
     handleSubmit,
@@ -17,6 +18,7 @@ function Connection() {
   const navigate = useNavigate();
 
   const userLoginCheck = (data) => {
+    setConnectionError(false);
     api
       .post(`http://localhost:8000/api/login`, data)
       .then((response) => {
@@ -27,6 +29,9 @@ function Connection() {
         setUser(jwtDecode(localStorage.getItem("token")));
       })
       .catch((error) => {
+        if (error.message === "Request failed with status code 401") {
+          setConnectionError(true);
+        }
         console.error(error);
       });
   };
@@ -96,6 +101,11 @@ function Connection() {
         {errors?.password?.type === "minLength" && (
           <span className="error_connexion">
             Ce champ doit comporter au moins 4 caractères
+          </span>
+        )}
+        {connectionError && (
+          <span className="error_connexion">
+            Email ou mot de passe incorret
           </span>
         )}
         <button className="button_connexion" type="submit">
