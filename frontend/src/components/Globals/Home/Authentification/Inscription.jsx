@@ -6,6 +6,7 @@ import api from "../../../Contexts/api";
 import UserContext from "../../../Contexts/UserContext";
 
 function Inscription() {
+  const [usedEmail, setUsedEmail] = useState(false);
   const {
     register,
     handleSubmit,
@@ -16,6 +17,7 @@ function Inscription() {
   const [isVigneron, setIsVigneron] = useState(false);
 
   const createUser = (data) => {
+    setUsedEmail(false);
     api
       .post(`http://localhost:8000/api/users`, data)
       .then((response) => {
@@ -26,6 +28,9 @@ function Inscription() {
         navigate("/quiz", { state: { isFirstConnection: true } });
       })
       .catch((error) => {
+        if (error.message === "Request failed with status code 409") {
+          setUsedEmail(true);
+        }
         console.error(error);
       });
   };
@@ -93,10 +98,14 @@ function Inscription() {
         <input
           name="born"
           type="date"
-          {...register("born")}
+          {...register("born", {
+            required: "Ce champ est requis",
+          })}
           className="input_inscription"
         />
-        <div>{errors.dob?.message}</div>
+        {errors?.born?.type && (
+          <span className="form_inscription_error">Ce champ est requis</span>
+        )}
 
         <input
           className="input_inscription"
@@ -121,6 +130,9 @@ function Inscription() {
         />
         {errors?.email?.type === "required" && (
           <span className="form_inscription_error">Ce champ est requis</span>
+        )}
+        {usedEmail && (
+          <span className="form_inscription_error">Email déjà utilisé</span>
         )}
 
         {errors?.email?.type === "pattern" && (

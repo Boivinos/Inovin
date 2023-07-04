@@ -28,7 +28,9 @@ const createUser = (req, res, next) => {
     })
     .catch((err) => {
       console.error(err);
-      res.sendStatus(500);
+      if (err.sqlState === "23000") {
+        res.sendStatus(409);
+      } else res.sendStatus(500);
     });
 };
 const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
