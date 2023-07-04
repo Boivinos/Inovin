@@ -44,6 +44,17 @@ function WineAdminDetails() {
         />
         <p>Retour</p>
       </div>
+
+      <div className="wineFormMessage">
+        <p>
+          Utilisez le formulaire ci-dessous pour mettre à jour les détails du
+          vin.
+        </p>
+        <p>
+          Les modifications seront enregistrées lorsque vous appuyez sur
+          'Valider'
+        </p>
+      </div>
       <div className="wineFormDetails">
         <div className="wineImage">
           <img src={wineDetailsData.image} alt="" />
@@ -51,82 +62,83 @@ function WineAdminDetails() {
 
         {/* Formulaire pour modifier les détails du vin */}
         <form
-          className="wineFormEditer"
+          className="wineForm"
           onSubmit={handleSubmit((data) => updateWine(data))}
         >
-          <div className="wineFormEditer_name">
-            <label htmlFor="nameInput"> Nom : </label>
-            <input
-              type="text"
-              className="wineInfoFormEditer_control"
-              defaultValue={wineDetailsData.name}
-              name="name"
-              {...register("name", { required: true })}
-            />
+          <div className="wineFormEditer">
+            <div className="wineFormEditer_name">
+              <label htmlFor="nameInput"> Nom : </label>
+              <input
+                type="text"
+                className="wineInfoFormEditer_control"
+                defaultValue={wineDetailsData.name}
+                name="name"
+                {...register("name", { required: true })}
+              />
+            </div>
+
+            <div className="wineFormEditer_domain">
+              <label htmlFor="domainInput"> Domaine : </label>
+              <input
+                type="text"
+                className="wineInfoFormEditer_control"
+                defaultValue={wineDetailsData.domain}
+                name="domain"
+                {...register("domain", { required: true })}
+              />
+            </div>
+
+            <div className="wineFormEditer_region">
+              <label htmlFor="regionInput"> Région : </label>
+              <input
+                type="text"
+                className="wineInfoFormEditer_control"
+                defaultValue={wineDetailsData.region}
+                name="region"
+                {...register("region", { required: true })}
+              />
+            </div>
+
+            <div className="wineFormEditer_year">
+              <label htmlFor="yearInput"> Année : </label>
+              <input
+                type="text"
+                className="wineInfoFormEditer_control"
+                defaultValue={wineDetailsData.year}
+                name="year"
+                {...register("year", { required: true })}
+              />
+            </div>
+
+            <div className="wineFormEditer_grape">
+              <label htmlFor="grapeInput"> Cépage : </label>
+              <input
+                type="text"
+                className="wineInfoFormEditer_control"
+                defaultValue={wineDetailsData.grape}
+                name="grape"
+                {...register("grape", { required: true })}
+              />
+            </div>
+
+            <div className="wineFormEditer_alcohol_content">
+              <label htmlFor="alcohol_contentInput"> Teneur en alcool : </label>
+              <input
+                type="text"
+                className="wineInfoFormEditer_control"
+                defaultValue={wineDetailsData.alcohol_content}
+                name="alcohol_content"
+                {...register("alcohol_content", { required: true })}
+              />{" "}
+              %
+            </div>
           </div>
 
-          <div className="wineFormEditer_domain">
-            <label htmlFor="domainInput"> Domaine : </label>
-            <input
-              type="text"
-              className="wineInfoFormEditer_control"
-              defaultValue={wineDetailsData.domain}
-              name="domain"
-              {...register("domain", { required: true })}
-            />
-          </div>
-
-          <div className="wineFormEditer_region">
-            <label htmlFor="regionInput"> Région : </label>
-            <input
-              type="text"
-              className="wineInfoFormEditer_control"
-              defaultValue={wineDetailsData.region}
-              name="region"
-              {...register("region", { required: true })}
-            />
-          </div>
-
-          <div className="wineFormEditer_year">
-            <label htmlFor="yearInput"> Année : </label>
-            <input
-              type="text"
-              className="wineInfoFormEditer_control"
-              defaultValue={wineDetailsData.year}
-              name="year"
-              {...register("year", { required: true })}
-            />
-          </div>
-
-          <div className="wineFormEditer_grape">
-            <label htmlFor="grapeInput"> Cépage : </label>
-            <input
-              type="text"
-              className="wineInfoFormEditer_control"
-              defaultValue={wineDetailsData.grape}
-              name="grape"
-              {...register("grape", { required: true })}
-            />
-          </div>
-
-          <div className="wineFormEditer_alcohol_content">
-            <label htmlFor="alcohol_contentInput"> Teneur en alcool : </label>
-            <input
-              type="text"
-              className="wineInfoFormEditer_control"
-              defaultValue={wineDetailsData.alcohol_content}
-              name="alcohol_content"
-              {...register("alcohol_content", { required: true })}
-            />{" "}
-            %
-          </div>
-
-          <button className="wineFormEditer_button" type="submit">
+          <button className="wineForm_button" type="submit">
             valider
           </button>
         </form>
       </div>
-      <div className="wineInfo_separator" />
     </div>
   );
 }
