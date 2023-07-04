@@ -98,7 +98,7 @@ function Router() {
       <Route path="/useradmindetails/:id" element={<UserAdminDetails />} />
       <Route path="/addnewuser" element={<AddNewUser />} />
       <Route path="/wineadminlist" element={<WineAdminList />} />
-      <Route path="/wineadmindetails" element={<WineAdminDetails />} />
+      <Route path="/wineadmindetails/:id" element={<WineAdminDetails />} />
 
       <Route
         path="/adminmodificationvalidation"
