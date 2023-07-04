@@ -55,5 +55,6 @@ router.get("/api/:id/favoritesandnotes", noteControllers.getAllWineNotes);
 router.get("/api/users", userControllers.getAllUsers);
 router.get("/api/users/:id", userControllers.getUsersbyId);
 router.delete("/api/users/:id", userControllers.destroy);
+router.put("/api/users/:id", userControllers.editUser);
 
 module.exports = router;
