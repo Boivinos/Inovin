@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import { useForm } from "react-hook-form";
 
-import axios from "axios";
+import api from "../../../Contexts/api";
 
 function UserAdminDetails() {
   const { id } = useParams();
@@ -19,7 +19,7 @@ function UserAdminDetails() {
 
   // axios d'affichage des données détaillées d'un utilisateur :
   useEffect(() => {
-    axios
+    api
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`)
       .then((response) => {
         setData(response.data);
@@ -35,7 +35,7 @@ function UserAdminDetails() {
 
   // axios de suppression d'un utilisateur :
   const handleDelete = () => {
-    axios
+    api
       .delete(`${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`)
       .then(() => {
         // redirection vers la page de confirmation (route à modifier)
@@ -45,7 +45,7 @@ function UserAdminDetails() {
   };
 
   const handleUpdate = (formData) => {
-    axios
+    api
       .put(`${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`, formData)
       .then(() => {
         // redirection vers la page de confirmation (route à modifier)

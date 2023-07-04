@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import api from "../../Contexts/api";
 import UserCard from "./UserCard";
 
 function UserAdminList() {
@@ -8,7 +8,7 @@ function UserAdminList() {
   const [userData, setUserData] = useState(undefined);
 
   useEffect(() => {
-    axios
+    api
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/users`)
       .then((response) => setUserData(response.data))
       .catch((error) => console.error(error.message));
