@@ -90,6 +90,7 @@ function Router() {
       />
       <Route path="/contact" element={<Contact />} />
       <Route path="/lexique" element={<Glossary />} />
+
       <Route
         path="/validationMessage"
         element={
@@ -117,13 +118,14 @@ function Router() {
         }
       />
 
+
       {/* routes de l'utilisateur Admin - gestion des utilisateurs et des vins : */}
 
       <Route path="/useradminlist" element={<UserAdminList />} />
       <Route path="/useradmindetails/:id" element={<UserAdminDetails />} />
       <Route path="/addnewuser" element={<AddNewUser />} />
       <Route path="/wineadminlist" element={<WineAdminList />} />
-      <Route path="/wineadmindetails" element={<WineAdminDetails />} />
+      <Route path="/wineadmindetails/:id" element={<WineAdminDetails />} />
 
       <Route
         path="/adminmodificationvalidation"

@@ -58,54 +58,25 @@ class WineManager extends AbstractManager {
     );
   }
 
+  // Changement de SQL pour correspondre à la méthode PUT du front-end
   update(wine) {
+    // console.log(wine);
     return this.database.query(
-      `update ${this.table} set winemaker_id = ?,
+      `update ${this.table} set 
       name = ?,
-      image = ?,
       domain = ?,
       year = ?,
       region = ?,
       grape = ?,
-      alcohol_content = ?,
-      red = ?,
-      white = ?,
-      fruity = ?,
-      floral = ?,
-      spicy = ?,
-      vegetal = ?,
-      wooded = ?,
-      acid = ?,
-      bitter = ?,
-      sugar = ?,
-      alcool = ?,
-      short = ?,
-      medium = ?,
-      intense = ?,
+      alcohol_content = ?
        where id = ?`,
       [
-        wine.winemaker_id,
         wine.name,
-        wine.image,
         wine.domain,
         wine.year,
         wine.region,
         wine.grape,
         wine.alcohol_content,
-        wine.red,
-        wine.white,
-        wine.fruity,
-        wine.floral,
-        wine.spicy,
-        wine.vegetal,
-        wine.wooded,
-        wine.acid,
-        wine.bitter,
-        wine.sugar,
-        wine.alcool,
-        wine.short,
-        wine.medium,
-        wine.intense,
         wine.id,
       ]
     );

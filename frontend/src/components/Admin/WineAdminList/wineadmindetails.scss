@@ -1,0 +1,92 @@
+.wineAdminDetailsWrapper {
+  p {
+    font-family: $mainTypo;
+  }
+  margin: 0 clamp(25px, 10%, 300px);
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .returnButton {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    position: absolute;
+    top: 110px;
+    left: 15px;
+
+    cursor: pointer;
+
+    &_image {
+      height: 25px;
+      width: 25px;
+    }
+  }
+
+  .wineFormMessage {
+    padding-top: 2%;
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: larger;
+  }
+
+  .wineFormDetails {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+
+    position: relative;
+
+    .wineImage {
+      height: clamp(200px, 40vw, 300px);
+      //   overflow: hidden;
+      margin-right: 30px;
+      img {
+        height: 100%;
+      }
+    }
+  }
+  .wineForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+
+    .wineFormEditer {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    label {
+      font-family: $mainTypo;
+    }
+
+    input {
+      border-style: none;
+      border-bottom-style: solid;
+      border-bottom-color: rgba(0, 0, 0, 0.4);
+      border-bottom-width: 1px;
+      margin-bottom: 0.5em;
+      text-align: center;
+      font-size: 0.9em;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+        background-color: lightyellow;
+      }
+    }
+
+    &_button {
+      width: 45%;
+      margin-left: 25%;
+      margin-bottom: 30px;
+    }
+  }
+}
