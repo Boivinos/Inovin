@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import WineCard from "../../User/WineCardList/WineCard/WineCard";
+import api from "../../Contexts/api";
 
 function WineAdminList() {
   // récupréation des vins enregistrés dans la BDD
   const [wineData, setWineData] = useState();
   useEffect(() => {
-    axios
+    api
       .get(`http://localhost:8000/api/wines`)
       .then((response) => setWineData(response.data))
       .catch((error) => console.error(error.message));
@@ -18,11 +19,11 @@ function WineAdminList() {
   const navigateToAdminWinesPage = useNavigate();
 
   const handleUsersButtonClick = () => {
-    navigateToAdminUsersPage("/ADRESSE A DEFINIR");
+    navigateToAdminUsersPage("/useradminlist");
   };
 
   const handleWinesButtonClick = () => {
-    navigateToAdminWinesPage("/ADRESSE A DEFINIR");
+    navigateToAdminWinesPage("/wineadminlist");
   };
 
   return (

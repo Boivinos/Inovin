@@ -6,6 +6,7 @@
   margin-top: 50px;
   display: flex;
   flex-direction: column;
+
   gap: 20px;
 
   .returnButton {
@@ -51,42 +52,61 @@
       }
     }
   }
-  .wineForm {
+
+  .wineModificationForm {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 15px;
 
-    .wineFormEditer {
+    .wineForm {
       display: flex;
       flex-direction: column;
-      gap: 20px;
-    }
+      justify-content: center;
+      gap: 15px;
 
-    label {
-      font-family: $mainTypo;
-    }
+      .wineFormEditer {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
 
-    input {
-      border-style: none;
-      border-bottom-style: solid;
-      border-bottom-color: rgba(0, 0, 0, 0.4);
-      border-bottom-width: 1px;
-      margin-bottom: 0.5em;
-      text-align: center;
-      font-size: 0.9em;
+      label {
+        font-family: $mainTypo;
+      }
 
-      &:focus {
-        outline: none;
-        border-color: $primary-color;
-        background-color: lightyellow;
+      input {
+        border-style: none;
+        border-bottom-style: solid;
+        border-bottom-color: rgba(0, 0, 0, 0.4);
+        border-bottom-width: 1px;
+        margin-bottom: 0.5em;
+        text-align: center;
+        font-size: 0.9em;
+
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+          background-color: lightyellow;
+        }
+      }
+
+      &_button {
+        width: 45%;
+        margin-left: 25%;
+        margin-bottom: 30px;
       }
     }
 
-    &_button {
+    .deleteButton {
       width: 45%;
       margin-left: 25%;
       margin-bottom: 30px;
     }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .wineFormDetails {
+    display: flex;
+    flex-direction: column;
   }
 }

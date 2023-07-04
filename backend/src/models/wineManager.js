@@ -60,7 +60,6 @@ class WineManager extends AbstractManager {
 
   // Changement de SQL pour correspondre à la méthode PUT du front-end
   update(wine) {
-    // console.log(wine);
     return this.database.query(
       `update ${this.table} set 
       name = ?,

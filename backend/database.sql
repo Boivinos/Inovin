@@ -534,7 +534,7 @@ ADD
 
 ALTER TABLE user_comments
 ADD
-    CONSTRAINT user_comments_fk0 FOREIGN KEY (wine_id) REFERENCES wines(id);
+    CONSTRAINT user_comments_fk0 FOREIGN KEY (wine_id) REFERENCES wines(id) ON DELETE CASCADE;
 
 ALTER TABLE user_comments
 ADD

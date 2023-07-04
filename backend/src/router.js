@@ -29,6 +29,7 @@ router.use(verifyToken);
 router.get("/api/wines", wineControllers.browse);
 router.get("/api/wines/:id", wineControllers.read);
 router.put("/api/wines/:id", wineControllers.edit);
+router.delete("/api/wines/:id", wineControllers.destroy);
 router.get(
   "/api/wines/:id/comments",
   commentControllers.getCommentAndAuthorByWineID
