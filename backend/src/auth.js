@@ -1,5 +1,6 @@
 const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
+const jwtDecode = require("jwt-decode");
 require("dotenv").config();
 
 const hashingOptions = {
@@ -66,9 +67,24 @@ const verifyToken = (req, res, next) => {
     res.sendStatus(401);
   }
 };
+const verifyAdminToken = (req, res, next) => {
+  try {
+    const authorizationHeader = req.get("Authorization");
+    const user = jwtDecode(authorizationHeader);
+    if (!user.isAdmin) {
+      res.status(401).send("unauthorized");
+    } else {
+      next();
+    }
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(401);
+  }
+};
 
 module.exports = {
   hashPassword,
   verifyPassword,
   verifyToken,
+  verifyAdminToken,
 };
