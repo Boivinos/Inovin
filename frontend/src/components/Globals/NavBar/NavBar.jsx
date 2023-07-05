@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import icons8 from "../../../assets/icons8.png";
 import UserContext from "../../Contexts/UserContext";
 
@@ -41,6 +41,7 @@ function DropdownMenu() {
 
 function NavBar() {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -53,7 +54,24 @@ function NavBar() {
   };
   const { user } = useContext(UserContext);
 
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setMenuOpen(false);
+    }
+  };
+  useEffect(() => {
+    const handleClick = (event) => {
+      handleClickOutside(event);
+    }
+    document.body.addEventListener('click', handleClick);
+
+  return () => {
+    document.body.removeEventListener('click', handleClick);
+  }
+    }, []);
+
   return (
+
     <div className="navBar">
       <ul className="navLinks">
         <li>
@@ -74,10 +92,12 @@ function NavBar() {
           onKeyDown={handleKeyDown}
           role="button"
           tabIndex={0}
+          ref={menuRef}
         >
           <p>{user && user.firstname}</p>
           <img src={icons8} alt="User Icon" />
           {isMenuOpen && <DropdownMenu />}
+       
         </div>
       )}
     </div>
