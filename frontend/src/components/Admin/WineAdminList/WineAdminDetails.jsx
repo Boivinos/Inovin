@@ -34,7 +34,9 @@ function WineAdminDetails() {
       .delete(`http://localhost:8000/api/wines/${id}`)
       .then(() => {
         // Redirigez l'utilisateur après la suppression
-        navigate("/wineadminlist");
+        navigate("/adminmodificationvalidation", {
+          state: { message: "Le vin a été supprimé avec succès" },
+        });
       })
       .catch((error) => {
         console.error(error);

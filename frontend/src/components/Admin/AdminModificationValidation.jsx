@@ -1,7 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
+import { useLocation } from "react-router-dom";
 
-function AdminModificationValidation({ message }) {
+function AdminModificationValidation() {
+  const location = useLocation();
+  const { message } = location.state;
   return (
     <>
       <div className="validationMessage_returnButtonWrapper">
@@ -15,8 +18,8 @@ function AdminModificationValidation({ message }) {
   );
 }
 
-AdminModificationValidation.propTypes = {
-  message: PropTypes.string.isRequired,
-};
+// AdminModificationValidation.propTypes = {
+//   message: PropTypes.string.isRequired,
+// };
 
 export default AdminModificationValidation;
