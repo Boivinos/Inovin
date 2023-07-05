@@ -28,6 +28,10 @@
       justify-content: space-around;
       align-items: center;
 
+      .inscription {
+        font-size: 2em;
+      }
+
       .quizQuestion {
         text-align: center;
       }
@@ -41,8 +45,12 @@
         #notClicked {
           border-color: gray;
         }
-        #notClicked {
-          border-color: inherit;
+        #notClicked:hover {
+          border-color: $primary-color;
+        }
+        #clicked {
+          background-color: $primary-color;
+          color: white;
         }
       }
     }

@@ -24,6 +24,11 @@ button {
   text-transform: uppercase;
 }
 
+button:hover {
+  background-color: $primary-color;
+  color: white;
+}
+
 .separator {
   width: 60%;
   height: 1px;

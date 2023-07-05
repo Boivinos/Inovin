@@ -38,10 +38,12 @@ router.post("/api/wines/:id/comments", commentControllers.postComment);
 router.get("/api/selection/:id", selectionControllers.getSelectionByUser);
 router.post(
   "/api/selection",
+  userControllers.createUserTasteDesc,
   wineControllers.browseAndPassToNext,
   selectionControllers.deleteSelection,
   selectionControllers.createSelection
 );
+router.get("/api/selection/user/:id", userControllers.getDescriptionByUser);
 router.post("/api/wines/:id/favorites", favoriteControllers.createUserFavorite);
 router.delete("/api/wines/:id/favorites", favoriteControllers.destroy);
 router.post("/api/wines/checkfavorite", favoriteControllers.getFavorite);
