@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, NavLink } from "react-router-dom";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import { useForm } from "react-hook-form";
 
@@ -59,134 +59,150 @@ function UserAdminDetails() {
   };
 
   return (
-    <div className="userAdminDetail">
-      <h1 id="userAdminDetail_title"> Gestion des utilisateurs enregistrés</h1>
-      {data && (
-        <form
-          className="userAdminDetail_dataWrapper"
-          onSubmit={handleSubmit((formData) => handleUpdate(formData))}
-        >
-          <ul>
-            {" "}
-            <li>
-              Nom :
-              <input
-                type="text"
-                className="userAdminDetail_input"
-                {...register("lastname", { required: "Ce champ est requis" })}
-                style={{ color: "black" }}
-                defaultValue={data[0].lastname}
-              />
-              {/*  gestion des erreurs de saisie adminstrateur avant mise à jour */}
-              {errors.lastname && (
-                <span className="userAdminDetail_error">
-                  {errors.lastname.message}
-                </span>
-              )}
-            </li>
-            <li>
-              Prénom :
-              <input
-                type="text"
-                className="userAdminDetail_input"
-                name="firstname"
-                defaultValue={data[0].firstname}
-                {...register("firstname", { required: "Ce champ est requis" })}
-              />
-              {/*  gestion des erreurs de saisie adminstrateur avant mise à jour */}
-              {errors.firstname && (
-                <span className="userAdminDetail_error">
-                  {errors.firstname.message}
-                </span>
-              )}
-            </li>
-            <li> Date de naissance : {formatBirthDate(data[0].born)}</li>
-            <li>
-              Mot de passe{" "}
-              <button
-                onClick={togglePasswordVisibility}
-                type="button"
-                id="passwordVisibility"
-              >
-                {showPassword ? (
-                  <MdVisibilityOff size={17} />
-                ) : (
-                  <MdVisibility size={17} />
-                )}
-              </button>
-              :
-              {showPassword ? (
+    <>
+      <NavLink to="/useradminlist">
+        <div className="validationMessage_returnButtonWrapper">
+          <img src="https://i.ibb.co/PchSHGr/60793.png" alt="" />
+          <p>Retour</p>
+        </div>
+      </NavLink>
+      <div className="userAdminDetail">
+        <h1 id="userAdminDetail_title">
+          {" "}
+          Gestion des utilisateurs enregistrés
+        </h1>
+        {data && (
+          <form
+            className="userAdminDetail_dataWrapper"
+            onSubmit={handleSubmit((formData) => handleUpdate(formData))}
+          >
+            <ul>
+              {" "}
+              <li>
+                Nom :
                 <input
-                  id="password-input"
                   type="text"
-                  name="password"
-                  defaultValue={data[0].hashedPassword}
-                  {...register("password", {
-                    required: "Ce champs est requis",
+                  className="userAdminDetail_input"
+                  {...register("lastname", { required: "Ce champ est requis" })}
+                  style={{ color: "black" }}
+                  defaultValue={data[0].lastname}
+                />
+                {/*  gestion des erreurs de saisie adminstrateur avant mise à jour */}
+                {errors.lastname && (
+                  <span className="userAdminDetail_error">
+                    {errors.lastname.message}
+                  </span>
+                )}
+              </li>
+              <li>
+                Prénom :
+                <input
+                  type="text"
+                  className="userAdminDetail_input"
+                  name="firstname"
+                  defaultValue={data[0].firstname}
+                  {...register("firstname", {
+                    required: "Ce champ est requis",
                   })}
                 />
-              ) : (
+                {/*  gestion des erreurs de saisie adminstrateur avant mise à jour */}
+                {errors.firstname && (
+                  <span className="userAdminDetail_error">
+                    {errors.firstname.message}
+                  </span>
+                )}
+              </li>
+              <li> Date de naissance : {formatBirthDate(data[0].born)}</li>
+              <li>
+                Mot de passe{" "}
+                <button
+                  onClick={togglePasswordVisibility}
+                  type="button"
+                  id="passwordVisibility"
+                >
+                  {showPassword ? (
+                    <MdVisibilityOff size={17} />
+                  ) : (
+                    <MdVisibility size={17} />
+                  )}
+                </button>
+                :
+                {showPassword ? (
+                  <input
+                    id="password-input"
+                    type="text"
+                    name="password"
+                    defaultValue={data[0].hashedPassword}
+                    {...register("password", {
+                      required: "Ce champs est requis",
+                    })}
+                  />
+                ) : (
+                  <input
+                    id="password-input"
+                    type="password"
+                    name="password"
+                    defaultValue={data[0].hashedPassword}
+                    {...register("password", {
+                      required: "Ce champ est requis",
+                    })}
+                  />
+                )}
+                {errors.password && (
+                  <span className="userAdminDetail_error">
+                    {errors.password.message}
+                  </span>
+                )}
+              </li>
+              <li>
+                {" "}
+                Adresse mail :
                 <input
-                  id="password-input"
-                  type="password"
-                  name="password"
-                  defaultValue={data[0].hashedPassword}
-                  {...register("password", { required: "Ce champ est requis" })}
-                />
-              )}
-              {errors.password && (
-                <span className="userAdminDetail_error">
-                  {errors.password.message}
-                </span>
-              )}
-            </li>
-            <li>
-              {" "}
-              Adresse mail :
-              <input
-                type="text"
-                className="userAdminDetail_input"
-                name="emailAdress"
-                defaultValue={data[0].email}
-                {...register("emailAdress", {
-                  required: "Ce champ est requis",
-                  pattern: {
-                    value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
-                    message: "Merci de renseigner un email valide",
-                  },
-                  /* gestion des erreurs de saisie de nom de domaine */
-                  validate: {
-                    validExtension: (value) => {
-                      const validExtensions = ["com", "net", "org", "fr"];
-                      const domain = value.split(".").pop();
-                      if (!validExtensions.includes(domain.toLowerCase())) {
-                        return "Extension de domaine non valide";
-                      }
-                      return true;
+                  type="text"
+                  className="userAdminDetail_input"
+                  name="emailAdress"
+                  defaultValue={data[0].email}
+                  {...register("emailAdress", {
+                    required: "Ce champ est requis",
+                    pattern: {
+                      value:
+                        /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
+                      message: "Merci de renseigner un email valide",
                     },
-                  },
-                })}
-              />
-              {/*  gestion des erreurs de saisie adminstrateur avant mise à jour */}
-              {errors.emailAdress && (
-                <span className="userAdminDetail_error">
-                  {errors.emailAdress.message}
-                </span>
-              )}
-            </li>
-            <li> Vigneron : {data[0].isvigneron}</li>
-          </ul>
+                    /* gestion des erreurs de saisie de nom de domaine */
+                    validate: {
+                      validExtension: (value) => {
+                        const validExtensions = ["com", "net", "org", "fr"];
+                        const domain = value.split(".").pop();
+                        if (!validExtensions.includes(domain.toLowerCase())) {
+                          return "Extension de domaine non valide";
+                        }
+                        return true;
+                      },
+                    },
+                  })}
+                />
+                {/*  gestion des erreurs de saisie adminstrateur avant mise à jour */}
+                {errors.emailAdress && (
+                  <span className="userAdminDetail_error">
+                    {errors.emailAdress.message}
+                  </span>
+                )}
+              </li>
+              <li> Vigneron : {data[0].isvigneron}</li>
+            </ul>
 
-          <div className="userAdminDetail_button">
-            <button type="submit"> Enregistrer</button>
-            <button type="button" onClick={handleDelete}>
-              {" "}
-              Supprimer
-            </button>
-          </div>
-        </form>
-      )}
-    </div>
+            <div className="userAdminDetail_button">
+              <button type="submit"> Enregistrer</button>
+              <button type="button" onClick={handleDelete}>
+                {" "}
+                Supprimer
+              </button>
+            </div>
+          </form>
+        )}
+      </div>
+    </>
   );
 }
 
