@@ -1,33 +1,30 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useLocation, NavLink } from "react-router-dom";
 import UserContext from "../../Contexts/UserContext";
+import api from "../../Contexts/api";
 
 function Profile() {
-  const [data, setData] = useState();
   const { search } = useLocation();
-  // console.log(search);
+  const [userDesc, setUserDesc] = useState("");
   const params = new URLSearchParams(search);
-  // console.log(params.get("isFromQuiz"));
 
   const { user } = useContext(UserContext);
 
   useEffect(() => {
-    // API à changer
-    fetch(
-      "http://mockbin.org/bin/d1687d09-1d04-40a6-b033-585a044a99ad?foo=bar&foo=baz"
-    )
-      .then((response) => response.json())
-      .then((res) => setData(res))
+    api
+      .get(`http://localhost:8000/api/selection/user/${user && user.id}`)
+      .then((response) => setUserDesc(response.data))
       .catch((err) => console.error(err));
   }, []);
 
   return (
     <>
       <div className="user-profile-taste">
+        <div className="inovin_picture" />
         <div className="user-profile-taste_list">
           <div className="user-profile-taste_validation">
             {params.get("isFromQuiz") && (
-              <p>Merci de tes réponses {user.firstname}. </p>
+              <p>Merci de tes réponses {user?.firstname}. </p>
             )}
             <p>Découvre ton profil dégustation :</p>
           </div>
@@ -35,10 +32,7 @@ function Profile() {
             <hr className="user-profile-taste_solid" />
           </div>
 
-          <div className="user-profile-taste_text">
-            <p>{data?.couleur_de_vin}</p>
-            <p>{data?.arome}</p>
-          </div>
+          <div className="user-profile-taste_text">{userDesc}</div>
         </div>
         {/* router button à définir vvvv */}
         <div className="user-profile-taste_buttonzone">

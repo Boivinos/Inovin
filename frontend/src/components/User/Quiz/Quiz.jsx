@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import API from "../../Contexts/api";
 import Questions from "./Questions/Questions";
 import questionsAndAnswer from "./questionsAndAnswer";
@@ -25,9 +25,10 @@ function Quiz() {
     medium: 0,
     intense: 0,
   });
+
   const location = useLocation();
   const userOrigin = location.state?.isFirstConnection;
-
+  const navigate = useNavigate();
   const handleClick = (button) => {
     if (
       button === "suivant" &&
@@ -42,6 +43,7 @@ function Quiz() {
       API.post("http://localhost:8000/api/selection", selectedAnswer)
         .then((response) => {
           console.warn(response);
+          navigate("/profil?isFromQuiz=true");
         })
         .catch((error) => {
           console.error(error);
@@ -55,7 +57,9 @@ function Quiz() {
         <div className="quizImg" />
         <div className="quizQuestionAndAnswerWrapper">
           {userOrigin && selectedQuestion === 0 && (
-            <p>Merci de ton inscription {user && user.firstname} ! </p>
+            <p className="inscription">
+              Merci de ton inscription {user && user.firstname} !{" "}
+            </p>
           )}
           {selectedQuestion === 0 && (
             <p>
@@ -99,9 +103,7 @@ function Quiz() {
                 type="button"
                 className="questionSuivanteBouton"
               >
-                <NavLink to="/profil?isFromQuiz=true" className="link">
-                  TERMINER LE QUIZZ
-                </NavLink>
+                TERMINER LE QUIZZ
               </button>
             )}
           </div>

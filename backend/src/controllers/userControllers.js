@@ -95,6 +95,33 @@ const editUser = (req, res) => {
     });
 };
 
+const createUserTasteDesc = (req, res, next) => {
+  models.user
+    .createTaste_desc(req.body)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        next();
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+const getDescriptionByUser = (req, res) => {
+  models.user
+    .getUserDesc(req.params.id)
+    .then(([selection]) => {
+      res.send(selection[0].taste_description);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error retrieving data from database");
+    });
+};
+
 module.exports = {
   destroy,
   createUser,
@@ -102,4 +129,6 @@ module.exports = {
   getAllUsers,
   getUsersbyId,
   editUser,
+  createUserTasteDesc,
+  getDescriptionByUser,
 };
