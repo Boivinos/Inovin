@@ -31,6 +31,7 @@
     "husky": "^8.0.3"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@hookform/error-message": "^2.0.1",
     "react-hook-form": "^7.44.3",
     "react-icons": "^4.10.1",

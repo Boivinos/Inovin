@@ -5,6 +5,7 @@ import jwtDecode from "jwt-decode";
 import api from "../../../Contexts/api";
 import UserContext from "../../../Contexts/UserContext";
 
+
 function Inscription() {
   const [usedEmail, setUsedEmail] = useState(false);
   const {
@@ -16,6 +17,7 @@ function Inscription() {
   const navigate = useNavigate();
   const [isVigneron, setIsVigneron] = useState(false);
 
+  
   const createUser = (data) => {
     setUsedEmail(false);
     api
@@ -241,12 +243,12 @@ function Inscription() {
             )}
           </>
         )}
-        <button className="button_inscription" type="submit">
+        <button className="button_inscription" type="submit" >
           INSCRIPTION
         </button>
       </form>
     </div>
   );
 }
-
+          
 export default Inscription;
