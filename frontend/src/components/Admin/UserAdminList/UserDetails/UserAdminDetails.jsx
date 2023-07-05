@@ -9,7 +9,11 @@ function UserAdminDetails() {
   const { id } = useParams();
   const [data, setData] = useState(undefined);
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   // Gestion de la visibilité ou non du mot de passe
   const [showPassword, setShowPassword] = useState(false);
@@ -69,10 +73,16 @@ function UserAdminDetails() {
               <input
                 type="text"
                 className="userAdminDetail_input"
-                {...register("lastname", { required: true })}
+                {...register("lastname", { required: "Ce champ est requis" })}
                 style={{ color: "black" }}
                 defaultValue={data[0].lastname}
               />
+              {/*  gestion des erreurs de saisie adminstrateur avant mise à jour */}
+              {errors.lastname && (
+                <span className="userAdminDetail_error">
+                  {errors.lastname.message}
+                </span>
+              )}
             </li>
             <li>
               Prénom :
@@ -81,8 +91,14 @@ function UserAdminDetails() {
                 className="userAdminDetail_input"
                 name="firstname"
                 defaultValue={data[0].firstname}
-                {...register("firstname", { required: true })}
+                {...register("firstname", { required: "Ce champ est requis" })}
               />
+              {/*  gestion des erreurs de saisie adminstrateur avant mise à jour */}
+              {errors.firstname && (
+                <span className="userAdminDetail_error">
+                  {errors.firstname.message}
+                </span>
+              )}
             </li>
             <li> Date de naissance : {formatBirthDate(data[0].born)}</li>
             <li>
@@ -105,7 +121,9 @@ function UserAdminDetails() {
                   type="text"
                   name="password"
                   defaultValue={data[0].hashedPassword}
-                  {...register("password", { required: true })}
+                  {...register("password", {
+                    required: "Ce champs est requis",
+                  })}
                 />
               ) : (
                 <input
@@ -113,8 +131,13 @@ function UserAdminDetails() {
                   type="password"
                   name="password"
                   defaultValue={data[0].hashedPassword}
-                  {...register("password", { required: true })}
+                  {...register("password", { required: "Ce champ est requis" })}
                 />
+              )}
+              {errors.password && (
+                <span className="userAdminDetail_error">
+                  {errors.password.message}
+                </span>
               )}
             </li>
             <li>
@@ -125,8 +148,31 @@ function UserAdminDetails() {
                 className="userAdminDetail_input"
                 name="emailAdress"
                 defaultValue={data[0].email}
-                {...register("emailAdress", { required: true })}
+                {...register("emailAdress", {
+                  required: "Ce champ est requis",
+                  pattern: {
+                    value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
+                    message: "Merci de renseigner un email valide",
+                  },
+                  /* gestion des erreurs de saisie de nom de domaine */
+                  validate: {
+                    validExtension: (value) => {
+                      const validExtensions = ["com", "net", "org", "fr"];
+                      const domain = value.split(".").pop();
+                      if (!validExtensions.includes(domain.toLowerCase())) {
+                        return "Extension de domaine non valide";
+                      }
+                      return true;
+                    },
+                  },
+                })}
               />
+              {/*  gestion des erreurs de saisie adminstrateur avant mise à jour */}
+              {errors.emailAdress && (
+                <span className="userAdminDetail_error">
+                  {errors.emailAdress.message}
+                </span>
+              )}
             </li>
             <li> Vigneron : {data[0].isvigneron}</li>
           </ul>
