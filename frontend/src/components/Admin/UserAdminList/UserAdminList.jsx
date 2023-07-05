@@ -20,11 +20,12 @@ function UserAdminList() {
 
   // useEffect relatif à la barre de recherche
   useEffect(() => {
-    if (searchQuery) {
-      const filteredUsers = userData.filter(
-        (user) =>
-          user.firstname.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          user.lastname.toLowerCase().includes(searchQuery.toLowerCase())
+    if (searchQuery !== "Rechercher") {
+      const searchRegex = new RegExp(searchQuery, "i"); // i = recherche insensible à la casse
+      const filteredUsers = userData.filter((user) =>
+        searchRegex.test(
+          `${user.firstname} ${user.lastname} || ${user.lastname} ${user.firstname}`
+        )
       );
       setSearchResults(filteredUsers);
     } else {
