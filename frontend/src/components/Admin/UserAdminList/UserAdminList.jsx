@@ -20,7 +20,7 @@ function UserAdminList() {
 
   // useEffect relatif à la barre de recherche
   useEffect(() => {
-    if (searchQuery !== "Rechercher") {
+    if (searchQuery !== "") {
       const searchRegex = new RegExp(searchQuery, "i"); // i = recherche insensible à la casse
       const filteredUsers = userData.filter((user) =>
         searchRegex.test(
@@ -75,7 +75,6 @@ function UserAdminList() {
           search={searchQuery}
           setSearch={setSearchQuery}
           isSearching={searchQuery.length > 0}
-          setIsSearching={() => {}}
           onChange={handleSearchInputChange}
         />
 
