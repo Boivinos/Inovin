@@ -21,8 +21,10 @@ function WineAdminDetails() {
     // console.log(data);
     api
       .put(`http://localhost:8000/api/wines/${id}`, data)
-      .then((response) => {
-        console.info(response.data);
+      .then(() => {
+        navigate("/adminmodificationvalidation", {
+          state: { message: "Le vin a été modifié avec succès !" },
+        });
       })
       .catch((error) => {
         console.error(error);
@@ -35,7 +37,7 @@ function WineAdminDetails() {
       .then(() => {
         // Redirigez l'utilisateur après la suppression
         navigate("/adminmodificationvalidation", {
-          state: { message: "Le vin a été supprimé avec succès" },
+          state: { message: "Le vin a été supprimé avec succès !" },
         });
       })
       .catch((error) => {
@@ -154,7 +156,7 @@ function WineAdminDetails() {
             </div>
 
             <button className="wineForm_button" type="submit">
-              valider
+              modifier
             </button>
           </form>
           <button className="deleteButton" type="button" onClick={handleDelete}>
