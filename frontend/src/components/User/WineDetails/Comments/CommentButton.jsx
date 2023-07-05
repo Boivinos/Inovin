@@ -11,10 +11,16 @@ function CommentButton({
   setCommentValue,
   commentsData,
   setCommentsData,
+  setEmptyCommentError,
 }) {
   const { id } = useParams();
   const { user } = useContext(UserContext);
   const handleComment = () => {
+    if (isEditing && !commentValue) {
+      setEmptyCommentError(true);
+      return;
+    }
+
     const body = {
       wine_id: Number(id),
       user_id: user.id,
@@ -47,6 +53,7 @@ CommentButton.propTypes = {
   isEditing: PropTypes.bool.isRequired,
   commentValue: PropTypes.string.isRequired,
   setCommentValue: PropTypes.func.isRequired,
+  setEmptyCommentError: PropTypes.func.isRequired,
   commentsData: PropTypes.arrayOf(
     PropTypes.objectOf(
       PropTypes.any,
