@@ -30,23 +30,11 @@ class userManager extends AbstractManager {
   }
 
   update(data) {
-    // Convertir la date en objet Date
-    const bornDate = data.born.slice(0, 19);
+    // Convertir la date au bon format et ajout d'une condition pour s'assurer que data.born est défini et est une chaîne de caractères
 
     return this.database.query(
-      `update ${this.table} set firstname = ?, lastname = ?, born = ?, email = ?, hashedPassword = ?, isvigneron = ?, wine_domain = ?, desc_domain = ?, picture_domain = ? WHERE id = ?`,
-      [
-        data.firstname,
-        data.lastname,
-        bornDate,
-        data.email,
-        data.hashedPassword,
-        data.isvigneron,
-        data.wine_domain,
-        data.desc_domain,
-        data.picture_domain,
-        data.id,
-      ]
+      `update ${this.table} set firstname = ?, lastname = ?, email = ?, hashedPassword = ? WHERE id = ?`,
+      [data.firstname, data.lastname, data.emailAdress, data.password, data.id]
     );
   }
 }

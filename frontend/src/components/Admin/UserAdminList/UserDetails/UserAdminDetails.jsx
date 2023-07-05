@@ -60,23 +60,28 @@ function UserAdminDetails() {
       {data && (
         <form
           className="userAdminDetail_dataWrapper"
-          onSubmit={handleSubmit(handleUpdate)}
+          onSubmit={handleSubmit((formData) => handleUpdate(formData))}
         >
           <ul>
             {" "}
-            <li>ID de l'Utilisateur : {data[0].id}</li>
             <li>
               Nom :
               <input
-                {...register("lastname :")}
-                placeholder={data[0].lastname}
+                type="text"
+                className="userAdminDetail_input"
+                {...register("lastname", { required: true })}
+                style={{ color: "black" }}
+                defaultValue={data[0].lastname}
               />
             </li>
             <li>
               Prénom :
               <input
-                {...register("firstname :")}
-                placeholder={data[0].firstname}
+                type="text"
+                className="userAdminDetail_input"
+                name="firstname"
+                defaultValue={data[0].firstname}
+                {...register("firstname", { required: true })}
               />
             </li>
             <li> Date de naissance : {formatBirthDate(data[0].born)}</li>
@@ -98,15 +103,17 @@ function UserAdminDetails() {
                 <input
                   id="password-input"
                   type="text"
-                  {...register("password")}
+                  name="password"
                   defaultValue={data[0].hashedPassword}
+                  {...register("password", { required: true })}
                 />
               ) : (
                 <input
                   id="password-input"
                   type="password"
-                  {...register("password")}
-                  defaultValue={data[0].hashedPassword.replace(/./g, "*")}
+                  name="password"
+                  defaultValue={data[0].hashedPassword}
+                  {...register("password", { required: true })}
                 />
               )}
             </li>
@@ -114,25 +121,25 @@ function UserAdminDetails() {
               {" "}
               Adresse mail :
               <input
-                {...register("emailAdress : ")}
-                placeholder={data[0].email}
+                type="text"
+                className="userAdminDetail_input"
+                name="emailAdress"
+                defaultValue={data[0].email}
+                {...register("emailAdress", { required: true })}
               />
             </li>
             <li> Vigneron : {data[0].isvigneron}</li>
-            <li> Domaine : {data[0].wine_domain}</li>
-            <li> Description du domaine : {data[0].desc_domain}</li>
-            <li> Photo du domaine : {data[0].picture_domain}</li>
           </ul>
+
+          <div className="userAdminDetail_button">
+            <button type="submit"> Enregistrer</button>
+            <button type="button" onClick={handleDelete}>
+              {" "}
+              Supprimer
+            </button>
+          </div>
         </form>
       )}
-
-      <div className="userAdminDetail_button">
-        <button type="button"> Enregistrer</button>
-        <button type="button" onClick={handleDelete}>
-          {" "}
-          Supprimer
-        </button>
-      </div>
     </div>
   );
 }
