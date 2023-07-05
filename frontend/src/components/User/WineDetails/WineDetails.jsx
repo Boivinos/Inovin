@@ -15,6 +15,7 @@ function WineDetails() {
   const [commentValue, setCommentValue] = useState("");
   const [wineDetailsData, setWineDetailsData] = useState([]);
   const [commentsData, setCommentsData] = useState([]);
+  const [emptyCommentError, setEmptyCommentError] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const [note, setNote] = useState(location.state.wineNote);
@@ -65,6 +66,7 @@ function WineDetails() {
       <AddComments
         commentValue={commentValue}
         setCommentValue={setCommentValue}
+        emptyCommentError={emptyCommentError}
       />
     );
   };
@@ -129,6 +131,7 @@ function WineDetails() {
             setCommentValue={setCommentValue}
             commentsData={commentsData}
             setCommentsData={setCommentsData}
+            setEmptyCommentError={setEmptyCommentError}
           />
           <button type="button">Télécharger la recette</button>
         </div>
