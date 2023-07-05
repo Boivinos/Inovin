@@ -13,7 +13,13 @@ function Glossary() {
           key={cepage.nom}
         >
           <p className="cepage_name">{cepage.nom}</p>
-          <p className="cepage_description">{cepage.description}</p>
+          <div
+            className={
+              index % 2 === 0 ? "cepage_description" : "cepage_description b"
+            }
+          >
+            <p>{cepage.description}</p>
+          </div>
           <div className={index % 2 === 0 ? "Line_styleA" : "Line_styleB"} />
         </div>
       ))}
