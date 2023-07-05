@@ -62,16 +62,15 @@ function NavBar() {
   useEffect(() => {
     const handleClick = (event) => {
       handleClickOutside(event);
-    }
-    document.body.addEventListener('click', handleClick);
+    };
+    document.body.addEventListener("click", handleClick);
 
-  return () => {
-    document.body.removeEventListener('click', handleClick);
-  }
-    }, []);
+    return () => {
+      document.body.removeEventListener("click", handleClick);
+    };
+  }, []);
 
   return (
-
     <div className="navBar">
       <ul className="navLinks">
         <li>
@@ -97,7 +96,6 @@ function NavBar() {
           <p>{user && user.firstname}</p>
           <img src={icons8} alt="User Icon" />
           {isMenuOpen && <DropdownMenu />}
-       
         </div>
       )}
     </div>
