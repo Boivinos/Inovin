@@ -14,7 +14,6 @@ function Connection() {
   } = useForm();
 
   const { setUser } = useContext(UserContext);
-  const [selected, setSelected] = useState();
   const navigate = useNavigate();
 
   const userLoginCheck = (data) => {
