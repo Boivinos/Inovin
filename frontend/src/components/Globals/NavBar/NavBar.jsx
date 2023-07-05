@@ -39,6 +39,36 @@ function DropdownMenu() {
   );
 }
 
+function AdminDropdownMenu() {
+  const { setUser } = useContext(UserContext);
+
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/");
+    localStorage.clear();
+    setUser(undefined);
+  };
+
+  return (
+    <ul className="dropdownMenu">
+      <NavLink to="/useradminlist" className="link">
+        <li>Utilisateurs</li>
+      </NavLink>
+      <NavLink to="/wineadminlist" className="link">
+        <li>Vins</li>
+      </NavLink>
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={() => handleClick()}
+        onKeyDown={() => handleClick()}
+      >
+        Me déconnecter
+      </div>
+    </ul>
+  );
+}
+
 function NavBar() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
@@ -95,7 +125,8 @@ function NavBar() {
         >
           <p>{user && user.firstname}</p>
           <img src={icons8} alt="User Icon" />
-          {isMenuOpen && <DropdownMenu />}
+          {isMenuOpen && !user.isAdmin && <DropdownMenu />}
+          {isMenuOpen && user.isAdmin && <AdminDropdownMenu />}
         </div>
       )}
     </div>
