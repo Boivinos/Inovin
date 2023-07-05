@@ -12,8 +12,8 @@
     min-height: calc(100vh - 140px - 70px);
 
     .quizImg {
-      height: calc(454px * 1);
-      width: calc(292px * 1);
+      height: calc(454px * 1.5);
+      width: calc(292px * 1.5);
       background-image: url("https://i.postimg.cc/WbQ7G6Qp/logo-Inovinsousimg.png");
       background-repeat: no-repeat;
       background-position: center;
@@ -21,6 +21,7 @@
     }
 
     .quizQuestionAndAnswerWrapper {
+      font-size: calc(0.8vw + 0.9em);
       min-height: calc((100vh - 100px - 70px) * 0.7);
       display: flex;
       flex-direction: column;
@@ -43,12 +44,14 @@
         gap: 10px;
 
         #notClicked {
-          border-color: gray;
+          font-size: calc(0.8vw + 0.6em);
+          border-color: $primary-color;
         }
         #notClicked:hover {
           border-color: $primary-color;
         }
         #clicked {
+          font-size: calc(0.8vw + 0.6em);
           background-color: $primary-color;
           color: white;
         }
@@ -60,6 +63,7 @@
       justify-content: space-around;
       width: 100%;
       .questionSuivanteBouton {
+        font-size: calc(0.7vw + 0.6em);
         width: 40%;
       }
     }
@@ -71,6 +75,7 @@
     height: 70px;
     font-family: $mainTypo;
     p {
+      font-size: calc(0.8vw + 0.7em);
       text-decoration: underline;
     }
   }
