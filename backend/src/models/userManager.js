@@ -30,8 +30,6 @@ class userManager extends AbstractManager {
   }
 
   update(data) {
-    // Convertir la date au bon format et ajout d'une condition pour s'assurer que data.born est défini et est une chaîne de caractères
-
     return this.database.query(
       `update ${this.table} set firstname = ?, lastname = ?, email = ?, hashedPassword = ? WHERE id = ?`,
       [data.firstname, data.lastname, data.emailAdress, data.password, data.id]
