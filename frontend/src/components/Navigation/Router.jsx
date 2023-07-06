@@ -117,6 +117,42 @@ function Router() {
           />
         }
       />
+      <Route
+        path="/suppresion/utilisateur"
+        element={
+          <AdminModificationValidation
+            urlRetour="/wineadminlist"
+            message="L'utilisateur a bien été supprimer avec succés !"
+          />
+        }
+      />
+      <Route
+        path="/suppression/vin"
+        element={
+          <AdminModificationValidation
+            urlRetour="/wineadminlist"
+            message="La suppression du vin a bien été prises en compte !"
+          />
+        }
+      />
+      <Route
+        path="/ajout/utilisateur"
+        element={
+          <AdminModificationValidation
+            urlRetour="/wineadminlist"
+            message="L'ajout d'un utilisateur a bien été prises en compte avec succés !"
+          />
+        }
+      />
+      <Route
+        path="/ajout/vin"
+        element={
+          <AdminModificationValidation
+            urlRetour="/wineadminlist"
+            message="L'ajout d'un vin a bien été prises en compte avec succés !"
+          />
+        }
+      />
 
       {/* routes de l'utilisateur Admin - gestion des utilisateurs et des vins : */}
 
