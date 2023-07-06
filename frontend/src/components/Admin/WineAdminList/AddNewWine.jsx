@@ -208,8 +208,9 @@ function AddNewWine() {
                   message: "Ce champ est limité à 6 caractères",
                 },
                 pattern: {
-                  value: /^(8\.[5-9]|9\.[0-9]|1[0-4]\.[0-9]|15)$/,
-                  message: "Le degré d'alcool doit être entre 8.5 et 15",
+                  value:
+                    /^(8(\.[0-9]+)?|9(\.[0-9]*)?|1[0-4](\.[0-9]*)?|15(\.0*)?)$/,
+                  message: "Le taux d'alcool doit être entre 8 et 15",
                 },
               })}
             />
