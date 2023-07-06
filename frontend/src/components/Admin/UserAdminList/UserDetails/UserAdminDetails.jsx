@@ -43,7 +43,7 @@ function UserAdminDetails() {
       .delete(`${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`)
       .then(() => {
         // redirection vers la page de confirmation (route à modifier)
-        navigate("/useradminlist");
+        navigate("/suppression/utilisateur");
       })
       .catch((error) => console.error(error.message));
   };
@@ -53,7 +53,7 @@ function UserAdminDetails() {
       .put(`${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`, formData)
       .then(() => {
         // redirection vers la page de confirmation (route à modifier)
-        navigate("/useradminlist");
+        navigate("/modification/utilisateur");
       })
       .catch((error) => console.error(error.message));
   };
@@ -67,10 +67,7 @@ function UserAdminDetails() {
         </div>
       </NavLink>
       <div className="userAdminDetail">
-        <h1 id="userAdminDetail_title">
-          {" "}
-          Gestion des utilisateurs enregistrés
-        </h1>
+        <h1 id="userAdminDetail_title"> Modification de l'utilisateur</h1>
         {data && (
           <form
             className="userAdminDetail_dataWrapper"

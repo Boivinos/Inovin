@@ -13,10 +13,9 @@
     text-align: center;
 
     &:hover {
-      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
-      border-color: $primary-color;
+      background-color: $primary-color;
+      color: white;
       transition-duration: 0.3s;
-      transform: scale(1.02);
     }
   }
 }
