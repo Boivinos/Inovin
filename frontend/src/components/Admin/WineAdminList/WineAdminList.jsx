@@ -17,6 +17,7 @@ function WineAdminList() {
   // navigation vers les autres pages d'administration via les boutons
   const navigateToAdminUsersPage = useNavigate();
   const navigateToAdminWinesPage = useNavigate();
+  const navigateToAddWinePage = useNavigate();
 
   const handleUsersButtonClick = () => {
     navigateToAdminUsersPage("/useradminlist");
@@ -24,6 +25,10 @@ function WineAdminList() {
 
   const handleWinesButtonClick = () => {
     navigateToAdminWinesPage("/wineadminlist");
+  };
+
+  const handleAddWineClick = () => {
+    navigateToAddWinePage("/ajoutervin");
   };
 
   return (
@@ -47,6 +52,11 @@ function WineAdminList() {
           Vins
         </button>
       </div>
+
+      <button id="addWineButton" type="button" onClick={handleAddWineClick}>
+        ajouter un vin
+      </button>
+
       <div className="wineAdminList_winecardlist">
         {wineData &&
           wineData.map((wine) => {

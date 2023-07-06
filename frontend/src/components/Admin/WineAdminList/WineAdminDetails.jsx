@@ -150,7 +150,7 @@ function WineAdminDetails() {
                   defaultValue={wineDetailsData.alcohol_content}
                   name="alcohol_content"
                   {...register("alcohol_content", { required: true })}
-                />{" "}
+                />
                 %
               </div>
             </div>

@@ -18,6 +18,7 @@ import UserContext from "../Contexts/UserContext";
 import Home from "../Globals/Home/Home";
 import Protected from "./Protected";
 import Error404 from "./Error404";
+import AddNewWine from "../Admin/WineAdminList/AddNewWine";
 
 function Router() {
   const { user } = useContext(UserContext);
@@ -125,7 +126,7 @@ function Router() {
       <Route path="/addnewuser" element={<AddNewUser />} />
       <Route path="/wineadminlist" element={<WineAdminList />} />
       <Route path="/wineadmindetails/:id" element={<WineAdminDetails />} />
-
+      <Route path="/ajoutervin" element={<AddNewWine />} />
       <Route
         path="/adminmodificationvalidation"
         element={<AdminModificationValidation />}
