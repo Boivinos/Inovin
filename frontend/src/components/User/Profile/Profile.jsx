@@ -21,32 +21,46 @@ function Profile() {
     <>
       <div className="user-profile-taste">
         <div className="inovin_picture" />
-        <div className="user-profile-taste_list">
-          <div className="user-profile-taste_validation">
-            {params.get("isFromQuiz") && (
-              <p>Merci de tes réponses {user?.firstname}. </p>
-            )}
-            <p>Découvre ton profil dégustation :</p>
-          </div>
-          <div>
-            <hr className="user-profile-taste_solid" />
-          </div>
 
-          <div className="user-profile-taste_text">{userDesc}</div>
+        <div className="user-profile-taste_validation">
+          {params.get("isFromQuiz") && (
+            <p>Merci de tes réponses {user?.firstname}. </p>
+          )}
+          {userDesc && <p>Découvre ton profil dégustation :</p>}
         </div>
-        {/* router button à définir vvvv */}
-        <div className="user-profile-taste_buttonzone">
-          <NavLink to="/vins/selection" className="link">
-            <button className="user-profile-taste_button" type="button">
-              DÉCOUVRIR MA SÉLECTION
-            </button>
-          </NavLink>
-        </div>
+
+        <hr className="user-profile-taste_solid" />
+        {userDesc && (
+          <>
+            <div className="user-profile-taste_text">{userDesc}</div>
+            <NavLink to="/vins/selection" className="link">
+              <button className="user-profile-taste_button" type="button">
+                DÉCOUVRIR MA SÉLECTION
+              </button>
+            </NavLink>
+          </>
+        )}
+        {!userDesc && (
+          <>
+            {" "}
+            <div className="user-profile-taste_text">
+              Tu n'as pas de profil dégustation, réponds à notre quiz pour le
+              découvrir.
+            </div>
+            <NavLink to="/quiz" className="link">
+              <button className="user-profile-taste_button" type="button">
+                Commencer le quiz
+              </button>
+            </NavLink>
+          </>
+        )}
       </div>
       <div className="userProfileFooter">
-        <NavLink to="/quiz" className="link">
-          <p>(Re)lancer le quiz</p>
-        </NavLink>
+        {userDesc && (
+          <NavLink to="/quiz" className="link">
+            <p>Recommencer le quiz</p>
+          </NavLink>
+        )}
       </div>
     </>
   );
