@@ -15,7 +15,6 @@ function Inscription() {
   } = useForm();
   const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
-  const [isVigneron, setIsVigneron] = useState(false);
 
   const createUser = (data) => {
     const dob = new Date(data.born);
@@ -44,10 +43,6 @@ function Inscription() {
         }
         console.error(error);
       });
-  };
-
-  const handleCheckboxChange = (e) => {
-    setIsVigneron(e.target.checked);
   };
 
   return (
@@ -112,7 +107,7 @@ function Inscription() {
           {...register("born", {
             required: "Ce champ est requis",
           })}
-          className="input_inscription"
+          className="input_inscription date"
         />
         {errors?.born?.type && (
           <span className="form_inscription_error">Ce champ est requis</span>
@@ -180,82 +175,6 @@ function Inscription() {
           <span className="form_inscription_error">
             Ce champ doit comporter au moins 4 caractères
           </span>
-        )}
-
-        <label className="checkbox_vigneron">
-          <input
-            className="checkbox"
-            type="checkbox"
-            onChange={handleCheckboxChange}
-          />
-          <p>Je suis vigneron</p>
-        </label>
-        {isVigneron && (
-          <>
-            <input
-              className="input_inscription"
-              placeholder="Nom du domaine *"
-              {...register("domain", {
-                required: true,
-                maxLength: 20,
-                pattern: /^[A-Za-zÀ-ÿ ]+$/i,
-              })}
-            />
-            {errors?.domain?.type === "required" && (
-              <span className="form_inscription_error">
-                Ce champ est requis
-              </span>
-            )}
-            {errors?.domain?.type === "maxLength" && (
-              <span className="form_inscription_error">
-                Ce champ est limité à 20 caractères
-              </span>
-            )}
-
-            <input
-              className="input_inscription"
-              placeholder="Région *"
-              {...register("region", {
-                required: true,
-                maxLength: 20,
-                pattern: /^[A-Za-zÀ-ÿ ]+$/i,
-              })}
-            />
-            {errors?.region?.type === "required" && (
-              <span className="form_inscription_error">
-                Ce champ est requis
-              </span>
-            )}
-            {errors?.region?.type === "maxLength" && (
-              <span className="form_inscription_error">
-                Ce champ est limité à 20 caractères
-              </span>
-            )}
-            <textarea
-              className="form_description"
-              placeholder="description *"
-              {...register("description", {
-                required: true,
-                minLength: 10,
-                maxLength: 200,
-              })}
-            />
-            {errors?.description?.type === "required" && (
-              <span className="form_inscription_error_text">
-                Merci d'indiquer l'objet de votre demande
-              </span>
-            )}
-            {errors?.description?.type === "maxLength" && (
-              <span className="form_inscription_error_text">
-                Votre message ne peut pas dépasser 200 caractères
-              </span>
-            )}
-            {errors?.description?.type === "minLength" && (
-              <span className="form_inscription_error_text">
-                Votre message doit comporter au moins 10 caractères
-              </span>
-            )}
-          </>
         )}
         <button className="button_inscription" type="submit">
           INSCRIPTION
