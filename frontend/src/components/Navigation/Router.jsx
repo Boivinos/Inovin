@@ -103,19 +103,55 @@ function Router() {
       <Route
         path="/modification/utilisateur"
         element={
-          <AdminModificationValidation message="Vos Modifications de l'utilisateur on été prises en compte avec succès !" />
+          <AdminModificationValidation
+            urlRetour="/wineadminlist"
+            message="Vos Modifications de l'utilisateur on été prises en compte avec succès !"
+          />
         }
       />
       <Route
         path="/modification/vin"
         element={
-          <AdminModificationValidation message="Vos Modifications du ou des vis on été prises en compte avec succès !" />
+          <AdminModificationValidation
+            urlRetour="/wineadminlist"
+            message="Les modifications du vin on été prises en compte avec succès !"
+          />
         }
       />
       <Route
-        path="/modification/Admin"
+        path="/suppresion/utilisateur"
         element={
-          <AdminModificationValidation message="Vos Modifications  on été prises en compte avec succès !" />
+          <AdminModificationValidation
+            urlRetour="/wineadminlist"
+            message="L'utilisateur a bien été supprimer avec succés !"
+          />
+        }
+      />
+      <Route
+        path="/suppression/vin"
+        element={
+          <AdminModificationValidation
+            urlRetour="/wineadminlist"
+            message="La suppression du vin a bien été prises en compte !"
+          />
+        }
+      />
+      <Route
+        path="/ajout/utilisateur"
+        element={
+          <AdminModificationValidation
+            urlRetour="/wineadminlist"
+            message="L'ajout d'un utilisateur a bien été prises en compte avec succés !"
+          />
+        }
+      />
+      <Route
+        path="/ajout/vin"
+        element={
+          <AdminModificationValidation
+            urlRetour="/wineadminlist"
+            message="L'ajout d'un vin a bien été prises en compte avec succés !"
+          />
         }
       />
 

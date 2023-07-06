@@ -10,6 +10,29 @@
     }
   }
 
+  &_input,
+  #password-input,
+  &_error {
+    margin-left: 10px;
+    border-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    font-family: $buttonTypo;
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      background-color: lightyellow;
+    }
+  }
+  &_error {
+    display: flex;
+    margin: 15px 0 10px 0;
+    color: red;
+    font-family: $buttonTypo;
+    font-size: smaller;
+    border-bottom: none;
+  }
+
   &_button {
     display: flex;
     flex-direction: row;
@@ -50,7 +73,6 @@
 #password-input {
   border: none;
   outline: none;
-  padding-left: 10px;
 }
 #password-showed {
   color: black;

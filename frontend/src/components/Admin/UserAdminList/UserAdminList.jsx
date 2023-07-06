@@ -2,17 +2,36 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../Contexts/api";
 import UserCard from "./UserCard";
+import SearchInput from "../../User/WineCardList/ListButtons/SearchInput";
 
 function UserAdminList() {
-  // récupération des utilisateurs enregistrés dans la BDD
-  const [userData, setUserData] = useState(undefined);
+  const [userData, setUserData] = useState([]);
+  // states nécessaires au fonctionnement de la barre de recherche
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
+  // récupération des utilisateurs enregistrés dans la BDD
   useEffect(() => {
     api
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/users`)
       .then((response) => setUserData(response.data))
       .catch((error) => console.error(error.message));
   }, []);
+
+  // useEffect relatif à la barre de recherche
+  useEffect(() => {
+    if (searchQuery !== "") {
+      const searchRegex = new RegExp(searchQuery, "i"); // i = recherche insensible à la casse
+      const filteredUsers = userData.filter((user) =>
+        searchRegex.test(
+          `${user.firstname} ${user.lastname} || ${user.lastname} ${user.firstname}`
+        )
+      );
+      setSearchResults(filteredUsers);
+    } else {
+      setSearchResults(userData);
+    }
+  }, [searchQuery, userData]);
 
   // navigation vers les autres pages d'administration via les boutons
   const navigateToAdminWinesPage = useNavigate();
@@ -22,16 +41,22 @@ function UserAdminList() {
   const handleWinesButtonClick = () => {
     navigateToAdminWinesPage("/wineadminlist");
   };
-  const handleUsersDetailsButtonClick = () => {
-    navigateToUserAdminDetailsPage("/useradmindetails/:id");
+
+  const handleUsersDetailsButtonClick = (id) => {
+    navigateToUserAdminDetailsPage(`/useradmindetails/${id}`);
   };
+
   const handleAddNewUserButtonClick = () => {
     navigatetoAddNewUserPage("/addnewuser");
   };
 
+  const handleSearchInputChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
   return (
     <div className="userAdminList">
-      <h1 id="userAdminList_title">Liste des utilisateurs </h1>
+      <h1 id="userAdminList_title">Liste des utilisateurs</h1>
       <div className="userAdminList_buttonWrapper">
         <button id="userAdminList_usersButton" type="button">
           Utilisateurs
@@ -45,9 +70,14 @@ function UserAdminList() {
         </button>
       </div>
       <div id="userAdminList_buttonWrapper2">
-        <button className="userAdminList_button" type="button">
-          Rechercher
-        </button>
+        <SearchInput
+          id="userAdminList_searchInput"
+          search={searchQuery}
+          setSearch={setSearchQuery}
+          isSearching={searchQuery.length > 0}
+          onChange={handleSearchInputChange}
+        />
+
         <button
           className="userAdminList_button"
           type="button"
@@ -57,18 +87,15 @@ function UserAdminList() {
         </button>
       </div>
 
-      {userData &&
-        userData.map((user) => {
-          return (
-            <UserCard
-              key={user.id}
-              firstname={user.firstname}
-              lastname={user.lastname}
-              id={user.id}
-              onClick={handleUsersDetailsButtonClick}
-            />
-          );
-        })}
+      {searchResults.map((user) => (
+        <UserCard
+          key={user.id}
+          firstname={user.firstname}
+          lastname={user.lastname}
+          id={user.id}
+          onClick={() => handleUsersDetailsButtonClick(user.id)}
+        />
+      ))}
     </div>
   );
 }

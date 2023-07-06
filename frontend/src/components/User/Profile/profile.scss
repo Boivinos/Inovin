@@ -4,40 +4,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+
+  .inovin_picture {
+    width: calc(513px * 0.7);
+    height: calc(582px * 0.7);
+  }
   &_validation {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 6px;
+    text-align: center;
+    font-size: calc(1em + 1.5vw);
     margin-bottom: 10px;
   }
   &_solid {
     border-top: 2px solid #202020;
     width: 80%;
-    margin: auto;
-    margin-bottom: 10px;
+    margin: 0 auto;
+    margin-bottom: 30px;
   }
   &_text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 5%;
-    padding-right: 5%;
-    gap: 15px;
+    font-size: calc(1em + 1vw);
+    margin: 0 clamp(30px, 15%, 150px);
+    margin-bottom: 30px;
   }
-  &_buttonzone {
-    text-align: center;
-    &_button {
-      cursor: pointer;
-      background-color: white;
-      border: 1px solid $primary-color;
-      font-family: $buttonTypo;
-      padding: 10px 25px;
-      border-radius: 25px;
-      text-align: center;
+  a {
+    button {
+      font-size: calc(1em + 0.8vw);
     }
   }
 }
@@ -47,6 +37,7 @@
   font-family: $mainTypo;
   padding-left: 5%;
   p {
+    font-size: calc(1em + 1vw);
     text-decoration: underline;
   }
 }

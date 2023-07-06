@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 
-const Protected = ({ children }) => {
+const AdminProtected = ({ children }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -13,6 +13,8 @@ const Protected = ({ children }) => {
       const infos = jwtDecode(token);
       if (!infos) {
         navigate("/");
+      } else if (!infos.isAdmin) {
+        navigate("/");
       }
     }
   }, []);
@@ -20,4 +22,4 @@ const Protected = ({ children }) => {
   return children;
 };
 
-export default Protected;
+export default AdminProtected;

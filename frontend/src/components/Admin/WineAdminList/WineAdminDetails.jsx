@@ -22,9 +22,7 @@ function WineAdminDetails() {
     api
       .put(`http://localhost:8000/api/wines/${id}`, data)
       .then(() => {
-        navigate("/adminmodificationvalidation", {
-          state: { message: "Le vin a été modifié avec succès !" },
-        });
+        navigate("/modification/vin");
       })
       .catch((error) => {
         console.error(error);
@@ -36,9 +34,7 @@ function WineAdminDetails() {
       .delete(`http://localhost:8000/api/wines/${id}`)
       .then(() => {
         // Redirigez l'utilisateur après la suppression
-        navigate("/adminmodificationvalidation", {
-          state: { message: "Le vin a été supprimé avec succès !" },
-        });
+        navigate("/suppression/vin");
       })
       .catch((error) => {
         console.error(error);

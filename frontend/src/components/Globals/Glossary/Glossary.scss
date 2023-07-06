@@ -21,6 +21,9 @@
     padding: 3%;
     text-align: right;
     align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     position: relative;
   }
 }
@@ -49,4 +52,15 @@ h1 {
   font-family: $mainTypo;
   display: flex;
   justify-content: center;
+}
+.cepage_description {
+  width: 100%;
+  p {
+    width: 60%;
+  }
+}
+
+.b {
+  display: flex;
+  justify-content: flex-end;
 }

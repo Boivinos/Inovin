@@ -1,18 +1,22 @@
 import React from "react";
-// import PropTypes from "prop-types";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
+import inovinPicture from "../../assets/inovinPicture_desktop.png";
 
-function AdminModificationValidation() {
+function AdminModificationValidation({ message, urlRetour }) {
   const navigate = useNavigate();
-  const location = useLocation();
-  const { message } = location.state;
+
+  const handleReturn = () => {
+    navigate(urlRetour);
+  };
+
   return (
     <>
       <div className="wineAdminDetailsWrapper">
         <div
           className="returnButton"
-          onClick={() => navigate(-1)}
-          onKeyDown={() => navigate(-1)}
+          onClick={handleReturn}
+          onKeyDown={handleReturn}
           role="button"
           tabIndex={0}
         >
@@ -27,12 +31,16 @@ function AdminModificationValidation() {
       <div className="validationMessage_text">
         <p>{message}</p>
       </div>
+      <div className="logo_msg">
+        <img src={inovinPicture} alt="logo" />
+      </div>
     </>
   );
 }
 
-// AdminModificationValidation.propTypes = {
-//   message: PropTypes.string.isRequired,
-// };
+AdminModificationValidation.propTypes = {
+  message: PropTypes.string.isRequired,
+  urlRetour: PropTypes.string.isRequired,
+};
 
 export default AdminModificationValidation;

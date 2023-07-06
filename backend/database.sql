@@ -406,6 +406,7 @@ CREATE TABLE
         born DATE,
         email varchar(100) NOT NULL UNIQUE,
         hashedPassword varchar(300) NOT NULL,
+        taste_description varchar(500),
         isadmin tinyint,
         isvigneron tinyint,
         wine_domain varchar(100),

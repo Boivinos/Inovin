@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import icons8 from "../../../assets/icons8.png";
 import UserContext from "../../Contexts/UserContext";
 
@@ -39,8 +39,39 @@ function DropdownMenu() {
   );
 }
 
+function AdminDropdownMenu() {
+  const { setUser } = useContext(UserContext);
+
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/");
+    localStorage.clear();
+    setUser(undefined);
+  };
+
+  return (
+    <ul className="dropdownMenu">
+      <NavLink to="/useradminlist" className="link">
+        <li>Utilisateurs</li>
+      </NavLink>
+      <NavLink to="/wineadminlist" className="link">
+        <li>Vins</li>
+      </NavLink>
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={() => handleClick()}
+        onKeyDown={() => handleClick()}
+      >
+        Me déconnecter
+      </div>
+    </ul>
+  );
+}
+
 function NavBar() {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -52,6 +83,22 @@ function NavBar() {
     }
   };
   const { user } = useContext(UserContext);
+
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setMenuOpen(false);
+    }
+  };
+  useEffect(() => {
+    const handleClick = (event) => {
+      handleClickOutside(event);
+    };
+    document.body.addEventListener("click", handleClick);
+
+    return () => {
+      document.body.removeEventListener("click", handleClick);
+    };
+  }, []);
 
   return (
     <div className="navBar">
@@ -74,10 +121,12 @@ function NavBar() {
           onKeyDown={handleKeyDown}
           role="button"
           tabIndex={0}
+          ref={menuRef}
         >
           <p>{user && user.firstname}</p>
           <img src={icons8} alt="User Icon" />
-          {isMenuOpen && <DropdownMenu />}
+          {isMenuOpen && !user.isAdmin && <DropdownMenu />}
+          {isMenuOpen && user.isAdmin && <AdminDropdownMenu />}
         </div>
       )}
     </div>
