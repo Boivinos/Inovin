@@ -76,22 +76,6 @@ function UserAdminDetails() {
             <ul>
               {" "}
               <li>
-                Nom :
-                <input
-                  type="text"
-                  className="userAdminDetail_input"
-                  {...register("lastname", { required: "Ce champ est requis" })}
-                  style={{ color: "black" }}
-                  defaultValue={data[0].lastname}
-                />
-                {/*  gestion des erreurs de saisie adminstrateur avant mise à jour */}
-                {errors.lastname && (
-                  <span className="userAdminDetail_error">
-                    {errors.lastname.message}
-                  </span>
-                )}
-              </li>
-              <li>
                 Prénom :
                 <input
                   type="text"
@@ -106,6 +90,22 @@ function UserAdminDetails() {
                 {errors.firstname && (
                   <span className="userAdminDetail_error">
                     {errors.firstname.message}
+                  </span>
+                )}
+              </li>
+              <li>
+                Nom :
+                <input
+                  type="text"
+                  className="userAdminDetail_input"
+                  {...register("lastname", { required: "Ce champ est requis" })}
+                  style={{ color: "black" }}
+                  defaultValue={data[0].lastname}
+                />
+                {/*  gestion des erreurs de saisie adminstrateur avant mise à jour */}
+                {errors.lastname && (
+                  <span className="userAdminDetail_error">
+                    {errors.lastname.message}
                   </span>
                 )}
               </li>

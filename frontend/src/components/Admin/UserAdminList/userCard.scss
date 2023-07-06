@@ -1,13 +1,13 @@
 .userCardWrapper {
   width: 250px;
   position: relative;
-  margin-top: 15px;
 
   .userCard {
     cursor: pointer;
     background-color: white;
     border: 1px solid;
     font-family: $buttonTypo;
+    margin-bottom: 20px;
     padding: 10px 25px;
     border-radius: 25px;
     text-align: center;
@@ -17,5 +17,6 @@
       color: white;
       transition-duration: 0.3s;
     }
+
   }
 }

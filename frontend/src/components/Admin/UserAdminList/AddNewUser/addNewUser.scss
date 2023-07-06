@@ -1,0 +1,81 @@
+.addUserWrapper {
+    p {
+      font-family: $mainTypo;
+    }
+    margin: 0 clamp(25px, 10%, 300px);
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    .returnButton {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      position: absolute;
+      top: 110px;
+      left: 15px;
+  
+      cursor: pointer;
+  
+      &_image {
+        height: 25px;
+        width: 25px;
+      }
+    }
+  
+    .addUserMessage {
+      padding-top: 2%;
+      margin-bottom: 5%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      font-size: larger;
+    }
+  
+    .addwinSeperetor {
+      border-top: 1px solid #e3bc2e;
+      margin-bottom: 5%;
+    }
+  
+    .addUserFormContent {
+      display: flex;
+  
+      justify-content: center;
+  
+      .addUserForm {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+      }
+      label {
+        font-family: $mainTypo;
+      }
+  
+      input {
+        border-style: none;
+        border-bottom-style: solid;
+        border-bottom-color: rgba(0, 0, 0, 0.4);
+        border-bottom-width: 1px;
+        margin-bottom: 0.5em;
+        text-align: center;
+        font-size: 0.9em;
+  
+ 
+      }
+    }
+    .addUserForm_button {
+      width: 45%;
+      margin: 30px 0px 30px 25%;
+      margin-left: 25%;
+      margin-bottom: 30px;
+      &:hover {
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+        border-color: $primary-color;
+        transition-duration: 0.3s;
+        transform: scale(1.02);
+      }
+
+    }
+  }
