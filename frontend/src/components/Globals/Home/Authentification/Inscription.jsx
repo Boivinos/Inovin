@@ -7,6 +7,7 @@ import UserContext from "../../../Contexts/UserContext";
 
 function Inscription() {
   const [usedEmail, setUsedEmail] = useState(false);
+  const [ageError, setAgeError] = useState(false);
   const {
     register,
     handleSubmit,
@@ -17,7 +18,17 @@ function Inscription() {
   const [isVigneron, setIsVigneron] = useState(false);
 
   const createUser = (data) => {
-    setUsedEmail(false);
+    const dob = new Date(data.born);
+    const now = new Date();
+    let age = now.getFullYear() - dob.getFullYear();
+    const m = now.getMonth() - dob.getMonth();
+    if (m < 0 || (m === 0 && now.getDate() < dob.getDate())) {
+      age -= 1;
+    }
+    if (age < 18) {
+      setAgeError(true);
+      return;
+    }
     api
       .post(`http://localhost:8000/api/users`, data)
       .then((response) => {
@@ -105,6 +116,11 @@ function Inscription() {
         />
         {errors?.born?.type && (
           <span className="form_inscription_error">Ce champ est requis</span>
+        )}
+        {ageError && (
+          <span className="form_inscription_error">
+            Tu dois être majeur pour accéder à Inovin
+          </span>
         )}
 
         <input
