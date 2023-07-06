@@ -16,7 +16,7 @@ function AddNewWine() {
     api
       .post(`http://localhost:8000/api/wines`, data)
       .then(() => {
-        console.warn(data);
+        navigate("/ajout/vin");
       })
       .catch((error) => {
         console.error(error);
