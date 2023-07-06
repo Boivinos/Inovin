@@ -56,7 +56,9 @@ function UserAdminList() {
 
   return (
     <div className="userAdminList">
-      <h1 id="userAdminList_title">Liste des utilisateurs</h1>
+      <h1 id="userAdminList_title">
+        Gestion des utilisateurs et des vins enregistrés
+      </h1>
       <div className="userAdminList_buttonWrapper">
         <button id="userAdminList_usersButton" type="button">
           Utilisateurs
