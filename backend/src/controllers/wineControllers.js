@@ -61,7 +61,7 @@ const edit = (req, res) => {
     });
 };
 
-const add = (req, res) => {
+const addWine = (req, res) => {
   const item = req.body;
 
   // TODO validations (length, format...)
@@ -97,7 +97,7 @@ module.exports = {
   browse,
   read,
   edit,
-  add,
+  addWine,
   destroy,
   browseAndPassToNext,
 };
