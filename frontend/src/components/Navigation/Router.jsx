@@ -19,6 +19,7 @@ import Home from "../Globals/Home/Home";
 import Protected from "./Protected";
 import Error404 from "./Error404";
 import AddNewWine from "../Admin/WineAdminList/AddNewWine";
+import AdminProtected from "./AdminProtected";
 
 function Router() {
   const { user } = useContext(UserContext);
@@ -104,9 +105,7 @@ function Router() {
         path="/modification/utilisateur"
         element={
           <AdminModificationValidation
-
-            urlRetour="/admin/vin"
-
+            urlRetour="/admin/utilisateur"
             message="Vos Modifications de l'utilisateur on été prises en compte avec succès !"
           />
         }
@@ -124,9 +123,7 @@ function Router() {
         path="/suppression/utilisateur"
         element={
           <AdminModificationValidation
-          
-            urlRetour="/admin/vin"
-
+            urlRetour="/admin/utilisateur"
             message="L'utilisateur a bien été supprimer avec succés !"
           />
         }
@@ -144,9 +141,7 @@ function Router() {
         path="/ajout/utilisateur"
         element={
           <AdminModificationValidation
-
-            urlRetour="/admin/vin"
-
+            urlRetour="/admin/utilisateur"
             message="L'ajout d'un utilisateur a bien été prises en compte avec succés !"
           />
         }
@@ -163,20 +158,58 @@ function Router() {
 
       {/* routes de l'utilisateur Admin - gestion des utilisateurs et des vins : */}
       {/* useradminlist */}
-      <Route path="/admin/utilisateur" element={<UserAdminList />} />
-      {/* useradmindetails/:id */}
-      <Route path="/admin/utilisateur/:id" element={<UserAdminDetails />} />
-      {/* /addnewuser */}
-      <Route path="/admin/utilisateur/ajout" element={<AddNewUser />} />
-      {/* wineadminlist */}
-      <Route path="/admin/vin" element={<WineAdminList />} />
-      {/* /wineadmindetails/:id */}
-      <Route path="/admin/vin/:id" element={<WineAdminDetails />} />
-      {/* /ajoutervin */}
-      <Route path="/admin/vin/ajout" element={<AddNewWine />} />
       <Route
-        path="/adminmodificationvalidation"
-        element={<AdminModificationValidation />}
+        path="/admin/utilisateur"
+        element={
+          <AdminProtected>
+            <UserAdminList />
+          </AdminProtected>
+        }
+      />
+      {/* useradmindetails/:id */}
+      <Route
+        path="/admin/utilisateur/:id"
+        element={
+          <AdminProtected>
+            <UserAdminDetails />
+          </AdminProtected>
+        }
+      />
+      {/* /addnewuser */}
+      <Route
+        path="/admin/utilisateur/ajout"
+        element={
+          <AdminProtected>
+            <AddNewUser />
+          </AdminProtected>
+        }
+      />
+      {/* wineadminlist */}
+      <Route
+        path="/admin/vin"
+        element={
+          <AdminProtected>
+            <WineAdminList />
+          </AdminProtected>
+        }
+      />
+      {/* /wineadmindetails/:id */}
+      <Route
+        path="/admin/vin/:id"
+        element={
+          <AdminProtected>
+            <WineAdminDetails />
+          </AdminProtected>
+        }
+      />
+      {/* /ajoutervin */}
+      <Route
+        path="/admin/vin/ajout"
+        element={
+          <AdminProtected>
+            <AddNewWine />
+          </AdminProtected>
+        }
       />
     </Routes>
   );
