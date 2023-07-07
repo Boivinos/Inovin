@@ -47,7 +47,6 @@ function UserAdminDetails() {
         navigate("/admin/utilisateur");
 
         navigate("/suppression/utilisateur");
-
       })
       .catch((error) => console.error(error.message));
   };
@@ -61,7 +60,6 @@ function UserAdminDetails() {
         navigate("/admin/utilisateur/");
 
         navigate("/modification/utilisateur");
-
       })
       .catch((error) => console.error(error.message));
   };
