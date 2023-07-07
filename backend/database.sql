@@ -523,11 +523,11 @@ ADD
 
 ALTER TABLE selection
 ADD
-    CONSTRAINT selection_fk1 FOREIGN KEY (wine_id) REFERENCES wines(id);
+    CONSTRAINT selection_fk1 FOREIGN KEY (wine_id) REFERENCES wines(id) ON DELETE CASCADE;
 
 ALTER TABLE user_notes
 ADD
-    CONSTRAINT user_notes_fk0 FOREIGN KEY (wine_id) REFERENCES wines(id);
+    CONSTRAINT user_notes_fk0 FOREIGN KEY (wine_id) REFERENCES wines(id) ON DELETE CASCADE;
 
 ALTER TABLE user_notes
 ADD
@@ -545,7 +545,7 @@ ALTER TABLE favorites
 ADD
     CONSTRAINT favorites_fk0 FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
 ADD
-    CONSTRAINT favorites_fk1 FOREIGN KEY (wine_id) REFERENCES wines(id);
+    CONSTRAINT favorites_fk1 FOREIGN KEY (wine_id) REFERENCES wines(id) ON DELETE CASCADE;
 
 ALTER TABLE recipes
 ADD
