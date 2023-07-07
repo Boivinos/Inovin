@@ -26,7 +26,7 @@ function Connection() {
         api.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
         const user = jwtDecode(localStorage.getItem("token"));
         setUser(user);
-        navigate(user.isAdmin ? "/useradminlist" : "/profil");
+        navigate(user.isAdmin ? "/admin/utilisateur" : "/profil");
       })
       .catch((error) => {
         if (error.message === "Request failed with status code 401") {
