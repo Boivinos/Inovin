@@ -7,14 +7,13 @@
 #userAdminList_title {
   font-family: $mainTypo;
   font-size: xx-large;
-  margin-bottom: 20px;
-  margin-top: 0;
+  margin: 0px 0px 20px 30px;
 }
 
 .userAdminList_buttonWrapper {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-between;
   margin: 10px;
   gap: 10px;
@@ -31,8 +30,9 @@
 
 .userAdminList button {
   border: 1px solid;
-  width: 140px;
-  height: 35px;
+  width: 180px;
+  height: 40px;
+
   &:hover {
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
     border-color: $primary-color;

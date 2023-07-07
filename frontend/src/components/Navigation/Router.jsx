@@ -104,7 +104,9 @@ function Router() {
         path="/modification/utilisateur"
         element={
           <AdminModificationValidation
+
             urlRetour="/admin/vin"
+
             message="Vos Modifications de l'utilisateur on été prises en compte avec succès !"
           />
         }
@@ -119,10 +121,12 @@ function Router() {
         }
       />
       <Route
-        path="/suppresion/utilisateur"
+        path="/suppression/utilisateur"
         element={
           <AdminModificationValidation
+          
             urlRetour="/admin/vin"
+
             message="L'utilisateur a bien été supprimer avec succés !"
           />
         }
@@ -140,7 +144,9 @@ function Router() {
         path="/ajout/utilisateur"
         element={
           <AdminModificationValidation
+
             urlRetour="/admin/vin"
+
             message="L'ajout d'un utilisateur a bien été prises en compte avec succés !"
           />
         }

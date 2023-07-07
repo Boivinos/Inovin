@@ -24,8 +24,9 @@ function Connection() {
         localStorage.removeItem("token");
         localStorage.setItem("token", response.data.token);
         api.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
-        navigate("/profil");
-        setUser(jwtDecode(localStorage.getItem("token")));
+        const user = jwtDecode(localStorage.getItem("token"));
+        setUser(user);
+        navigate(user.isAdmin ? "/useradminlist" : "/profil");
       })
       .catch((error) => {
         if (error.message === "Request failed with status code 401") {

@@ -43,7 +43,11 @@ function UserAdminDetails() {
       .delete(`${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`)
       .then(() => {
         // redirection vers la page de confirmation (route à modifier)
+
         navigate("/admin/utilisateur");
+
+        navigate("/suppression/utilisateur");
+
       })
       .catch((error) => console.error(error.message));
   };
@@ -53,7 +57,11 @@ function UserAdminDetails() {
       .put(`${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`, formData)
       .then(() => {
         // redirection vers la page de confirmation (route à modifier)
+
         navigate("/admin/utilisateur/");
+
+        navigate("/modification/utilisateur");
+
       })
       .catch((error) => console.error(error.message));
   };
@@ -67,10 +75,7 @@ function UserAdminDetails() {
         </div>
       </NavLink>
       <div className="userAdminDetail">
-        <h1 id="userAdminDetail_title">
-          {" "}
-          Gestion des utilisateurs enregistrés
-        </h1>
+        <h1 id="userAdminDetail_title"> Modification de l'utilisateur</h1>
         {data && (
           <form
             className="userAdminDetail_dataWrapper"
@@ -78,22 +83,6 @@ function UserAdminDetails() {
           >
             <ul>
               {" "}
-              <li>
-                Nom :
-                <input
-                  type="text"
-                  className="userAdminDetail_input"
-                  {...register("lastname", { required: "Ce champ est requis" })}
-                  style={{ color: "black" }}
-                  defaultValue={data[0].lastname}
-                />
-                {/*  gestion des erreurs de saisie adminstrateur avant mise à jour */}
-                {errors.lastname && (
-                  <span className="userAdminDetail_error">
-                    {errors.lastname.message}
-                  </span>
-                )}
-              </li>
               <li>
                 Prénom :
                 <input
@@ -109,6 +98,22 @@ function UserAdminDetails() {
                 {errors.firstname && (
                   <span className="userAdminDetail_error">
                     {errors.firstname.message}
+                  </span>
+                )}
+              </li>
+              <li>
+                Nom :
+                <input
+                  type="text"
+                  className="userAdminDetail_input"
+                  {...register("lastname", { required: "Ce champ est requis" })}
+                  style={{ color: "black" }}
+                  defaultValue={data[0].lastname}
+                />
+                {/*  gestion des erreurs de saisie adminstrateur avant mise à jour */}
+                {errors.lastname && (
+                  <span className="userAdminDetail_error">
+                    {errors.lastname.message}
                   </span>
                 )}
               </li>

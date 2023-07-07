@@ -33,9 +33,9 @@ function WineAdminList() {
 
   return (
     <div className="wineAdminList">
-      <p id="wineAdminList_title">
+      <h1 id="wineAdminList_title">
         Gestion des utilisateurs et des vins enregistrés
-      </p>
+      </h1>
       <div className="wineAdminList_buttonWrapper">
         <button
           id="wineAdminList_usersButton"
