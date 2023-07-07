@@ -104,7 +104,7 @@ function Router() {
         path="/modification/utilisateur"
         element={
           <AdminModificationValidation
-            urlRetour="/wineadminlist"
+            urlRetour="/admin/vin"
             message="Vos Modifications de l'utilisateur on été prises en compte avec succès !"
           />
         }
@@ -113,7 +113,7 @@ function Router() {
         path="/modification/vin"
         element={
           <AdminModificationValidation
-            urlRetour="/wineadminlist"
+            urlRetour="/admin/vin"
             message="Les modifications du vin on été prises en compte avec succès !"
           />
         }
@@ -122,7 +122,7 @@ function Router() {
         path="/suppresion/utilisateur"
         element={
           <AdminModificationValidation
-            urlRetour="/wineadminlist"
+            urlRetour="/admin/vin"
             message="L'utilisateur a bien été supprimer avec succés !"
           />
         }
@@ -131,7 +131,7 @@ function Router() {
         path="/suppression/vin"
         element={
           <AdminModificationValidation
-            urlRetour="/wineadminlist"
+            urlRetour="/admin/vin"
             message="La suppression du vin a bien été prises en compte !"
           />
         }
@@ -140,7 +140,7 @@ function Router() {
         path="/ajout/utilisateur"
         element={
           <AdminModificationValidation
-            urlRetour="/wineadminlist"
+            urlRetour="/admin/vin"
             message="L'ajout d'un utilisateur a bien été prises en compte avec succés !"
           />
         }
@@ -149,20 +149,25 @@ function Router() {
         path="/ajout/vin"
         element={
           <AdminModificationValidation
-            urlRetour="/wineadminlist"
+            urlRetour="/admin/vin"
             message="L'ajout d'un vin a bien été prises en compte avec succés !"
           />
         }
       />
 
       {/* routes de l'utilisateur Admin - gestion des utilisateurs et des vins : */}
-
-      <Route path="/useradminlist" element={<UserAdminList />} />
-      <Route path="/useradmindetails/:id" element={<UserAdminDetails />} />
-      <Route path="/addnewuser" element={<AddNewUser />} />
-      <Route path="/wineadminlist" element={<WineAdminList />} />
-      <Route path="/wineadmindetails/:id" element={<WineAdminDetails />} />
-      <Route path="/ajoutervin" element={<AddNewWine />} />
+      {/* useradminlist */}
+      <Route path="/admin/utilisateur" element={<UserAdminList />} />
+      {/* useradmindetails/:id */}
+      <Route path="/admin/utilisateur/:id" element={<UserAdminDetails />} />
+      {/* /addnewuser */}
+      <Route path="/admin/utilisateur/ajout" element={<AddNewUser />} />
+      {/* wineadminlist */}
+      <Route path="/admin/vin" element={<WineAdminList />} />
+      {/* /wineadmindetails/:id */}
+      <Route path="/admin/vin/:id" element={<WineAdminDetails />} />
+      {/* /ajoutervin */}
+      <Route path="/admin/vin/ajout" element={<AddNewWine />} />
       <Route
         path="/adminmodificationvalidation"
         element={<AdminModificationValidation />}

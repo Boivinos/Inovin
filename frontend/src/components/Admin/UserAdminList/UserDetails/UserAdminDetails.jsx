@@ -43,7 +43,7 @@ function UserAdminDetails() {
       .delete(`${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`)
       .then(() => {
         // redirection vers la page de confirmation (route à modifier)
-        navigate("/useradminlist");
+        navigate("/admin/utilisateur");
       })
       .catch((error) => console.error(error.message));
   };
@@ -53,14 +53,14 @@ function UserAdminDetails() {
       .put(`${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`, formData)
       .then(() => {
         // redirection vers la page de confirmation (route à modifier)
-        navigate("/useradminlist");
+        navigate("/admin/utilisateur/");
       })
       .catch((error) => console.error(error.message));
   };
 
   return (
     <>
-      <NavLink to="/useradminlist">
+      <NavLink to="/admin/utilisateur">
         <div className="validationMessage_returnButtonWrapper">
           <img src="https://i.ibb.co/PchSHGr/60793.png" alt="" />
           <p>Retour</p>

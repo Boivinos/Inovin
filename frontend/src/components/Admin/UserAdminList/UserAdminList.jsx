@@ -39,15 +39,15 @@ function UserAdminList() {
   const navigatetoAddNewUserPage = useNavigate();
 
   const handleWinesButtonClick = () => {
-    navigateToAdminWinesPage("/wineadminlist");
+    navigateToAdminWinesPage("/admin/vin");
   };
 
   const handleUsersDetailsButtonClick = (id) => {
-    navigateToUserAdminDetailsPage(`/useradmindetails/${id}`);
+    navigateToUserAdminDetailsPage(`/admin/utilisateur/${id}`);
   };
 
   const handleAddNewUserButtonClick = () => {
-    navigatetoAddNewUserPage("/addnewuser");
+    navigatetoAddNewUserPage("/admin/utilisateur/ajout");
   };
 
   const handleSearchInputChange = (event) => {
