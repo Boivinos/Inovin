@@ -51,10 +51,10 @@ function AdminDropdownMenu() {
 
   return (
     <ul className="dropdownMenu">
-      <NavLink to="/useradminlist" className="link">
+      <NavLink to="/admin/utilisateur/" className="link">
         <li>Utilisateurs</li>
       </NavLink>
-      <NavLink to="/wineadminlist" className="link">
+      <NavLink to="/admin/vin" className="link">
         <li>Vins</li>
       </NavLink>
       <div

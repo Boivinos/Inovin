@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 function UserCard({ firstname, lastname, id }) {
   return (
     <div className="userCardWrapper">
-      <NavLink to={`/useradmindetails/${id}`}>
+      <NavLink to={`/admin/utilisateur/${id}`}>
         <div className="userCard">
           <p>
             {firstname} {lastname}

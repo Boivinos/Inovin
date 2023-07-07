@@ -20,15 +20,15 @@ function WineAdminList() {
   const navigateToAddWinePage = useNavigate();
 
   const handleUsersButtonClick = () => {
-    navigateToAdminUsersPage("/useradminlist");
+    navigateToAdminUsersPage("/admin/utilisateur");
   };
 
   const handleWinesButtonClick = () => {
-    navigateToAdminWinesPage("/wineadminlist");
+    navigateToAdminWinesPage("/admin/vin");
   };
 
   const handleAddWineClick = () => {
-    navigateToAddWinePage("/ajoutervin");
+    navigateToAddWinePage("/admin/vin/ajout");
   };
 
   return (
