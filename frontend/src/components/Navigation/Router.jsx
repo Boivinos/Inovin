@@ -20,6 +20,7 @@ import Protected from "./Protected";
 import Error404 from "./Error404";
 import AddNewWine from "../Admin/WineAdminList/AddNewWine";
 import AdminProtected from "./AdminProtected";
+import ResetPassword from "../Globals/Home/Authentification/ResetPassword";
 
 function Router() {
   const { user } = useContext(UserContext);
@@ -28,6 +29,7 @@ function Router() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/inscription" element={<Inscription />} />
+      <Route path="/nouveau-mot-de-passe" element={<ResetPassword />} />
       <Route path="*" element={<Error404 />} />
 
       <Route
