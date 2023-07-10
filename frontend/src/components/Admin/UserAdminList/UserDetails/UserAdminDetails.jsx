@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, NavLink } from "react-router-dom";
-import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import { useForm } from "react-hook-form";
 
 import api from "../../../Contexts/api";
@@ -14,12 +13,6 @@ function UserAdminDetails() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  // Gestion de la visibilité ou non du mot de passe
-  const [showPassword, setShowPassword] = useState(false);
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
 
   // axios d'affichage des données détaillées d'un utilisateur :
   useEffect(() => {
@@ -117,40 +110,21 @@ function UserAdminDetails() {
               </li>
               <li> Date de naissance : {formatBirthDate(data[0].born)}</li>
               <li>
-                Mot de passe{" "}
-                <button
-                  onClick={togglePasswordVisibility}
-                  type="button"
-                  id="passwordVisibility"
-                >
-                  {showPassword ? (
-                    <MdVisibilityOff size={17} />
-                  ) : (
-                    <MdVisibility size={17} />
-                  )}
-                </button>
-                :
-                {showPassword ? (
-                  <input
-                    id="password-input"
-                    type="text"
-                    name="password"
-                    defaultValue={data[0].hashedPassword}
-                    {...register("password", {
-                      required: "Ce champs est requis",
-                    })}
-                  />
-                ) : (
-                  <input
-                    id="password-input"
-                    type="password"
-                    name="password"
-                    defaultValue={data[0].hashedPassword}
-                    {...register("password", {
-                      required: "Ce champ est requis",
-                    })}
-                  />
-                )}
+                Mot de passe :{" "}
+                <input
+                  id="password-input"
+                  type="password"
+                  name="password"
+                  defaultValue={data[0].hashedPassword}
+                  {...register("password", {
+                    required: "Ce champ est requis",
+                    minLength: {
+                      value: 8,
+                      message:
+                        "Le mot de passe doit comporter au moins 8 caractères ",
+                    },
+                  })}
+                />
                 {errors.password && (
                   <span className="userAdminDetail_error">
                     {errors.password.message}
@@ -192,7 +166,6 @@ function UserAdminDetails() {
                   </span>
                 )}
               </li>
-              <li> Vigneron : {data[0].isvigneron}</li>
             </ul>
 
             <div className="userAdminDetail_button">
