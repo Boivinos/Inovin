@@ -146,7 +146,7 @@ function AddNewUser() {
               name="password"
               {...register("password", {
                 required: true,
-                minLength: 4,
+                minLength: 8,
               })}
             />
             {errors?.password?.type === "required" && (
@@ -154,7 +154,7 @@ function AddNewUser() {
             )}
             {errors?.password?.type === "minLength" && (
               <span className="ContactForm_error">
-                Ce champ doit comporter au moins 4 caractères
+                Ce champ doit comporter au moins 8 caractères
               </span>
             )}
           </div>
