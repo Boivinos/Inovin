@@ -51,125 +51,143 @@ function Contact() {
   console.error("erreurs de saisie", errors);
 
   return (
-    <div className="ContactForm">
-      <img
-        className="ContactForm_inovinPicture"
-        src={InovinPicture}
-        alt="Logo"
-      />
-      <img
-        className="ContactForm_inovinPicture_desktop"
-        src={InovinPictureDesktop}
-        alt="Logo"
-      />
-      <p className="ContactForm_text"> Nous contacter</p>
-
-      <form className="ContactForm_fields" onSubmit={handleSubmit(onSubmit)}>
-        <p className="ContactForm_text_desktop"> Nous contacter</p>
-
-        {/* Configuration du champ prénom et gestion des erreurs */}
-        <input
-          className="ContactForm_input"
-          {...register("firstname", {
-            required: "Ce champ est requis",
-            maxLength: {
-              value: 20,
-              message: "Ce champ est limité à 20 caractères",
-            },
-            pattern: {
-              value: /^[A-Za-zÀ-ÿ ]+$/i,
-              message: "Caractères alphabétiques uniquement",
-            },
-          })}
-          placeholder="Prénom *"
+    <>
+      <div
+        className="returnButton"
+        onClick={() => navigate(-1)}
+        onKeyDown={() => navigate(-1)}
+        role="button"
+        tabIndex={0}
+      >
+        <img
+          className="returnButton_image"
+          src="https://i.ibb.co/PchSHGr/60793.png"
+          alt=""
         />
-
-        {/* Affichage des erreurs pour le champ prénom */}
-        {errors.firstname && (
-          <span className="ContactForm_error">{errors.firstname.message}</span>
-        )}
-
-        {/* Configuration du champ nom et gestion des erreurs */}
-        <input
-          className="ContactForm_input"
-          {...register("lastname", {
-            required: "Ce champ est requis",
-            maxLength: {
-              value: 20,
-              message: "Ce champ est limité à 20 caractères",
-            },
-            pattern: {
-              value: /^[A-Za-zÀ-ÿ ]+$/i,
-              message: "Caractères alphabétiques uniquement",
-            },
-          })}
-          placeholder="Nom *"
+        <p>Retour</p>
+      </div>
+      <div className="ContactForm">
+        <img
+          className="ContactForm_inovinPicture"
+          src={InovinPicture}
+          alt="Logo"
         />
+        <img
+          className="ContactForm_inovinPicture_desktop"
+          src={InovinPictureDesktop}
+          alt="Logo"
+        />
+        <p className="ContactForm_text"> Nous contacter</p>
 
-        {/* Affichage des erreurs pour le champ nom */}
-        {errors.lastname && (
-          <span className="ContactForm_error">{errors.lastname.message}</span>
-        )}
+        <form className="ContactForm_fields" onSubmit={handleSubmit(onSubmit)}>
+          <p className="ContactForm_text_desktop"> Nous contacter</p>
 
-        {/* Configuration du champ adresse mail et gestion des erreurs */}
-        <input
-          className="ContactForm_input"
-          {...register("emailAdress", {
-            required: "Ce champ est requis",
-            pattern: {
-              value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
-              message: "Merci de renseigner un email valide",
-            },
-            validate: {
-              validExtension: (value) => {
-                const validExtensions = ["com", "net", "org", "fr"];
-                const domain = value.split(".").pop();
-                if (!validExtensions.includes(domain.toLowerCase())) {
-                  return "Extension de domaine non valide";
-                }
-                return true;
+          {/* Configuration du champ prénom et gestion des erreurs */}
+          <input
+            className="ContactForm_input"
+            {...register("firstname", {
+              required: "Ce champ est requis",
+              maxLength: {
+                value: 20,
+                message: "Ce champ est limité à 20 caractères",
               },
-            },
-          })}
-          placeholder="Adresse mail *"
-        />
+              pattern: {
+                value: /^[A-Za-zÀ-ÿ ]+$/i,
+                message: "Caractères alphabétiques uniquement",
+              },
+            })}
+            placeholder="Prénom *"
+          />
 
-        {/* Affichage des erreurs pour le champ adresse mail */}
-        {errors.emailAdress && (
-          <span className="ContactForm_error">
-            {errors.emailAdress.message}
-          </span>
-        )}
+          {/* Affichage des erreurs pour le champ prénom */}
+          {errors.firstname && (
+            <span className="ContactForm_error">
+              {errors.firstname.message}
+            </span>
+          )}
 
-        {/* Configuration du champ message et gestion des erreurs */}
-        <textarea
-          id="ContactForm_inputMessage"
-          {...register("Message", {
-            required: "Merci d'indiquer l'objet de votre demande",
-            minLength: {
-              value: 10,
-              message: "Votre message doit comporter au moins 10 caractères",
-            },
-            maxLength: {
-              value: 200,
-              message: "Votre message ne peut pas dépasser 200 caractères",
-            },
-          })}
-          placeholder="Message *"
-          rows={4}
-          cols={40}
-        />
+          {/* Configuration du champ nom et gestion des erreurs */}
+          <input
+            className="ContactForm_input"
+            {...register("lastname", {
+              required: "Ce champ est requis",
+              maxLength: {
+                value: 20,
+                message: "Ce champ est limité à 20 caractères",
+              },
+              pattern: {
+                value: /^[A-Za-zÀ-ÿ ]+$/i,
+                message: "Caractères alphabétiques uniquement",
+              },
+            })}
+            placeholder="Nom *"
+          />
 
-        {/* Affichage des erreurs pour le champ message */}
-        {errors.Message && (
-          <span className="ContactForm_error">{errors.Message.message}</span>
-        )}
+          {/* Affichage des erreurs pour le champ nom */}
+          {errors.lastname && (
+            <span className="ContactForm_error">{errors.lastname.message}</span>
+          )}
 
-        <button className="ContactForm_button" type="submit">
-          Envoyer
-        </button>
-      </form>
-    </div>
+          {/* Configuration du champ adresse mail et gestion des erreurs */}
+          <input
+            className="ContactForm_input"
+            {...register("emailAdress", {
+              required: "Ce champ est requis",
+              pattern: {
+                value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
+                message: "Merci de renseigner un email valide",
+              },
+              validate: {
+                validExtension: (value) => {
+                  const validExtensions = ["com", "net", "org", "fr"];
+                  const domain = value.split(".").pop();
+                  if (!validExtensions.includes(domain.toLowerCase())) {
+                    return "Extension de domaine non valide";
+                  }
+                  return true;
+                },
+              },
+            })}
+            placeholder="Adresse mail *"
+          />
+
+          {/* Affichage des erreurs pour le champ adresse mail */}
+          {errors.emailAdress && (
+            <span className="ContactForm_error">
+              {errors.emailAdress.message}
+            </span>
+          )}
+
+          {/* Configuration du champ message et gestion des erreurs */}
+          <textarea
+            id="ContactForm_inputMessage"
+            {...register("Message", {
+              required: "Merci d'indiquer l'objet de votre demande",
+              minLength: {
+                value: 10,
+                message: "Votre message doit comporter au moins 10 caractères",
+              },
+              maxLength: {
+                value: 200,
+                message: "Votre message ne peut pas dépasser 200 caractères",
+              },
+            })}
+            placeholder="Message *"
+            rows={4}
+            cols={40}
+          />
+
+          {/* Affichage des erreurs pour le champ message */}
+          {errors.Message && (
+            <span className="ContactForm_error">{errors.Message.message}</span>
+          )}
+
+          <button className="ContactForm_button" type="submit">
+            Envoyer
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
 
