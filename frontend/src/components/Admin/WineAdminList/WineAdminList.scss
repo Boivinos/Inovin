@@ -8,6 +8,10 @@
     font-size: xx-large;
     margin: 0px 0px 20px 30px;
   }
+
+  #addWineButton {
+    margin-bottom: 2%;
+  }
   &_buttonWrapper {
     display: flex;
     flex-direction: row;
@@ -23,6 +27,15 @@
     #wineAdminList_winesButton {
       border: 1px solid $primary-color;
     }
+  }
+
+  .serchContent {
+    margin: 30px 0px 50px 0px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    width: 80%;
   }
 }
 

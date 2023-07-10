@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, NavLink } from "react-router-dom";
-import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import { useForm } from "react-hook-form";
 
 import api from "../../../Contexts/api";
@@ -8,18 +7,15 @@ import api from "../../../Contexts/api";
 function UserAdminDetails() {
   const { id } = useParams();
   const [data, setData] = useState(undefined);
+  // State relatif au pop-up de confirmation
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  // Gestion de la visibilité ou non du mot de passe
-  const [showPassword, setShowPassword] = useState(false);
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
 
   // axios d'affichage des données détaillées d'un utilisateur :
   useEffect(() => {
@@ -37,18 +33,21 @@ function UserAdminDetails() {
     return date.toLocaleDateString("fr-FR");
   };
 
-  // axios de suppression d'un utilisateur :
+  // axios de suppression d'un utilisateur et gestion du pop-up :
+  const confirmDelete = () => {
+    setShowConfirmation(true);
+  };
+
   const handleDelete = () => {
     api
       .delete(`${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`)
       .then(() => {
-        // redirection vers la page de confirmation (route à modifier)
-
         navigate("/admin/utilisateur");
-
         navigate("/suppression/utilisateur");
       })
       .catch((error) => console.error(error.message));
+
+    setShowConfirmation(false);
   };
 
   const handleUpdate = (formData) => {
@@ -66,12 +65,28 @@ function UserAdminDetails() {
 
   return (
     <>
+      {/*    code du pop-up de confirmation une fois affiché */}
+      {showConfirmation && (
+        <div className="confirmation-message">
+          <p>Voulez-vous vraiment supprimer cet utilisateur ?</p>
+          <button onClick={handleDelete} type="button">
+            Oui
+          </button>
+          <button onClick={() => setShowConfirmation(false)} type="button">
+            Non
+          </button>
+        </div>
+      )}
+
+      {/* Bouton de retour */}
       <NavLink to="/admin/utilisateur">
         <div className="validationMessage_returnButtonWrapper">
           <img src="https://i.ibb.co/PchSHGr/60793.png" alt="" />
           <p>Retour</p>
         </div>
       </NavLink>
+
+      {/* Formulaire de gestion des données utilisateur */}
       <div className="userAdminDetail">
         <h1 id="userAdminDetail_title"> Modification de l'utilisateur</h1>
         {data && (
@@ -117,40 +132,21 @@ function UserAdminDetails() {
               </li>
               <li> Date de naissance : {formatBirthDate(data[0].born)}</li>
               <li>
-                Mot de passe{" "}
-                <button
-                  onClick={togglePasswordVisibility}
-                  type="button"
-                  id="passwordVisibility"
-                >
-                  {showPassword ? (
-                    <MdVisibilityOff size={17} />
-                  ) : (
-                    <MdVisibility size={17} />
-                  )}
-                </button>
-                :
-                {showPassword ? (
-                  <input
-                    id="password-input"
-                    type="text"
-                    name="password"
-                    defaultValue={data[0].hashedPassword}
-                    {...register("password", {
-                      required: "Ce champs est requis",
-                    })}
-                  />
-                ) : (
-                  <input
-                    id="password-input"
-                    type="password"
-                    name="password"
-                    defaultValue={data[0].hashedPassword}
-                    {...register("password", {
-                      required: "Ce champ est requis",
-                    })}
-                  />
-                )}
+                Mot de passe :{" "}
+                <input
+                  id="password-input"
+                  type="password"
+                  name="password"
+                  defaultValue={data[0].hashedPassword}
+                  {...register("password", {
+                    required: "Ce champ est requis",
+                    minLength: {
+                      value: 8,
+                      message:
+                        "Le mot de passe doit comporter au moins 8 caractères ",
+                    },
+                  })}
+                />
                 {errors.password && (
                   <span className="userAdminDetail_error">
                     {errors.password.message}
@@ -192,13 +188,11 @@ function UserAdminDetails() {
                   </span>
                 )}
               </li>
-              <li> Vigneron : {data[0].isvigneron}</li>
             </ul>
 
             <div className="userAdminDetail_button">
               <button type="submit"> Enregistrer</button>
-              <button type="button" onClick={handleDelete}>
-                {" "}
+              <button type="button" onClick={confirmDelete}>
                 Supprimer
               </button>
             </div>
