@@ -105,10 +105,8 @@ function Router() {
         path="/modification/utilisateur"
         element={
           <AdminModificationValidation
-
             urlRetour="/admin/utilisateur"
-
-            message="Vos Modifications de l'utilisateur on été prises en compte avec succès !"
+            message="Les modifications de l'utilisateur on été prises en compte avec succès !"
           />
         }
       />
@@ -117,7 +115,7 @@ function Router() {
         element={
           <AdminModificationValidation
             urlRetour="/admin/vin"
-            message="Les modifications du vin on été prises en compte avec succès !"
+            message="Les modifications du vin ont été prises en compte avec succès !"
           />
         }
       />
@@ -125,11 +123,8 @@ function Router() {
         path="/suppression/utilisateur"
         element={
           <AdminModificationValidation
-
-
             urlRetour="/admin/utilisateur"
-
-            message="L'utilisateur a bien été supprimer avec succés !"
+            message="L'utilisateur a bien été supprimé avec succés !"
           />
         }
       />
@@ -138,7 +133,7 @@ function Router() {
         element={
           <AdminModificationValidation
             urlRetour="/admin/vin"
-            message="La suppression du vin a bien été prises en compte !"
+            message="La suppression du vin a bien été prise en compte !"
           />
         }
       />
@@ -146,11 +141,8 @@ function Router() {
         path="/ajout/utilisateur"
         element={
           <AdminModificationValidation
-
-
             urlRetour="/admin/utilisateur"
-
-            message="L'ajout d'un utilisateur a bien été prises en compte avec succés !"
+            message="L'ajout d'un utilisateur a bien été pris en compte !"
           />
         }
       />
@@ -159,7 +151,7 @@ function Router() {
         element={
           <AdminModificationValidation
             urlRetour="/admin/vin"
-            message="L'ajout d'un vin a bien été prises en compte avec succés !"
+            message="L'ajout d'un vin a bien été pris en compte !"
           />
         }
       />
