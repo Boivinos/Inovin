@@ -8,6 +8,7 @@ const userControllers = require("./controllers/userControllers");
 const selectionControllers = require("./controllers/selectionControllers");
 const favoriteControllers = require("./controllers/favoriteController");
 const noteControllers = require("./controllers/noteControllers");
+const mailControllers = require("./controllers/mailController");
 const {
   hashPassword,
   verifyPassword,
@@ -27,6 +28,8 @@ router.post(
   userControllers.getUserByEmailWithPasswordAndPassToNext,
   verifyPassword
 );
+
+router.post("/resetpassword", mailControllers.sendResetMail);
 
 // --- USER PROTECTED ROUTES BELOW -----
 router.use(verifyToken);
