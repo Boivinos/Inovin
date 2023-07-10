@@ -1,3 +1,19 @@
+.returnButton {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  position: absolute;
+  top: 110px;
+  left: 15px;
+  font-size: calc(0.9vw + 0.8em);
+
+  cursor: pointer;
+
+  &_image {
+    height: 25px;
+    width: 25px;
+  }
+}
 .glossaryPage {
   display: flex;
   flex-direction: column;
@@ -15,6 +31,7 @@
     text-align: left;
     align-self: flex-start;
     position: relative;
+    font-size: calc(0.8vw + 0.7em);
   }
 
   .glossaryContainerB {
@@ -25,6 +42,7 @@
     flex-direction: column;
     justify-content: flex-end;
     position: relative;
+    font-size: calc(0.8vw + 0.7em);
   }
 }
 
@@ -52,6 +70,7 @@ h1 {
   font-family: $mainTypo;
   display: flex;
   justify-content: center;
+  font-size: calc(1vw + 0.9em);
 }
 .cepage_description {
   width: 100%;
