@@ -8,7 +8,11 @@ function WineAdminDetails() {
   const { id } = useParams();
   const [wineDetailsData, setWineDetailsData] = useState([]);
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   // show popup pour supprimer le vin
   const [showDeleteMsg, setShowDeleteMsg] = useState(false);
@@ -105,6 +109,7 @@ function WineAdminDetails() {
           </p>
         </div>
 
+
         <div className="wineFormDetails">
           <div className="wineImage">
             <img src={wineDetailsData.image} alt="" />
@@ -185,6 +190,7 @@ function WineAdminDetails() {
                   />
                   %
                 </div>
+
               </div>
 
               <button
