@@ -10,7 +10,7 @@ function WineAdminDetails() {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
 
-  //show popup pour supprimer le vin
+  // show popup pour supprimer le vin
   const [showDeleteMsg, setShowDeleteMsg] = useState(false);
 
   useEffect(() => {
@@ -37,12 +37,12 @@ function WineAdminDetails() {
     setShowDeleteMsg(true);
   };
 
-  //bouton "non"
+  // bouton "non"
   const handleCancelDelete = () => {
     setShowDeleteMsg(false);
   };
 
-  //bouton "oui"
+  // bouton "oui"
   const handleDelete = () => {
     if (showDeleteMsg) {
       api
@@ -64,20 +64,20 @@ function WineAdminDetails() {
         {showDeleteMsg && (
           <div className="confirmationDeleteMessage">
             <p>Êtes-vous sûr de vouloir supprimer?</p>
-            <button className="isDelete" onClick={handleDelete}>
+            <button className="isDelete" onClick={handleDelete} type="button">
               Oui
             </button>
-            <button className="isNotDelete" onClick={handleCancelDelete}>
+            <button
+              className="isNotDelete"
+              onClick={handleCancelDelete}
+              type="button"
+            >
               Non
             </button>
           </div>
         )}
       </div>
-      <div
-        className={`wineAdminDetailsWrapper ${
-          showDeleteMsg ? "blurBackground" : ""
-        }`}
-      >
+      <div className="wineAdminDetailsWrapper ">
         {/* Tout le contenu qui doit être flouté */}
         <div
           className="returnButton"
