@@ -125,6 +125,17 @@ class userManager extends AbstractManager {
       [id]
     );
   }
+
+  verifyEmail(email) {
+    return this.database.query(`select id from users where email = ?`, [email]);
+  }
+
+  updatePassword(hashedPassword, email) {
+    return this.database.query(
+      `update users set hashedPassword = ? where email = ?`,
+      [hashedPassword, email]
+    );
+  }
 }
 
 module.exports = userManager;

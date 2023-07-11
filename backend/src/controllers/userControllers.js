@@ -1,3 +1,4 @@
+const jwtDecode = require("jwt-decode");
 const models = require("../models");
 
 const destroy = (req, res) => {
@@ -122,6 +123,35 @@ const getDescriptionByUser = (req, res) => {
     });
 };
 
+const verifyEmailAndPassToNext = (req, res, next) => {
+  models.user
+    .verifyEmail(req.body.email)
+    .then(([user]) => {
+      if (user.length) {
+        next();
+      } else {
+        res.status(204).send("No user found");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error retrieving data from database");
+    });
+};
+
+const updateUserPassword = (req, res) => {
+  const { email } = jwtDecode(req.body.token);
+  models.user
+    .updatePassword(req.body.hashedPassword, email)
+    .then(() => {
+      res.status(204).send("User Updated");
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error retrieving data from database");
+    });
+};
+
 module.exports = {
   destroy,
   createUser,
@@ -131,4 +161,6 @@ module.exports = {
   editUser,
   createUserTasteDesc,
   getDescriptionByUser,
+  verifyEmailAndPassToNext,
+  updateUserPassword,
 };

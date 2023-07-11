@@ -29,7 +29,16 @@ router.post(
   verifyPassword
 );
 
-router.post("/resetpassword", mailControllers.sendResetMail);
+router.post(
+  "/resetpassword",
+  userControllers.verifyEmailAndPassToNext,
+  mailControllers.sendResetMail
+);
+router.post(
+  "/updatepassword",
+  hashPassword,
+  userControllers.updateUserPassword
+);
 
 // --- USER PROTECTED ROUTES BELOW -----
 router.use(verifyToken);
