@@ -8,7 +8,11 @@ function WineAdminDetails() {
   const { id } = useParams();
   const [wineDetailsData, setWineDetailsData] = useState([]);
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   // show popup pour supprimer le vin
   const [showDeleteMsg, setShowDeleteMsg] = useState(false);
@@ -124,8 +128,23 @@ function WineAdminDetails() {
                     className="wineInfoFormEditer_control"
                     defaultValue={wineDetailsData.name}
                     name="name"
-                    {...register("name", { required: true })}
+                    {...register("name", {
+                      required: true,
+                      maxLength: {
+                        value: 20,
+                        message: "Ce champ est limité à 20 caractères",
+                      },
+                      pattern: {
+                        value: /^[A-Za-zÀ-ÿ ]+$/i,
+                        message: "Caractères alphabétiques uniquement",
+                      },
+                    })}
                   />
+                  {errors.name && (
+                    <span className="ContactForm_error">
+                      {errors.name.message}
+                    </span>
+                  )}
                 </div>
 
                 <div className="wineFormEditer_domain">
@@ -135,8 +154,23 @@ function WineAdminDetails() {
                     className="wineInfoFormEditer_control"
                     defaultValue={wineDetailsData.domain}
                     name="domain"
-                    {...register("domain", { required: true })}
+                    {...register("domain", {
+                      required: true,
+                      maxLength: {
+                        value: 20,
+                        message: "Ce champ est limité à 20 caractères",
+                      },
+                      pattern: {
+                        value: /^[A-Za-zÀ-ÿ ]+$/i,
+                        message: "Caractères alphabétiques uniquement",
+                      },
+                    })}
                   />
+                  {errors.domain && (
+                    <span className="ContactForm_error">
+                      {errors.domain.message}
+                    </span>
+                  )}
                 </div>
 
                 <div className="wineFormEditer_region">
@@ -146,8 +180,23 @@ function WineAdminDetails() {
                     className="wineInfoFormEditer_control"
                     defaultValue={wineDetailsData.region}
                     name="region"
-                    {...register("region", { required: true })}
+                    {...register("region", {
+                      required: true,
+                      maxLength: {
+                        value: 20,
+                        message: "Ce champ est limité à 20 caractères",
+                      },
+                      pattern: {
+                        value: /^[A-Za-zÀ-ÿ ]+$/i,
+                        message: "Caractères alphabétiques uniquement",
+                      },
+                    })}
                   />
+                  {errors.region && (
+                    <span className="ContactForm_error">
+                      {errors.region.message}
+                    </span>
+                  )}
                 </div>
 
                 <div className="wineFormEditer_year">
@@ -157,8 +206,24 @@ function WineAdminDetails() {
                     className="wineInfoFormEditer_control"
                     defaultValue={wineDetailsData.year}
                     name="year"
-                    {...register("year", { required: true })}
+                    {...register("year", {
+                      required: true,
+
+                      maxLength: {
+                        value: 4,
+                        message: "Ce champ est limité à 4 caractères",
+                      },
+                      pattern: {
+                        value: /^[0-9]{4}$/,
+                        message: "L'année doit être un nombre à 4 chiffres",
+                      },
+                    })}
                   />
+                  {errors.year && (
+                    <span className="ContactForm_error">
+                      {errors.year.message}
+                    </span>
+                  )}
                 </div>
 
                 <div className="wineFormEditer_grape">
@@ -168,8 +233,23 @@ function WineAdminDetails() {
                     className="wineInfoFormEditer_control"
                     defaultValue={wineDetailsData.grape}
                     name="grape"
-                    {...register("grape", { required: true })}
+                    {...register("grape", {
+                      required: true,
+                      maxLength: {
+                        value: 20,
+                        message: "Ce champ est limité à 20 caractères",
+                      },
+                      pattern: {
+                        value: /^[A-Za-zÀ-ÿ ]+$/i,
+                        message: "Caractères alphabétiques uniquement",
+                      },
+                    })}
                   />
+                  {errors.grape && (
+                    <span className="ContactForm_error">
+                      {errors.grape.message}
+                    </span>
+                  )}
                 </div>
 
                 <div className="wineFormEditer_alcohol_content">
@@ -181,8 +261,24 @@ function WineAdminDetails() {
                     className="wineInfoFormEditer_control"
                     defaultValue={wineDetailsData.alcohol_content}
                     name="alcohol_content"
-                    {...register("alcohol_content", { required: true })}
+                    {...register("alcohol_content", {
+                      required: true,
+                      maxLength: {
+                        value: 6,
+                        message: "Ce champ est limité à 6 caractères",
+                      },
+                      pattern: {
+                        value:
+                          /^(8(\.[0-9]+)?|9(\.[0-9]*)?|1[0-4](\.[0-9]*)?|15(\.0*)?)$/,
+                        message: "Le taux d'alcool doit être entre 8 et 15",
+                      },
+                    })}
                   />
+                  {errors.alcohol_content && (
+                    <span className="ContactForm_error">
+                      {errors.alcohol_content.message}
+                    </span>
+                  )}
                   %
                 </div>
               </div>
