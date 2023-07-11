@@ -8,11 +8,7 @@ function WineAdminDetails() {
   const { id } = useParams();
   const [wineDetailsData, setWineDetailsData] = useState([]);
   const navigate = useNavigate();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
   // show popup pour supprimer le vin
   const [showDeleteMsg, setShowDeleteMsg] = useState(false);
@@ -64,8 +60,9 @@ function WineAdminDetails() {
   return (
     <div>
       {/* popup pour supprimer le vin */}
-      <div className="popupWindow">
-        {showDeleteMsg && (
+
+      {showDeleteMsg && (
+        <div className="popupWindow">
           <div className="confirmationDeleteMessage">
             <p>Êtes-vous sûr de vouloir supprimer?</p>
             <button className="isDelete" onClick={handleDelete} type="button">
@@ -79,8 +76,9 @@ function WineAdminDetails() {
               Non
             </button>
           </div>
-        )}
-      </div>
+        </div>
+      )}
+
       <div className="wineAdminDetailsWrapper ">
         {/* Tout le contenu qui doit être flouté */}
         <div
@@ -108,7 +106,6 @@ function WineAdminDetails() {
             'Valider'
           </p>
         </div>
-
 
         <div className="wineFormDetails">
           <div className="wineImage">
@@ -178,8 +175,7 @@ function WineAdminDetails() {
 
                 <div className="wineFormEditer_alcohol_content">
                   <label htmlFor="alcohol_contentInput">
-                    {" "}
-                    Teneur en alcool :{" "}
+                    Teneur en alcool :
                   </label>
                   <input
                     type="text"
@@ -190,7 +186,6 @@ function WineAdminDetails() {
                   />
                   %
                 </div>
-
               </div>
 
               <button
