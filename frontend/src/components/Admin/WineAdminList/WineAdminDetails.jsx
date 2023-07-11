@@ -60,7 +60,6 @@ function WineAdminDetails() {
   return (
     <div>
       {/* popup pour supprimer le vin */}
-
       {showDeleteMsg && (
         <div className="popupWindow">
           <div className="confirmationDeleteMessage">
