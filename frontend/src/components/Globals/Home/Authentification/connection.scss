@@ -61,6 +61,11 @@
   .inscription {
     text-align: center;
     margin-top: 70px;
+
+    a p {
+      margin-top: 30px;
+      text-decoration: underline;
+    }
   }
 
   .button_inscription {

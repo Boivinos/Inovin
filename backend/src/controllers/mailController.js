@@ -24,7 +24,8 @@ const sendResetMail = (req, res) => {
     from: "noreply@inovin.com", // this is the address from which the email will be sent
     to: req.body.email, // this is the address to which the email will be sent
     subject: "Inovin, choisissez votre nouveau mot de passe",
-    html: `<p>Clique sur le bouton ci-dessous pour définir un nouveau mot de passe</p>
+    html: `<p>Ceci est un message généré automatiquement par Inovin</p>
+    <p>Clique sur le bouton ci-dessous pour définir un nouveau mot de passe</p>
     <a href=${resetURL}>Je choisis un nouveau mot de passe</a>`,
   };
 

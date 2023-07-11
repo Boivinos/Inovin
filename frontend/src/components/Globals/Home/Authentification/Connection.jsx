@@ -120,6 +120,9 @@ function Connection() {
               INSCRIPTION
             </button>
           </NavLink>
+          <NavLink to="/mot-de-passe-oublie">
+            <p>Mot de passe oublié ?</p>
+          </NavLink>
         </div>
       </form>
     </div>
