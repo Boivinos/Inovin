@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import api from "../../Contexts/api";
@@ -11,10 +11,22 @@ function AddNewWine() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const inputRef = useRef();
 
   const addWine = (data) => {
+    // pour que l'image puisse arriver dans le back en post il faut utiliser formData
+    const formData = new FormData();
+    formData.append("alcohol_content", data.alcohol_content);
+    formData.append("domain", data.domain);
+    formData.append("grape", data.grape);
+    formData.append("name", data.name);
+    formData.append("region", data.region);
+    formData.append("year", data.year);
+    formData.append("image", data.image[0]);
+
     api
-      .post(`http://localhost:8000/api/wines`, data)
+      .post(`http://localhost:8000/api/wines`, formData)
+
       .then(() => {
         navigate("/ajout/vin");
       })
@@ -39,6 +51,7 @@ function AddNewWine() {
         />
         <p>Retour</p>
       </div>
+
       <div className="addWineMessage">
         <p>
           Utilisez le formulaire ci-dessous pour ajouter un nouveau vin à notre
@@ -78,27 +91,6 @@ function AddNewWine() {
             />
             {errors.name && (
               <span className="ContactForm_error">{errors.name.message}</span>
-            )}
-          </div>
-
-          <div className="addWineForm_image">
-            <label htmlFor="nameInput"> Image: </label>
-            <input
-              type="text"
-              className="addWineForm_control"
-              name="image"
-              {...register("image", {
-                required: true,
-                pattern: {
-                  value:
-                    /^https?:\/\/([\w-]+\.)+[\w-]+(\/[\w- ;,./?%&=]*)?.(jpg|png|gif)$/i,
-                  message:
-                    "Entrez une URL valide qui pointe vers une image (doit commencer par http:// ou https:// et se terminer par .jpg, .png ou .gif)",
-                },
-              })}
-            />
-            {errors.image && (
-              <span className="ContactForm_error">{errors.image.message}</span>
             )}
           </div>
 
@@ -221,6 +213,19 @@ function AddNewWine() {
             )}
             %
           </div>
+
+          <div className="addWineForm_image">
+            {/* upload file  */}
+            <input
+              type="file"
+              name="image"
+              ref={inputRef}
+              {...register("image", {
+                required: true,
+              })}
+            />
+          </div>
+
           <button className="addWineForm_button" type="submit">
             ajouter
           </button>
