@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { AiOutlineCheck, AiOutlineMinus } from "react-icons/ai";
 
 import api from "../../../Contexts/api";
 
@@ -183,6 +184,10 @@ function UserAdminDetails() {
               <div className="userAdminDetail_button">
                 <button type="submit" disabled={showConfirmation}>
                   {" "}
+                  <AiOutlineCheck
+                    className="admin_icons"
+                    value={{ size: "10px" }}
+                  />
                   Enregistrer
                 </button>
                 <button
@@ -190,6 +195,10 @@ function UserAdminDetails() {
                   onClick={confirmDelete}
                   disabled={showConfirmation}
                 >
+                  <AiOutlineMinus
+                    className="admin_icons"
+                    value={{ size: "10px" }}
+                  />
                   Supprimer
                 </button>
               </div>

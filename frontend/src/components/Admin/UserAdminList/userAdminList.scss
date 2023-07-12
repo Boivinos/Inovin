@@ -32,26 +32,16 @@
   border: 1px solid;
   width: 180px;
   height: 40px;
-
-  &:hover {
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
-    border-color: $primary-color;
-    transition-duration: 0.3s;
-    transform: scale(1.02);
+  
+  .admin_icons {
+    margin-right: 12px;
   }
 }
 
 #userAdminList_usersButton,
 #userAdminList_winesButton {
   width: 180px;
-  height: 40px;
-
-  &:hover {
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
-    border-color: $primary-color;
-    transition-duration: 0.3s;
-    transform: scale(1.02);
-  }
+  height: 40px;  
 }
 
 #userAdminList_usersButton {

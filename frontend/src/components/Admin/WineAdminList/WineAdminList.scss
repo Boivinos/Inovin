@@ -11,6 +11,11 @@
 
   #addWineButton {
     margin-bottom: 2%;
+    border: 1px solid;
+
+    .admin_icons {
+      margin-right: 12px;
+    }
   }
   &_buttonWrapper {
     display: flex;
@@ -19,13 +24,20 @@
     justify-content: space-between;
     margin: 10px;
     gap: 10px;
-    & button {
+
+    & button, #wineAdminList_winesButton {
       flex-grow: 1;
       border: 1px solid;
-      width: 150px;
+      width: 180px;
+      height: 40px;
+
+      .admin_icons {
+        margin-right: 12px;
+      }
+
     }
     #wineAdminList_winesButton {
-      border: 1px solid $primary-color;
+      border-color: $primary-color;;
     }
   }
 
