@@ -160,7 +160,7 @@ function AddNewUser() {
           </div>
 
           <button className="addUserForm_button" type="submit">
-            ajouter
+            Ajouter
           </button>
         </form>
       </div>

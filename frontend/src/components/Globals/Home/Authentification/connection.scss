@@ -18,7 +18,6 @@
     justify-content: center;
     flex-direction: column;
     margin-top: 10%;
-    font-size: calc(0.8vw + 0.7em);
 
     input {
       font-style: italic;
@@ -33,6 +32,7 @@
       margin-top: 20px;
       width: 80%;
       font-family: $buttonTypo;
+      font-size: calc(0.7vw + 0.6em);
     }
 
     .input_connexion {
@@ -54,7 +54,6 @@
       flex-direction: column;
       margin: 0 auto;
       margin-top: 10px;
-      font-size: calc(0.7vw + 0.6em);
     }
   }
 
@@ -93,24 +92,23 @@
       margin-top: 10px;
       margin-left: 10px;
       background-image: url("https://i.ibb.co/WvqNyZT/inovin-Picture-desktop.png");
-      width: calc(513px * 0.7);
-      height: calc(582px * 0.7);
+      width: calc(513px * 0.8);
+      height: calc(582px * 0.8);
     }
     input {
-      font-size: calc(0.5vw + 0.4em);
+      font-size: calc(0.4vw + 0.3em);
     }
     .inscription {
       margin-top: 70px;
-      font-size: calc(0.5vw + 0.6em);
     }
     .button_inscription {
       margin-top: 15px;
       margin-bottom: 10px;
-      font-size: calc(0.7vw + 0.6em);
+      font-size: calc(0.6vw + 0.6em);
     }
 
     .form_connexion {
-      width: 50%;
+      width: 55%;
       margin-right: 10px;
       .text_connexion {
         text-align: center;
