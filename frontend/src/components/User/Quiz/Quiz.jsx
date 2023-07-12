@@ -85,7 +85,7 @@ function Quiz() {
                 type="button"
                 className="questionSuivanteBouton"
               >
-                QUESTION PRECEDENTE
+                Précédent
               </button>
             )}
             {selectedQuestion < 3 && (
@@ -94,7 +94,7 @@ function Quiz() {
                 type="button"
                 className="questionSuivanteBouton"
               >
-                QUESTION SUIVANTE
+                Suivant
               </button>
             )}
             {selectedQuestion === 3 && (
@@ -103,7 +103,7 @@ function Quiz() {
                 type="button"
                 className="questionSuivanteBouton"
               >
-                TERMINER LE QUIZZ
+                Terminer le quizz
               </button>
             )}
           </div>

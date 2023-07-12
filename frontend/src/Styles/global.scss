@@ -21,7 +21,8 @@ button {
   font-family: $buttonTypo;
   padding: 10px 25px;
   border-radius: 25px;
-  text-transform: uppercase;
+  text-transform: initial;
+  font-size: calc(0.7vw + 0.6em);
 }
 
 button:hover {
@@ -33,4 +34,8 @@ button:hover {
   width: 60%;
   height: 1px;
   background-color: $primary-color;
+}
+
+p {
+  font-size: calc(0.7vw + 0.6em);
 }
