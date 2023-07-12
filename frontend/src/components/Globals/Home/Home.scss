@@ -6,6 +6,7 @@
 
   .sessionExpired {
     color: red;
+    font-size: calc(0.7vw + 0.6em);
   }
 }
 .img_logo {
@@ -36,12 +37,4 @@ span {
   .title_logo {
     margin-top: 5%;
   }
-}
-
-@media screen and (min-width: 601px) and (max-width: 1024px) {
-  // .home_logo {
-  //   justify-content:left;
-  //   align-items: flex-start;
-  //   margin:10%;
-  // }
 }

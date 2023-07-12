@@ -110,14 +110,14 @@ function Connection() {
         )}
         <button className="button_connexion" type="submit">
           {" "}
-          CONNEXION
+          Connexion
         </button>
 
         <div className="inscription">
           Tu n'as pas de compte ?
           <NavLink to="/inscription">
             <button className="button_inscription" type="submit">
-              INSCRIPTION
+              Inscription
             </button>
           </NavLink>
           <NavLink to="/mot-de-passe-oublie">

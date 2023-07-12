@@ -5,13 +5,14 @@
   position: absolute;
   top: 110px;
   left: 15px;
-  font-size: calc(0.9vw + 0.8em);
+  font-size: calc(0.8vw + 0.7em);
 
   cursor: pointer;
-
   &_image {
-    height: 25px;
-    width: 25px;
+    // height: 25px;
+    // width: 25px;
+    width: calc(25px * 0.9);
+    height: calc(25px * 0.9);
   }
 }
 .ContactForm {
@@ -25,12 +26,15 @@
     margin: 0 auto;
     margin-bottom: 20px;
     margin-top: 20px;
+    font-size: calc(0.8em + 0.7vw);
   }
 
   &_inovinPicture {
     width: 150px;
     height: 150px;
     margin: 0 auto;
+    width: calc(513px * 0.4);
+    height: calc(582px * 0.4);
   }
 
   &_input,
@@ -74,7 +78,8 @@
     border-radius: 25px;
     text-transform: uppercase;
     background: none;
-    width: 45%;
+    width: 35%;
+    font-size: calc(0.6vw + 0.5em);
   }
 }
 #ContactForm_inputMessage {
@@ -115,6 +120,7 @@
 
     &_input {
       width: 100%;
+      font-size: calc(0.6em + 0.6vw);
     }
     &_button {
       width: 40%;
@@ -129,13 +135,14 @@
     }
     #ContactForm_inputMessage {
       width: 100%;
+      font-size: calc(0.6em + 0.6vw);
     }
   }
 
   .ContactForm_inovinPicture_desktop {
     display: block;
-    width: 400px;
-    height: 400px;
+    width: calc(400px * 1);
+    height: calc(400px * 1);
   }
   .ContactForm_text_desktop {
     display: flex;
