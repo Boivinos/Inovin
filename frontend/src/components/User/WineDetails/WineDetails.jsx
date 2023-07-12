@@ -40,13 +40,9 @@ function WineDetails() {
       user_id: user.id,
     };
 
-    API.post("http://localhost:8000/api/usernotes", body)
-      .then((response) => {
-        console.warn(response);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    API.post("http://localhost:8000/api/usernotes", body).catch((error) => {
+      console.error(error);
+    });
   };
 
   const displayVueCommentsMode = () => {
@@ -133,7 +129,6 @@ function WineDetails() {
             setCommentsData={setCommentsData}
             setEmptyCommentError={setEmptyCommentError}
           />
-          <button type="button">Télécharger la recette</button>
         </div>
       </div>
     </div>

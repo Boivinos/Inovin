@@ -7,8 +7,7 @@ import SearchAndFilterMenu from "./ListButtons/SearchAndFilterMenu";
 import UserContext from "../../Contexts/UserContext";
 
 function WineCardList({ request, title, type }) {
-  const [search, setSearch] = useState("Rechercher...");
-  const [isSearching, setIsSearching] = useState(false);
+  const [search, setSearch] = useState("");
   const [visibleMenu, setVisibleMenu] = useState(false);
   const [colorFilterArr, setColorFilterArr] = useState([]);
   const [otherFilterArr, setOtherFilterArr] = useState([]);
@@ -22,8 +21,6 @@ function WineCardList({ request, title, type }) {
   };
 
   useEffect(() => {
-    setSearch("Rechercher...");
-    setIsSearching(false);
     setVisibleMenu(false);
     setWineCardData(undefined);
     api
@@ -60,8 +57,7 @@ function WineCardList({ request, title, type }) {
         <SearchAndFilterMenu
           search={search}
           setSearch={setSearch}
-          isSearching={isSearching}
-          setIsSearching={setIsSearching}
+          isSearching={search.length > 0}
           visibleMenu={visibleMenu}
           setVisibleMenu={setVisibleMenu}
           toggleMenu={toggleMenu}

@@ -48,7 +48,6 @@ function Contact() {
   };
 
   /*   affichage des erreurs de saisie rencontrées dans la console */
-  console.error("erreurs de saisie", errors);
 
   return (
     <>

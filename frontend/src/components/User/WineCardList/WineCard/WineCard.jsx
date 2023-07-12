@@ -48,7 +48,10 @@ WineCard.propTypes = {
   image: PropTypes.string.isRequired,
   domain: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
-  note: PropTypes.number.isRequired,
+  note: PropTypes.number,
+};
+WineCard.defaultProps = {
+  note: 0,
 };
 
 export default WineCard;
