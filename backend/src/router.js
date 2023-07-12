@@ -1,6 +1,39 @@
 const express = require("express");
 
 const router = express.Router();
+const fs = require("fs");
+
+// Ajout de multer
+const multer = require("multer");
+
+// Ajout de uuid
+const { v4: uuidv4 } = require("uuid");
+
+// On définit la destination de stockage de nos fichiers
+const upload = multer({ dest: "./public/uploads/" });
+
+// route POST pour recevoir un fichier dont le nom est "avatar"
+router.post("/api/wineimage", upload.single("wineimage"), (req, res) => {
+  // On récupère le nom du fichier
+  const { originalname } = req.file;
+
+  // On récupère le nom du fichier
+  const { filename } = req.file;
+
+  // On utilise la fonction rename de fs pour renommer le fichier
+  fs.rename(
+    `./public/uploads/${filename}`,
+    `./public/uploads/${uuidv4()}-${originalname}`,
+    (err) => {
+      if (err) {
+        console.error("Error during rename operation:", err);
+        throw err;
+      }
+      console.info("File renamed successfully");
+      res.send("File uploaded");
+    }
+  );
+});
 
 const wineControllers = require("./controllers/wineControllers");
 const commentControllers = require("./controllers/commentControllers");
