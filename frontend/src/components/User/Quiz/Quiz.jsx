@@ -41,8 +41,7 @@ function Quiz() {
     }
     if (button === "terminer") {
       API.post("http://localhost:8000/api/selection", selectedAnswer)
-        .then((response) => {
-          console.warn(response);
+        .then(() => {
           navigate("/profil?isFromQuiz=true");
         })
         .catch((error) => {
