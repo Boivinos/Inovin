@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { LuGrape } from "react-icons/lu";
+import { BiUser } from "react-icons/bi";
+import { AiOutlinePlus } from "react-icons/ai";
 import api from "../../Contexts/api";
 import UserCard from "./UserCard";
 import SearchInput from "../../User/WineCardList/ListButtons/SearchInput";

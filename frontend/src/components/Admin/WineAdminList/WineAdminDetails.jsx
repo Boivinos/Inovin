@@ -193,7 +193,6 @@ function WineAdminDetails() {
                         name="year"
                         {...register("year", {
                           required: true,
-
                           maxLength: {
                             value: 4,
                             message: "Ce champ est limité à 4 caractères",
@@ -264,29 +263,22 @@ function WineAdminDetails() {
                     </div>
                   </div>
 
-                </div>
-                <div id="buttonWrapper">
-                  <button className="wineAdmin_buttons" type="submit">
-                    <AiOutlineCheck
-                      className="admin_icons"
-                      value={{ size: "10px" }}
-                    />
-                    Enregistrer
-                  </button>
-                  <button
-                    className="wineAdmin_buttons"
-                    type="button"
-                    onClick={() => !showDeleteMsg && handleShowDeleteMsg()}
-                  >
-                    <AiOutlineMinus
-                      className="admin_icons"
-                      value={{ size: "10px" }}
-                    />
-                    supprimer
-                  </button>
-                </div>
-              </form>
-
+                  <div id="buttonWrapper">
+                    <button className="wineAdmin_buttons" type="submit">
+                      <AiOutlineCheck className="admin_icons" size={10} />
+                      Enregistrer
+                    </button>
+                    <button
+                      className="wineAdmin_buttons"
+                      type="button"
+                      onClick={() => !showDeleteMsg && handleShowDeleteMsg()}
+                    >
+                      <AiOutlineMinus className="admin_icons" size={10} />
+                      Supprimer
+                    </button>
+                  </div>
+                </form>
+              )}
             </div>
           </div>
         </div>
