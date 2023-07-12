@@ -23,13 +23,6 @@
     border: 1px solid $primary-color;
     width: 50%;
 
-    &:hover {
-      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
-      border-color: $primary-color;
-      transition-duration: 0.4s;
-      transform: scale(1.02);
-    }
-
   }
 }
 
@@ -91,7 +84,6 @@
       .admin_icons {
         margin-right: 12px;
       }
-
     }
   }
 }
