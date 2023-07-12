@@ -64,7 +64,7 @@ function UserAdminList() {
       </h1>
       <div className="userAdminList_buttonWrapper">
         <button id="userAdminList_usersButton" type="button">
-          <BiUser className="admin_icons" value={{ size: "10px" }} />
+          <BiUser className="admin_icons" size={17} />
           Utilisateurs
         </button>
         <button
@@ -72,7 +72,7 @@ function UserAdminList() {
           type="button"
           onClick={handleWinesButtonClick}
         >
-          <LuGrape />
+          <LuGrape className="admin_icons" size={15} />
           Vins
         </button>
       </div>
@@ -90,7 +90,7 @@ function UserAdminList() {
           type="button"
           onClick={handleAddNewUserButtonClick}
         >
-          <AiOutlinePlus className="admin_icons" value={{ size: "10px" }} />
+          <AiOutlinePlus className="admin_icons" size={15} />
           Ajouter
         </button>
       </div>
