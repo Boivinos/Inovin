@@ -58,15 +58,11 @@
   }
 
   .inscription {
+    font-family: $mainTypo;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 20px;
     font-size: calc(0.8vw + 0.5em);
     margin-top: 70px;
-
-    a p {
-      margin-top: 30px;
-      text-decoration: underline;
-    }
   }
 
   .button_inscription {
@@ -87,6 +83,15 @@
   margin: 1.6rem;
 }
 
+.mdp_oublie {
+  font-family: $mainTypo;
+  display: flex;
+  justify-content: center;
+  font-size: calc(0.6vw + 0.6em);
+  margin-top: 10px;
+  text-decoration: underline;
+}
+
 @media screen and (min-width: 601px) {
   .formulaire_connexion_page {
     display: flex;
@@ -105,7 +110,8 @@
       font-size: calc(0.4vw + 0.3em);
     }
     .inscription {
-      margin-top: 70px;
+      margin-top: 0px;
+      font-family: $mainTypo;
     }
     .button_inscription {
       margin-top: 15px;
@@ -121,6 +127,10 @@
         margin-top: 1%;
         padding: 15px;
       }
+    }
+    .mdp_oublie {
+      font-size: calc(0.5vw + 0.4em);
+      margin-bottom: 50px;
     }
   }
 }

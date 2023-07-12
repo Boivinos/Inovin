@@ -113,15 +113,16 @@ function Connection() {
           Connexion
         </button>
 
+        <NavLink to="/mot-de-passe-oublie">
+          <p className="mdp_oublie">Mot de passe oublié ?</p>
+        </NavLink>
+
         <div className="inscription">
           Tu n'as pas de compte ?
           <NavLink to="/inscription">
             <button className="button_inscription" type="submit">
               Inscription
             </button>
-          </NavLink>
-          <NavLink to="/mot-de-passe-oublie">
-            <p>Mot de passe oublié ?</p>
           </NavLink>
         </div>
       </form>
