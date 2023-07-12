@@ -20,7 +20,7 @@ function WineCard({ name, image, domain, id, note }) {
       {/* if the user admin, then show the modification button  */}
       {user?.isAdmin === 1 && (
         <div className="modificationButton">
-          <ModificationButton />
+          <ModificationButton id={id} />
         </div>
       )}
 

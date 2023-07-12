@@ -177,7 +177,7 @@ function Inscription() {
           </span>
         )}
         <button className="button_inscription" type="submit">
-          INSCRIPTION
+          Inscription
         </button>
       </form>
     </div>

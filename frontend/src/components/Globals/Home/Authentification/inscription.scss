@@ -3,7 +3,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 20px;
 }
 
 .inovin_picture {
@@ -11,8 +10,8 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  width: calc(513px * 0.5);
-  height: calc(582px * 0.5);
+  width: calc(513px * 0.6);
+  height: calc(582px * 0.6);
 }
 
 .form_inscription {
@@ -20,7 +19,6 @@
   justify-content: center;
   flex-direction: column;
   margin-top: 5%;
-  margin: 35px;
   font-size: calc(0.8vw + 0.7em);
 
   input {
@@ -49,19 +47,10 @@
 .text_inscription {
   font-family: $mainTypo;
   font-size: 16px;
-  margin-top: 5%;
   margin-bottom: 5%;
   margin: 1.2rem;
+  font-size: calc(0.8vw + 0.7em);
 }
-
-// .checkbox_vigneron {
-//   display: flex;
-//   align-items: center;
-//   gap: 10px;
-//   margin-bottom: 10px;
-//   font-family: $buttonTypo;
-//   font-size: 14px;
-// }
 
 .form_description {
   display: flex;
@@ -91,6 +80,7 @@
   flex-direction: column;
   margin: 0 auto;
   margin-top: 20px;
+  font-size: calc(0.6vw + 0.6em);
 }
 .a {
   width: 30%;
@@ -117,7 +107,6 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin-top: 5%;
     .inovin_picture {
       margin-top: 10px;
       margin-left: 10px;
@@ -131,6 +120,7 @@
 
       input {
         margin-top: 10px;
+        font-size: calc(0.5vw + 0.4em);
       }
       .text_connexion {
         text-align: center;
@@ -152,26 +142,14 @@
       font-size: calc(0.8vw + 0.7em);
     }
   }
-  //   .checkbox_vigneron {
-  //     display: flex;
-  //     align-items: center;
-  //     gap: 10px;
-  //     margin-bottom: 10px;
-  //     margin-top: 10px;
-  //     font-family: $buttonTypo;
-  //   }
-  // input.checkbox {
-  //   background-color: red;
-  //   display: flex;
-  // }
 }
 
 @media screen and (min-width: 800px) {
   .inovin_picture {
-    margin-top: 10px;
+    margin-top: 50px;
     margin-left: 10px;
     background-image: url("https://i.ibb.co/WvqNyZT/inovin-Picture-desktop.png");
-    width: calc(513px * 1);
-    height: calc(582px * 1);
+    width: calc(513px * 1.2);
+    height: calc(582px * 1.2);
   }
 }

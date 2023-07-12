@@ -35,7 +35,7 @@ function Profile() {
             <div className="user-profile-taste_text">{userDesc}</div>
             <NavLink to="/vins/selection" className="link">
               <button className="user-profile-taste_button" type="button">
-                DÉCOUVRIR MA SÉLECTION
+                Découvrir ma séléction
               </button>
             </NavLink>
           </>
