@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { LuGrape } from "react-icons/lu";
 import api from "../../Contexts/api";
 import UserCard from "./UserCard";
 import SearchInput from "../../User/WineCardList/ListButtons/SearchInput";
@@ -68,6 +69,7 @@ function UserAdminList() {
           type="button"
           onClick={handleWinesButtonClick}
         >
+          <LuGrape />
           Vins
         </button>
       </div>
