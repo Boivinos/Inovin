@@ -27,6 +27,11 @@ button {
 button:hover {
   background-color: $primary-color;
   color: white;
+       &:hover {
+        border-color: $primary-color;
+      transition-duration: 0.3s;
+      transform: scale(1.02);
+      }
 }
 
 .separator {

@@ -7,7 +7,7 @@
   transform: translate(-50%, -50%);
   font-family: $mainTypo;
   border-radius: 10px;
-  background-color: #e2dbd795;
+  background-color: #e2dbd7d3;
   max-width: 85%;
   display: flex;
   flex-direction: column;
@@ -20,7 +20,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid $primary-color;
     width: 50%;
 
     &:hover {
@@ -29,6 +29,7 @@
       transition-duration: 0.4s;
       transform: scale(1.02);
     }
+
   }
 }
 
@@ -41,7 +42,7 @@
 .userAdminDetail {
   &_dataWrapper {
     background-color: white;
-    font-family: $buttonTypo;
+    font-family: $mainTypo;
     margin: 0px 0px 15px 25px;
 
     ul,
@@ -78,17 +79,19 @@
     justify-content: space-around;
     align-items: center;
 
+
+
     &_button,
     button {
       border: 1px solid black;
       margin-top: 30px;
+      display: flex;
+      border: 1px solid $primary-color;
 
-      &:hover {
-        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
-        border-color: $primary-color;
-        transition-duration: 0.3s;
-        transform: scale(1.02);
+      .admin_icons {
+        margin-right: 12px;
       }
+
     }
   }
 }
