@@ -83,7 +83,7 @@ function WineAdminList() {
       </div>
       <button id="addWineButton" type="button" onClick={handleAddWineClick}>
         <AiOutlinePlus className="admin_icons" value={{ size: "10px" }} />
-        ajouter un vin
+        Ajouter un vin
       </button>
 
       <div className="wineAdminList_winecardlist">
