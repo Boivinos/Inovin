@@ -222,7 +222,7 @@ function AddNewWine() {
             %
           </div>
           <button className="addWineForm_button" type="submit">
-            ajouter
+            Ajouter
           </button>
         </form>
       </div>
