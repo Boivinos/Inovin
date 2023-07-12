@@ -1,11 +1,12 @@
 import React from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
-function ModificationButton() {
+function ModificationButton({ id }) {
   const navigateToAdminWineModificationPage = useNavigate();
   const handleWineModifButtonClick = () => {
-    navigateToAdminWineModificationPage("/ADRESSE A DEFINIR");
+    navigateToAdminWineModificationPage(`/admin/vin/${id}`);
   };
   return (
     <button
@@ -17,5 +18,8 @@ function ModificationButton() {
     </button>
   );
 }
+ModificationButton.propTypes = {
+  id: PropTypes.number.isRequired,
+};
 
 export default ModificationButton;

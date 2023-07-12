@@ -7,7 +7,6 @@ function SearchAndFilterMenu({
   search,
   setSearch,
   isSearching,
-  setIsSearching,
   visibleMenu,
   toggleMenu,
   colorFilterArr,
@@ -48,7 +47,6 @@ function SearchAndFilterMenu({
           search={search}
           setSearch={setSearch}
           isSearching={isSearching}
-          setIsSearching={setIsSearching}
         />
         <div
           role="button"
@@ -121,7 +119,6 @@ SearchAndFilterMenu.propTypes = {
   search: PropTypes.string.isRequired,
   setSearch: PropTypes.func.isRequired,
   isSearching: PropTypes.bool.isRequired,
-  setIsSearching: PropTypes.func.isRequired,
   visibleMenu: PropTypes.bool.isRequired,
   toggleMenu: PropTypes.func.isRequired,
   colorFilterArr: PropTypes.arrayOf(

@@ -31,24 +31,16 @@ function FavoriteButton({ wineId }) {
       API.post(
         `http://localhost:8000/api/wines/${temp.wine_id}/favorites`,
         temp
-      )
-        .then(() => {
-          console.warn("Mis en favori");
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      ).catch((error) => {
+        console.error(error);
+      });
       setIsFavorite(true);
     } else {
       API.delete(`http://localhost:8000/api/wines/${temp.wine_id}/favorites`, {
         data: temp,
-      })
-        .then(() => {
-          console.warn("Enlevé des favoris");
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      }).catch((error) => {
+        console.error(error);
+      });
       setIsFavorite(false);
     }
   };

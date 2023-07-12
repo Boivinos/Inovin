@@ -20,7 +20,7 @@ function WineCard({ name, image, domain, id, note }) {
       {/* if the user admin, then show the modification button  */}
       {user?.isAdmin === 1 && (
         <div className="modificationButton">
-          <ModificationButton />
+          <ModificationButton id={id} />
         </div>
       )}
 
@@ -48,7 +48,10 @@ WineCard.propTypes = {
   image: PropTypes.string.isRequired,
   domain: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
-  note: PropTypes.number.isRequired,
+  note: PropTypes.number,
+};
+WineCard.defaultProps = {
+  note: 0,
 };
 
 export default WineCard;

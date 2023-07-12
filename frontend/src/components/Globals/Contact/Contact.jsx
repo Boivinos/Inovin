@@ -48,14 +48,13 @@ function Contact() {
   };
 
   /*   affichage des erreurs de saisie rencontrées dans la console */
-  console.error("erreurs de saisie", errors);
 
   return (
     <>
       <div
         className="returnButton"
-        onClick={() => navigate(-1)}
-        onKeyDown={() => navigate(-1)}
+        onClick={() => navigate("/")}
+        onKeyDown={() => navigate("/")}
         role="button"
         tabIndex={0}
       >

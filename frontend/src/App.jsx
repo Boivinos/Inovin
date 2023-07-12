@@ -23,7 +23,6 @@ function App() {
         setUser(undefined);
         localStorage.clear();
       } else {
-        console.warn("token non expiré");
         setUser(infos);
       }
     } else {
