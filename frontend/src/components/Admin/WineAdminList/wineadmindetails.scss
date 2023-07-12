@@ -6,7 +6,6 @@
   margin-top: 50px;
   display: flex;
   flex-direction: column;
-
   gap: 20px;
 
   .returnButton {
@@ -51,21 +50,29 @@
       }
     }
   }
-
   .wineModificationForm {
     display: flex;
-    flex-direction: column;
-
+   
     .wineForm {
       display: flex;
       flex-direction: column;
       justify-content: center;
       gap: 15px;
+ 
+      #buttonWrapper {
+        display: flex;
+        gap: 20px;
+
+        .admin_icons {
+          margin-right: 12px;
+        }
+      }
 
       .wineFormEditer {
         display: flex;
         flex-direction: column;
         gap: 20px;
+
       }
 
       label {
@@ -87,21 +94,11 @@
           background-color: lightyellow;
         }
       }
-
-      &_button {
-        width: 45%;
-        margin-left: 25%;
-        margin-bottom: 30px;
-      }
-    }
-
-    .deleteButton {
-      width: 45%;
-      margin-left: 25%;
-      margin-bottom: 30px;
+  
     }
   }
 }
+
 
 @media screen and (max-width: 650px) {
   .wineFormDetails {

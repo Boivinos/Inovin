@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { LuGrape } from "react-icons/lu";
+import { BiUser } from "react-icons/bi";
+import { AiOutlinePlus } from "react-icons/ai";
 import api from "../../Contexts/api";
 import UserCard from "./UserCard";
 import SearchInput from "../../User/WineCardList/ListButtons/SearchInput";
@@ -61,6 +64,7 @@ function UserAdminList() {
       </h1>
       <div className="userAdminList_buttonWrapper">
         <button id="userAdminList_usersButton" type="button">
+          <BiUser className="admin_icons" value={{ size: "10px" }} />
           Utilisateurs
         </button>
         <button
@@ -68,6 +72,7 @@ function UserAdminList() {
           type="button"
           onClick={handleWinesButtonClick}
         >
+          <LuGrape className="admin_icons" value={{ size: "10px" }} />
           Vins
         </button>
       </div>
@@ -85,6 +90,7 @@ function UserAdminList() {
           type="button"
           onClick={handleAddNewUserButtonClick}
         >
+          <AiOutlinePlus className="admin_icons" value={{ size: "10px" }} />
           Ajouter
         </button>
       </div>

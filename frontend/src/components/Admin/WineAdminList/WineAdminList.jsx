@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-// import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { LuGrape } from "react-icons/lu";
+import { BiUser } from "react-icons/bi";
+import { AiOutlinePlus } from "react-icons/ai";
 import WineCard from "../../User/WineCardList/WineCard/WineCard";
 import api from "../../Contexts/api";
 import SearchInput from "../../User/WineCardList/ListButtons/SearchInput";
@@ -57,6 +59,7 @@ function WineAdminList() {
           type="button"
           onClick={handleUsersButtonClick}
         >
+          <BiUser className="admin_icons" value={{ size: "10px" }} />
           Utilisateurs
         </button>
         <button
@@ -64,6 +67,7 @@ function WineAdminList() {
           type="button"
           onClick={handleWinesButtonClick}
         >
+          <LuGrape className="admin_icons" value={{ size: "10px" }} />
           Vins
         </button>
       </div>
@@ -78,6 +82,7 @@ function WineAdminList() {
         />
       </div>
       <button id="addWineButton" type="button" onClick={handleAddWineClick}>
+        <AiOutlinePlus className="admin_icons" value={{ size: "10px" }} />
         ajouter un vin
       </button>
 

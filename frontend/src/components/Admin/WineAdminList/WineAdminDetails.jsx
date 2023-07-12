@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-// import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { AiOutlineCheck, AiOutlineMinus } from "react-icons/ai";
 import api from "../../Contexts/api";
 
 function WineAdminDetails() {
@@ -264,18 +264,29 @@ function WineAdminDetails() {
                     </div>
                   </div>
 
-                  <button className="wineForm_button" type="submit">
-                    modifier
+                </div>
+                <div id="buttonWrapper">
+                  <button className="wineAdmin_buttons" type="submit">
+                    <AiOutlineCheck
+                      className="admin_icons"
+                      value={{ size: "10px" }}
+                    />
+                    Enregistrer
                   </button>
-                </form>
-              )}
-              <button
-                className="deleteButton"
-                type="button"
-                onClick={() => !showDeleteMsg && handleShowDeleteMsg()}
-              >
-                supprimer
-              </button>
+                  <button
+                    className="wineAdmin_buttons"
+                    type="button"
+                    onClick={() => !showDeleteMsg && handleShowDeleteMsg()}
+                  >
+                    <AiOutlineMinus
+                      className="admin_icons"
+                      value={{ size: "10px" }}
+                    />
+                    supprimer
+                  </button>
+                </div>
+              </form>
+
             </div>
           </div>
         </div>
