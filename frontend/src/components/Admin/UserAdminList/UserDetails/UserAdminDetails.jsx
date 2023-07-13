@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate, NavLink } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AiOutlineCheck, AiOutlineMinus } from "react-icons/ai";
 
@@ -68,12 +68,20 @@ function UserAdminDetails() {
     <>
       <div className={`${showConfirmation ? "userAdmin_overlay" : ""}`}>
         {/* Bouton de retour */}
-        <NavLink to={`${showConfirmation ? "#" : "/admin/utilisateur"}`}>
-          <div className="validationMessage_returnButtonWrapper">
-            <img src="https://i.ibb.co/PchSHGr/60793.png" alt="" />
-            <p>Retour</p>
-          </div>
-        </NavLink>
+        <div
+          className="returnButton"
+          onClick={() => !showConfirmation && navigate(-1)}
+          onKeyDown={() => !showConfirmation && navigate(-1)}
+          role="button"
+          tabIndex={0}
+        >
+          <img
+            className="returnButton_image"
+            src="https://i.ibb.co/PchSHGr/60793.png"
+            alt=""
+          />
+          <p>Retour</p>
+        </div>
 
         {/* Formulaire de gestion des données utilisateur */}
         <div className="userAdminDetail">

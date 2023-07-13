@@ -265,7 +265,7 @@ function WineAdminDetails() {
 
                   <div id="buttonWrapper">
                     <button className="wineAdmin_buttons" type="submit">
-                      <AiOutlineCheck className="admin_icons" size={10} />
+                      <AiOutlineCheck className="admin_icons" size={15} />
                       Enregistrer
                     </button>
                     <button
@@ -273,7 +273,7 @@ function WineAdminDetails() {
                       type="button"
                       onClick={() => !showDeleteMsg && handleShowDeleteMsg()}
                     >
-                      <AiOutlineMinus className="admin_icons" size={10} />
+                      <AiOutlineMinus className="admin_icons" size={15} />
                       Supprimer
                     </button>
                   </div>

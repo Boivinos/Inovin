@@ -59,7 +59,7 @@ function WineAdminList() {
           type="button"
           onClick={handleUsersButtonClick}
         >
-          <BiUser className="admin_icons" value={{ size: "10px" }} />
+          <BiUser className="admin_icons" size={17} />
           Utilisateurs
         </button>
         <button
@@ -67,7 +67,7 @@ function WineAdminList() {
           type="button"
           onClick={handleWinesButtonClick}
         >
-          <LuGrape className="admin_icons" value={{ size: "10px" }} />
+          <LuGrape className="admin_icons" size={15} />
           Vins
         </button>
       </div>
@@ -82,7 +82,7 @@ function WineAdminList() {
         />
       </div>
       <button id="addWineButton" type="button" onClick={handleAddWineClick}>
-        <AiOutlinePlus className="admin_icons" value={{ size: "10px" }} />
+        <AiOutlinePlus className="admin_icons" size={15} />
         Ajouter un vin
       </button>
 
