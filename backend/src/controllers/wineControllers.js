@@ -82,8 +82,8 @@ const addWine = (req, res) => {
 
   // On utilise la fonction rename de fs pour renommer le fichier
   fs.rename(
-    `./../frontend/src/assets/uploads/${req.file.filename}`,
-    `./../frontend/src/assets/uploads/${newFileName}`,
+    `./public/uploads/${req.file.filename}`,
+    `./public/uploads/${newFileName}`,
     (err) => {
       if (err) {
         console.error("Error during rename operation:", err);
@@ -95,7 +95,7 @@ const addWine = (req, res) => {
   const wine = req.body;
   // pas d'image dans wine (nettoyé par le middleware upload), donc on le rajoute avec l'url
   // qui pointe vers le dossier ou l'on a enregistrer les images
-  wine.image = `/src/assets/uploads/${newFileName}`;
+  wine.image = `${process.env.BACKEND_URL}/uploads/${newFileName}`;
   console.warn(req.file);
 
   // TODO validations (length, format...)

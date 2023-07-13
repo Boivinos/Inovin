@@ -6,8 +6,7 @@ const router = express.Router();
 const multer = require("multer");
 
 // On définit la destination de stockage de nos fichiers
-const upload = multer({ dest: "./../frontend/src/assets/uploads/" });
-
+const upload = multer({ dest: "./public/uploads" });
 const wineControllers = require("./controllers/wineControllers");
 const commentControllers = require("./controllers/commentControllers");
 const userControllers = require("./controllers/userControllers");
