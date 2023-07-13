@@ -25,7 +25,7 @@ function ResetPassword() {
     } else {
       data.token = token; // eslint-disable-line no-param-reassign
       api
-        .post(`http://localhost:8000/updatepassword`, data)
+        .post(`${import.meta.env.VITE_BACKEND_URL}/updatepassword`, data)
         .then((response) => {
           if (response.status === 204) {
             setPasswordReseted(true);

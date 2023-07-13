@@ -17,7 +17,7 @@ function WineAdminList() {
   // récupréation des vins enregistrés dans la BDD
   useEffect(() => {
     api
-      .get(`http://localhost:8000/api/wines`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/wines`)
       .then((response) => setWineData(response.data))
       .catch((error) => console.error(error.message));
   }, []);

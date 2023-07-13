@@ -122,4 +122,22 @@
   .userAdminDetail_button button {
     font-size: medium;
   }
+
+
+.userAdminDetail {
+  &_dataWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    font-family: $mainTypo;
+    margin: 0px 0px 15px 25px;
+
+    ul,
+    li {
+      padding-bottom: 15px;
+      font-size: 22px;
+    }
+  }
+}
 }

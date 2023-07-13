@@ -31,7 +31,9 @@ function WineCardList({ request, title, type }) {
 
   useEffect(() => {
     api
-      .get(`http://localhost:8000/api/${user?.id}/favoritesandnotes`)
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/${user?.id}/favoritesandnotes`
+      )
       .then((response) => setWineNotes(response.data))
       .catch((error) => console.error(error.message));
   }, [href]);

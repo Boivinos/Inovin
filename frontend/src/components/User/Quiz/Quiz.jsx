@@ -40,7 +40,10 @@ function Quiz() {
       setSelectedQuestion(selectedQuestion - 1);
     }
     if (button === "terminer") {
-      API.post("http://localhost:8000/api/selection", selectedAnswer)
+      API.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/selection`,
+        selectedAnswer
+      )
         .then(() => {
           navigate("/profil?isFromQuiz=true");
         })

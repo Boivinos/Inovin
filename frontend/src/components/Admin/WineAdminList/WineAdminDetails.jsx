@@ -19,7 +19,7 @@ function WineAdminDetails() {
 
   useEffect(() => {
     api
-      .get(`http://localhost:8000/api/wines/${id}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/wines/${id}`)
       .then((response) => {
         setWineDetailsData(response.data);
       })

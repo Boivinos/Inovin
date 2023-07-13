@@ -19,7 +19,7 @@ function Connection() {
   const userLoginCheck = (data) => {
     setConnectionError(false);
     api
-      .post(`http://localhost:8000/api/login`, data)
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/login`, data)
       .then((response) => {
         localStorage.removeItem("token");
         localStorage.setItem("token", response.data.token);
