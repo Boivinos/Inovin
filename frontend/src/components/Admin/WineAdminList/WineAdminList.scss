@@ -25,19 +25,19 @@
     margin: 10px;
     gap: 10px;
 
-    & button, #wineAdminList_winesButton {
+    & button,
+    #wineAdminList_winesButton {
       flex-grow: 1;
       border: 1px solid;
       width: 190px;
-      height: 40px; 
+      height: 40px;
 
       .admin_icons {
         margin-right: 12px;
       }
-
     }
     #wineAdminList_winesButton {
-      border-color: $primary-color;;
+      border-color: $primary-color;
     }
   }
 
