@@ -25,7 +25,7 @@ function AddNewWine() {
     formData.append("image", data.image[0]);
 
     api
-      .post(`http://localhost:8000/api/wines`, formData)
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/wines`, formData)
 
       .then(() => {
         navigate("/ajout/vin");

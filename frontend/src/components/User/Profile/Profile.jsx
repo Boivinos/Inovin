@@ -12,7 +12,11 @@ function Profile() {
 
   useEffect(() => {
     api
-      .get(`http://localhost:8000/api/selection/user/${user && user.id}`)
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/selection/user/${
+          user && user.id
+        }`
+      )
       .then((response) => setUserDesc(response.data))
       .catch((err) => console.error(err));
   }, []);

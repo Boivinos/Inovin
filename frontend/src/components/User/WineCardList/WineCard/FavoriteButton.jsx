@@ -13,7 +13,10 @@ function FavoriteButton({ wineId }) {
   };
 
   useEffect(() => {
-    API.post(`http://localhost:8000/api/wines/checkfavorite`, temp)
+    API.post(
+      `${import.meta.env.VITE_BACKEND_URL}/api/wines/checkfavorite`,
+      temp
+    )
       .then((response) => {
         if (response.data === "This wine is favorite") {
           setIsFavorite(true);

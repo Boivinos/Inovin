@@ -29,7 +29,10 @@ function CommentButton({
       lastname: user.lastname,
     };
     if (isEditing) {
-      API.post(`http://localhost:8000/api/wines/${id}/comments`, body)
+      API.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/wines/${id}/comments`,
+        body
+      )
         .then((response) => {
           setCommentsData([response.data, ...commentsData]);
         })

@@ -21,7 +21,7 @@ function WineDetails() {
   const [note, setNote] = useState(location.state.wineNote);
 
   useEffect(() => {
-    API.get(`http://localhost:8000/api/wines/${id}`)
+    API.get(`${import.meta.env.VITE_BACKEND_URL}/api/wines/${id}`)
       .then((response) => setWineDetailsData(response.data))
       .catch((error) => console.error(error.message));
   }, []);

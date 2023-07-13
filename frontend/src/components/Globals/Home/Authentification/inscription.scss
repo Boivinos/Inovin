@@ -91,7 +91,7 @@
   color: red;
   margin-bottom: 15px;
   font-family: $buttonTypo;
-  font-size: smaller;
+  font-size: 13px;
   border-bottom: none;
 }
 .form_inscription_error_text {
@@ -175,6 +175,15 @@
       padding-bottom: 0.5em;
       margin-top: 20px;
       font-family: $buttonTypo;
+    }
+
+    .form_inscription_error {
+      color: red;
+      margin-bottom: 15px;
+      margin: 0px 1.5em;
+      font-family: $buttonTypo;
+      font-size: 13px;
+      border-bottom: none;
     }
 }
 }

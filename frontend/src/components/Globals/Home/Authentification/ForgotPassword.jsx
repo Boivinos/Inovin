@@ -17,7 +17,7 @@ function ForgotPassword() {
     setMessageSent(false);
     setNoUserError(false);
     api
-      .post(`http://localhost:8000/resetpassword`, data)
+      .post(`${import.meta.env.VITE_BACKEND_URL}/resetpassword`, data)
       .then((response) => {
         if (response.status === 204) {
           setNoUserError(true);
