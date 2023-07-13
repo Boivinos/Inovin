@@ -90,7 +90,7 @@ function AddNewWine() {
               })}
             />
             {errors.name && (
-              <span className="ContactForm_error">{errors.name.message}</span>
+              <span className="error_newWine">{errors.name.message}</span>
             )}
           </div>
 
@@ -113,7 +113,7 @@ function AddNewWine() {
               })}
             />
             {errors.domain && (
-              <span className="ContactForm_error">{errors.domain.message}</span>
+              <span className="error_newWine">{errors.domain.message}</span>
             )}
           </div>
 
@@ -136,7 +136,7 @@ function AddNewWine() {
               })}
             />
             {errors.region && (
-              <span className="ContactForm_error">{errors.region.message}</span>
+              <span className="error_newWine">{errors.region.message}</span>
             )}
           </div>
 
@@ -160,7 +160,7 @@ function AddNewWine() {
               })}
             />
             {errors.year && (
-              <span className="ContactForm_error">{errors.year.message}</span>
+              <span className="error_newWine">{errors.year.message}</span>
             )}
           </div>
 
@@ -183,7 +183,7 @@ function AddNewWine() {
               })}
             />
             {errors.grape && (
-              <span className="ContactForm_error">{errors.grape.message}</span>
+              <span className="error_newWine">{errors.grape.message}</span>
             )}
           </div>
 
@@ -205,13 +205,13 @@ function AddNewWine() {
                   message: "Le taux d'alcool doit être entre 8 et 15",
                 },
               })}
-            />
+            />{" "}
+            %
             {errors.alcohol_content && (
-              <span className="ContactForm_error">
+              <span className="error_newWine">
                 {errors.alcohol_content.message}
               </span>
             )}
-            %
           </div>
 
           <div className="addWineForm_image">

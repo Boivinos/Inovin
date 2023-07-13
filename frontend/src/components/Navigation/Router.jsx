@@ -128,7 +128,7 @@ function Router() {
         element={
           <AdminModificationValidation
             urlRetour="/admin/utilisateur"
-            message="L'utilisateur a bien été supprimé avec succés !"
+            message="L'utilisateur a bien été supprimé !"
           />
         }
       />
