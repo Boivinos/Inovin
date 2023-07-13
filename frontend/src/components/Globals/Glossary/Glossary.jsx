@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import cepages from "./GlossaryDetail";
+import glossaryPicture from "../../../assets/glossary_picture.png";
 
 function Glossary() {
   const navigate = useNavigate();
@@ -22,7 +23,8 @@ function Glossary() {
         <p>Retour</p>
       </div>
       <div className="glossaryPage">
-        <h1>Lexique</h1>
+        <h1 id="glossary_title">Lexique</h1>
+        <img className="glossaryPicture" src={glossaryPicture} alt="Glossary" />
         {cepages.map((cepage, index) => (
           <div
             className={

@@ -18,6 +18,19 @@
   display: flex;
   flex-direction: column;
 
+  #glossary_title {
+    margin-bottom: 2%;
+    font-size: calc(1.2vw + 1em);
+  }
+  .glossaryPicture {
+    position: relative;
+    max-width: 70%;
+    margin-top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
   .cepage_name {
     margin-bottom: 10px;
     font-family: $mainTypo;
@@ -61,7 +74,7 @@
   border: 1px solid #e3bc2e;
   position: absolute;
   right: 3%;
-  bottom: 0%;
+  bottom: 5%;
 }
 
 h1 {
