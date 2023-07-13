@@ -55,10 +55,6 @@ router.get("/api/wines/:id", wineControllers.read);
 router.put("/api/wines/:id", wineControllers.edit);
 router.delete("/api/wines/:id", wineControllers.destroy);
 
-// upload.single("image") -> enregistre image
-// wineControllers.addWine -> puis appel addWine
-router.post("/api/wines", upload.single("image"), wineControllers.addWine);
-
 router.get(
   "/api/wines/:id/comments",
   commentControllers.getCommentAndAuthorByWineID
@@ -99,5 +95,9 @@ router.put("/api/users/:id", hashPassword, userControllers.editUser);
 
 router.put("/api/wines/:id", wineControllers.edit);
 router.delete("/api/wines/:id", wineControllers.destroy);
+
+// upload.single("image") -> enregistre image
+// wineControllers.addWine -> puis appel addWine
+router.post("/api/wines", upload.single("image"), wineControllers.addWine);
 
 module.exports = router;

@@ -73,8 +73,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-
     gap: 10%;
+
     &_button,
     button {
       border: 1px solid black;
@@ -122,5 +122,4 @@
   .userAdminDetail_button button {
     font-size: medium;
   }
-
 }
