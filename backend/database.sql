@@ -439,7 +439,7 @@ VALUES (
         "chucknapasbesoindepassword",
         0
     ), (
-        "KeyiJuMaAn",
+        "Admin",
         "Inovin",
         "1995-01-01",
         "inovin@gmail.com",
