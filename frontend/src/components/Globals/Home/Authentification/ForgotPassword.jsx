@@ -47,10 +47,9 @@ function ForgotPassword() {
         <p>Retour</p>
       </div>
       <div className="resetPassword">
-        <h1>
+        <h1 id="forgotPassword_h1">
           {" "}
-          Entrer votre mail pour recevoir un lien pour changer votre mot de
-          passe
+          Entrer votre mail pour recevoir un lien et changer votre mot de passe
         </h1>
         <form
           className=""
@@ -94,7 +93,7 @@ function ForgotPassword() {
           )}
           <button className="button_connexion" type="submit">
             {" "}
-            Envoyer l'email
+            Envoyer l'e-mail
           </button>
           {messageSent && (
             <p className="emailSent">

@@ -154,3 +154,28 @@
     height: calc(582px * 1.2);
   }
 }
+
+@media (max-width: 699px) {
+  .form_inscription {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 5%;
+    font-size: calc(0.8vw + 0.7em);
+  
+    input {
+      font-style: italic;
+      border: none;
+      border-bottom: solid;
+      border-style: none;
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      margin: 0px 1.5em;
+      margin-bottom: 1.5em;
+      padding-bottom: 0.5em;
+      margin-top: 20px;
+      font-family: $buttonTypo;
+    }
+}
+}
+

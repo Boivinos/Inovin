@@ -75,7 +75,7 @@ function ResetPassword() {
           )}
           {errors?.password?.type === "minLength" && (
             <span className="error_connexion">
-              Ce champ doit comporter au moins 4 caractères
+              Ce champ doit comporter au moins 8 caractères
             </span>
           )}
 
@@ -87,7 +87,7 @@ function ResetPassword() {
             placeholder="🔒 Vérifier le mot de passe"
             {...register("password_control", {
               required: true,
-              minLength: 4,
+              minLength: 8,
             })}
           />
           {errors?.password?.type === "required" && (
@@ -95,7 +95,7 @@ function ResetPassword() {
           )}
           {errors?.password?.type === "minLength" && (
             <span className="error_connexion">
-              Ce champ doit comporter au moins 4 caractères
+              Ce champ doit comporter au moins 8 caractères
             </span>
           )}
           {differentPwdError && (
