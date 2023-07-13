@@ -52,13 +52,13 @@
   }
   .wineModificationForm {
     display: flex;
-   
+
     .wineForm {
       display: flex;
       flex-direction: column;
       justify-content: center;
       gap: 15px;
- 
+
       #buttonWrapper {
         display: flex;
         gap: 20px;
@@ -72,7 +72,6 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
-
       }
 
       label {
@@ -94,11 +93,9 @@
           background-color: lightyellow;
         }
       }
-  
     }
   }
 }
-
 
 @media screen and (max-width: 650px) {
   .wineFormDetails {
