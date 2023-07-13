@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import React, { useState, useContext, useEffect, useRef } from "react";
-import icons8 from "../../../assets/icons8.png";
+import icons9 from "../../../assets/icons9.png";
 
 import UserContext from "../../Contexts/UserContext";
 
@@ -125,7 +125,7 @@ function NavBar() {
           ref={menuRef}
         >
           <p>{user && user.firstname}</p>
-          <img src={icons8} alt="User Icon" />
+          <img src={icons9} alt="User Icon" />
           {isMenuOpen && !user.isAdmin && <DropdownMenu />}
           {isMenuOpen && user.isAdmin && <AdminDropdownMenu />}
         </div>
