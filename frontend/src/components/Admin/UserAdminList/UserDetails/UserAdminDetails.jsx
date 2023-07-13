@@ -131,28 +131,6 @@ function UserAdminDetails() {
                 </li>
                 <li> Date de naissance : {formatBirthDate(data[0].born)}</li>
                 <li>
-                  Mot de passe :{" "}
-                  <input
-                    id="password-input"
-                    type="password"
-                    name="password"
-                    defaultValue={data[0].hashedPassword}
-                    {...register("password", {
-                      required: "Ce champ est requis",
-                      minLength: {
-                        value: 8,
-                        message:
-                          "Le mot de passe doit comporter au moins 8 caractères ",
-                      },
-                    })}
-                  />
-                  {errors.password && (
-                    <span className="userAdminDetail_error">
-                      {errors.password.message}
-                    </span>
-                  )}
-                </li>
-                <li>
                   {" "}
                   Adresse mail :
                   <input
