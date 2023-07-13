@@ -88,7 +88,7 @@ router.use(verifyAdminToken);
 router.get("/api/users", userControllers.getAllUsers);
 router.get("/api/users/:id", userControllers.getUsersbyId);
 router.delete("/api/users/:id", userControllers.destroy);
-router.put("/api/users/:id", hashPassword, userControllers.editUser);
+router.put("/api/users/:id", userControllers.editUser);
 
 // WINES
 
