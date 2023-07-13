@@ -87,7 +87,7 @@ function ResetPassword() {
             placeholder="🔒 Vérifier le mot de passe"
             {...register("password_control", {
               required: true,
-              minLength: 8,
+              minLength: 4,
             })}
           />
           {errors?.password?.type === "required" && (
