@@ -40,7 +40,6 @@
 
   .addWineFormContent {
     display: flex;
-
     justify-content: center;
 
     .addWineForm {
@@ -49,8 +48,17 @@
       justify-content: center;
       gap: 20px;
     }
+
     label {
       font-family: $mainTypo;
+    }
+    .error_newWine {
+      display: flex;
+      justify-content: center;
+      color: red;
+      font-family: $buttonTypo;
+      font-size: smaller;
+      border-bottom: none;
     }
 
     input {
