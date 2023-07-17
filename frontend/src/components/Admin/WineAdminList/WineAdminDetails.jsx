@@ -68,20 +68,22 @@ function WineAdminDetails() {
       <div className={`${showDeleteMsg ? "test" : ""}`}>
         <div className="wineAdminDetailsWrapper ">
           {/* Tout le contenu qui doit être flouté */}
-          <div
-            className="returnButton"
-            onClick={() => !showDeleteMsg && navigate(-1)}
-            onKeyDown={() => !showDeleteMsg && navigate(-1)}
-            role="button"
-            tabIndex={0}
-          >
-            <img
-              className="returnButton_image"
-              src="https://i.ibb.co/PchSHGr/60793.png"
-              alt=""
-            />
-            <p>Retour</p>
-          </div>
+          {!showDeleteMsg && (
+            <div
+              className="returnButton"
+              onClick={() => !showDeleteMsg && navigate(-1)}
+              onKeyDown={() => !showDeleteMsg && navigate(-1)}
+              role="button"
+              tabIndex={0}
+            >
+              <img
+                className="returnButton_image"
+                src="https://i.ibb.co/PchSHGr/60793.png"
+                alt=""
+              />
+              <p>Retour</p>
+            </div>
+          )}
 
           <div className="wineFormMessage">
             <p>
