@@ -85,11 +85,20 @@ function NavBar() {
   };
   const { user } = useContext(UserContext);
 
+  const handleLinkClick = (event) => {
+    event.stopPropagation();
+  };
+
   const handleClickOutside = (event) => {
-    if (menuRef.current && !menuRef.current.contains(event.target)) {
+    if (
+      menuRef.current &&
+      !menuRef.current.contains(event.target) &&
+      !event.target.classList.contains("link")
+    ) {
       setMenuOpen(false);
     }
   };
+
   useEffect(() => {
     const handleClick = (event) => {
       handleClickOutside(event);
@@ -105,29 +114,30 @@ function NavBar() {
     <div className="navBar">
       <ul className="navLinks">
         <li>
-          <NavLink to="/lexique" className="link">
+          <NavLink to="/lexique" className="link" onClick={handleLinkClick}>
             Lexique
           </NavLink>
         </li>
         <li>
-          <NavLink to="/contact" className="link">
+          <NavLink to="/contact" className="link" onClick={handleLinkClick}>
             Contact
           </NavLink>
         </li>
       </ul>
       {user && (
-        <div
-          className="icone"
-          onClick={toggleMenu}
-          onKeyDown={handleKeyDown}
-          role="button"
-          tabIndex={0}
-          ref={menuRef}
-        >
+        <div className="icone">
           <p>{user && user.firstname}</p>
-          <img src={icons9} alt="User Icon" />
-          {isMenuOpen && !user.isAdmin && <DropdownMenu />}
-          {isMenuOpen && user.isAdmin && <AdminDropdownMenu />}
+          <div
+            onClick={toggleMenu}
+            onKeyDown={handleKeyDown}
+            role="button"
+            tabIndex={0}
+            ref={menuRef}
+          >
+            <img src={icons9} alt="User Icon" />
+            {isMenuOpen && !user.isAdmin && <DropdownMenu />}
+            {isMenuOpen && user.isAdmin && <AdminDropdownMenu />}
+          </div>
         </div>
       )}
     </div>
