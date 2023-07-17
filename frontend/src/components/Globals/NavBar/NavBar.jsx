@@ -125,15 +125,16 @@ function NavBar() {
         </li>
       </ul>
       {user && (
-        <div className="icone">
+        <div
+          className="icone"
+          onClick={toggleMenu}
+          onKeyDown={handleKeyDown}
+          role="button"
+          tabIndex={0}
+          ref={menuRef}
+        >
           <p>{user && user.firstname}</p>
-          <div
-            onClick={toggleMenu}
-            onKeyDown={handleKeyDown}
-            role="button"
-            tabIndex={0}
-            ref={menuRef}
-          >
+          <div>
             <img src={icons9} alt="User Icon" />
             {isMenuOpen && !user.isAdmin && <DropdownMenu />}
             {isMenuOpen && user.isAdmin && <AdminDropdownMenu />}
