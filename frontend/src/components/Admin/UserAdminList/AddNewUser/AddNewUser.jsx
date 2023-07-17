@@ -14,7 +14,7 @@ function AddNewUser() {
 
   const addUser = (data) => {
     api
-      .post(`http://localhost:8000/api/users`, data)
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/users`, data)
       .then(() => {
         navigate("/ajout/utilisateur");
       })

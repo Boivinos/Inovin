@@ -55,7 +55,7 @@ function Router() {
         element={
           <Protected>
             <WineCardList
-              request="http://localhost:8000/api/wines"
+              request={`${import.meta.env.VITE_BACKEND_URL}/api/wines`}
               title={"l'ensemble de nos vins"}
               type="all"
             />
@@ -67,7 +67,9 @@ function Router() {
         element={
           <Protected>
             <WineCardList
-              request={`http://localhost:8000/api/selection/${user && user.id}`}
+              request={`${import.meta.env.VITE_BACKEND_URL}/api/selection/${
+                user && user.id
+              }`}
               title="votre sélection personnalisée"
               type="selection"
             />
@@ -79,7 +81,9 @@ function Router() {
         element={
           <Protected>
             <WineCardList
-              request={`http://localhost:8000/api/${user && user.id}/favorites`}
+              request={`${import.meta.env.VITE_BACKEND_URL}/api/${
+                user && user.id
+              }/favorites`}
               title="vos vins favoris"
               type="favori"
             />
