@@ -68,20 +68,22 @@ function UserAdminDetails() {
     <>
       <div className={`${showConfirmation ? "userAdmin_overlay" : ""}`}>
         {/* Bouton de retour */}
-        <div
-          className="returnButton"
-          onClick={() => !showConfirmation && navigate(-1)}
-          onKeyDown={() => !showConfirmation && navigate(-1)}
-          role="button"
-          tabIndex={0}
-        >
-          <img
-            className="returnButton_image"
-            src="https://i.ibb.co/PchSHGr/60793.png"
-            alt=""
-          />
-          <p>Retour</p>
-        </div>
+        {!showConfirmation && (
+          <div
+            className="returnButton"
+            onClick={() => !showConfirmation && navigate(-1)}
+            onKeyDown={() => !showConfirmation && navigate(-1)}
+            role="button"
+            tabIndex={0}
+          >
+            <img
+              className="returnButton_image"
+              src="https://i.ibb.co/PchSHGr/60793.png"
+              alt=""
+            />
+            <p>Retour</p>
+          </div>
+        )}
 
         {/* Formulaire de gestion des données utilisateur */}
         <div className="userAdminDetail">

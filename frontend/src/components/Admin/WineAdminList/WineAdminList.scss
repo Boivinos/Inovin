@@ -31,6 +31,7 @@
       border: 1px solid;
       width: 190px;
       height: 40px;
+      font-size: clamp(0.9em, calc(0.7vw + 0.5em), 1.1em);
 
       .admin_icons {
         margin-right: 12px;
