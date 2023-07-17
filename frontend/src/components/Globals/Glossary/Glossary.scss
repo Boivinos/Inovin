@@ -1,0 +1,98 @@
+.returnButton {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  position: absolute;
+  top: 110px;
+  left: 15px;
+  font-size: calc(0.9vw + 0.8em);
+
+  cursor: pointer;
+
+  &_image {
+    height: 25px;
+    width: 25px;
+  }
+}
+.glossaryPage {
+  display: flex;
+  flex-direction: column;
+
+  #glossary_title {
+    margin-bottom: 2%;
+    font-size: calc(1.2vw + 1em);
+  }
+  .glossaryPicture {
+    position: relative;
+    max-width: 70%;
+    margin-top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+
+  .cepage_name {
+    margin-bottom: 10px;
+    font-family: $mainTypo;
+    font-weight: 600;
+    font-size: 1.2em;
+    height: 4s0px;
+  }
+
+  .glossaryContainerA {
+    padding: 3%;
+    text-align: left;
+    align-self: flex-start;
+    position: relative;
+    font-size: calc(0.8vw + 0.7em);
+  }
+
+  .glossaryContainerB {
+    padding: 3%;
+    text-align: right;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    font-size: calc(0.8vw + 0.7em);
+  }
+}
+
+.Line_styleA {
+  margin-top: 5%;
+  width: 40vw;
+  border: 1px solid #e3bc2e;
+  position: absolute;
+  left: 3%;
+  bottom: 0%;
+}
+
+.Line_styleB {
+  margin-top: 5%;
+  width: 40vw;
+  border: 1px solid #e3bc2e;
+  position: absolute;
+  right: 3%;
+  bottom: 5%;
+}
+
+h1 {
+  margin-top: 5%;
+  margin-bottom: 10%;
+  font-family: $mainTypo;
+  display: flex;
+  justify-content: center;
+  font-size: calc(1vw + 0.9em);
+}
+.cepage_description {
+  width: 100%;
+  p {
+    width: 60%;
+  }
+}
+
+.b {
+  display: flex;
+  justify-content: flex-end;
+}

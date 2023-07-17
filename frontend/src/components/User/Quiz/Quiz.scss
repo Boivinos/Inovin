@@ -1,0 +1,101 @@
+.quizPage {
+  min-height: calc(100vh - 140px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .mainQuizWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: $mainTypo;
+    min-height: calc(100vh - 140px - 70px);
+
+    .quizImg {
+      height: calc(454px * 1.2);
+      width: calc(292px * 1.2);
+      background-image: url("https://i.postimg.cc/WbQ7G6Qp/logo-Inovinsousimg.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    .quizQuestionAndAnswerWrapper {
+      font-size: calc(0.8vw + 0.9em);
+      min-height: calc((100vh - 100px - 70px) * 0.5);
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      justify-content: space-around;
+      align-items: center;
+      gap: 20px;
+
+      .inscription {
+        font-size: 2em;
+      }
+
+      .quizQuestion {
+        text-align: center;
+      }
+      .answerButtonWrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: 100%;
+        gap: 10px;
+        margin-top: 40px;
+
+        #notClicked {
+          font-size: calc(0.7vw + 0.6em);
+          border-color: $primary-color;
+        }
+        #notClicked:hover {
+          border-color: $primary-color;
+        }
+        #clicked {
+          font-size: calc(0.7vw + 0.6em);
+          background-color: $primary-color;
+          color: white;
+        }
+      }
+    }
+
+    .buttonWrapper {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      .questionSuivanteBouton {
+        font-size: calc(0.7vw + 0.6em);
+        width: 35%;
+      }
+    }
+  }
+  .quizFooter {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    height: 70px;
+    font-family: $mainTypo;
+    p {
+      font-size: calc(0.8vw + 0.7em);
+      text-decoration: underline;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .quizPage {
+    .mainQuizWrapper {
+      flex-direction: column;
+
+      .quizImg {
+        height: calc(454px * 0.5);
+        width: calc(292px * 0.5);
+      }
+    }
+  }
+
+  .quizQuestionAndAnswerWrapper {
+    min-width: 90%;
+  }
+}

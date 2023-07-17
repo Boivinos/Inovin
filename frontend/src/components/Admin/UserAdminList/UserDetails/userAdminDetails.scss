@@ -1,0 +1,142 @@
+// style du message pop-up
+
+.confirmation-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: $mainTypo;
+  border-radius: 10px;
+  background-color: #e2dbd7d3;
+  max-width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+  gap: 20px;
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $primary-color;
+    width: 50%;
+  }
+}
+
+.userAdmin_overlay {
+  filter: blur(5px);
+  transition-duration: 0.3s;
+}
+//
+
+.userAdminDetail {
+  &_dataWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    font-family: $mainTypo;
+    margin: 0px 0px 15px 25px;
+
+    ul,
+    li {
+      padding-bottom: 15px;
+    }
+  }
+
+  &_input,
+  #password-input,
+  &_error {
+    margin-left: 10px;
+    border-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    font-family: $buttonTypo;
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      background-color: lightyellow;
+    }
+  }
+  &_error {
+    display: flex;
+    margin: 15px 0 10px 0;
+    color: red;
+    font-family: $buttonTypo;
+    font-size: smaller;
+    border-bottom: none;
+  }
+
+  &_button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10%;
+
+    &_button,
+    button {
+      border: 1px solid black;
+      margin-top: 30px;
+      display: flex;
+      border: 1px solid $primary-color;
+
+      .admin_icons {
+        margin-right: 12px;
+      }
+    }
+  }
+}
+
+#userAdminDetail_title {
+  font-family: $mainTypo;
+  font-size: x-large;
+  margin: 50px 25px 35px 25px;
+}
+
+#passwordVisibility {
+  border: none;
+  padding: 0px 10px 0 10px;
+
+  &:hover {
+    color: $primary-color;
+    transition-duration: 0.3s;
+    transform: scale(1.02);
+  }
+}
+
+#password-input {
+  border: none;
+  outline: none;
+}
+#password-showed {
+  color: black;
+  padding-left: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  #userAdminDetail_title {
+    font-size: xx-large;
+  }
+  .userAdminDetail_button button {
+    font-size: medium;
+  }
+
+  .userAdminDetail {
+    &_dataWrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: white;
+      font-family: $mainTypo;
+      margin: 0px 0px 15px 25px;
+
+      ul,
+      li {
+        padding-bottom: 15px;
+        font-size: 22px;
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid $primary-color;
+  font-family: $buttonTypo;
+  padding: 10px 25px;
+  border-radius: 25px;
+  text-transform: initial;
+  font-size: calc(0.6vw + 0.5em);
+}
+
+button:hover {
+  background-color: $primary-color;
+  color: white;
+  &:hover {
+    border-color: $primary-color;
+    transition-duration: 0.3s;
+    transform: scale(1.02);
+  }
+}
+
+.separator {
+  width: 60%;
+  height: 1px;
+  background-color: $primary-color;
+}
+
+p {
+  font-size: calc(0.7vw + 0.6em);
+}

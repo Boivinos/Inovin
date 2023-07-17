@@ -29,5 +29,12 @@
     "concurrently": "^7.6.0",
     "cross-env": "^7.0.3",
     "husky": "^8.0.3"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^3.11.0",
+    "@hookform/error-message": "^2.0.1",
+    "react-hook-form": "^7.44.3",
+    "react-router-dom": "^6.12.1",
+    "sass": "^1.62.1"
   }
 }

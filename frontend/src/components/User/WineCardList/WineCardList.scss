@@ -1,0 +1,64 @@
+.wineListTitle {
+  margin-top: 24px;
+  text-align: center;
+  font-size: calc(1.2vw + 1em);
+  padding-bottom: 25px;
+}
+
+.menuAndListWrapper {
+  display: flex;
+  margin-top: 40px;
+  position: relative;
+
+  .wineCardList {
+    width: 100%;
+    margin: 0 clamp(10px, 5%, 200px);
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .emptySelection {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+
+      a {
+        width: auto;
+        margin: 0 auto;
+      }
+    }
+
+    a {
+      width: clamp(150px, 20%, 250px);
+    }
+  }
+}
+
+.openFilterMenuButton {
+  position: absolute;
+  top: -40px;
+  left: -20px;
+  height: 40px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#hiddenButton {
+  display: none;
+}
+
+#visibleButton {
+  display: flex;
+  font-size: calc(0.6vw + 0.8em);
+}
+
+@media (min-width: 900px) {
+  #visibleButton {
+    display: flex;
+    font-size: calc(0.6vw + 0.8em);
+    padding-bottom: 35px;
+  }
+}

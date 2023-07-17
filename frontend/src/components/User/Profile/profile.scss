@@ -1,0 +1,44 @@
+.user-profile-taste {
+  font-family: $mainTypo;
+  height: calc(100vh - 140px - 70px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(0.6vw + 0.5em);
+
+  .inovin_picture {
+    width: calc(513px * 0.7);
+    height: calc(582px * 0.7);
+  }
+  &_validation {
+    text-align: center;
+    font-size: calc(1em + 1.5vw);
+    margin-bottom: 10px;
+  }
+  &_solid {
+    border-top: 2px solid #202020;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+  &_text {
+    font-size: calc(1em + 1vw);
+    margin: 0 clamp(30px, 15%, 150px);
+    margin-bottom: 30px;
+  }
+  a {
+    button {
+      font-size: calc(0.8em + 0.7vw);
+    }
+  }
+}
+
+.userProfileFooter {
+  height: 70px;
+  font-family: $mainTypo;
+  padding: 20px;
+  p {
+    font-size: calc(0.8em + 0.7vw);
+    text-decoration: underline;
+  }
+}

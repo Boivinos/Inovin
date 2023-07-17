@@ -1,0 +1,32 @@
+@import "./variables.scss";
+@import "./global.scss";
+
+// --- add imports below ---
+
+@import "../components//Globals//Contact/contactForm";
+@import "../components/User/WineCardList/WineCard/WineCard.scss";
+@import "../components/User/WineCardList/WineCardList.scss";
+@import "../components/User/Profile/profile.scss";
+@import "../components/User/WineCardList/ListButtons/searchInput.scss";
+@import "../components/User/WineCardList/ListButtons/searchAndFilterMenu.scss";
+@import "../components/Globals/Home/Authentification/inscription.scss";
+@import "../components/Globals/Home/Authentification/connection.scss";
+@import "../components/Globals/Home/Home.scss";
+@import "../components/Globals/NavBar/NavBar.scss";
+@import "../components/User/WineCardList/WineCard/favoritebutton";
+@import "../components/User/WineCardList/WineCard/ModificationButton.scss";
+@import "../components/User/Quiz/Quiz.scss";
+@import "../components/User/WineDetails/WineDetails.scss";
+@import "../components/Globals//ValidationMessage//validationMessage";
+@import "../components/Globals/Glossary/Glossary.scss";
+@import "../components/Admin//UserAdminList//userCard.scss";
+@import "../components//Admin//UserAdminList//userAdminList.scss";
+@import "../components//Admin//UserAdminList//UserDetails//userAdminDetails.scss";
+@import "../components/Admin/WineAdminList/WineAdminList.scss";
+@import "../components/Admin/WineAdminList/wineAdminDetails.scss";
+@import "../components/Admin/WineAdminList/addNewWine.scss";
+@import "../components//Admin/UserAdminList//AddNewUser/addNewUser.scss";
+@import "../components//Globals/Home//Authentification/resetPassword.scss";
+@import "../components/Navigation/Error404.scss";
+
+@import "../components/Admin/AdminModificationValidation.scss";

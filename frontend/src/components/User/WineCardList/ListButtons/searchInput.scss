@@ -1,0 +1,30 @@
+.searchInputWrapper {
+  width: 80%;
+  position: relative;
+
+  .searchInput {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    width: calc(100% - 20px);
+    font-family: $buttonTypo;
+    font-size: clamp(0.4em, calc(1vw + 0.5em), 1.1em);
+    padding-bottom: 5px;
+    padding-left: 10px;
+  }
+
+  .searchInput:focus {
+    outline: none;
+  }
+  .defaultInput {
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 25px;
+    bottom: 7px;
+  }
+}

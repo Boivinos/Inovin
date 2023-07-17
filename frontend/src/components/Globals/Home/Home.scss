@@ -1,0 +1,40 @@
+.home_logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .sessionExpired {
+    color: red;
+    font-size: calc(0.7vw + 0.6em);
+  }
+}
+.img_logo {
+  margin-top: 15px;
+}
+
+.title_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xxx-large;
+  font-family: $mainTypo;
+  margin-top: 8%;
+}
+.subtitle_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $mainTypo;
+  font-size: small;
+}
+
+span {
+  color: $primary-color;
+}
+
+@media screen and (min-width: 481px) and (max-width: 600px) {
+  .title_logo {
+    margin-top: 5%;
+  }
+}

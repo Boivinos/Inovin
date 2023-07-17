@@ -1,0 +1,151 @@
+.wineAdminDetailsWrapper {
+  p {
+    font-family: $mainTypo;
+  }
+  margin: 0 clamp(25px, 10%, 300px);
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .returnButton {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    position: absolute;
+    top: 110px;
+    left: 15px;
+    cursor: pointer;
+
+    &_image {
+      height: 25px;
+      width: 25px;
+    }
+  }
+
+  .wineFormMessage {
+    padding-top: 2%;
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: larger;
+  }
+
+  .wineFormDetails {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+
+    position: relative;
+
+    .wineImage {
+      height: clamp(200px, 40vw, 300px);
+      //   overflow: hidden;
+      margin-right: 30px;
+      img {
+        height: 100%;
+      }
+    }
+  }
+  .wineModificationForm {
+    display: flex;
+
+    .wineForm {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 15px;
+
+      #buttonWrapper {
+        display: flex;
+        gap: 20px;
+
+        .admin_icons {
+          margin-right: 12px;
+        }
+      }
+
+      .wineFormEditer {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      label {
+        font-family: $mainTypo;
+      }
+
+      input {
+        border-style: none;
+        border-bottom-style: solid;
+        border-bottom-color: rgba(0, 0, 0, 0.4);
+        border-bottom-width: 1px;
+        margin-bottom: 0.5em;
+        text-align: center;
+        font-size: 0.9em;
+
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+          background-color: lightyellow;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .wineFormDetails {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+//style de popup suppression
+.confirmationDeleteMessage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: $mainTypo;
+  border-radius: 10px;
+  background-color: #e2dbd7d3;
+  max-width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+  gap: 20px;
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 50%;
+
+    &:hover {
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+      border-color: $primary-color;
+      transition-duration: 0.4s;
+      transform: scale(1.02);
+    }
+  }
+}
+
+.popupWindow {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.test {
+  filter: blur(5px);
+  transition-duration: 0.3s;
+}

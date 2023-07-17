@@ -1,0 +1,62 @@
+.wineAdminList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  #wineAdminList_title {
+    font-family: $mainTypo;
+    font-size: xx-large;
+    margin: 0px 0px 20px 30px;
+  }
+
+  #addWineButton {
+    margin-bottom: 2%;
+    border: 1px solid;
+
+    .admin_icons {
+      margin-right: 12px;
+    }
+  }
+  &_buttonWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px;
+    gap: 10px;
+
+    & button,
+    #wineAdminList_winesButton {
+      flex-grow: 1;
+      border: 1px solid;
+      width: 190px;
+      height: 40px;
+      font-size: clamp(0.9em, calc(0.7vw + 0.5em), 1.1em);
+
+      .admin_icons {
+        margin-right: 12px;
+      }
+    }
+    #wineAdminList_winesButton {
+      border-color: $primary-color;
+    }
+  }
+
+  .serchContent {
+    margin: 30px 0px 50px 0px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    width: 80%;
+  }
+}
+
+.wineAdminList_winecardlist {
+  width: 100%;
+  margin: 0 clamp(10px, 5%, 200px);
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
