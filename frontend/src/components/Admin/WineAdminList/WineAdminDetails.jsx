@@ -29,7 +29,7 @@ function WineAdminDetails() {
   const updateWine = (data) => {
     // console.log(data);
     api
-      .put(`http://localhost:8000/api/wines/${id}`, data)
+      .put(`${import.meta.env.VITE_BACKEND_URL}/api/wines/${id}`, data)
       .then(() => {
         navigate("/modification/vin");
       })
@@ -52,7 +52,7 @@ function WineAdminDetails() {
   const handleDelete = () => {
     if (showDeleteMsg) {
       api
-        .delete(`http://localhost:8000/api/wines/${id}`)
+        .delete(`${import.meta.env.VITE_BACKEND_URL}/api/wines/${id}`)
         .then(() => {
           // Redirigez l'utilisateur après la suppression
           navigate("/suppression/vin");

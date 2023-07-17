@@ -9,7 +9,7 @@ const sendResetMail = (req, res) => {
   const token = jwt.sign(payload, process.env.JWT_SECRET, {
     expiresIn: "15m",
   });
-  const resetURL = `http://localhost:3000/nouveau-mot-de-passe/?token=${token}`;
+  const resetURL = `${process.env.FRONTEND_URL}/nouveau-mot-de-passe/?token=${token}`;
 
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_SENDIN,
