@@ -27,7 +27,7 @@ function WineDetails() {
   }, []);
 
   useEffect(() => {
-    API.get(`http://localhost:8000/api/wines/${id}/comments`)
+    API.get(`${import.meta.env.VITE_BACKEND_URL}/api/wines/${id}/comments`)
       .then((response) => setCommentsData(response.data))
       .catch((error) => console.error(error.message));
   }, []);
@@ -40,9 +40,11 @@ function WineDetails() {
       user_id: user.id,
     };
 
-    API.post("http://localhost:8000/api/usernotes", body).catch((error) => {
-      console.error(error);
-    });
+    API.post(`${import.meta.env.VITE_BACKEND_URL}/api/usernotes`, body).catch(
+      (error) => {
+        console.error(error);
+      }
+    );
   };
 
   const displayVueCommentsMode = () => {
