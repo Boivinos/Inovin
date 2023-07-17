@@ -11,7 +11,7 @@ function WineCardList({ request, title, type }) {
   const [visibleMenu, setVisibleMenu] = useState(false);
   const [colorFilterArr, setColorFilterArr] = useState([]);
   const [otherFilterArr, setOtherFilterArr] = useState([]);
-  const [wineCardData, setWineCardData] = useState(undefined);
+  const [wineCardData, setWineCardData] = useState([]);
   const [wineNotes, setWineNotes] = useState([]);
   const { user } = useContext(UserContext);
 
@@ -27,7 +27,7 @@ function WineCardList({ request, title, type }) {
       .get(request)
       .then((response) => setWineCardData(response.data))
       .catch((error) => console.error(error.message));
-  }, [href]);
+  }, [href, request]);
 
   useEffect(() => {
     api

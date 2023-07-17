@@ -35,6 +35,10 @@
       font-family: $mainTypo;
       text-align: center;
       margin-bottom: 10px;
+
+      p {
+        font-size: clamp(1em, calc(0.7vw + 0.5em), 1.25em);
+      }
     }
   }
   .favoriteButton {
