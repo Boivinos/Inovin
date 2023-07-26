@@ -20,7 +20,7 @@ function ForgotPassword() {
       .post(`${import.meta.env.VITE_BACKEND_URL}/resetpassword`, data)
       .then((response) => {
         if (response.status === 204) {
-          setNoUserError(true);
+          setNoUserError(true); //erreur de user inconnu
         } else if (response.data === "Message sent") {
           setMessageSent(true);
         }

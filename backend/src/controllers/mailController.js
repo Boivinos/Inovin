@@ -4,12 +4,12 @@ const jwt = require("jsonwebtoken");
 
 const sendResetMail = (req, res) => {
   const payload = {
-    email: req.body.email,
+    email: req.body.email, //mettre l'email que le user a entré dans le token
   };
   const token = jwt.sign(payload, process.env.JWT_SECRET, {
     expiresIn: "15m",
   });
-  const resetURL = `${process.env.FRONTEND_URL}/nouveau-mot-de-passe/?token=${token}`;
+  const resetURL = `${process.env.FRONTEND_URL}/nouveau-mot-de-passe/?token=${token}`; //url du bouton sur lequel le user va cliquer depuis son mail
 
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_SENDIN,

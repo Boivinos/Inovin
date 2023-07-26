@@ -5,9 +5,9 @@ function CheckBox({ label, filterFunc, filterArr, setFilterArr }) {
   const filterHandler = (e) => {
     let temp = [];
     if (e.target.checked) {
-      setFilterArr([...filterArr, { label, filterFunc }]);
+      setFilterArr([...filterArr, { label, filterFunc }]); //lorsqu'on coche la case, on ajoute au tableau de filtre un objet contenant le label et la fonction
     } else {
-      temp = filterArr.filter((el) => el.label !== label);
+      temp = filterArr.filter((el) => el.label !== label); //quand on décoche, on l'enlève du tableau de filtrage
       setFilterArr(temp);
     }
   };

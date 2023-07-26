@@ -101,14 +101,14 @@ function WineCardList({ request, title, type }) {
               })
               .filter((wine) => {
                 if (otherFilterArr.length) {
-                  for (let i = 0; i < otherFilterArr.length; i += 1) {
-                    if (otherFilterArr[i].filterFunc(wine)) {
+                  for (let i = 0; i < otherFilterArr.length; i += 1) { //parcourir le tableau de fonctions de filtrage
+                    if (otherFilterArr[i].filterFunc(wine)) { //appliquer la fonction de filtrage de l'élément en cours du tableau à l'élément vin qu'on est en train de regarder
                       return true;
                     }
                   }
                   return false;
                 }
-                return true;
+                return true; //si aucun filtre n'est coché on ne filtre rien donc on renvoie tjr vrai
               })
               .filter((wine) =>
                 search !== "Rechercher..."

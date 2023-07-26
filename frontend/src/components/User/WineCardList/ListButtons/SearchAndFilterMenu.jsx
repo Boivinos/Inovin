@@ -19,7 +19,7 @@ function SearchAndFilterMenu({
     { label: "Blanc", filterFunc: (wine) => wine.white === 1 },
   ];
   const aromesCheckBoxes = [
-    { label: "Fruité", filterFunc: (wine) => wine.fruity === 1 },
+    { label: "Fruité", filterFunc: (wine) => wine.fruity === 1 }, //renvoie vrai ou faux en fonction de si wine.fruity vaut 1
     { label: "Floral", filterFunc: (wine) => wine.floral === 1 },
     { label: "Epicé", filterFunc: (wine) => wine.spicy === 1 },
     { label: "Végétal", filterFunc: (wine) => wine.vegetal === 1 },
