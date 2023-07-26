@@ -8,8 +8,8 @@ function ResetPassword() {
   const [differentPwdError, setDifferentPwdError] = useState(false);
   const [passwordReseted, setPasswordReseted] = useState(false);
   const urlParams = new URLSearchParams(window.location.search);
-  const token = urlParams.get("token");
-  const infos = jwtDecode(token);
+  const token = urlParams.get("token"); //récupérer le token dans l'url
+  const infos = jwtDecode(token); //récupérer les infos dans le token
   const navigate = useNavigate();
   const {
     register,
@@ -17,11 +17,11 @@ function ResetPassword() {
     formState: { errors },
   } = useForm();
 
-  const resetPassword = (data) => {
+  const resetPassword = (data) => { //on entre ici quand deux nouveaux mdp sont entrés
     setPasswordReseted(false);
     setDifferentPwdError(false);
     if (data.password !== data.password_control) {
-      setDifferentPwdError(true);
+      setDifferentPwdError(true); //au dessus : erreur d'affichage
     } else {
       data.token = token; // eslint-disable-line no-param-reassign
       api
@@ -75,7 +75,7 @@ function ResetPassword() {
           )}
           {errors?.password?.type === "minLength" && (
             <span className="error_connexion">
-              Ce champ doit comporter au moins 8 caractères
+              Ce champ doit comporter au moins 4 caractères
             </span>
           )}
 

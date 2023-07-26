@@ -95,7 +95,7 @@ const addWine = (req, res) => {
   const wine = req.body;
   // pas d'image dans wine (nettoyé par le middleware upload), donc on le rajoute avec l'url
   // qui pointe vers le dossier ou l'on a enregistrer les images
-  wine.image = `${process.env.BACKEND_URL}/uploads/${newFileName}`;
+  wine.image = `${process.env.BACKEND_URL}/uploads/${newFileName}`; //fichier public est servi à la ligne 30 de app donc on peut mettre cette URL en base de donnée
   console.warn(req.file);
 
   // TODO validations (length, format...)

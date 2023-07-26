@@ -25,17 +25,18 @@ const hashPassword = (req, res, next) => {
 
 const verifyPassword = (req, res) => {
   argon2
-    .verify(req.user.hashedPassword, req.body.password)
+    .verify(req.user.hashedPassword, req.body.password) //hashedPassword vient de la BDD password vient du front
     .then((isVerified) => {
       if (isVerified) {
+        // si mdp clair matche mdp hashé, alors on crée un token qui contient les infos du user
         const payload = {
           id: req.user.id,
           firstname: req.user.firstname,
           lastname: req.user.lastname,
-          isvigneron: req.user.isVigneron,
           isAdmin: req.user.isadmin,
         };
         const token = jwt.sign(payload, process.env.JWT_SECRET, {
+          // création du token ici
           expiresIn: "1h",
         });
         delete req.user.hashedPassword;

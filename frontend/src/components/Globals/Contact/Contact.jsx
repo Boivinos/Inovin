@@ -20,7 +20,7 @@ function Contact() {
     /* configuration du module emailJS  */
 
     const serviceID = "service_9jco7r9";
-    const templateID = "template_zbg3l7w";
+    const templateID = "template_zbg3l7w"; //email prédéfini dans email js
     const userID = "sYm8hxJPQyx7BS6oc";
 
     const templateParams = {

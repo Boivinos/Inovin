@@ -39,6 +39,7 @@ const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
     .getUserByEmail(req.body)
     .then(([users]) => {
       if (users[0] != null) {
+        //recuperer le user qui a l'email qui matche
         req.user = users[0]; // eslint-disable-line prefer-destructuring
         next();
       } else {

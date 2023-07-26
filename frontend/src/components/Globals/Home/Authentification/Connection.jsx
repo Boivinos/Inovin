@@ -21,11 +21,11 @@ function Connection() {
     api
       .post(`${import.meta.env.VITE_BACKEND_URL}/api/login`, data)
       .then((response) => {
-        localStorage.removeItem("token");
-        localStorage.setItem("token", response.data.token);
-        api.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
-        const user = jwtDecode(localStorage.getItem("token"));
-        setUser(user);
+        localStorage.removeItem("token"); //vider le local storage
+        localStorage.setItem("token", response.data.token); //créer un objet token dans le LS et y mettre le token généré par le back
+        api.defaults.headers.common.Authorization = `Bearer ${response.data.token}`; //Mettre un header dans les requêtes api
+        const user = jwtDecode(localStorage.getItem("token")); //récupérer et décoder le token
+        setUser(user); //mettre le user dans le contexte
         navigate(user.isAdmin ? "/admin/utilisateur" : "/profil");
       })
       .catch((error) => {

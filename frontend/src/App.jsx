@@ -10,7 +10,7 @@ import api from "./components/Contexts/api";
 function App() {
   const [user, setUser] = useState();
   const navigate = useNavigate();
-  const { href } = window.location;
+  const { href } = window.location; //dépendance du useEffect pour qu'il s'actualise chaque fois qu'on navigue
   // Initialize the user with the token from localStorage after refreshing the page
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -18,12 +18,12 @@ function App() {
     if (token) {
       const infos = jwtDecode(token);
       const now = Date.now();
-      if (infos.exp * 1000 < now) {
+      if (infos.exp * 1000 < now) { //condition qui vérifie si le token a expiré
         navigate("/", { state: { sessionExpired: true } });
         setUser(undefined);
         localStorage.clear();
       } else {
-        setUser(infos);
+        setUser(infos); //mettre le user dans le contexte
       }
     } else {
       setUser(undefined);
